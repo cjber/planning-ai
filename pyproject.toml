@@ -12,7 +12,10 @@ dependencies = [
     "torch>=2.4.1",
     "accelerate>=0.34.0",
     "pillow>=10.4.0",
+    "setuptools",
     "flash-attn>=2.6.3",
+    "torchvision>=0.19.1",
+    "pdf2image>=1.17.0",
 ]
 
 [tool.uv]
