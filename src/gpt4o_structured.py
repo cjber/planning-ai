@@ -1,73 +1,70 @@
+import ast
+import base64
+import os
 from io import BytesIO
 from pathlib import Path
 
+import polars as pl
+import requests
+from dotenv import load_dotenv
 from pdf2image import convert_from_path
 
+load_dotenv()
+
 prompt = """
-This image is an extract from a planning response form filled out by a member of the public. The form may contain typed or handwritten responses, including potentially incomplete or unclear sections. Your task is to extract relevant information in a strict, structured format. Do not repeat the document verbatim. Only output responses in the structured format below.
+The following images are from a planning response form completed by a member of the public. They contain free-form responses related to a planning application, which may be either handwritten or typed.
 
-Instructions:
-1. Extract responses to all structured questions on the form, in the format:
-   {"<question>": "<response>"}
-   
-2. For the handwritten notes under extract them verbatim. If any word is illegible or unclear, use the token <UNKNOWN>. Do not attempt to infer or complete missing parts.
-   
-3. **Do not** output or repeat the original document content in full. Only return structured data in the format described above.
-4. **Ignore irrelevant sections** that are not part of the structured questionnaire or 'Your comments:' section.
-5. If a response is missing or the form section is blank, output:
-   {"<question>": "No response"}
-
-Guidelines:
-- Ensure you return only structured data in JSON-like format.
-- Strictly follow the format for both structured questions and handwritten comments.
-- If any part of the form is unclear or unreadable, do not fill it in with assumptions.
-- Avoid repeating the full content of the form. Focus only on extracting the relevant sections.
-
-Example output:
-{
-  "Do you support the planning proposal?": "Yes",
-  "Your comments:": "The proposal seems reasonable, but <UNKNOWN> needs further assessment."
-}
+Please extract all the free-form information from these images and output it verbatim. Do not include any additional information or summaries. Note that the images are sequentially ordered, so a response might continue from one image to the next.
 """
 
-images = []
 placeholder = ""
 path = Path("./data/raw/pdfs")
 i = 1
 for file in path.glob("*.pdf"):
-    pdf_images = convert_from_path(file)
-    for image in pdf_images:
-        images.append(image)
-        placeholder += f"<|image_{i}|>\n"
-        i += 1
+    images = []
+    if file.stem:
+        pdf_images = convert_from_path(file)
+        for image in pdf_images:
+            images.append(image)
+            placeholder += f"<|image_{i}|>\n"
+            i += 1
 
-import base64
+    buffered = BytesIO()
+    outs = []
+    image_b64 = []
+    for image in images:
+        image.save(buffered, format="JPEG")
+        base64_image = base64.b64encode(buffered.getvalue()).decode("utf-8")
 
-buffered = BytesIO()
-images[2].save(buffered, format="JPEG")
-base64_image = base64.b64encode(buffered.getvalue())
-
-messages = [
-    {
-        "role": "user",
-        "content": [
+        image_b64.append(
             {
-                "type": "text",
-                "text": prompt,
+                "type": "image_url",
                 "image_url": {"url": f"data:image/jpeg;base64,{base64_image}"},
             }
-        ],
+        )
+
+    messages = [
+        {
+            "role": "user",
+            "content": [
+                {
+                    "type": "text",
+                    "text": prompt,
+                },
+            ]
+            + image_b64,
+        }
+    ]
+
+    api_key = os.getenv("OPENAI_API_KEY")
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {api_key}",
     }
-]
-import requests
+    payload = {"model": "gpt-4o-mini", "messages": messages}
 
-api_key = "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"
-headers = {"Content-Type": "application/json", "Authorization": f"Bearer {api_key}"}
-payload = {"model": "gpt-4o", "messages": messages}
-
-
-response = requests.post(
-    "https://api.openai.com/v1/chat/completions", headers=headers, json=payload
-)
-
-print(response.json()["choices"][0]["message"])
+    response = requests.post(
+        "https://api.openai.com/v1/chat/completions", headers=headers, json=payload
+    )
+    response.json()
+    break
