@@ -35,13 +35,32 @@ messages = [
     {
         "role": "user",
         "content": """
-<|image_1|>\nThis image shows an extract from a planning response form filled out by a member of the public. They may be pro or against the planning proposal. These planning applications typically cover the construction of new buildings, or similar infrastructure.
+<|image_1|>
 
-Extract all structured information from these documents. For example a section may include a questionnaire that may or may not have been filled in. Please indicate the response from the member of public in a structured format, following the convention:
+This image is an extract from a planning response form filled out by a member of the public. The form may contain typed or handwritten responses, including potentially incomplete or unclear sections. The purpose is to extract all relevant structured information for further analysis. 
 
-{"<question>": "<response>"}
+The form may include:
+1. A questionnaire with structured questions and responses.
+2. Handwritten notes under the section titled 'Your comments:'.
 
-The document may also include hand written notes under the title 'Your comments:', also include these notes verbatim, in a structured format. If a word is unreadable please use the special token <UNKNOWN>. Do not attempt to fill in the word if you are unsure.
+Please extract the information in the following format:
+- For structured questions, use the format:
+  {"<question>": "<response>"}
+  
+  Example:
+  {"Do you support the planning proposal?": "Yes"}
+
+- For handwritten comments under 'Your comments:', extract them verbatim. If a word is illegible or unclear, use the token <UNKNOWN>. Do not attempt to infer the meaning of unclear text or complete missing parts. 
+
+  Example:
+  {"Your comments:": "I believe this proposal is beneficial, although <UNKNOWN> might need further review."}
+
+Guidelines:
+- Maintain accuracy and structure; do not add any assumptions about the content.
+- Ensure that any section, whether filled out or left blank, is noted appropriately.
+- Prioritise accurate transcription of handwritten text, avoiding inference of ambiguous words.
+
+Please follow these instructions precisely to ensure the extracted data is structured, clear, and as accurate as possible.
 """,
     },
 ]
