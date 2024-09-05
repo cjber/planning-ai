@@ -35,33 +35,33 @@ messages = [
     {
         "role": "user",
         "content": """
-<|image_1|>
+        <|image_1|>
 
-This image is an extract from a planning response form filled out by a member of the public. The form may contain typed or handwritten responses, including potentially incomplete or unclear sections. The purpose is to extract all relevant structured information for further analysis. 
+        This image is an extract from a planning response form filled out by a member of the public. The form may contain typed or handwritten responses, including potentially incomplete or unclear sections. The purpose is to extract all relevant structured information for further analysis.
 
-The form may include:
-1. A questionnaire with structured questions and responses.
-2. Handwritten notes under the section titled 'Your comments:'.
+        The form may include:
+        1. A questionnaire with structured questions and responses.
+        2. Handwritten notes under the section titled 'Your comments:'.
 
-Please extract the information in the following format:
-- For structured questions, use the format:
-  {"<question>": "<response>"}
-  
-  Example:
-  {"Do you support the planning proposal?": "Yes"}
+        Please extract the information in the following format:
+        - For structured questions, use the format:
+          {"<question>": "<response>"}
 
-- For handwritten comments under 'Your comments:', extract them verbatim. If a word is illegible or unclear, use the token <UNKNOWN>. Do not attempt to infer the meaning of unclear text or complete missing parts. 
+          Example:
+          {"Do you support the planning proposal?": "Yes"}
 
-  Example:
-  {"Your comments:": "I believe this proposal is beneficial, although <UNKNOWN> might need further review."}
+        - For handwritten comments under 'Your comments:', extract them verbatim. If a word is illegible or unclear, use the token <UNKNOWN>. Do not attempt to infer the meaning of unclear text or complete missing parts.
 
-Guidelines:
-- Maintain accuracy and structure; do not add any assumptions about the content.
-- Ensure that any section, whether filled out or left blank, is noted appropriately.
-- Prioritise accurate transcription of handwritten text, avoiding inference of ambiguous words.
+          Example:
+          {"Your comments:": "I believe this proposal is beneficial, although <UNKNOWN> might need further review."}
 
-Please follow these instructions precisely to ensure the extracted data is structured, clear, and as accurate as possible.
-""",
+        Guidelines:
+        - Maintain accuracy and structure; do not add any assumptions about the content.
+        - Ensure that any section, whether filled out or left blank, is noted appropriately.
+        - Prioritise accurate transcription of handwritten text, avoiding inference of ambiguous words.
+
+        Please follow these instructions precisely to ensure the extracted data is structured, clear, and as accurate as possible.
+        """,
     },
 ]
 
@@ -82,5 +82,4 @@ generate_ids = generate_ids[:, inputs["input_ids"].shape[1] :]
 response = processor.batch_decode(
     generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False
 )[0]
-
 print(response)
