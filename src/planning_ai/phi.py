@@ -76,9 +76,8 @@ prompt = processor.tokenizer.apply_chat_template(
     messages, tokenize=False, add_generation_prompt=True
 )
 
-inputs = processor(prompt, images[0], return_tensors="pt").to("cuda:0")
-
-generation_args = {"max_new_tokens": 1000, "do_sample": False}
+inputs = processor(prompt, images[1], return_tensors="pt").to("cuda:0")
+generation_args = {"max_new_tokens": 10_000}
 
 generate_ids = model.generate(
     **inputs, eos_token_id=processor.tokenizer.eos_token_id, **generation_args
