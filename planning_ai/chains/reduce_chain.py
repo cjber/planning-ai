@@ -1,6 +1,7 @@
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 
+from planning_ai.chains.map_chain import BriefSummary
 from planning_ai.llms.llm import LLM
 
 with open("./planning_ai/chains/prompts/reduce.txt", "r") as f:
@@ -18,6 +19,20 @@ if __name__ == "__main__":
 
     OPPOSE
     """
+    test_summary = BriefSummary(
+        summary="""
+        The author expresses concern over the proposed mass development north-west of 
+        Cambridge, highlighting the significant growth in the area over the past twenty years,
+        particularly with the creation of Cambourne and the expansion of Papworth Everard.
+        """,
+        stance="OPPOSE",
+        themes=[
+            "Local growth",
+            "Development concerns",
+            "Impact on existing settlements",
+        ],
+        rating=5,
+    )
 
     result = reduce_chain.invoke({"context": test_document})
 
