@@ -1,19 +1,16 @@
-import ast
 import base64
 import os
 from io import BytesIO
 from pathlib import Path
 
-import polars as pl
 import requests
 from dotenv import load_dotenv
 from pdf2image import convert_from_path
 
-def load_environment():
-    load_dotenv()
+from planning_ai.common.utils import Paths
 
-def convert_pdf_to_images(file_path):
-    return convert_from_path(file_path)
+load_dotenv()
+
 
 def encode_images_to_base64(images):
     image_b64 = []
@@ -29,6 +26,7 @@ def encode_images_to_base64(images):
         )
     return image_b64
 
+
 def send_request_to_api(messages):
     api_key = os.getenv("OPENAI_API_KEY")
     headers = {
@@ -41,37 +39,29 @@ def send_request_to_api(messages):
     )
     return response.json()
 
+
 def main():
-    load_environment()
+    pdfs = (Paths.RAW / "pdfs").glob("*.pdf")
+    with open("planning_ai/preprocessing/prompts/ocr.txt", "r") as f:
+        ocr_prompt = f.read()
 
-    prompt = """
-    The following images are from a planning response form completed by a member of the public. They contain free-form responses related to a planning application, which may be either handwritten or typed.
-
-    Please extract all the free-form information from these images and output it verbatim. Do not include any additional information or summaries. Note that the images are sequentially ordered, so a response might continue from one image to the next.
-    """
-
-    path = Path("./data/raw/pdfs")
-    for file in path.glob("*.pdf"):
+    for file in pdfs:
         if file.stem:
-            images = convert_pdf_to_images(file)
+            images = convert_from_path(file)
             image_b64 = encode_images_to_base64(images)
 
             messages = [
                 {
                     "role": "user",
-                    "content": [
-                        {
-                            "type": "text",
-                            "text": prompt,
-                        },
-                    ]
-                    + image_b64,
+                    "content": [{"type": "text", "text": ocr_prompt}] + image_b64,
                 }
             ]
 
             response = send_request_to_api(messages)
-            print(response)
-            break
+            out = response["choices"][0]["message"]["content"]
+            with open(Paths.STAGING / "pdfs" / f"{file.stem}.txt", "w") as f:
+                f.write(out)
+
 
 if __name__ == "__main__":
     main()

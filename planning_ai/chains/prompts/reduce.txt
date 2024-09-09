@@ -1,0 +1,31 @@
+The following are summaries of responses to a local government planning application:
+
+{context}
+
+Create a final, consolidated summary of the main themes, and follow the specified format precisely. For each key point add inline citations which relate to the sources of the information. Use '[SOURCE_NUMBER]' for the citation (e.g. 'The Space Needle is in Seattle [1][2]').". Each summary will have OPPOSE or SUPPORT appended which indicates which grouping their main argument belongs to. Bare in mind that a summary may contain both supporting and opposing key points.
+
+Format:
+
+# Summary
+
+<Concise summary of the overall themes>
+
+# Key points raised in support
+
+Support: <Total number of responses supporting the application>
+
+* <Key point 1>
+* <Key point 2>
+* ...
+
+# Key points raised in opposition
+
+Opposed: <Total number of responses opposing the application>
+
+* <Key point 1>
+* <Key point 2>
+* ...
+
+# Thematic breakdown
+
+<Provide a breakdown of the key themes identified (e.g. environmental concerns, economic growth), along with the percentage of responses addressing each theme.>

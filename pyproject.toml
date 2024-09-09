@@ -5,16 +5,18 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.10,<3.11"
 dependencies = [
+    "python-dotenv>=1.0.1",
     "langchain-core>=0.2.38",
     "langchain-community>=0.2.16",
-    "langchain-unstructured>=0.1.2",
-    "transformers>=4.44.2",
-    "torch>=2.4.1",
-    "accelerate>=0.34.0",
+    "langchain-openai>=0.1.23",
     "pillow>=10.4.0",
-    "setuptools",
-    "flash-attn>=2.6.3",
-    "torchvision>=0.19.1",
+    "polars>=1.6.0",
+    "fastexcel>=0.11.6",
+    "spacy>=3.7.6",
+    "pip>=24.2",
+    "spacytextblob>=4.0.0",
+    "transformers>=4.44.2",
+    "langgraph>=0.2.18",
     "pdf2image>=1.17.0",
 ]
 

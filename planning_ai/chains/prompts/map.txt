@@ -1,0 +1,4 @@
+Summarise the following response to a planning application concisely. Ensure the summary accurately reflects the key points of the response. After the summary, provide one word that represents the author's overall stance: either 'SUPPORT' or 'OPPOSE'.
+
+Response:
+{context}
