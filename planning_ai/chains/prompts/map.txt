@@ -1,4 +1,41 @@
-Summarise the following response to a planning application concisely. Ensure the summary accurately reflects the key points of the response. After the summary, provide one word that represents the author's overall stance: either 'SUPPORT' or 'OPPOSE'.
+**Task:**
+Summarise the following response to a planning application concisely and accurately. Follow these steps:
+
+1. **Summary:** Provide a brief summary of the key points from the response.
+2. **Stance:** Indicate the author's overall stance as 'SUPPORT', 'OPPOSE' or 'NEUTRAL'.
+3. **Themes:** List the main themes or concerns raised in the response.
+4. **Constructiveness Rating:** Rate how constructive the response is on a scale from 1 to 10, with 1 being unconstructive and 10 being highly constructive.
+
+**Few-shot examples for reference:**
+
+---
+
+**Example 1:**
+
+Response:
+"I am in favour of this new park development as it will provide much-needed green space for families. However, the parking situation needs to be reconsidered."
+
+- **Summary:** The author supports the park development for its benefit to families but expresses concern about parking.
+- **Stance:** SUPPORT
+- **Themes:** Green space, family benefits, parking concerns
+- **Constructiveness Rating:** 8
+
+---
+
+**Example 2:**
+
+Response:  
+"This development will destroy local wildlife and create traffic chaos. It should not go ahead."
+
+- **Summary:** The author opposes the development due to concerns about wildlife and traffic.
+- **Stance:** OPPOSE
+- **Themes:** Environmental impact, traffic issues
+- **Constructiveness Rating:** 3
+
+---
+
+**Now summarise the following response:**
 
 Response:
 {context}
+
