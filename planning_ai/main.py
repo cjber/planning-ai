@@ -13,7 +13,8 @@ def main():
         loader_cls=TextLoader,
         recursive=True,
     )
-    docs = [doc for doc in loader.load() if doc.page_content]
+    docs = [doc for doc in loader.load()[10:30] if doc.page_content]
+    # TEMP: limit docs
     text_splitter = CharacterTextSplitter.from_tiktoken_encoder(
         chunk_size=1000, chunk_overlap=0
     )
@@ -36,3 +37,21 @@ def main():
 
 if __name__ == "__main__":
     out = main()
+    quarto_doc = (
+        """---
+title: "Semantic Data Catalogue"
+format: 
+  PrettyPDF-pdf:
+        papersize: A4
+execute:
+  freeze: auto
+  echo: false
+monofont: 'JetBrains Mono'
+monofontoptions: 
+  - Scale=0.55
+---\n\n"""
+        + out["generate_final_summary"]["final_summary"]
+    )
+
+    with open("./reports/DEMO_REPORT.qmd", "w") as f:
+        f.write(quarto_doc)
