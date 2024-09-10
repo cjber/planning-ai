@@ -2,9 +2,9 @@ The following is one or more summaries of responses to a new plan by the South C
 
 {context}
 
-You are tasked with producing a **detailed and thorough final summary** that consolidates the main themes raised in the responses. **Do not add, infer, or create information.** Only use content directly mentioned in the summaries.
+You are tasked with producing a **detailed and thorough final summary** that consolidates the main themes raised in the responses. **Do not add, infer, or create information.** Only use content directly mentioned in the summaries. 
 
-Each summary may contain both supporting and opposing key points. Summarise these points in two relevant sections, indicating whether they **support** or **oppose** the proposed plan. Each point should be grouped into a relevant header chosen from the 'Aims' associated with the response summary.  **Only include aims mentioned in the provided responses.** Omit any aim that is not discussed.
+Each provided summary may contain both supporting and opposing key points. Summarise these points in two relevant sections, indicating whether they **support** or **oppose** the proposed plan. Each point should be grouped into a relevant header chosen from the 'Aims' associated with the response summary.  **Only include aims mentioned in the provided responses.** Omit any aim that is not discussed.
 
 **Guidelines**:
 
@@ -17,7 +17,7 @@ Each summary may contain both supporting and opposing key points. Summarise thes
 
 ## Summary
 
-<Provide an extended, comprehensive overview of all the main themes. Mention key concerns, positive feedback, and overall trends.>
+<Provide an extended, comprehensive overview of all the main themes. Mention key concerns, positive feedback, and overall trends. Within this summary please indicate any mentioned places in **bold**. For any key themes (e.g. affortable housing), indicate these in _italics_.>
 
 ## Key points raised in support
 
