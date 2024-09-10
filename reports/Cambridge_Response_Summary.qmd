@@ -1,0 +1,1762 @@
+---
+title: 'Cambridge Response Summary'
+format:
+  PrettyPDF-pdf:
+    papersize: A4
+execute:
+  freeze: auto
+  echo: false
+monofont: 'JetBrains Mono'
+monofontoptions:
+  - Scale=0.55
+---
+
+## Summary
+
+The responses to the proposed development plan by the South Cambridgeshire Council reflect a diverse range of opinions, with a notable divide between support and opposition. Many respondents express concerns about the potential for overdevelopment, particularly in areas like North East Cambridge and Cambourne, emphasizing the need to preserve green spaces and the rural character of villages. There is a strong sentiment against relocating the wastewater treatment plant, with many arguing that it is unnecessary and would contribute to environmental degradation. 
+
+Supporters of the plan often highlight the need for affordable housing, improved infrastructure, and enhanced public transport options, particularly in relation to the Cambridge Biomedical Campus. They advocate for mixed-use developments that include community facilities, green spaces, and amenities that cater to a diverse population. However, there is a consistent call for ensuring that any new developments are sustainable and do not compromise the quality of life for existing residents.
+
+Opposition is frequently rooted in concerns about the adequacy of local infrastructure to support increased housing and population density. Many respondents argue that the current plans do not adequately address the need for schools, healthcare facilities, and recreational spaces, which are essential for maintaining community well-being. The overarching theme is a desire for a balanced approach to development that prioritizes environmental sustainability, community needs, and the preservation of local character.
+
+**OPPOSE**: 51.61% _(96)_ | **SUPPORT**: 33.87% _(63)_ | **NEUTRAL**: 14.52% _(27)_
+
+## Thematic Breakdown
+
+The thematic breakdown identifies key topics that are mentioned 
+within each response. These topics may be discussed either in support or in 
+opposition of the plan. A single response may discuss multiple topics.
+
+
+| **Theme** | **Percentage** | **Count** |
+|---|---|---|
+| Infrastructure | 24.25% | 154 |
+| Homes | 19.84% | 126 |
+| Biodiversity and green spaces | 14.80% | 94 |
+| Jobs | 13.07% | 83 |
+| Wellbeing and social inclusion | 11.65% | 74 |
+
+
+
+| **Place** | **Percentage** | **Count** |
+|---|---|---|
+| Cambourne | 17.16% | 115 |
+| Cambridge Biomedical Campus | 16.42% | 110 |
+| North East Cambridge | 14.78% | 99 |
+| southern rural cluster of villages | 7.91% | 53 |
+| Cambridge | 3.73% | 25 |
+
+## Key points raised in support
+
+Key points relate to each topic discussed by the responses. For each topic there may be key 
+        points that either **support** or **oppose** the plan. 
+        Some points may be considered **neutral**.
+
+
+
+### Homes
+- There is a strong need for affordable housing, particularly for essential workers and those employed at the Cambridge Biomedical Campus.
+- Support for a mix of housing types, including social housing, to cater to diverse community needs.
+
+### Infrastructure
+- Advocates for improved public transport links, including a tramway-style connection to the city center and better cycling infrastructure.
+- Emphasis on the need for local amenities such as shops, schools, and healthcare facilities to support new developments.
+
+### Wellbeing and social inclusion
+- Calls for community spaces, recreational facilities, and green areas to enhance the quality of life for residents.
+- Support for developments that promote social interaction and community cohesion.
+
+### Great places
+- The development should include vibrant public spaces, such as parks and leisure centers, to foster a sense of community.
+
+## Key points raised in opposition
+
+### Homes
+- Concerns that the proposed developments will lead to overcrowding and a loss of community character, particularly in villages.
+- Opposition to the idea of building more housing without adequate infrastructure to support it.
+
+### Infrastructure
+- Strong objections to the relocation of the wastewater treatment plant, with many arguing it is unnecessary and would harm green belt land.
+- Criticism of the current state of public transport, with calls for improvements before any new housing is built.
+
+### Biodiversity and green spaces
+- Many respondents emphasize the importance of preserving green spaces and biodiversity, arguing that further development will erode these vital areas.
+- Concerns that developments will lead to the merging of villages and the loss of their distinct identities.
+
+### Great places
+- Opposition to the development of large, soulless housing estates that do not reflect the character of the area.
+- Calls for more thoughtful planning that prioritizes community needs and environmental sustainability over developer profits.
+
+## Summaries
+#### 57722-24
+The author opposes the proposed developments at Bourn Airfield and West Cambourne due to concerns about disproportionate housing growth, traffic congestion, and environmental impacts. They argue that the area cannot support the additional homes and that the burden of development should be more evenly distributed across South Cambridgeshire. The author also supports the rejection of the North Cambourne development, citing its negative effects on agricultural land, landscape, drainage, and traffic.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 4
+
+
+
+#### 58206-09
+The author expresses mixed support for the SCDC Local Plan, indicating support for green spaces policies and the decision not to include certain housing site options, while also suggesting that the proposed housing site does not meet the area's development needs and that there are better alternatives. The author requests that their views be considered in writing by an Inspector.
+
+**Stance**: NEUTRAL
+
+**Constructiveness**: 6
+
+
+
+#### 58365 58377 58383 58385 Response Form 1
+The author has submitted comments regarding the planning application but has not provided specific details or a clear stance on the policy or site. They refer to enclosed representations for further information.
+
+**Stance**: NEUTRAL
+
+**Constructiveness**: 5
+
+
+
+#### 57693-94 Response Form
+The author supports the inclusion of public bridleways in the Green Infrastructure policy, arguing that they enhance community enjoyment of the environment and reduce traffic by providing alternative routes for walkers, riders, and cyclists. They also suggest that Longstanton should incorporate bridleways and maintain conservation areas for these benefits.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 9
+
+
+
+#### 57044-45 Response Form
+The author supports increased housing development in villages, particularly Fen Ditton, arguing that it would provide a suitable range of dwellings and enhance community services while maintaining green belt integrity. They suggest that the village should be designated as a Minor Rural Centre and propose a specific site for modest development, emphasizing the potential for landscape improvement and public use.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 8
+
+
+
+#### 58692
+The author supports the inclusion of Lupin and Merton fields as local green spaces, suggesting that Merton field could be developed into a play area for children while ensuring it is fenced to keep it clean. They also propose that Lupin field be managed as a wildlife and flower area, expressing concern about losing these green spaces amidst new housing developments.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 8
+
+
+
+#### 57067-69
+The author objects to the proposed housing developments on sites H/1:b and H/1:c due to concerns about inadequate infrastructure, particularly regarding traffic congestion and parking in Sawston. They argue that the developments conflict with national policy on protecting greenbelt land and ensuring the vitality of town centres. The author supports development on a brownfield site (H/1:a) but believes that the proposed developments would strain local resources and degrade existing shared spaces.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 4
+
+
+
+#### 58433
+The author supports the policy on affordable housing, emphasizing the need for 40% of homes to be affordable in developments of three or more homes. However, they express concern that this policy may not be practical in a group village setting.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 7
+
+
+
+#### 58855
+The author opposes the development due to concerns about insufficient infrastructure to support the increased population, including traffic, schools, and healthcare services. They also question the necessity of the development in their area.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 4
+
+
+
+#### 60081
+The author supports the designation of site 078 as Local Green Space, highlighting its importance to the Bassingbourn community for recreation and its integral role in the village's character. The site is confirmed to meet the criteria for Local Green Space, as assessed by the SCDC and supported by the Parish Council. The author argues that development would harm the area's character and remove a valuable amenity for villagers.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 9
+
+
+
+#### 58365 58377 58383 58385 Response Form 2
+The author has submitted comments regarding the planning application but has not provided specific details in the response itself, referring instead to attached representations for further information.
+
+**Stance**: NEUTRAL
+
+**Constructiveness**: 5
+
+
+
+#### 57693-94
+The author, representing the Swavesey & District Bridleways Association, expresses concern that the Local Plan draft overlooks the needs of horseriders and non-motorised users (NMUs). They advocate for the inclusion of equestrian access in the Local Plan, highlighting the benefits of improved facilities for NMUs, such as reduced road traffic, better economic development, and enhanced community wellbeing. The author supports comments made by another group regarding the need for inclusive routes and compliance with national planning policy. They urge for revisions to the Local Plan to better accommodate NMUs and ensure access to green spaces.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 9
+
+
+
+#### 57693-94
+The response is a formal communication regarding the planning application, indicating that it has been shared with relevant local stakeholders. However, it does not provide specific opinions or concerns about the application itself.
+
+**Stance**: NEUTRAL
+
+**Constructiveness**: 5
+
+
+
+#### 58365 58377 58383 58385 Report
+The response from RES UK and Ireland Limited expresses support for the overall aims of the South Cambridgeshire Local Plan, particularly regarding climate change mitigation. However, it opposes the current wording of Policy S/2, arguing that it does not adequately promote renewable and low carbon energy development, which is essential for achieving the Council's climate change objectives. RES suggests amendments to enhance the policy's alignment with national planning guidelines and emphasizes the importance of renewable energy in sustainable development.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 7
+
+
+
+#### 58365 58377 58383 58385 Report
+The author strongly opposes Policy CC/2 of the Local Plan, which proposes a minimum separation distance of 2km between wind turbines and dwellings, arguing that it is overly restrictive and not compliant with national policy. They emphasize the importance of promoting renewable and low carbon energy development and support Policy CC/3, which encourages the use of on-site renewable energy technologies in new developments. The author also suggests that the objectives of the Local Plan should be reworded to better reflect the need for renewable energy solutions in addressing climate change.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 5
+
+
+
+#### 58365 58377 58383 58385 Report
+The author argues that the local planning authority's policy on separation distances is unsound, stating it is not positively planned, justified, or consistent with national planning policy, as outlined in the Planning Practice Guidance for Renewable and Low Carbon Energy.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### 4
+The author expresses apprehension about the development of a dense city district east of Milton Road, suggesting caution regarding over-expansion. They support the development of the Cambridge Biomedical Campus but advocate for careful planning and limits on development. The author believes Cambourne residents should have a significant say in development decisions, questioning the necessity of more jobs linked to the East-West rail. They express concerns about saturation in the southern rural cluster of villages and advocate for limited development in villages, emphasizing the need for jobs and open spaces but not housing. The author opposes any new housing or business development in Trumpington and stresses the importance of reducing motor traffic and prioritizing climate change in future planning.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 4
+
+
+
+#### 5
+The author expresses strong opposition to various proposed developments in Greater Cambridge, emphasizing the need to prioritize existing infrastructure and preserve green spaces. They reject the idea of developing the area east of Milton Road, oppose the East-West Rail link, and advocate for limited development in villages unless existing infrastructure is adequate. Overall, the response highlights a desire to maintain the current landscape and prevent overdevelopment.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### None
+The author does not provide any suggestions or opinions regarding the development of various areas in Greater Cambridge, including the east of Milton Road, the Cambridge Biomedical Campus, Cambourne, the southern rural cluster of villages, and other potential sites. They express no views on housing, jobs, facilities, or open spaces that should be developed.
+
+**Stance**: NEUTRAL
+
+**Constructiveness**: 1
+
+
+
+#### 2
+The author opposes the redevelopment of the waste water treatment plant, arguing it should be relocated to a greenfield site. They also oppose any development that would encroach on the green belt, including around the Cambridge Biomedical Campus and in the southern rural cluster of villages. The author believes that development in villages should be limited and contingent on improved public transport. They envision a densified, vehicle-free city that does not sprawl onto the green belt.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### 9
+The author envisions the development of a lively city district east of Milton Road in North East Cambridge, contingent on the relocation of the waste water treatment plant. They advocate for a central location for the East-West Rail in Cambourne, surrounded by family homes to enhance accessibility and boost the local economy. The author emphasizes the need for improved services in Cambourne, including healthcare, education, and recreational facilities. They express a desire for ample open spaces and natural habitats in the southern rural cluster and caution against excessive development in villages, particularly highlighting Caldecote's lack of public transport despite recent housing growth. The author hopes for Greater Cambridge to maintain its green spaces and low-rise developments by 2041.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 9
+
+
+
+#### 6
+The author advocates for the development of a lively and dense city district east of Milton Road in North East Cambridge, emphasizing the need for facilities that support a circular economy, such as allotments and community centers, and suggests a car-free development. They support the expansion of the Cambridge Biomedical Campus with more healthcare and research facilities but no additional housing. The author calls for safe cycling routes to Cambridge from Cambourne and insists on car-free developments in villages with good public transport, proposing more open green spaces and improved walking and cycling routes. They also suggest a development site north of Barton Road, south of the M11, and emphasize a car-free vision for Greater Cambridge by 2041.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 9
+
+
+
+#### 11
+The author expresses strong opposition to various proposed developments in Greater Cambridge, emphasizing the need to prioritize environmental concerns, particularly regarding water resources and biodiversity. They advocate for limiting development to brownfield sites and ensuring that any new housing is affordable and equitably distributed across communities. The response highlights the importance of preserving farmland and natural habitats, and calls for a shift in focus towards climate change research and sustainable practices rather than continued expansion.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### 12
+The author proposes the development of various community facilities and green spaces in areas such as North East Cambridge, around the Cambridge Biomedical Campus, Cambourne, and the southern rural cluster of villages. They emphasize the need for recreational spaces, biodiversity initiatives, healthcare facilities, and support for local businesses, while also suggesting limited development in villages with good transport links. The response highlights the importance of inclusivity and environmental sustainability in planning.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 9
+
+
+
+#### 12
+The author proposes a variety of community facilities and green spaces aimed at enhancing recreation, biodiversity, and social inclusion. They emphasize the need for shared spaces for all ages, including playgrounds, community gardens, and facilities for recycling and repair. The response also highlights the importance of retaining and strengthening existing local policies related to development.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 9
+
+
+
+#### 13
+The author suggests developing the area east of Milton Road into a vibrant city district with essential facilities like schools, healthcare, and community spaces. They support the expansion of the Cambridge Biomedical Campus with additional healthcare and green spaces. The author expresses a desire for Cambourne to develop into a proper town with similar facilities, but shows disinterest in further questions about development in villages, indicating a preference for limited development in those areas.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 6
+
+
+
+#### 14
+The author advocates for limited development in villages, suggesting that new projects should only be allowed in areas with existing local services, particularly healthcare access.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 7
+
+
+
+#### 8
+The author advocates for the development of community spaces, green spaces, and affordable housing across various locations including North East Cambridge, the Cambridge Biomedical Campus, Cambourne, and the southern rural cluster of villages. They also emphasize the importance of active transport and low emission zones for Greater Cambridge's future.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 9
+
+
+
+#### 10
+The author expresses strong opposition to various proposed developments in Greater Cambridge, emphasizing concerns about the loss of green spaces and the impact of increased housing on rural areas. They specifically criticize the development around the Cambridge Biomedical Campus for encroaching on open spaces and express skepticism about the East-West Rail project, viewing it as a means to enable more housing rather than improve transport. The author advocates for limited development in villages, stressing the need for sustainability and caution against overdevelopment that could compromise the rural character of the area.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### 17
+The author supports the development of the Cambridge Biomedical Campus, emphasizing the need for more healthcare facilities, research, and housing, while suggesting the creation of semi-natural areas linked to Hobson's Park. However, they oppose the current East-West Rail route and advocate for better, larger, and more connected wild areas in Greater Cambridge by 2041.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 7
+
+
+
+#### 7
+The author expresses strong opposition to various proposed developments in Greater Cambridge, particularly in areas like Cambourne and Highfields Caldecote, citing concerns over the destruction of local character, increased crime, and inadequate facilities. They advocate for prioritizing open spaces and nature over housing developments, and criticize the current housing situation as unattractive and unaffordable. The author believes that the proposed developments will negatively impact the rural landscape and community well-being.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### 18
+The author opposes any further development in Greater Cambridge, expressing concerns about the strain on the city's infrastructure and the impact on its character. They reject proposals for development in various areas, including North East Cambridge, the Cambridge Biomedical Campus, Cambourne, and surrounding villages, insisting that no additional housing, jobs, or facilities should be created.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### 15
+The author supports the development of the area east of Milton Road in North East Cambridge, advocating for high-density housing with good transport links and local amenities. They emphasize the need for improved transport infrastructure around the Cambridge Biomedical Campus and Cambourne, suggesting that easy access to public transport is crucial to prevent car dependency. The author also calls for good transport links in the southern rural cluster of villages and suggests looking to the Netherlands for inspiration in planning for Greater Cambridge in 2041.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 9
+
+
+
+#### 20
+The author expresses strong opposition to the proposed developments in various areas, advocating for the protection of natural spaces and emphasizing the need for rewilding and environmental conservation. They argue against further development in North East Cambridge, the Cambridge Biomedical Campus, and the southern rural cluster, highlighting the importance of preserving existing green spaces and addressing pollution issues. The author also raises concerns about the impact of development on rural villages and suggests revitalizing urban areas instead. Overall, the response calls for a focus on nature and sustainability rather than additional housing or commercial projects.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### 22
+The author opposes the development of the area east of Milton Road in North East Cambridge, arguing that it will exacerbate traffic congestion and contribute to overdevelopment in the city. They also express a desire for new developments to be located away from Cambridge to alleviate the current overcrowding.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### 24
+The author advocates for the development of various areas in Greater Cambridge, emphasizing the need for socially inclusive housing that accommodates tradespeople and local employment opportunities. They express concern about the potential for villages to become exclusive and suggest that all villages should develop local destinations and employment to maintain vibrant communities. Additionally, they highlight the importance of considering electrical power generation and resilience in future planning.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 8
+
+
+
+#### 16
+The author supports the development of various areas in Greater Cambridge, emphasizing the need for more housing, improved cycling infrastructure, and better public transport connections. They advocate for prioritizing homes over jobs in the Cambridge Biomedical Campus and suggest that villages with good transport links should see new development. The author also criticizes the current use of land in the Newmarket Road area, calling for its repurposing for housing and community facilities. Overall, they align with the vision of high environmental standards and reduced car dependency in the region by 2041.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 9
+
+
+
+#### 19
+The author expresses strong opposition to various proposed developments in Greater Cambridge, advocating for the preservation of open spaces and the green belt. They emphasize the need for adequate parking in new developments and suggest that existing areas, such as the Cambridge Biomedical Campus, are already overdeveloped. The author also opposes the East-West Rail project unless it is electric, and they reject any further housing development in villages, preferring to maintain the current state of the area.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### 23
+The author advocates for the development of green, natural parks with trees and lakes in various areas including North East Cambridge, around the Cambridge Biomedical Campus, Cambourne, and the southern rural cluster of villages. They express a preference for limited development in villages and emphasize the importance of green spaces in the future vision for Greater Cambridge.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 9
+
+
+
+#### 25
+The author expresses skepticism about developing a dense city district east of Milton Road, citing a preference for outdoor garden spaces post-pandemic. They support the expansion of the Cambridge Biomedical Campus for local jobs and healthcare facilities but emphasize the need for jobs accessible to local residents. The author is unsure about the current state of Cambourne and the southern rural cluster for development, suggesting limited development in villages with good transport links, specifically mentioning Waterbeach for better shopping facilities.
+
+**Stance**: NEUTRAL
+
+**Constructiveness**: 6
+
+
+
+#### 28
+The author expresses concerns about proposed developments in various areas, emphasizing the need for adequate water management, public transport, and preservation of existing green spaces. They oppose dense housing developments and suggest limiting new construction in villages, advocating for the enhancement of open spaces instead.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 4
+
+
+
+#### 27
+The author strongly opposes the proposed developments in various areas, expressing concerns that they will lead to overdevelopment and negatively impact the character of Cambridge and its surrounding villages. They argue that the city is already overdeveloped and warn against further construction that would compromise its beauty and livability.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### 29
+The author supports the development of various areas in Greater Cambridge, emphasizing the need for affordable housing, improved public transport, and enhanced facilities such as local shops, schools, and recreational spaces. They advocate for sustainable features in new homes, including solar panels and EV charging points, and highlight the importance of good digital connectivity. The response also calls for better transport links to connect rural areas with the city and healthcare facilities.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 9
+
+
+
+#### 30
+The author expresses a preference for limited development in certain areas, supporting the development of the Cambridge Biomedical Campus but opposing growth in Cambourne and advocating for the preservation of rural villages. They suggest that existing conditions should remain unchanged in many locations.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### 31
+The author advocates for the development of various areas in Greater Cambridge, emphasizing the need for social housing accessible to all, including those without local connections. They suggest that the Cambridge Biomedical Campus should expand to include more healthcare facilities and one-bedroom housing for singles. In Cambourne, they believe more housing and small shops are necessary, while opposing housing near rail lines in the southern rural cluster, favoring spaces for small businesses instead. The author supports increased housing in Cottenham and Willingham, arguing against restrictions on who can move into villages. They also call for more shops and better parking in these areas, and express a desire for Greater Cambridge to be more welcoming to newcomers, particularly those with family ties in the region.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 8
+
+
+
+#### 32
+The author suggests that the area east of Milton Road in North East Cambridge, currently housing a waste water treatment plant, has potential for development into a vibrant city district, emphasizing the need for parks and open spaces in the planning.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 7
+
+
+
+#### 33
+The author expresses skepticism about various proposed developments in Greater Cambridge, particularly criticizing the East-West Rail link and the development plans for the Cambridge Biomedical Campus. They emphasize the need for affordable housing and better public transport, while also questioning the motivations behind the developments and their impact on local communities. The author suggests that the current plans do not adequately address the needs of residents and may lead to negative consequences such as increased housing prices and environmental degradation.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 4
+
+
+
+#### 34
+The author expresses concerns about various proposed developments in Greater Cambridge, advocating for limited housing in green belt areas and emphasizing the need for more healthcare facilities and amenities around existing sites like the Cambridge Biomedical Campus. They support the idea of developing a lively city district east of Milton Road but oppose further housing at Addenbrookes due to overcrowding. The author also suggests that Cambourne should grow with adequate facilities while maintaining the countryside around villages, and they prefer concentrating developments in Cambridge to promote sustainable transport options.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 4
+
+
+
+#### 26
+The author strongly opposes the proposed development in North East Cambridge, arguing that the relocation of the sewage works is profit-driven and unnecessary, as the current facility has sufficient capacity until 2050. They criticize the lack of transparency regarding the sewage works' status as a nationally significant infrastructure project and express concern over the potential loss of Green Belt land. The author also critiques the approach to housing development in Cambourne and surrounding villages, advocating for smaller, gradual developments rather than large-scale projects that disrupt communities and the countryside.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### 40
+The author expresses strong opposition to the expansion of the Cambridge Biomedical Campus, advocating for a more equitable distribution of development and infrastructure across the region. They criticize the East-West Rail project as inadequate for local needs and emphasize the necessity of improving transport infrastructure before any further development in southern villages. The author calls for enhanced outdoor recreational facilities and a diversified economic base to reduce reliance on the biotech sector. They envision Greater Cambridge as a leader in environmental action and social well-being by 2041.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 4
+
+
+
+#### 38
+The author suggests that the area east of Milton Road in North East Cambridge should be developed into a vibrant city district with more open space than currently proposed. They emphasize the need for improved transport infrastructure, including bike parking, safe pedestrian routes, and reliable public transport services.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 7
+
+
+
+#### 36
+The author expresses a need for affordable and social housing in the proposed development areas, particularly in North East Cambridge and around the Cambridge Biomedical Campus. They are uncertain about the development potential in Cambourne and the southern rural cluster of villages, emphasizing the importance of public transport and local services. The author raises concerns about the impact of development on the quality of life for existing residents, particularly regarding congestion, clean drinking water supply, and necessary infrastructure.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 5
+
+
+
+#### 41
+The author strongly opposes the proposed development in North East Cambridge, arguing that relocating the waste water treatment plant is unnecessary and financially unfeasible. They express concerns about the impact on green belt and agricultural land, labeling the development as destructive to the local community and conservation areas. The author also dismisses the need for additional healthcare facilities around the Cambridge Biomedical Campus, criticizes the affordability of rail travel for Cambourne, and advocates for limited development in villages, emphasizing the importance of listening to local populations. Overall, they express skepticism about the future development plans for Greater Cambridge, fearing it will lead to a loss of community and democratic engagement.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### 39
+The author expresses strong opposition to the proposed developments in various areas, arguing that the density of development in North East Cambridge could lead to future slum conditions, that the Cambridge Biomedical Campus should focus solely on biomedical uses without housing, and that Cambourne has already taken on enough housing without additional development. They emphasize the need for sustainable housing, necessary facilities before any new housing, and the preservation of existing leisure areas.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### 43
+The author opposes further development in Melbourn, citing recent housing growth that has outpaced local infrastructure, particularly in healthcare and education. They advocate for maintaining the current state of the village.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 4
+
+
+
+#### 46
+The author supports the development of the Cambridge Biomedical Campus, emphasizing the need for more healthcare facilities, research, and housing. They suggest that Cambourne should develop into a proper town with healthcare jobs and facilities. The author advocates for limited development in villages, particularly Shelford and Stapleford, focusing on mixed/lower-cost housing and recreational facilities. They also stress the importance of maintaining the distinction between city and villages, improving planning for electric vehicles, and addressing public transport challenges in smaller villages.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 8
+
+
+
+#### 45
+The author expresses opposition to relocating the wastewater treatment plant, arguing it would waste money and green belt land. They support the development of the Cambridge Biomedical Campus but emphasize the need for improved safety for pedestrians and cyclists. The author advocates for replacing oil with greener technologies in rural villages and opposes the development of green belt land. They call for more green spaces, trees, and better public transport, as well as solar panels on buildings and reduced reliance on oil.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 4
+
+
+
+#### 48
+The author expresses concerns about the lack of infrastructure and amenities in Cambourne, highlighting the absence of a high street, swimming pool, and sufficient healthcare and sports facilities. They also note the lack of local jobs, which forces residents to travel to Cambridge, and criticize the slow public transport. The author advocates for improved infrastructure and the development of entertainment venues and retail parks to reduce reliance on travel to Cambridge.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 4
+
+
+
+#### 42
+The author expresses support for the development of specific areas in Greater Cambridge, including the east of Milton Road and the Cambridge Biomedical Campus, emphasizing the need for housing, jobs, and facilities. They raise concerns about the development in Cambourne, questioning the necessity of East-West Rail for its growth and advocating for more retail options. The author agrees with limited development in villages, suggesting that it should reflect village character and prioritize brownfield sites over greenfield for housing.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 7
+
+
+
+#### 49
+The author expresses strong opposition to various proposed developments in Greater Cambridge, arguing that they would lead to a loss of character and open spaces, resulting in an unliveable environment. They specifically criticize the idea of dense city districts, the expansion of the Cambridge Biomedical Campus, and any development near diesel rail lines, advocating for the preservation of the area's historical architecture and green spaces.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### 47
+The author suggests that Cambourne should develop into a proper town with amenities such as a swimming pool, adventure playground, and more retail options. They advocate for limited development in villages, recommending places like Gamlingay and Bourn for new development due to their local services. The author also identifies Barton as a potential site for housing or business use and expresses a desire for more affordable parking and out-of-town shopping areas, along with country parks to enhance the countryside experience in Greater Cambridge by 2041.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 7
+
+
+
+#### 52
+The author supports the development of the Cambridge Biomedical Campus for healthcare, research, and housing, emphasizing the need for high-quality jobs and affordable housing. They advocate for Cambourne to develop into a proper town with affordable housing for graduates. The response highlights the need for improved links and facilities in the southern rural cluster of villages, including better access and circular walks. The author suggests limited development in villages with good transport connections, proposing new amenities in areas lacking them. They also recommend developing a plot in Meldreth for housing and a pedestrian route over the railway, and express a desire for Greater Cambridge to be more affordable for young people with more family-friendly activities.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 8
+
+
+
+#### 54
+The author advocates for the development of a lively city district east of Milton Road in North East Cambridge, emphasizing the need for outdoor entertainment for families and young people. They also support the expansion of the Cambridge Biomedical Campus with additional healthcare facilities, research, and housing, highlighting the importance of sports facilities for promoting health. Additionally, the author expresses a desire for Greater Cambridge to become a leader in environmentally sustainable transport and housing, criticizing the current situation.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 8
+
+
+
+#### 51
+The author discusses potential developments in various areas, advocating for the creation of essential facilities such as schools, healthcare services, and leisure spaces in urban districts like North East Cambridge and around the Cambridge Biomedical Campus. They express a desire for Cambourne to develop into a proper town with necessary amenities but oppose development in the southern rural cluster of villages, emphasizing the importance of preserving rural identity and using brownfield sites for any new development. The author also highlights the need for improved transport links and infrastructure.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 5
+
+
+
+#### 53
+The author suggests that the area east of Milton Road in North East Cambridge could be developed into a vibrant city district after relocating the waste water treatment plant. They support the development of the Cambridge Biomedical Campus with additional healthcare facilities, research, and housing. They believe Cambourne should grow into a proper town with a mix of housing, jobs, and facilities. However, they advocate for limited development in the southern rural cluster of villages and other villages, emphasizing the need for good public transport connections. The author also highlights the necessity of addressing traffic issues in Greater Cambridge by 2041.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 7
+
+
+
+#### 55
+The author suggests that the southern rural cluster of villages near the rail line and business parks south of Cambridge could accommodate limited development, specifically highlighting the need for more schools and GPs in the area.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 7
+
+
+
+#### 50
+The author expresses strong opposition to various proposed developments in Greater Cambridge, emphasizing the need to protect green spaces and rural villages. They advocate for limited development only on brownfield sites and highlight the importance of maintaining natural environments for health and wellbeing. The response also suggests the need for improved transport links and local services but firmly rejects large-scale developments that could harm the countryside.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### 56
+The author supports the development of various areas in Greater Cambridge, emphasizing the need for diverse shops, housing for healthcare staff, and affordable accommodations near the Cambridge Biomedical Campus. They advocate for maintaining rural walks in Cambourne and suggest limited development in villages with good transport links. Additionally, they see potential for development along the A1307 due to the A14 improvements.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 8
+
+
+
+#### 57
+The author expresses a strong opposition to any new development in Greater Cambridge, advocating against housing expansion and the encroachment on land, particularly in villages. They do not support the development of specific areas such as North East Cambridge, the Cambridge Biomedical Campus, Cambourne, or the southern rural cluster of villages, and they believe no additional housing should be built anywhere.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### 60
+The author criticizes the North East Cambridge development plan, arguing that it is flawed due to the unnecessary relocation of the Waste Water Treatment Works to green field Green Belt Land. They assert that the development should not depend on this relocation.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 4
+
+
+
+#### 58
+The author expresses concerns about the appropriateness of further development in the congested area east of Milton Road in North East Cambridge, while supporting the expansion of the Cambridge Biomedical Campus with improved public transport, local shops, and diverse housing options. They suggest Cambourne should grow with more shops and a cottage hospital, and advocate for limited development in villages with good transport links, recommending improved shopping and transport services. They also propose additional housing in the south-west with good transport connections and envision Greater Cambridge as a leading center of technical excellence by 2041.
+
+**Stance**: NEUTRAL
+
+**Constructiveness**: 7
+
+
+
+#### 59
+The author expresses skepticism about the development plans for the area east of Milton Road, suggesting that it may lead to overpopulation and benefit current residents financially. They also support the development of the Cambridge Biomedical Campus, emphasizing the need for housing specifically for workers.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 4
+
+
+
+#### 61
+The author suggests that the development should include many parks and safe play areas for children.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 7
+
+
+
+#### 63
+The author expresses strong opposition to the proposed development in North East Cambridge, criticizing the lack of environmental consideration, inadequate public transport, and the potential destruction of green spaces. They advocate for lower density housing, more green spaces, and better public transport options. The response also highlights concerns about the overdevelopment of Cambridge and the need to protect the green belt, while suggesting that development should focus on areas that require support rather than those already overwhelmed by construction.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### 65
+The author strongly opposes any further housing development in Cambourne, citing a lack of resources and increasing traffic issues, and believes that the original vision of Cambourne as a connected village has been lost as it has already developed into a town.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### 66
+The author advocates for high-density housing development in various areas of Greater Cambridge, including the east of Milton Road, around the Cambridge Biomedical Campus, Cambourne, and selected villages with good transport links. They emphasize the need for housing to alleviate the current housing shortage, reduce commuting, and support local economies. The response also suggests utilizing existing retail parks for housing and promoting active travel in the future.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 9
+
+
+
+#### 67
+The author supports the development of a lively and dense city district east of Milton Road in North East Cambridge, emphasizing the need for a mix of housing types, jobs, schools, and recreational open spaces. They also advocate for the expansion of the Cambridge Biomedical Campus with additional healthcare facilities and housing. In Cambourne, they suggest improvements to the environment to make it more hospitable. However, they express skepticism about new developments in villages, indicating that residents may not welcome them.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 7
+
+
+
+#### 69
+The author expresses agreement with the potential for Cambourne to develop into a proper town, emphasizing the need for the East-West Rail route to service proposed developments, and advocating for solar panels and centralized water storage in new homes. However, they oppose additional development in the southern rural cluster of villages, arguing for very limited growth and maintaining the character of village life. The author believes that existing facilities and open spaces in villages are sufficient and warns against spoiling the area for future generations due to overdevelopment and traffic issues.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 4
+
+
+
+#### 68
+The author expresses no opinion on the development east of Milton Road and supports the expansion of the Cambridge Biomedical Campus, emphasizing the need to protect the Magog hills. As a resident of Cambourne, the author advocates for improved transport links and the development of local facilities, criticizing the lack of amenities in the area. They suggest that housing developments should not be overly dense and should include more green space. The author also calls for better public transport services and employment opportunities outside of Cambridge, while expressing concerns about the sustainability of current development plans.
+
+**Stance**: NEUTRAL
+
+**Constructiveness**: 7
+
+
+
+#### 64
+The author opposes the proposed developments in various areas, expressing a desire to halt all new housing and commercial projects. They criticize the council for prioritizing development over the preservation of local character and community needs, particularly in areas like Milton Road, the Cambridge Biomedical Campus, Cambourne, and surrounding villages.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### 71
+The author opposes the development of the area east of Milton Road due to the recent upgrade of the wastewater treatment plant and the high costs of relocation. They advocate for housing to be built at the site of the relocated plant instead. They support the development of the Cambridge Biomedical Campus with a focus on vast open spaces and community centers, while opposing development in Cambourne and the southern rural cluster of villages, suggesting they remain as they are. They propose road bypasses for villages and mention potential development sites in Barton and Newnham, ultimately envisioning Greater Cambridge as underdeveloped and preserved by 2041.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 4
+
+
+
+#### 73
+The author supports the development of various areas in Greater Cambridge, emphasizing the need for affordable housing, healthcare facilities, schools, and retail spaces. They express concerns about the current insufficiency of medical services and educational capacity in Cambourne due to ongoing developments. The author advocates for limited development in villages, focusing on those with existing amenities, and suggests increasing capacity in local services. They also express a desire for fewer large luxury homes in the future.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 8
+
+
+
+#### 72
+The author supports the development of the Cambridge Biomedical Campus with a focus on affordable housing for essential workers. They express concern about overdevelopment in the northern and western areas of Cambridge, advocating for significant development in the southern region to improve transport links and reduce reliance on cars. The author suggests that villages in the south should also accommodate development similar to that in the north, particularly near railway lines and the East-West rail link. They emphasize the need for infrastructure to support car use until public transport becomes more reliable and affordable.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 8
+
+
+
+#### 75
+The author expresses strong opposition to the proposed developments in Greater Cambridge, arguing that they threaten green spaces and do not adequately address climate change challenges. They advocate for preserving open spaces and planting more trees instead of replacing them with housing and industrial units.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### 70
+The author expresses strong opposition to various proposed developments in Greater Cambridge, citing concerns about urbanization, pollution, and the impact on local communities. They specifically reject the expansion of Cambourne and the development of the southern rural cluster, while suggesting limited development in certain villages. The author believes that the current housing plans exceed the area's needs and expresses a desire to move away from the urban sprawl.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### 74
+The author expresses a vision for the development of the area east of Milton Road in North East Cambridge, advocating for a lively city district post-relocation of the waste water treatment plant, and supports the expansion of the Cambridge Biomedical Campus with more healthcare facilities and parkland. However, they oppose further housing development in Cambourne, emphasizing the need to preserve ancient woodlands and farmland, and suggest that villages should see no new development, advocating instead for open spaces. The author also expresses skepticism about the planning process, suggesting a lack of transparency.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 4
+
+
+
+#### 78
+The author advocates for the development of a vibrant city district east of Milton Road in North East Cambridge, emphasizing the need for cultural infrastructure such as a major theatre and artists' studios, as well as outdoor spaces for sports and health. They also support the growth of Cambourne into a proper town with leisure facilities and green spaces, while cautioning against turning border villages into suburbs, suggesting instead to expand standalone villages with good transport links. The author encourages local businesses to recruit from the local population to promote walking and cycling to work.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 9
+
+
+
+#### 76
+The author supports the development of a lively and dense city district east of Milton Road in North East Cambridge, emphasizing the need for a strong cycle network and small homes. They also advocate for the expansion of the Cambridge Biomedical Campus with more healthcare facilities and housing, and express full support for the East-West Rail project past Cambourne. Additionally, they highlight the need for more wild areas and forests in the region, suggesting local investment in forest creation and advocating for pesticide-free areas. Overall, the response promotes sustainable development and improved infrastructure for cycling and housing.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 9
+
+
+
+#### 62
+The author expresses strong opposition to various development proposals in Greater Cambridge, advocating for the protection of existing green spaces and villages. They argue against relocating the waste water treatment plant, support the expansion of healthcare facilities at the Cambridge Biomedical Campus, and emphasize the need for improved access to the city center. The author is against the development of Cambourne and the surrounding villages, insisting that these areas should remain protected from further development. They highlight the importance of open spaces and green corridors for health and biodiversity, particularly in light of the Covid-19 pandemic.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### 77
+The author expresses no opinion on various proposed developments in Greater Cambridge, including the area east of Milton Road, the Cambridge Biomedical Campus, Cambourne, the southern rural cluster of villages, and potential sites for housing or business use. They also do not provide any thoughts on the future vision for Greater Cambridge in 2041.
+
+**Stance**: NEUTRAL
+
+**Constructiveness**: 1
+
+
+
+#### 79
+The author expresses skepticism about relocating the wastewater treatment facility in North East Cambridge but supports the development of the Cambridge Biomedical Campus with more housing and green spaces. They suggest re-establishing rail stations in Cherry Hinton and extending connections to nearby villages, advocating for improved public transport links rather than limited development in rural areas.
+
+**Stance**: NEUTRAL
+
+**Constructiveness**: 6
+
+
+
+#### 80
+The author expresses concern that the proposed housing density in North East Cambridge is excessive and would detract from the quality of life, transforming the city into an overly metropolitan area. They advocate for the development of cultural and social spaces around the Cambridge Biomedical Campus to enhance its appeal. The author suggests that Cambourne should have a mix of employment opportunities and that development in villages should be limited, with a preference for small-scale development across more areas rather than concentrating it in Cambridge. Overall, they feel that the current development plans are too ambitious for Cambridge.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 4
+
+
+
+#### 82
+The author supports the development of the Cambridge Biomedical Campus, emphasizing the need for more affordable housing, jobs, and healthcare facilities in the area.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 8
+
+
+
+#### 83
+The author opposes development in the southern rural cluster of villages near Cambridge, emphasizing the need for improved public transport rather than new housing or facilities. They argue that current transport options are inadequate and should be prioritized to be frequent, reliable, and affordable. The author also stresses the importance of local amenities within walking distance for residents.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 4
+
+
+
+#### 85
+The author expresses uncertainty about specific developments in various areas, including the potential for a lively city district east of Milton Road, the expansion of the Cambridge Biomedical Campus, growth opportunities in Cambourne, limited development in southern rural villages, and the need for public transport and healthcare facilities in larger villages. They support the current plan focusing on development in larger villages and towns as sensible.
+
+**Stance**: NEUTRAL
+
+**Constructiveness**: 5
+
+
+
+#### 84
+The author advocates for the development of a lively and dense city district east of Milton Road in North East Cambridge, emphasizing the need for ample public open space to benefit both new and existing residents. However, they oppose further development at the Cambridge Biomedical Campus, citing sufficient existing development in the green belt. They suggest Sawston as a suitable location for limited development in villages with good transport links and propose creating travel hubs instead of park-and-ride facilities to promote car-free travel into Cambridge.
+
+**Stance**: NEUTRAL
+
+**Constructiveness**: 7
+
+
+
+#### 86
+The author advocates for the development of various areas in Greater Cambridge with a strong emphasis on carbon net-zero standards, the importance of green spaces, and the need for housing suitable for wheelchair users. They express support for mixed-use developments that include housing, jobs, and facilities, while also highlighting the necessity of good public transport connections and the preference for brownfield sites over greenfield sites. The author is particularly concerned about ensuring that developments cater to local employment and do not lead to increased commuting to London.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 9
+
+
+
+#### 81
+The author expresses strong concerns about the proposed development in North East Cambridge, criticizing the idea of dense city districts and advocating for more open spaces, cycling links, and affordable public transport. They support the development of the Cambridge Biomedical Campus but emphasize the need for housing criteria to prevent segregation. The author questions the environmental impact of diesel trains on air quality and opposes further development in villages, citing insufficient infrastructure and public transport. They call for more parks, leisure areas, affordable transport, and better funding for eco-friendly upgrades to older properties.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 4
+
+
+
+#### 89
+The author supports the development of various areas in Greater Cambridge, including the east of Milton Road, the Cambridge Biomedical Campus, Cambourne, and the southern rural cluster of villages, emphasizing the need for housing, jobs, facilities, and open spaces. They advocate for limited development in villages due to inadequate infrastructure and public transport, while also calling for more open spaces for nature and community renewable energy projects. The author envisions a future for Greater Cambridge that is carbon neutral, restores nature, and embraces sustainable economic principles.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 9
+
+
+
+#### 91
+The author expresses a strong preference for limiting development in villages, suggesting that only a few sites with good public transport and local services should be considered. They also emphasize the need for new developments to have character, contrasting this with recent developments near Adenbrookes that they find lacking in this regard.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 4
+
+
+
+#### 93
+The author supports the development of the area east of Milton Road in North East Cambridge into a vibrant city district, emphasizing the need for cycle lanes, easy access to the river, and wild green spaces. They also advocate for local shops to enhance community feel. Additionally, they support the expansion of the Cambridge Biomedical Campus with more healthcare facilities and housing, while suggesting that village developments should be limited to select hubs with good transport links and essential services. The author highlights the importance of public transport connections to tourist sites outside Cambridge.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 9
+
+
+
+#### 87
+The author supports the development of the Cambridge Biomedical Campus for healthcare facilities, research, and housing but raises concerns about increased traffic congestion and the need for improved emergency care capacity. They advocate for more flexible development in villages with good transport links and express concerns about the healthcare system's ability to cope with the growing population in Cambridge.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 7
+
+
+
+#### 95
+The author opposes the proposed developments around the Cambridge Biomedical Campus, Cambourne, and the southern rural cluster, arguing that existing communities cannot support more housing and that there should be no intrusion on the green belt. They express concerns about the adequacy of local amenities and water resources, advocating for improvements to existing settlements rather than expansion.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### 90
+The author expresses concerns about the lack of leisure facilities, healthcare services, and affordable housing in proposed developments in North East Cambridge and around the Cambridge Biomedical Campus. They advocate for the inclusion of local amenities in villages to prevent residents from having to commute into Cambridge. The author also emphasizes the need for proper infrastructure to be established before any new developments are approved, criticizing past planning efforts for not improving the area.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 4
+
+
+
+#### 98
+The author opposes the proposed development in the green belt area of Shelford/Stapleford, citing concerns about the merging of the villages' character, erosion of green belt protection, and increased traffic hazards. They suggest that housing should be planned in a more distant village to promote rail use instead of encouraging car dependency.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 4
+
+
+
+#### 96
+The author supports the development of various areas in Greater Cambridge, emphasizing the need for mixed-use developments that include housing, jobs, healthcare facilities, and open spaces to foster community. They advocate for self-sufficiency in Cambourne and limited development in villages, focusing on brownfield sites and maintaining local character. Essential services like schools and healthcare are highlighted as necessary for new developments.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 9
+
+
+
+#### 100
+The author opposes the relocation of the sewage works, arguing that it would harm green belt land, and also opposes further development around the Cambridge Biomedical Campus due to existing traffic congestion.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 3
+
+
+
+#### 102
+The author suggests that all developments with more than 10 new homes should undergo a Whole Life Cycle (WLC) assessment, arguing that the current threshold of 150 is too high. They also advocate for no new car parking facilities in new developments.
+
+**Stance**: NEUTRAL
+
+**Constructiveness**: 6
+
+
+
+#### 97
+The author strongly opposes the proposed development in Great Shelford, citing concerns about the impact on green belt land, increased traffic congestion, and pressure on local schools. They argue that the development will not support sustainable travel and will primarily benefit developers rather than the community.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 4
+
+
+
+#### 101
+The author expresses support for the development of a lively city district east of Milton Road, emphasizing the need for carbon-neutral housing and starter homes for young families. They advocate for the expansion of the Cambridge Biomedical Campus with additional healthcare facilities and housing while urging the preservation of the Nine Wells nature reserve. The author envisions Cambourne as a proper town with community hubs, cafes, and access to greenery. They caution against excessive development in villages, advocating for limited growth and consideration of remote work. They suggest repurposing the Grafton Centre into housing with a design that complements Cambridge's character. Lastly, they emphasize the importance of creating a safe and sustainable town for future generations.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 9
+
+
+
+#### 103
+The author opposes the proposed development in Shelford, arguing that it threatens the green belt and could lead to the merging of communities. They express concerns about insufficient access to the site and potential traffic issues, particularly at the level crossing, and warn against encouraging further development in green belt areas.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 4
+
+
+
+#### 106
+The author expresses strong opposition to the proposed developments in various areas, arguing that they would harm green spaces and the character of Cambridge. They advocate for the use of brownfield sites and the regeneration of existing neighborhoods instead of expanding into the green belt. The response emphasizes the need to preserve the Gogg Hills and the countryside around Cambridge, criticizing the council for yielding to developer interests and neglecting the need for improvement in run-down areas of the city.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### 104
+The author expresses concerns that the development plan lacks genuine sustainability and suggests better utilization of existing rail routes, such as Ashwell & Morden and Meldreth, to improve transport links. They advocate for sustainable transport options to reduce reliance on private cars in Greater Cambridge by 2041.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 5
+
+
+
+#### 99
+The author expresses support for the development of a lively city district east of Milton Road after the relocation of the waste water treatment plant, and advocates for the expansion of the Cambridge Biomedical Campus with additional healthcare facilities and a railway station. They suggest limited development in rural villages, emphasizing the need for improved broadband to support remote work and reduce carbon footprints. The author acknowledges the rising housing demand due to the influx of skilled workers in the area, highlighting the need for diverse housing options.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 8
+
+
+
+#### 107
+The author strongly opposes the proposed development site in Shelford, arguing that it does not meet the criteria for exceptional circumstances to remove land from the green belt. They express concerns about increased car usage, the blending of Shelford and Stapleford, and the impact on the green belt boundary.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 4
+
+
+
+#### 105
+The author suggests that limited development could occur in the southern rural cluster of villages near the rail line and business parks south of Cambridge, emphasizing the need for housing, jobs, facilities, and open spaces. They also express a desire for Greater Cambridge to maintain its village identity by 2041.
+
+**Stance**: NEUTRAL
+
+**Constructiveness**: 6
+
+
+
+#### 108
+The author supports the development of the Cambridge Biomedical Campus, advocating for more healthcare facilities, research, and housing, while emphasizing the need for a walkable scale of shops and cafes. They suggest Cambourne should develop a proper town center with a higher density of amenities. The author expresses caution about village developments, recommending limited growth in villages with good public transport. They stress the importance of improved public transport, suggesting a metro system to reduce reliance on cars.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 8
+
+
+
+#### 111
+The author expresses opposition to relocating the sewage works to facilitate housing development, citing concerns about density and the need for green spaces. They advocate for recreational facilities around the Cambridge Biomedical Campus and emphasize the importance of consulting villages about development. The author strongly supports preserving the Green Belt for mental health and wildlife, advocating for sustainable building practices and infrastructure that harmonizes with nature.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 4
+
+
+
+#### 113
+The author expresses strong opposition to relocating the waste water treatment plant, emphasizing the need for it to remain at its current location. They support the Cambridge Biomedical Campus but raise concerns about the existing strain on Addenbrookes and suggest a long-term solution for staffing issues. The author questions the classification of Cambourne as a proper town and highlights the need for clarity on the East-West Rail objectives. They express caution regarding further development in villages without addressing existing capacity issues and advocate for more recreational facilities for youth. The author also criticizes the relocation of City Council offices to Alconbury due to lack of public transport access.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 4
+
+
+
+#### 112
+The author discusses potential developments in various areas, emphasizing the need for affordable housing, healthcare facilities, and open spaces while cautioning against excessive density and the creation of commuter towns. They suggest specific locations for development and highlight the importance of accommodating driving and cycling needs.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 7
+
+
+
+#### 109
+The author expresses support for the development of various areas in Greater Cambridge, emphasizing the need for affordable housing and high environmental standards. However, they raise concerns about the size of proposed developments, potential environmental impacts, and the necessity for improved public transport. They advocate for limited development in rural villages while preserving their character and ensuring infrastructure improvements.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 7
+
+
+
+#### 115
+The author expresses concerns about the development of the area east of Milton Road in North East Cambridge, suggesting that dense developments should be avoided until the water supply issues are addressed. They support the development of the Cambridge Biomedical Campus with low-cost housing but have no suggestions for Cambourne or the southern rural cluster of villages, advocating for limited development in villages without good public transport. The author emphasizes the need for additional water supplies before any development can proceed.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 4
+
+
+
+#### 119
+The author supports the development of the Cambridge Biomedical Campus, emphasizing the need for housing specifically for campus employees. They express concern about the assumption that growth should be maximized and advocate for the enforcement of amenities and permeability in new developments before construction.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 7
+
+
+
+#### 118
+The author expresses strong concerns about the proposed housing development in Stapleford/Shelford, particularly regarding increased traffic through narrow roads, the impact on children's safety, and the strain on local schools. They feel that the development will erode Stapleford's identity and believe that the planners have not adequately addressed these issues.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 4
+
+
+
+#### 121
+The author envisions the development of a lively city district east of Milton Road in North East Cambridge, emphasizing the need for a new cycle bridge to enhance connectivity for residents and promote active travel. They support the expansion of the Cambridge Biomedical Campus with additional healthcare facilities and segregated cycle paths. The author also advocates for the growth of Cambourne into a proper town with segregated cycle paths and sports fields, and suggests limited development in the southern rural cluster with similar cycling infrastructure. They propose a mixed-use neighborhood south of the West Cambridge campus to accommodate workers and promote active travel. Lastly, they express a vision for Greater Cambridge in 2041 as a car-free city with extensive safe cycle paths and lower house prices, fostering healthy communities.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 9
+
+
+
+#### 120
+The author expresses concerns about the lack of parking in the proposed development east of Milton Road, stating it will disadvantage future residents. They strongly support the development of the Cambridge Biomedical Campus, advocating for a mix of high-tech facilities and open spaces. The author opposes the current form of the East-West Rail route but suggests limited housing and infrastructure to support job growth in the southern rural cluster. They propose Duxford and the A505 for potential development and advocate for a sustainable metro system to connect surrounding villages to Cambridge.
+
+**Stance**: NEUTRAL
+
+**Constructiveness**: 6
+
+
+
+#### 123
+The author opposes the development of the area east of Milton Road in North East Cambridge, arguing that relocating the waste water treatment plant is unnecessary and would contribute to climate change. They also express opposition to further development around the Cambridge Biomedical Campus, stating that there is already enough development and emphasizing the need to prioritize the environment. The author advocates for better public transport and the preservation of green spaces.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### 117
+The author expresses concerns about various proposed developments in Greater Cambridge, particularly regarding the lack of options to agree or disagree with developments at specific sites. They highlight issues such as inadequate parking for staff at the Cambridge Biomedical Campus, the limited effectiveness of the East-West Rail link, and the extensive building in villages over the past decade. The author advocates for preserving open spaces and suggests that Cambridge should aim to be car-free with improved public transport options.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 4
+
+
+
+#### 117
+The author suggests that the Park and Ride (P&R) facility should be expanded and that there should be regular bus and train connections to create a more integrated travel system, criticizing the current situation as confusing and inefficient.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 7
+
+
+
+#### 127
+The author discusses potential developments in various areas, including the east of Milton Road, the Cambridge Biomedical Campus, Cambourne, and the southern rural cluster of villages. They suggest creating housing, jobs, healthcare facilities, and open spaces, while expressing uncertainty about specific developments in Cambourne and villages. Overall, the response emphasizes the need for diverse housing options, job training, and community facilities.
+
+**Stance**: NEUTRAL
+
+**Constructiveness**: 6
+
+
+
+#### 125
+The author opposes the development in Great Shelford, citing concerns about poor access, increased traffic congestion, and the potential negative impact on local services and the separation of villages. They emphasize the importance of maintaining open land to mitigate future busway development.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 4
+
+
+
+#### 128
+The author discusses potential developments in various areas, suggesting the inclusion of schools, shops, cafes, community centers, leisure facilities, green spaces, and healthcare services. They express strong opposition to building on greenbelt land and emphasize the need to protect existing green spaces and reduce road congestion. The author also critiques the lack of public consultation regarding economic growth plans and advocates for more affordable housing options for downsizing individuals.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 4
+
+
+
+#### 122
+The author opposes the proposed development in Stapleford, arguing that it contributes to inappropriate growth and worsens traffic without benefiting current residents. They express concern about the cumulative impact of multiple developments in the area, advocating for stronger protections for the green barrier.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 4
+
+
+
+#### 126
+The author expresses a strong opposition to various proposed developments in Greater Cambridge, advocating for limited development and emphasizing the need for improved infrastructure before any new projects are initiated. They suggest creating a quality green recreation area in North East Cambridge but oppose the expansion of the Cambridge Biomedical Campus and the East-West Rail project, arguing for a light rail network instead. They also call for better medical and education facilities in villages but do not support any new housing or business developments.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### 131
+The author expresses strong concerns about the proposed developments in various areas around Cambridge, highlighting issues such as congestion, inadequate public transport, and the need for green spaces. They argue against building more houses in congested areas without proper infrastructure and emphasize the importance of developing public transport options before further housing developments. The response suggests that the current planning does not adequately address the needs of the community and could lead to negative consequences for Greater Cambridge.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### 130
+The author opposes the relocation of the waste water treatment plant due to its significant carbon footprint and criticizes the use of green belt land as contradictory to council priorities. They express concerns about overdevelopment around the Cambridge Biomedical Campus and advocate for limited development in villages, suggesting more recreational facilities and improved bus services. They also propose developing wooded areas and parks for recreational use.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 4
+
+
+
+#### 132
+The author criticizes the consultation for misidentifying car travel as the primary source of carbon emissions, arguing that new housing construction releases significantly more CO2 than car travel. They highlight the overlooked issue of embodied carbon in new buildings and express concern that housing and growth projections are outdated due to changes in policy.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 4
+
+
+
+#### 133
+The author expresses a preference for limited development in villages, advocating for the reuse of brownfield sites with sympathetic, zero-carbon buildings. They envision Greater Cambridge in 2041 as a place with clean air, high-quality green spaces, and rich wildlife, where people want to live and care for the environment.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 6
+
+
+
+#### 135
+The author expresses a desire for the development of a lively city district east of Milton Road, emphasizing the need for a nature reserve, libraries, swimming pools, playgrounds, local shops, and diverse schools. They support the expansion of the Cambridge Biomedical Campus but question the need for more housing. The author believes villages should remain unchanged and expresses a general need for quality facilities across all areas. They advocate for schools for all ages and nature reserves in the future.
+
+**Stance**: NEUTRAL
+
+**Constructiveness**: 6
+
+
+
+#### 137
+The author suggests that the area east of Milton Road in North East Cambridge could be developed into a vibrant city district after relocating the waste water treatment plant. They advocate for limited development in villages, recommending Melbourn due to its existing employment and transport links. The author emphasizes the need for high-value jobs and ample green space in developments, catering to those who prefer proximity to work without the social resources of the city.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 7
+
+
+
+#### 136
+The author supports the development of various areas in Greater Cambridge, emphasizing the need for affordable housing, adequate open spaces, and improved public transport to reduce congestion. They advocate for the development of the Cambridge Biomedical Campus with more healthcare facilities and housing for staff. The author also highlights the importance of considering climate change and local transport in future developments, while expressing uncertainty about specific villages for development.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 7
+
+
+
+#### 134
+The author strongly opposes the proposed developments in Greater Cambridge, arguing that the area should not increase its population, jobs, or buildings due to negative impacts on water supplies and air quality. They emphasize that existing infrastructure is already overwhelmed and advocate for limiting growth to maintain the current size of the community. The author believes that compact development does not foster healthy communities and insists that local government is not listening to residents' concerns.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### 139
+The author expresses strong opposition to any new development in the southern rural cluster of villages and emphasizes that development should be limited to brownfield sites. They advocate for the protection of the green belt and believe that the current proposals for development are excessive and detrimental to the city and surrounding areas.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### 140
+The author expresses skepticism about the proposed development in Shelford, arguing that it is unlikely to encourage train commuting due to low current usage of the station. They suggest that housing should be planned in villages further from Cambridge to promote train use. Additionally, they criticize the site selection in Shelford, noting it erodes natural boundaries and has poor access, contributing to existing traffic issues.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 4
+
+
+
+#### 141
+The author expresses strong opposition to any development in various areas, including North East Cambridge, the Cambridge Biomedical Campus, Cambourne, and surrounding villages, until a guaranteed water supply is established. They emphasize the need for water infrastructure before considering any housing, jobs, or facilities.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### 129
+The author expresses uncertainty about supporting the relocation of the wastewater treatment works, which is a prerequisite for developing the area east of Milton Road in North East Cambridge into a vibrant city district.
+
+**Stance**: NEUTRAL
+
+**Constructiveness**: 5
+
+
+
+#### 142
+The author advocates for the development of a lively and dense city district east of Milton Road in North East Cambridge, emphasizing the need for a tramway-style connection to the city center and world-class walking and cycling infrastructure. They support the expansion of the Cambridge Biomedical Campus with additional healthcare facilities and housing, and suggest that Cambourne should grow into a proper town with similar transport connections. The author expresses a cautious approach to development in villages, highlighting the importance of good public transport links. They stress the necessity for improved transport infrastructure that does not rely on cars, envisioning a future where private car ownership is unnecessary due to excellent public transport options.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 9
+
+
+
+#### 138
+The author opposes further development in various areas, including the east of Milton Road, the Cambridge Biomedical Campus, and villages, expressing concerns about the destruction of green spaces and the rural character of the villages. They advocate for limiting development and suggest that science parks should be established in satellite locations to alleviate pressure on Cambridge.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### 146
+The author expresses a preference for keeping the Cowley Road wastewater treatment plant in its current location, citing concerns about the impact on the green belt and taxpayer money. They support the development of the Cambridge Biomedical Campus with additional healthcare facilities, research, and housing, and suggest the need for new shops and schools. They advocate for Cambourne to develop into a proper town with shops and affordable train fares, and emphasize the need for cheap housing in the southern rural cluster of villages. The author also suggests that Cambourne should see new development, including schools and shops, and proposes the development of Cambridge airport for housing and community facilities.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 5
+
+
+
+#### 143
+The author advocates for the development of various areas in Greater Cambridge, emphasizing the need for walkable neighborhoods that minimize car use and promote green living. They support the development of the Cambridge Biomedical Campus with additional healthcare facilities and express a desire for limited development in villages with good public transport. The author envisions a future with accessible local amenities, wildlife-friendly spaces, and a reduction in private car dependency.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 9
+
+
+
+#### 147
+The author discusses various development opportunities in Greater Cambridge, suggesting that the area east of Milton Road could become a vibrant city district with essential facilities. They support the expansion of the Cambridge Biomedical Campus but emphasize building within existing boundaries. The author advocates for the East-West Rail to enhance transport for new housing developments in Cambourne but expresses skepticism about development in rural villages, citing concerns about increased traffic and the preservation of the countryside. They recommend keeping jobs local and providing small workspaces while opposing the Southern route of the East-West Rail due to its impact on the Green Belt and conservation areas.
+
+**Stance**: NEUTRAL
+
+**Constructiveness**: 6
+
+
+
+#### 148
+The author advocates for the development of various areas in Greater Cambridge, emphasizing the need for energy-efficient housing built to Passivhaus standards, the creation of local businesses and community spaces, and improved public transport links. They highlight the importance of sustainable practices such as rainwater capture and reduced concrete use, while also calling for a focus on mental and physical health, community cohesion, and addressing socio-economic disparities.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 9
+
+
+
+#### 150
+The author strongly opposes the relocation of the waste water treatment plant, arguing that it is unnecessary and contradicts sustainability goals. They support the development of the Cambridge Biomedical Campus with a focus on affordable housing for key workers but do not provide input on other development areas or questions.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 4
+
+
+
+#### 154
+The author opposes the proposed development in Great Shelford, citing concerns about its impact on the green belt, traffic issues, and increased pressure on local services. They argue that no compelling reasons have been provided to justify this site over others.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 4
+
+
+
+#### 144
+The author expresses concerns about overdevelopment in various areas, including the east of Milton Road, the Cambridge Biomedical Campus, Cambourne, and the southern rural cluster of villages. They argue that there is already sufficient development in these locations and caution against further expansion, suggesting that housing estimates are driven by greed rather than actual need.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 4
+
+
+
+#### 155
+The author supports the development of a lively city district east of Milton Road in North East Cambridge, suggesting larger entertainment venues. They advocate for the expansion of the Cambridge Biomedical Campus with affordable housing for medical staff. They propose a safe cycle route into Cambourne as it grows with East-West Rail. The author is against new development in villages, suggesting only a new GP surgery and playground in Histon. They emphasize the need for more green spaces in Greater Cambridge by 2041.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 8
+
+
+
+#### 151
+The author envisions the area east of Milton Road in North East Cambridge as a vibrant city district with a mix of housing types, green spaces, shops, and community areas, emphasizing the need for improved access via a bridge. They advocate for limited development in villages, ensuring it aligns with local character and enhances existing facilities. The response also calls for better road surfaces for cycling, increased green spaces, and efforts to reduce inequality across the city, highlighting the importance of making all areas feel welcoming and well-maintained.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 9
+
+
+
+#### 158
+The author supports the development of eco-friendly housing, zero carbon transport, parks, and leisure facilities in various areas including North East Cambridge, around the Cambridge Biomedical Campus, Cambourne, and the southern rural cluster of villages. They emphasize the need for spacious localities and limited density in village developments, while also suggesting the inclusion of wind turbines for energy generation in rural homes.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 9
+
+
+
+#### 157
+The author suggests that improvements should be made to Newmarket Road to enhance the area.
+
+**Stance**: NEUTRAL
+
+**Constructiveness**: 5
+
+
+
+#### 153
+The author emphasizes the importance of high-quality housing standards, specifically advocating for passivhaus standards with heat pumps and airtightness to reduce carbon emissions. They express support for the development of various areas, including the Cambridge Biomedical Campus and Cambourne, while also highlighting the need for limited development in villages without adequate public transport. Additionally, they call for more green spaces and infrastructure to support active travel.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 8
+
+
+
+#### 160
+The author suggests limited development in the southern rural cluster of villages near the rail line and business parks south of Cambridge, advocating for some infill housing but opposing a large new town. They recommend Melbourn and Foxton for new development, emphasizing the need for family-sized houses and open green spaces, while deeming job creation less relevant due to the rise of remote work. The author does not identify any additional sites for development.
+
+**Stance**: NEUTRAL
+
+**Constructiveness**: 7
+
+
+
+#### 162
+The author supports the development of the area east of Milton Road in North East Cambridge and the Cambridge Biomedical Campus, advocating for housing, jobs, facilities, and open spaces. They also express a desire for Cambourne to develop further with more facilities, but oppose any development in villages, suggesting it should be limited to areas with good public transport and local services.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 7
+
+
+
+#### 159
+The author supports the development of various areas in Greater Cambridge, including the east of Milton Road for a lively city district, the Cambridge Biomedical Campus for more healthcare facilities and housing, and Cambourne for additional shops. They advocate for dense housing near the railway in the southern rural cluster and suggest limited development in villages with good transport links, specifically naming Cottenham, Water Beach, and Land Beach for more local shops and schools. They also propose development in Shepreth and Meldreth and express a desire for a cheap underground railway by 2041.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 9
+
+
+
+#### 156
+The author expresses a preference for alternative sites for development rather than the area east of Milton Road due to the need to relocate the waste water treatment plant to the green belt. They support the development of the Cambridge Biomedical Campus, suggesting the addition of a train station, more cycle storage, shops, and childcare facilities. They also advocate for better and safer cycle lanes in surrounding villages.
+
+**Stance**: NEUTRAL
+
+**Constructiveness**: 6
+
+
+
+#### 163
+The author advocates for the development of fully self-contained sites in various areas, emphasizing minimal travel and limited development in villages without good public transport. They express a strong opposition to any anticipated growth in the region, suggesting that it should be robustly challenged.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### 164
+The author strongly opposes the Thakeham new town proposal, suggesting it should be avoided at all costs.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### 165
+The author opposes any new housing development in South Cambridgeshire, advocating for the preservation of the countryside and increased open spaces. They suggest that development should be limited to areas with good public transport and local services, but express a strong preference for maintaining the current rural character and access to green spaces.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### 168
+The author expresses concerns about the development in Greater Cambridge, emphasizing the need for remote working options and careful planning to avoid overdevelopment, particularly in areas like Cambourne and Longstanton. They highlight the negative impact of constant building on mental health and wellbeing, the strain on existing infrastructure, and the importance of protecting green spaces and local wildlife. The author calls for accountability from developers and suggests prioritizing primary residences over buy-to-let properties, as well as addressing drainage and sewerage issues.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 4
+
+
+
+#### 167
+The author supports the development of the Cambridge Biomedical Campus, emphasizing the need for more healthcare facilities, research, and housing in the area. However, they do not specify any particular housing, jobs, facilities, or open spaces that should be created around the campus.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 7
+
+
+
+#### 169
+The author envisions a more equitable Greater Cambridge by 2041, emphasizing the need to eliminate homelessness and prevent the marginalization of poorer residents. They express concerns about overcrowding due to tourism, advocating for improved quality of life for residents. The author calls for better cycling infrastructure, more affordable and well-designed housing, and higher sustainability standards in developments. They also caution against prioritizing economic growth at the expense of other regions in the country.
+
+**Stance**: NEUTRAL
+
+**Constructiveness**: 7
+
+
+
+#### 170
+The author suggests developing the area east of Milton Road into a vibrant city district with housing and commercial spaces, leveraging transport links. They support the expansion of the Cambridge Biomedical Campus but oppose further development south of Cambridge due to potential negative impacts on the countryside. The author criticizes the East-West Rail project as having limited benefits and advocates for development in new villages while limiting it in older ones to brownfield sites. They propose new science/business parks in these areas and do not identify any additional sites for development.
+
+**Stance**: NEUTRAL
+
+**Constructiveness**: 6
+
+
+
+#### 174
+The author suggests that the area east of Milton Road in North East Cambridge should be developed into a vibrant city district with a balanced mix of housing, jobs, community facilities, and open spaces. They support the development of the Cambridge Biomedical Campus with a focus on research and healthcare facilities, recommending less emphasis on housing and open spaces. For Cambourne, they advocate for a balanced mix similar to a normal town. In the southern rural cluster, they suggest primarily housing development. Additionally, they highlight the impact of remote working on housing needs, indicating that current estimates may be overstated.
+
+**Stance**: NEUTRAL
+
+**Constructiveness**: 7
+
+
+
+#### 173
+The author expresses strong opposition to further development in Greater Cambridge, arguing that the focus should shift from growth to repurposing existing spaces and addressing climate change. They criticize the influence of tech businesses on local planning and advocate for a more sustainable approach that prioritizes reducing travel and improving housing insulation.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### 177
+The author raises concerns about potential flooding in the area east of Milton Road in North East Cambridge and emphasizes the need for improved public transport access to the Cambridge Biomedical Campus. They suggest that Cambourne should develop a unique business cluster rather than mimic Cambridge. The author also stresses the importance of healthcare access in villages and expresses uncertainty about some questions regarding development. Lastly, they note that the future of Greater Cambridge depends on the construction of a railway to the West.
+
+**Stance**: NEUTRAL
+
+**Constructiveness**: 6
+
+
+
+#### 175
+The author expresses a strong opposition to new developments in Greater Cambridge, suggesting that minimal housing and facilities should be provided, particularly in areas like North East Cambridge and Cambourne. They argue that the shift towards remote work diminishes the need for new jobs and infrastructure, advocating for a reconsideration of development plans in light of changing living and working patterns post-COVID.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### 171
+The author expresses strong opposition to the proposed developments in various areas, criticizing the lack of accountability from developers regarding infrastructure and community facilities. They highlight concerns about the sprawl of Cambridge, the inadequacy of affordable housing, and the failure to provide necessary leisure and cultural amenities. The author also firmly opposes further development in specific villages, emphasizing the need to protect local services and community identity.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### 171
+The author opposes the proposed housing development, arguing that it is unsustainable due to a lack of demand and inadequate infrastructure. They highlight past failures in planning, particularly in Camborne and Northstowe, where housing was built without accompanying jobs or social facilities. The response criticizes the focus on minimum wage retail jobs, the neglect of promised amenities, and the lack of imaginative urban design. The author emphasizes the need for infrastructure to precede housing development and raises concerns about water sustainability and the overstatement of the East-West Rail project's benefits. They also express disappointment over the lack of cycle lanes and the prioritization of profit over community needs.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### 178
+The author believes that development in villages should be very limited and only allowed in areas with good public transport and local services, emphasizing the need for improved infrastructure and transport before any new development is considered.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 4
+
+
+
+#### 181
+The author expresses concern about the lack of local planning input for Cambourne, suggesting that East West Rail is directing development without adequate oversight. They highlight the need for a high street and infrastructure in Cambourne to function independently from Cambridge. The author supports limiting development in villages to those with good public transport and local services, advocating for more open space in rural areas. They also note a significant shortage of smaller affordable properties and criticize shared ownership schemes for not providing good value.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 5
+
+
+
+#### 179
+The author supports the development of various areas in Greater Cambridge, emphasizing the need for a mix of social and private housing designed with climate change considerations, including good insulation and electric vehicle charging. They advocate for the inclusion of green spaces, schools, shops, healthcare facilities, and good public transport links. However, they oppose development in rural villages, suggesting instead to enhance existing green spaces with biodiversity. The author envisions Greater Cambridge as a place with ample green space and well-built homes that prioritize sustainability.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 9
+
+
+
+#### 166
+The author expresses strong concerns about the potential development in various areas around Cambridge, emphasizing the need to prioritize wildlife spaces and avoid disrupting natural habitats. They advocate for building on open crop fields rather than meadows or woodlands, and suggest that development should be limited in villages unless they have good public transport connections. The author also highlights the importance of promoting cycling and creating wildlife corridors, while opposing any development that threatens existing natural environments.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 4
+
+
+
+#### 183
+The author expresses strong opposition to various proposed developments in Greater Cambridge, arguing that the area is already dense and vibrant, and that further development would detract from its rural character. They suggest that the Cambridge Biomedical Campus has already consumed enough land and resources, and propose relocating new developments to areas with more space, such as the fenlands. The author advocates for minimal development in villages and emphasizes the importance of preserving farmland and wild areas for biodiversity.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### 180
+The author expresses a vision for the development of the area east of Milton Road in North East Cambridge, suggesting it could become a vibrant city district after relocating the waste water treatment plant. They support the expansion of the Cambridge Biomedical Campus but raise concerns about current access and parking issues. The author is hesitant about further development in villages, advocating for limited growth only in areas with good public transport. They suggest parks and open spaces for villages and mention potential development on various college grounds. Overall, the author seems disinterested in the future of Greater Cambridge.
+
+**Stance**: NEUTRAL
+
+**Constructiveness**: 5
+
+
+
+#### 182
+The author expresses disappointment over the lack of public engagement regarding the proposed development of 100 houses in their village, highlighting that many residents were unaware of the plans. They argue that the development would contribute to urban sprawl between Great Shelford and Stapleford, undermining the distinct identities of the two communities and contradicting the purpose of the green belt. The author also criticizes the assumption that residents would use the train for commuting, stating that most prefer to drive due to convenience and concerns about public transport during the pandemic.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 4
+
+
+
+#### 187
+The author expresses strong concerns about various proposed developments in Greater Cambridge, emphasizing the need for adequate infrastructure, affordable housing, and the preservation of green spaces. They criticize the potential overdevelopment of rural areas and advocate for utilizing brownfield sites instead of encroaching on green belt land. The response highlights the importance of ensuring that local facilities can support any new developments and calls for a focus on ethical and sustainable practices in housing and job creation.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### 189
+The author strongly opposes the East-West Rail project and the proposed development in the southern rural cluster of villages, arguing that it would lead to detrimental landowner-led development that does not serve current residents. They express particular concern about plans to build on a historically biodiverse meadow, criticizing the lack of proper research and the prioritization of landowner interests over environmental protection. The author believes that existing housing needs can be met through brownfield development and that villages should maintain their character without expanding into urban areas.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
