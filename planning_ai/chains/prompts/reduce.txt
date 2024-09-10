@@ -1,31 +1,41 @@
-The following are summaries of responses to a local government planning application:
+The following is one or more summaries of responses to a new plan by the South Cambridgeshire Council:
 
 {context}
 
-Create a final, consolidated summary of all the main themes, and follow the specified format precisely. For each key point add inline citations which relate to the sources of the information. Use '[SOURCE_NUMBER]' for the citation (e.g. 'The Space Needle is in Seattle [1][2]').". Each summary will indicate whether they OPPOSE or SUPPORT the plan, which indicates which grouping their main argument belongs to. Bare in mind that **any** summary may contain both supporting and opposing key points.
+You are tasked with producing a **detailed and thorough final summary** that consolidates the main themes raised in the responses. **Do not add, infer, or create information.** Only use content directly mentioned in the summaries.
 
-Format:
+Each summary may contain both supporting and opposing key points. Summarise these points in two relevant sections, indicating whether they **support** or **oppose** the proposed plan. Each point should be grouped into a relevant header chosen from the 'Aims' associated with the response summary.  **Only include aims mentioned in the provided responses.** Omit any aim that is not discussed.
 
-# Summary
+**Guidelines**:
 
-<Extended summary of the all themes>
+- Provide an **extended, one page, balanced summary** of the key themes at the beginning, capturing the overall sentiment and notable trends.
+- In the 'Key points' sections, **group points by aim only if that aim is explicitly mentioned**.
+- Be sure to include specific, concise points that reflect the underlying concerns or support expressed by respondents.
+- Do **not** include information, assumptions, or summaries of aims that were not explicitly mentioned in the responses.
 
-# Key points raised in support
+**Format**:
 
-Support: <Total number of responses supporting the application>
+## Summary
 
-* <Key point 1>
-* <Key point 2>
-* ...
+<Provide an extended, comprehensive overview of all the main themes. Mention key concerns, positive feedback, and overall trends.>
 
-# Key points raised in opposition
+## Key points raised in support
 
-Opposed: <Total number of responses opposing the application>
+For each key point raised in support, group them by aim **only if that aim is mentioned in the responses**.
 
-* <Key point 1>
-* <Key point 2>
-* ...
+### [Aim name]
 
-# Thematic breakdown
+- <Key point 1>
+- <Key point 2>
+- ...
 
-<Provide a breakdown of the key themes identified (e.g. environmental concerns, economic growth), along with the percentage of responses addressing each theme.>
+## Key points raised in opposition
+
+For each key point raised in opposition, group them by aim **only if that aim is mentioned in the responses**.
+
+### [Aim name]
+
+- <Key point 1>
+- <Key point 2>
+- ...
+
