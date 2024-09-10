@@ -7,8 +7,6 @@ from langchain_text_splitters import CharacterTextSplitter
 from planning_ai.common.utils import Paths
 from planning_ai.graph import create_graph
 
-doc_title = "Cambridge Response Summary"
-
 
 def build_quarto_doc(doc_title, out):
     final = out["generate_final_summary"]
@@ -120,7 +118,7 @@ def main():
         loader_cls=TextLoader,
         recursive=True,
     )
-    docs = [doc for doc in loader.load()[:200] if doc.page_content]
+    docs = [doc for doc in loader.load()[:20] if doc.page_content]
     text_splitter = CharacterTextSplitter.from_tiktoken_encoder(
         chunk_size=1000, chunk_overlap=0
     )
@@ -145,5 +143,6 @@ def main():
 
 
 if __name__ == "__main__":
+    doc_title = "Cambridge Response Summary"
     out = main()
     build_quarto_doc(doc_title, out)

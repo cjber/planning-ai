@@ -1,10 +1,6 @@
 from pathlib import Path
-from typing import List
 
 import polars as pl
-from langchain_core.documents import Document
-
-from planning_ai.llms.llm import LLM
 
 pl.Config(
     fmt_str_lengths=9,
@@ -20,12 +16,3 @@ class Paths:
     RAW = DATA / "raw"
     STAGING = DATA / "staging"
     OUT = DATA / "out"
-
-
-class Consts:
-    TOKEN_MAX = 100_000
-
-
-def length_function(documents: List[Document]) -> int:
-    """Get number of tokens for input contents."""
-    return sum(LLM.get_num_tokens(doc.page_content) for doc in documents)
