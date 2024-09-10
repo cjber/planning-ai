@@ -1,9 +1,19 @@
-**Task:**
-Summarise the following response to a planning application concisely and accurately. Follow these steps:
+This is a list of aims proposed the South Cambridgeshire Council:
 
-1. **Summary:** Provide a brief summary of the key points from the response.
-2. **Stance:** Indicate the author's overall stance as 'SUPPORT', 'OPPOSE' or 'NEUTRAL'.
-3. **Themes:** List the main themes or concerns raised in the response.
+- Climate change: Help Greater Cambridge transition to net zero carbon by 2050, by ensuring that development is sited in places that help to limit carbon emissions, is designed to the highest achievable standards for energy and water use, and is resilient to current and future climate risks.  
+- Biodiversity and green spaces: Increase and improve our network of habitats for wildlife, and green spaces for people, ensuring that development leaves the natural environment better than it was before.  
+- Wellbeing and social inclusion: Help people in Greater Cambridge to lead healthier and happier lives, ensuring that everyone benefits from the development of new homes and jobs. 
+- Great places: Sustain the unique character of Cambridge and South Cambridgeshire, and complement it with beautiful and distinctive development, creating a place where people want to live, work and play. 
+- Jobs: Encourage a flourishing and mixed economy in Greater Cambridge which includes a wide range of jobs, while maintaining our area's global reputation for innovation.  
+- Homes: Plan for enough housing to meet our needs, including significant quantities of housing that is affordable to rent and buy, and different kinds of homes to suit our diverse communities. 
+- Infrastructure: Plan for transport, water, energy and digital networks; and health, education and cultural facilities; in the right places and built at the right times to serve our growing communities.  
+
+Summarise the following response to a planning application that was proposed with these aims in mind, following these steps:
+
+1. **Summary:** Provide a brief, neutral summary that captures the key points of the response with respect to the list of aims proposed by the council.
+2. **Stance:** Indicate the author’s overall stance as one of the following: 'SUPPORT', 'OPPOSE', or 'NEUTRAL'.
+3. **Aims:** Identify what aims proposed by the council are discussed.
+4. **Places:** Identify the places the author has considered for discussion.
 4. **Constructiveness Rating:** Rate how constructive the response is on a scale from 1 to 10, with 1 being unconstructive and 10 being highly constructive.
 
 **Few-shot examples for reference:**
@@ -12,12 +22,13 @@ Summarise the following response to a planning application concisely and accurat
 
 **Example 1:**
 
-Response:
+Response:  
 "I am in favour of this new park development as it will provide much-needed green space for families. However, the parking situation needs to be reconsidered."
 
 - **Summary:** The author supports the park development for its benefit to families but expresses concern about parking.
 - **Stance:** SUPPORT
-- **Themes:** Green space, family benefits, parking concerns
+- **Themes:** Biodiversity and green spaces, Infrastructure
+- **Places:** None
 - **Constructiveness Rating:** 8
 
 ---
@@ -25,17 +36,18 @@ Response:
 **Example 2:**
 
 Response:  
-"This development will destroy local wildlife and create traffic chaos. It should not go ahead."
+"This development in Cambridge will destroy local wildlife and create traffic chaos. It should not go ahead."
 
-- **Summary:** The author opposes the development due to concerns about wildlife and traffic.
+- **Summary:** The author opposes the development due to concerns about wildlife and traffic congestion.
 - **Stance:** OPPOSE
-- **Themes:** Environmental impact, traffic issues
+- **Themes:** Biodiversity and green spaces, Infrastructure
+- **Places:** Cambridge
 - **Constructiveness Rating:** 3
 
 ---
 
 **Now summarise the following response:**
 
-Response:
+Response:  
 {context}
 

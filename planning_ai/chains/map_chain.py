@@ -1,3 +1,4 @@
+from enum import Enum
 from typing import Literal, Optional
 
 from langchain_core.prompts import ChatPromptTemplate
@@ -9,6 +10,19 @@ with open("./planning_ai/chains/prompts/map.txt", "r") as f:
     map_template = f.read()
 
 
+class Theme(str, Enum):
+    climate = "Climate change"
+    biodiversity = "Biodiversity and green spaces"
+    wellbeing = "Wellbeing and social inclusion"
+    great_places = "Great places"
+    jobs = "Jobs"
+    homes = "Homes"
+    infrastructure = "Infrastructure"
+
+    def __repr__(self) -> str:
+        return self.value
+
+
 class BriefSummary(BaseModel):
     """A summary of the response with generated metadata"""
 
@@ -16,8 +30,11 @@ class BriefSummary(BaseModel):
     stance: Literal["SUPPORT", "OPPOSE", "NEUTRAL"] = Field(
         ..., description="Overall stance of the response."
     )
-    themes: list[str] = Field(
+    themes: list[Theme] = Field(
         ..., description="A list of themes associated with the response."
+    )
+    places: Optional[list[str]] = Field(
+        ..., description="A list of places mentioned in the response."
     )
     rating: int = Field(
         ...,
@@ -29,6 +46,9 @@ class BriefSummary(BaseModel):
         if not v.strip():
             raise ValueError("Summary cannot be empty.")
         return v
+
+    def __str__(self) -> str:
+        return f"{self.summary}\n" f"Related Aims: {self.themes}"
 
 
 SLLM = LLM.with_structured_output(BriefSummary)
@@ -45,8 +65,4 @@ if __name__ == "__main__":
     Papworth Everard has grown beyond recognition. This in itself is a matter of concern.
     """
 
-    result = map_chain.invoke({"context": test_document})
-
-    print("Generated Summary:")
-    print(result)
-    result
+    result = map_chain.invoke({"context": test_document, "filename": "test"})
