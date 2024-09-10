@@ -20,9 +20,9 @@ Planning AI is a sophisticated tool designed to process and analyze responses to
 To set up the project, ensure you have Python 3.8 or higher installed. Then, clone the repository and install the required dependencies:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/cjber/planning-ai.git
 cd planning_ai
-pip install -r requirements.txt
+pip install . (or uv sync)
 ```
 
 ## Usage
@@ -34,7 +34,7 @@ pip install -r requirements.txt
    python planning_ai/preprocessing/web_comments.py
    ```
 
-2. **Run Analysis**: Execute the main script to process the documents and generate summaries.
+2. **Run Graph**: Execute the main script to process the documents and generate a Quarto summary document.
    ```bash
    python planning_ai/main.py
    ```
@@ -44,7 +44,7 @@ pip install -r requirements.txt
 1. **Data Loading**: Documents are loaded from the staging directory using the `DirectoryLoader`.
 2. **Text Splitting**: Documents are split into manageable chunks using `CharacterTextSplitter`.
 3. **Graph Processing**: The `StateGraph` orchestrates the flow of data through various nodes, including mapping and reducing summaries.
-4. **Summarization**: The `map_chain` and `reduce_chain` are used to generate and refine summaries.
+4. **Summarisation**: The `map_chain` and `reduce_chain` are used to generate and refine summaries.
 5. **Output**: Final summaries and thematic breakdowns are printed and can be exported for further analysis.
 
 ## Configuration
