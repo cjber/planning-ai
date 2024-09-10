@@ -23,7 +23,7 @@ class Paths:
 
 
 class Consts:
-    TOKEN_MAX = 10_000
+    TOKEN_MAX = 100_000
 
 
 def length_function(documents: List[Document]) -> int:
