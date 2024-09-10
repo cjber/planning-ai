@@ -11,30 +11,14 @@ reduce_prompt = ChatPromptTemplate([("human", reduce_template)])
 reduce_chain = reduce_prompt | LLM | StrOutputParser()
 
 if __name__ == "__main__":
-    test_document = """
-    The response expresses concern over the proposed mass development north-west of Cambridge, 
-    highlighting significant growth in the area over the past twenty years, particularly with
-    the establishment of Cambourne and the expansion of Papworth Everard. The author is worried
-    about the implications of further development given the existing growth.
+    test_summary = """
+        The author expresses concern over the proposed mass development north-west of Cambridge,
+        highlighting significant growth in the area over the past twenty years, particularly with
+        the creation of Cambourne and the expansion of Papworth Everard.
+        Related Aims: [Homes, Infrastructure]
+        """
 
-    OPPOSE
-    """
-    test_summary = BriefSummary(
-        summary="""
-        The author expresses concern over the proposed mass development north-west of 
-        Cambridge, highlighting the significant growth in the area over the past twenty years,
-        particularly with the creation of Cambourne and the expansion of Papworth Everard.
-        """,
-        stance="OPPOSE",
-        themes=[
-            "Local growth",
-            "Development concerns",
-            "Impact on existing settlements",
-        ],
-        rating=5,
-    )
-
-    result = reduce_chain.invoke({"context": test_document})
+    result = reduce_chain.invoke({"context": test_summary})
 
     print("Generated Report:")
     print(result)
