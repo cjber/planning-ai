@@ -1,7 +1,6 @@
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 
-from planning_ai.chains.map_chain import BriefSummary
 from planning_ai.llms.llm import LLM
 
 with open("./planning_ai/chains/prompts/reduce.txt", "r") as f:
