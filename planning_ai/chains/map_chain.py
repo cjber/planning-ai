@@ -10,7 +10,7 @@ with open("./planning_ai/chains/prompts/map.txt", "r") as f:
     map_template = f.read()
 
 
-class Theme(str, Enum):
+class Aim(str, Enum):
     climate = "Climate change"
     biodiversity = "Biodiversity and green spaces"
     wellbeing = "Wellbeing and social inclusion"
@@ -23,18 +23,24 @@ class Theme(str, Enum):
         return self.value
 
 
+class Place(BaseModel):
+    place: str
+    sentiment: int
+
+
 class BriefSummary(BaseModel):
     """A summary of the response with generated metadata"""
 
-    summary: str = Field(..., description="Summary of the response.")
+    summary: str = Field(..., description="A summary of the response.")
     stance: Literal["SUPPORT", "OPPOSE", "NEUTRAL"] = Field(
         ..., description="Overall stance of the response."
     )
-    themes: list[Theme] = Field(
-        ..., description="A list of themes associated with the response."
+    aims: list[Aim] = Field(
+        ..., description="A list of aims associated with the response."
     )
-    places: Optional[list[str]] = Field(
-        ..., description="A list of places mentioned in the response."
+    places: Optional[list[Place]] = Field(
+        ...,
+        description="Places mentioned in the response, with the positivity of the related sentiment ranked 1 to 10",
     )
     rating: int = Field(
         ...,
@@ -48,7 +54,7 @@ class BriefSummary(BaseModel):
         return v
 
     def __str__(self) -> str:
-        return f"{self.summary}\n" f"Related Aims: {self.themes}"
+        return f"{self.summary}\n" f"Related Aims: {self.aims}"
 
 
 SLLM = LLM.with_structured_output(BriefSummary)
@@ -65,4 +71,4 @@ if __name__ == "__main__":
     Papworth Everard has grown beyond recognition. This in itself is a matter of concern.
     """
 
-    result = map_chain.invoke({"context": test_document, "filename": "test"})
+    result = map_chain.invoke({"context": test_document})

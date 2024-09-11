@@ -1,6 +1,7 @@
 from collections import Counter
 from pathlib import Path
 
+import polars as pl
 from langchain_community.document_loaders import DirectoryLoader, TextLoader
 from langchain_text_splitters import CharacterTextSplitter
 
@@ -15,12 +16,12 @@ def build_quarto_doc(doc_title, out):
     )
     key_points = final["final_summary"].split("## Key points raised in support")[1]
 
-    themes = [
-        theme
+    aims = [
+        aim
         for summary in final["collapsed_summaries"]
-        for theme in summary.metadata["themes"]
+        for aim in summary.metadata["aims"]
     ]
-    value_counts = Counter(themes)
+    value_counts = Counter(aims)
     total_values = sum(value_counts.values())
     percentages = {
         key: {"count": count, "percentage": (count / total_values)}
@@ -29,28 +30,37 @@ def build_quarto_doc(doc_title, out):
     top_5 = sorted(percentages.items(), key=lambda x: x[1]["percentage"], reverse=True)[
         :5
     ]
-    thematic_breakdown = "| **Theme** | **Percentage** | **Count** |\n|---|---|---|\n"
+    thematic_breakdown = "| **Aim** | **Percentage** | **Count** |\n|---|---|---|\n"
     thematic_breakdown += "\n".join(
         [f"| {item} | {d['percentage']:.2%} | {d['count']} |" for item, d in top_5]
     )
-    places = [
-        place
-        for summary in final["collapsed_summaries"]
-        for place in summary.metadata["places"]
-    ]
-    value_counts = Counter(places)
-    total_values = sum(value_counts.values())
-    percentages = {
-        key: {"count": count, "percentage": (count / total_values)}
-        for key, count in value_counts.items()
-    }
-    top_5 = sorted(percentages.items(), key=lambda x: x[1]["percentage"], reverse=True)[
-        :5
-    ]
-    places_breakdown = "| **Place** | **Percentage** | **Count** |\n|---|---|---|\n"
-    places_breakdown += "\n".join(
-        [f"| {item} | {d['percentage']:.2%} | {d['count']} |" for item, d in top_5]
+
+    places_df = (
+        pl.DataFrame(
+            [
+                place.dict()
+                for summary in final["collapsed_summaries"]
+                for place in summary.metadata["places"]
+            ]
+        )
+        .group_by("place")
+        .agg(
+            pl.col("place").len().alias("Count"),
+            pl.col("sentiment").mean().alias("Mean Sentiment"),
+        )
+        .rename({"place": "Place"})
     )
+    places_breakdown = (
+        places_df.sort("Count", descending=True)
+        .head()
+        .to_pandas()
+        .to_markdown(index=False)
+    )
+
+    # places_breakdown = "| **Place** | **Percentage** | **Count** |\n|---|---|---|\n"
+    # places_breakdown += "\n".join(
+    #     [f"| {item} | {d['percentage']:.2%} | {d['count']} |" for item, d in top_5]
+    # )
 
     stances = [summary.metadata["stance"] for summary in final["collapsed_summaries"]]
     value_counts = Counter(stances)
@@ -94,10 +104,10 @@ def build_quarto_doc(doc_title, out):
         "---\n\n"
         f"{executive_summary}\n\n"
         f"{stances_breakdown}\n\n"
-        "## Thematic Breakdown\n\n"
-        "The thematic breakdown identifies key topics that are mentioned \n"
-        "within each response. These topics may be discussed either in support or in \n"
-        "opposition of the plan. A single response may discuss multiple topics.\n"
+        "## Aim Breakdown\n\n"
+        "The aim breakdown identifies which aims are mentioned "
+        "within each response. "
+        "A single response may discuss multiple topics.\n"
         f"\n\n{thematic_breakdown}\n\n"
         f"\n\n{places_breakdown}\n\n"
         "## Key points raised in support\n\n"
@@ -130,7 +140,7 @@ def main():
     for step in app.stream(
         {
             "contents": [doc.page_content for doc in split_docs],
-            "filenames": [Path(doc.metadata["source"]).stem for doc in split_docs],
+            "filenames": [Path(doc.metadata["source"]) for doc in split_docs],
         },
         {"recursion_limit": 10},
     ):

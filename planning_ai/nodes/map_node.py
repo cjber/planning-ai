@@ -1,3 +1,5 @@
+from pathlib import Path
+
 from langchain_core.documents import Document
 from langgraph.constants import Send
 
@@ -6,9 +8,9 @@ from planning_ai.states import OverallState, SummaryState
 
 
 def generate_summary(state: SummaryState):
-    response = map_chain.invoke(
-        {"context": state["content"], "filename": state["filename"]}
-    )
+    if Path("pdf") in state["filename"].parents:
+        pass
+    response = map_chain.invoke({"context": state["content"]})
     return {
         "summaries": [
             {
@@ -34,7 +36,7 @@ def collect_summaries(state: OverallState):
                 page_content=summary["response"].summary,
                 metadata={
                     "stance": summary["response"].stance,
-                    "themes": summary["response"].themes,
+                    "aims": summary["response"].aims,
                     "places": summary["response"].places,
                     "rating": summary["response"].rating,
                     "original": summary["original"],
