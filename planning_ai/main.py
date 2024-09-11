@@ -1,12 +1,55 @@
+import os
 from collections import Counter
 from pathlib import Path
 
+import geopandas as gpd
+import matplotlib.pyplot as plt
 import polars as pl
+from dotenv import load_dotenv
 from langchain_community.document_loaders import DirectoryLoader, TextLoader
 from langchain_text_splitters import CharacterTextSplitter
+from opencage.geocoder import OpenCageGeocode
 
 from planning_ai.common.utils import Paths
 from planning_ai.graph import create_graph
+
+load_dotenv()
+
+
+def map_locations(places_df: pl.DataFrame):
+    lad = gpd.read_file("./data/raw/LAD_BUC_2022.gpkg").to_crs("epsg:4326")
+    lad_camb = lad[lad["LAD22NM"].str.contains("Cambridge")]
+    api_key = os.getenv("OPENCAGE_API_KEY")
+    geocoder = OpenCageGeocode(key=api_key)
+    places_df = places_df.with_columns(
+        pl.col("Place")
+        .map_elements(
+            lambda x: geocoder.geocode(x)[0]["geometry"],
+            return_dtype=pl.Struct,
+        )
+        .alias("geometry")
+    ).with_columns(pl.col("geometry").struct[0], pl.col("geometry").struct[1])
+
+    places_pd = places_df.to_pandas()
+    places_gdf = (
+        gpd.GeoDataFrame(
+            places_pd,
+            geometry=gpd.points_from_xy(x=places_df["lng"], y=places_df["lat"]),
+        )
+        .set_crs("epsg:4326")
+        .clip(lad)
+    )
+
+    _, ax = plt.subplots()
+    lad.plot(ax=ax, color="white", edgecolor="gray")
+    lad_camb.plot(ax=ax, color="white", edgecolor="black")
+    places_gdf.plot(ax=ax, column="Mean Sentiment", markersize=5, legend=True)
+    bounds = lad_camb.total_bounds
+    buffer = 0.1
+    ax.set_xlim([bounds[0] - buffer, bounds[2] + buffer])
+    ax.set_ylim([bounds[1] - buffer, bounds[3] + buffer])
+    plt.axis("off")
+    plt.savefig("./reports/figs/places.png")
 
 
 def build_quarto_doc(doc_title, out):
@@ -50,6 +93,9 @@ def build_quarto_doc(doc_title, out):
         )
         .rename({"place": "Place"})
     )
+
+    map_locations(places_df)
+
     places_breakdown = (
         places_df.sort("Count", descending=True)
         .head()
@@ -110,6 +156,7 @@ def build_quarto_doc(doc_title, out):
         "A single response may discuss multiple topics.\n"
         f"\n\n{thematic_breakdown}\n\n"
         f"\n\n{places_breakdown}\n\n"
+        f"![Locations mentioned by sentiment](./figs/places.png)\n\n"
         "## Key points raised in support\n\n"
         f"{key_points}\n\n"
         "## Summaries\n"
@@ -128,7 +175,7 @@ def main():
         loader_cls=TextLoader,
         recursive=True,
     )
-    docs = [doc for doc in loader.load()[:20] if doc.page_content]
+    docs = [doc for doc in loader.load()[:200] if doc.page_content]
     text_splitter = CharacterTextSplitter.from_tiktoken_encoder(
         chunk_size=1000, chunk_overlap=0
     )
