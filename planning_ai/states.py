@@ -1,4 +1,5 @@
 import operator
+from pathlib import Path
 from typing import Annotated, List, TypedDict
 
 from langchain_core.documents import Document
@@ -14,4 +15,4 @@ class OverallState(TypedDict):
 
 class SummaryState(TypedDict):
     content: str
-    filename: str
+    filename: Path
