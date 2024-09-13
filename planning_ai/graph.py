@@ -38,7 +38,14 @@ def create_graph():
         map_hallucinations,
         ["check_hallucination", "collect_summaries"],
     )
-    graph.add_edge("collect_summaries", "generate_final_summary")
+    def all_summaries_collected(state: OverallState) -> bool:
+        return len(state["summary_documents"]) == len(state["documents"])
+
+    graph.add_conditional_edges(
+        "collect_summaries",
+        lambda state: "generate_final_summary" if all_summaries_collected(state) else None,
+        ["generate_final_summary"],
+    )
     graph.add_edge("generate_final_summary", END)
 
     return graph.compile()
