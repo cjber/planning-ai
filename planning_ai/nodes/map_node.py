@@ -4,46 +4,34 @@ from langchain_core.documents import Document
 from langgraph.constants import Send
 
 from planning_ai.chains.map_chain import map_chain
-from planning_ai.states import OverallState, SummaryState
+from planning_ai.states import DocumentState, OverallState
 
 
-def generate_summary(state: SummaryState):
-    if Path("pdf") in state["filename"].parents:
-        pass
-    response = map_chain.invoke({"context": state["content"]})
-    return {
-        "summaries": [
-            {
-                "response": response,
-                "original": state["content"],
-                "filename": state["filename"],
-            }
-        ]
-    }
+def generate_summary(state: DocumentState):
+    response = map_chain.invoke({"context": state["document"]})
+    return {"summaries": [{"summary": response, "document": state["document"]}]}
 
 
 def map_summaries(state: OverallState):
     return [
-        Send("generate_summary", {"content": content, "filename": filename})
-        for content, filename in zip(state["contents"], state["filenames"])
+        Send("generate_summary", {"document": document})
+        for document in state["documents"]
     ]
 
 
-def collect_summaries(state: OverallState):
+def collect_summaries(state: DocumentState):
     return {
-        "collapsed_summaries": [
+        "summary_documents": [
             Document(
-                page_content=summary["response"].summary,
+                page_content=state["summary"].summary,
                 metadata={
-                    "stance": summary["response"].stance,
-                    "aims": summary["response"].aims,
-                    "places": summary["response"].places,
-                    "rating": summary["response"].rating,
-                    "original": summary["original"],
-                    "filename": summary["filename"],
-                    "index": idx,
+                    "stance": state["summary"].stance,
+                    "aims": state["summary"].aims,
+                    "places": state["summary"].places,
+                    "rating": state["summary"].rating,
+                    "hallucination": state["hallucination"].score,
+                    "explanation": state["hallucination"].explanation,
                 },
             )
-            for idx, summary in enumerate(state["summaries"], start=1)
         ]
     }
