@@ -3,8 +3,10 @@ from planning_ai.states import OverallState
 
 
 def generate_final_summary(state: OverallState):
-    response = reduce_chain.invoke({"context": state["collapsed_summaries"]})
+    __import__("ipdb").set_trace()
+    # response = reduce_chain.invoke({"context": state["summary_documents"]})
     return {
-        "final_summary": response,
-        "collapsed_summaries": state["collapsed_summaries"],
+        # "final_summary": response,
+        "summaries": state["summary_documents"],
+        "hallucinations": state["hallucinations"],
     }

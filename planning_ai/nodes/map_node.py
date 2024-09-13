@@ -21,22 +21,27 @@ def map_summaries(state: OverallState):
     ]
 
 
-def collect_summaries(state: DocumentState):
-    logging.warning(f"Collecting summary for document: {state['document']}")
-    summary_document = Document(
-        page_content=state["summary"].summary,
-        metadata={
-            "stance": state["summary"].stance,
-            "aims": state["summary"].aims,
-            "places": state["summary"].places,
-            "rating": state["summary"].rating,
-            "hallucination": state["hallucination"].score,
-            "explanation": state["hallucination"].explanation,
-        },
-    )
-    logging.debug(f"Summary document created: {summary_document}")
-    return {"summary_documents": [summary_document]}
-
-
-def all_summaries(state: OverallState):
-    return len(state["summary_documents"]) == len(state["documents"])
+def collect_summaries(state: OverallState):
+    print("test")
+    __import__("ipdb").set_trace()
+    state.keys()
+    len(state["documents"])
+    len(state["summaries_fixed"])
+    len(state["hallucinations"])
+    state["hallucinations"]
+    return {
+        "summary_documents": [
+            Document(
+                page_content=hallucination.summary,
+                metadata={
+                    "stance": hallucination.stance,
+                    "aims": hallucination.aims,
+                    "places": hallucination.places,
+                    "rating": hallucination.rating,
+                    "hallucination": hallucination.score,
+                    "explanation": hallucination.explanation,
+                },
+            )
+        ]
+        for hallucination in state["summaries_fixed"]
+    }
