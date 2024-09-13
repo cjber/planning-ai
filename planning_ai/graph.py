@@ -1,3 +1,4 @@
+from langgraph.constants import Send
 from langgraph.graph import END, StateGraph
 
 from planning_ai.nodes.hallucination_node import (
@@ -6,7 +7,6 @@ from planning_ai.nodes.hallucination_node import (
     map_fix_hallucinations,
     map_hallucinations,
 )
-from langgraph.constants import Send
 from planning_ai.nodes.map_node import (
     collect_summaries,
     generate_summary,
@@ -19,11 +19,11 @@ from planning_ai.states import OverallState
 def handle_hallucination_cycle(state: OverallState):
     if any(h["hallucination"].score > 0 for h in state["hallucinations"]):
         return [
-            Send("check_hallucination", {"document": doc})
-            for doc in state["documents"]
+            Send("check_hallucination", {"document": doc}) for doc in state["documents"]
         ]
     else:
         return [Send("collect_summaries", state)]
+
 
 def create_graph():
     graph = StateGraph(OverallState)
