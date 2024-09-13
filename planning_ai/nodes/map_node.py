@@ -1,7 +1,6 @@
 import logging
-from pathlib import Path
 
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.WARNING)
 
 from langchain_core.documents import Document
 from langgraph.constants import Send
@@ -23,7 +22,7 @@ def map_summaries(state: OverallState):
 
 
 def collect_summaries(state: DocumentState):
-    logging.info(f"Collecting summary for document: {state['document']}")
+    logging.warning(f"Collecting summary for document: {state['document']}")
     summary_document = Document(
         page_content=state["summary"].summary,
         metadata={
@@ -36,6 +35,8 @@ def collect_summaries(state: DocumentState):
         },
     )
     logging.debug(f"Summary document created: {summary_document}")
-    return {
-        "summary_documents": state.get("summary_documents", []) + [summary_document]
-    }
+    return {"summary_documents": [summary_document]}
+
+
+def all_summaries(state: OverallState):
+    return len(state["summary_documents"]) == len(state["documents"])

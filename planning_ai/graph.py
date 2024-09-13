@@ -8,6 +8,7 @@ from planning_ai.nodes.hallucination_node import (
     map_hallucinations,
 )
 from planning_ai.nodes.map_node import (
+    all_summaries,
     collect_summaries,
     generate_summary,
     map_summaries,
@@ -38,17 +39,14 @@ def create_graph():
         map_hallucinations,
         ["check_hallucination", "collect_summaries"],
     )
-    def all_summaries_collected(state: OverallState) -> bool:
-        return len(state["summary_documents"]) == len(state["documents"])
-
     graph.add_conditional_edges(
         "collect_summaries",
-        lambda state: "generate_final_summary" if all_summaries_collected(state) else None,
-        ["generate_final_summary"],
+        all_summaries,
+        {True: "generate_final_summary", False: "collect_summaries"},
     )
     graph.add_edge("generate_final_summary", END)
 
     return graph.compile()
 
 
-# print(create_graph().get_graph().draw_ascii())
+print(create_graph().get_graph().draw_ascii())
