@@ -16,15 +16,6 @@ from planning_ai.nodes.reduce_node import generate_final_summary
 from planning_ai.states import OverallState
 
 
-def handle_hallucination_cycle(state: OverallState):
-    if any(h["hallucination"].score > 0 for h in state["hallucinations"]):
-        return [
-            Send("check_hallucination", {"document": doc}) for doc in state["documents"]
-        ]
-    else:
-        return [Send("collect_summaries", state)]
-
-
 def create_graph():
     graph = StateGraph(OverallState)
     graph.add_node("generate_summary", generate_summary)
@@ -38,11 +29,17 @@ def create_graph():
         "generate_summary", map_hallucinations, ["check_hallucination"]
     )
     graph.add_conditional_edges(
-        "check_hallucination", map_fix_hallucinations, ["fix_hallucination"]
+        "check_hallucination",
+        map_fix_hallucinations,
+        ["fix_hallucination", "collect_summaries"],
     )
     graph.add_conditional_edges(
-        "fix_hallucination", handle_hallucination_cycle, ["check_hallucination", "collect_summaries"]
+        "fix_hallucination", map_hallucinations, ["check_hallucination"]
     )
+    graph.add_edge("collect_summaries", "generate_final_summary")
     graph.add_edge("generate_final_summary", END)
 
     return graph.compile()
+
+
+# print(create_graph().get_graph().draw_ascii())
