@@ -36,4 +36,6 @@ def collect_summaries(state: DocumentState):
         },
     )
     logging.debug(f"Summary document created: {summary_document}")
-    return {"summary_documents": [summary_document]}
+    return {
+        "summary_documents": state.get("summary_documents", []) + [summary_document]
+    }
