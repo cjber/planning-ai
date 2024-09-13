@@ -38,17 +38,4 @@ def collect_summaries(state: DocumentState):
     logging.debug(f"Summary document created: {summary_document}")
     return {
         "summary_documents": [summary_document]
-        "summary_documents": [
-            Document(
-                page_content=state["summary"].summary,
-                metadata={
-                    "stance": state["summary"].stance,
-                    "aims": state["summary"].aims,
-                    "places": state["summary"].places,
-                    "rating": state["summary"].rating,
-                    "hallucination": state["hallucination"].score,
-                    "explanation": state["hallucination"].explanation,
-                },
-            )
-        ]
     }
