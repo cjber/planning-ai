@@ -11,10 +11,7 @@ from planning_ai.states import DocumentState, OverallState
 
 def generate_summary(state: DocumentState):
     response = map_chain.invoke({"context": state["document"]})
-    return {
-        "summaries": [{"summary": response, "document": state["document"]}],
-        "document": state["document"],
-    }
+    return {"summaries": [{"summary": response, "document": state["document"]}]}
 
 
 def map_summaries(state: OverallState):
