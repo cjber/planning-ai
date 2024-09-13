@@ -40,7 +40,9 @@ def create_graph():
     graph.add_conditional_edges(
         "check_hallucination", map_fix_hallucinations, ["fix_hallucination"]
     )
-    graph.add_edge("collect_summaries", "generate_final_summary")
+    graph.add_conditional_edges(
+        "fix_hallucination", handle_hallucination_cycle, ["check_hallucination", "collect_summaries"]
+    )
     graph.add_edge("generate_final_summary", END)
 
     return graph.compile()
