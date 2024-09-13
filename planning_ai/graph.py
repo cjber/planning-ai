@@ -34,6 +34,3 @@ def create_graph():
     graph.add_edge("generate_final_summary", END)
 
     return graph.compile()
-
-
-print(create_graph().get_graph().draw_ascii())
