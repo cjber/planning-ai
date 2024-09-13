@@ -34,7 +34,7 @@ def create_graph():
         ["fix_hallucination", "collect_summaries"],
     )
     graph.add_conditional_edges(
-        "fix_hallucination", map_hallucinations, ["check_hallucination"]
+        "fix_hallucination", map_hallucinations, ["check_hallucination", "collect_summaries"]
     )
     graph.add_edge("collect_summaries", "generate_final_summary")
     graph.add_edge("generate_final_summary", END)
