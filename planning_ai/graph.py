@@ -15,6 +15,15 @@ from planning_ai.nodes.reduce_node import generate_final_summary
 from planning_ai.states import OverallState
 
 
+def handle_hallucination_cycle(state: OverallState):
+    if any(h["hallucination"].score > 0 for h in state["hallucinations"]):
+        return [
+            Send("check_hallucination", {"document": doc})
+            for doc in state["documents"]
+        ]
+    else:
+        return [Send("collect_summaries", state)]
+
 def create_graph():
     graph = StateGraph(OverallState)
     graph.add_node("generate_summary", generate_summary)
