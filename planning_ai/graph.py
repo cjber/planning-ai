@@ -32,7 +32,11 @@ def create_graph():
     )
     graph.add_conditional_edges(
         "fix_hallucination",
-        lambda state: "check_hallucination" if any(h["hallucination"].score > 0 for h in state["hallucinations"]) else "collect_summaries",
+        lambda state: (
+            "check_hallucination"
+            if any(h["hallucination"].score > 0 for h in state["hallucinations"])
+            else "collect_summaries"
+        ),
         ["check_hallucination", "collect_summaries"],
     )
     graph.add_edge("collect_summaries", "generate_final_summary")
