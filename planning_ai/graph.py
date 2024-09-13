@@ -36,7 +36,7 @@ def create_graph():
         ["check_hallucination", "collect_summaries"],
     )
     graph.add_edge("collect_summaries", "generate_final_summary")
-    # graph.add_edge("generate_final_summary", END)
+    graph.add_edge("generate_final_summary", END)
 
     return graph.compile()
 
