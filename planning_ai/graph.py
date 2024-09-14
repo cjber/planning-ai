@@ -37,7 +37,3 @@ def create_graph():
     graph.add_edge("generate_final_summary", END)
 
     return graph.compile()
-
-
-# graph = create_graph()
-# graph.get_graph().draw_png("test.png")
