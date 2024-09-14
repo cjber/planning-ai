@@ -59,11 +59,11 @@ def build_quarto_doc(doc_title, out):
     )
     key_points = final["final_summary"].split("## Key points raised in support")[1]
 
-    aims = [
-        aim
-        for summary in final["collapsed_summaries"]
-        for aim in summary.metadata["aims"]
-    ]
+    aims = []
+    for summary in final["summaries_fixed"]:
+        aim = summary["summary"].aims
+        aims.extend(aim)
+
     value_counts = Counter(aims)
     total_values = sum(value_counts.values())
     percentages = {
@@ -82,8 +82,8 @@ def build_quarto_doc(doc_title, out):
         pl.DataFrame(
             [
                 place.dict()
-                for summary in final["collapsed_summaries"]
-                for place in summary.metadata["places"]
+                for summary in final["summaries_fixed"]
+                for place in summary["summary"].places
             ]
         )
         .group_by("place")
@@ -108,7 +108,7 @@ def build_quarto_doc(doc_title, out):
     #     [f"| {item} | {d['percentage']:.2%} | {d['count']} |" for item, d in top_5]
     # )
 
-    stances = [summary.metadata["stance"] for summary in final["collapsed_summaries"]]
+    stances = [summary["summary"].stance for summary in final["summaries_fixed"]]
     value_counts = Counter(stances)
     total_values = sum(value_counts.values())
     percentages = {
@@ -127,11 +127,11 @@ def build_quarto_doc(doc_title, out):
 
     short_summaries = "\n\n".join(
         [
-            f"#### {summary.metadata['filename']}\n"
-            f"{summary.page_content}\n\n"
-            f"**Stance**: {summary.metadata['stance']}\n\n"
-            f"**Constructiveness**: {summary.metadata['rating']}\n\n"
-            for summary in final["collapsed_summaries"]
+            f"#### **TODO**\n"
+            f"{summary['summary'].summary}\n\n"
+            f"**Stance**: {summary['summary'].stance}\n\n"
+            f"**Constructiveness**: {summary['summary'].rating}\n\n"
+            for summary in final["summaries_fixed"]
         ]
     )
 
@@ -141,6 +141,11 @@ def build_quarto_doc(doc_title, out):
         "format:\n"
         "  PrettyPDF-pdf:\n"
         "    papersize: A4\n"
+        "  lumo-html:\n"
+        "    logo: logo.png\n"
+        "    github-repo: https://github.com/cjber/planning-ai\n"
+        "    self-contained: true\n"
+        "    is-particlejs-enabled: true\n"
         "execute:\n"
         "  freeze: auto\n"
         "  echo: false\n"
@@ -186,10 +191,10 @@ def main():
     step = None
     for step in app.stream(
         {
-            "contents": [doc.page_content for doc in split_docs],
+            "documents": [doc.page_content for doc in split_docs],
             "filenames": [Path(doc.metadata["source"]) for doc in split_docs],
         },
-        {"recursion_limit": 10},
+        # {"recursion_limit": 10},
     ):
         print(list(step.keys()))
 
@@ -203,3 +208,34 @@ if __name__ == "__main__":
     doc_title = "Cambridge Response Summary"
     out = main()
     build_quarto_doc(doc_title, out)
+
+    d = [
+        i
+        for i in out["generate_final_summary"]["summaries_fixed"]
+        if i["iteration"] == 4
+    ][0]
+    d["document"]
+
+    h = [
+        i["summary"].summary
+        for i in out["generate_final_summary"]["hallucinations"]
+        if i["document"] == d["document"]
+    ]
+
+    e = [
+        i["hallucination"].explanation
+        for i in out["generate_final_summary"]["hallucinations"]
+        if i["document"] == d["document"]
+    ]
+
+    test = {
+        "document": d["document"],
+        "final_summary": d["summary"].summary,
+        "attempts": h,
+        "reasoning": e,
+    }
+
+    print(f"Document:\n\n{test['document']}\n\n")
+    print(f"Final:\n\n{test['final_summary']}\n\n")
+    print("Attempts: \n\n*", "\n\n* ".join(test["attempts"]), "\n\n")
+    print("Reasoning: \n\n*", "\n\n* ".join(test["reasoning"]), "\n\n")
