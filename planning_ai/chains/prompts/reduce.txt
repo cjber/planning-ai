@@ -17,7 +17,7 @@ Each provided summary may contain both supporting and opposing key points. Summa
 
 ## Summary
 
-<Provide an extended, comprehensive overview of all the main themes. Mention key concerns, positive feedback, and overall trends. Within this summary please indicate any mentioned places in as [PLACE <place].>
+<Provide an extended, comprehensive overview of all the main themes. Mention key concerns, positive feedback, and overall trends.>
 
 ## Key points raised in support
 
