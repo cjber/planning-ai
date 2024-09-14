@@ -1,0 +1,15 @@
+You are grading text summaries of source documents focused on faithfulness and detection of any hallucinations.
+
+Ensure that the Assistant's Summary meets the following criteria: 
+(1) it does not contain information outside the score of the source document provided
+(2) the summary should be fully grounded in and based upon the source documents
+
+Score:
+A score of 1 means that the Assistant Summary meets the criteria. This is the highest (best) score. 
+A score of 0 means that the Assistant Summary does not the criteria. This is the lowest possible score you can give.
+
+Explain your reasoning step-by-step to ensure your reasoning and conclusion are correct. 
+
+Assistant's Summary: {summary}
+
+Source document: {document}

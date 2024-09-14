@@ -1,0 +1,12 @@
+You are tasked with summarising a response to a planning application proposed by South Cambridgeshire Council. Below, we have provided an **incorrect summary** of the response, along with an **explanation** detailing why the summary is incorrect. Your job is to generate a **correct** summary based solely on the original response provided, avoiding the errors highlighted in the explanation.
+
+- **Incorrect Summary**:
+  {summary}
+
+- **Explanation of Errors**:
+  {explanation}
+
+- **Original Response**:
+  {context}
+
+**Your task**: Write a concise and accurate summary of the original response, taking into account the errors highlighted in the explanation.
