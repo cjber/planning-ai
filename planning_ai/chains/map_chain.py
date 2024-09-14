@@ -24,8 +24,8 @@ class Aim(str, Enum):
 
 
 class Place(BaseModel):
-    place: str
-    sentiment: int
+    place: str = Field(..., description="Place mentioned in the response.")
+    sentiment: int = Field(..., description="Related sentiment ranked 1 to 10.")
 
 
 class BriefSummary(BaseModel):
@@ -40,7 +40,7 @@ class BriefSummary(BaseModel):
     )
     places: Optional[list[Place]] = Field(
         ...,
-        description="Places mentioned in the response, with the positivity of the related sentiment ranked 1 to 10",
+        description="All places mentioned in the response, with the positivity of the related sentiment ranked 1 to 10",
     )
     rating: int = Field(
         ...,
@@ -72,3 +72,4 @@ if __name__ == "__main__":
     """
 
     result = map_chain.invoke({"context": test_document})
+    print(result)
