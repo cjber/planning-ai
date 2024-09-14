@@ -8,6 +8,26 @@
 
 Planning AI is a sophisticated tool designed to process and analyze responses to local government planning applications. It leverages advanced natural language processing capabilities to summarize and categorize feedback, providing insights into public opinion on proposed developments.
 
+```mermaid
+%%{init: {'flowchart': {'curve': 'linear'}}}%%
+graph TD;
+        __start__([__start__]):::first
+        generate_summary(generate_summary)
+        check_hallucination(check_hallucination)
+        fix_hallucination(fix_hallucination)
+        generate_final_summary(generate_final_summary)
+        __end__([__end__]):::last
+        check_hallucination --> generate_final_summary;
+        generate_final_summary --> __end__;
+        __start__ -.-> generate_summary;
+        generate_summary -.-> check_hallucination;
+        check_hallucination -.-> fix_hallucination;
+        fix_hallucination -.-> check_hallucination;
+        classDef default fill:#f2f0ff,line-height:1.2
+        classDef first fill-opacity:0
+        classDef last fill:#bfb6fc
+```
+
 ## Features
 
 - **Document Processing**: Extracts and processes text from various document formats including PDFs and Excel files.
