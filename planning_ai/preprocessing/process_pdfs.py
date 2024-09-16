@@ -1,7 +1,6 @@
 import base64
 import os
 from io import BytesIO
-from pathlib import Path
 
 import requests
 from dotenv import load_dotenv
