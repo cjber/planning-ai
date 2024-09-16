@@ -33,3 +33,4 @@ if __name__ == "__main__":
             "document": test_document,
         }
     )
+    print(result)
