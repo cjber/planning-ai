@@ -180,7 +180,7 @@ def main():
         loader_cls=TextLoader,
         recursive=True,
     )
-    docs = [doc for doc in loader.load()[:200] if doc.page_content]
+    docs = [doc for doc in loader.load()[:5] if doc.page_content]
     text_splitter = CharacterTextSplitter.from_tiktoken_encoder(
         chunk_size=1000, chunk_overlap=0
     )
@@ -193,8 +193,7 @@ def main():
         {
             "documents": [doc.page_content for doc in split_docs],
             "filenames": [Path(doc.metadata["source"]) for doc in split_docs],
-        },
-        # {"recursion_limit": 10},
+        }
     ):
         print(list(step.keys()))
 
@@ -207,35 +206,36 @@ def main():
 if __name__ == "__main__":
     doc_title = "Cambridge Response Summary"
     out = main()
-    build_quarto_doc(doc_title, out)
-
-    d = [
-        i
-        for i in out["generate_final_summary"]["summaries_fixed"]
-        if i["iteration"] == 4
-    ][0]
-    d["document"]
-
-    h = [
-        i["summary"].summary
-        for i in out["generate_final_summary"]["hallucinations"]
-        if i["document"] == d["document"]
-    ]
-
-    e = [
-        i["hallucination"].explanation
-        for i in out["generate_final_summary"]["hallucinations"]
-        if i["document"] == d["document"]
-    ]
-
-    test = {
-        "document": d["document"],
-        "final_summary": d["summary"].summary,
-        "attempts": h,
-        "reasoning": e,
-    }
-
-    print(f"Document:\n\n{test['document']}\n\n")
-    print(f"Final:\n\n{test['final_summary']}\n\n")
-    print("Attempts: \n\n*", "\n\n* ".join(test["attempts"]), "\n\n")
-    print("Reasoning: \n\n*", "\n\n* ".join(test["reasoning"]), "\n\n")
+    out["generate_final_summary"]["summaries"]
+    # build_quarto_doc(doc_title, out)
+    #
+    # d = [
+    #     i
+    #     for i in out["generate_final_summary"]["summaries_fixed"]
+    #     if i["iteration"] == 4
+    # ][0]
+    # d["document"]
+    #
+    # h = [
+    #     i["summary"].summary
+    #     for i in out["generate_final_summary"]["hallucinations"]
+    #     if i["document"] == d["document"]
+    # ]
+    #
+    # e = [
+    #     i["hallucination"].explanation
+    #     for i in out["generate_final_summary"]["hallucinations"]
+    #     if i["document"] == d["document"]
+    # ]
+    #
+    # test = {
+    #     "document": d["document"],
+    #     "final_summary": d["summary"].summary,
+    #     "attempts": h,
+    #     "reasoning": e,
+    # }
+    #
+    # print(f"Document:\n\n{test['document']}\n\n")
+    # print(f"Final:\n\n{test['final_summary']}\n\n")
+    # print("Attempts: \n\n*", "\n\n* ".join(test["attempts"]), "\n\n")
+    # print("Reasoning: \n\n*", "\n\n* ".join(test["reasoning"]), "\n\n")

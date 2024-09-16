@@ -1,21 +1,21 @@
-from typing import Literal
-
 from langgraph.constants import Send
 
 from planning_ai.chains.fix_chain import fix_chain
-from planning_ai.chains.hallucination_chain import hallucination_chain
+from planning_ai.chains.hallucination_chain import (
+    HallucinationChecker,
+    hallucination_chain,
+)
 from planning_ai.states import DocumentState, OverallState
 
 
 def check_hallucination(state: DocumentState):
-    print(state["iteration"])
     if state["iteration"] > 5:
         state["iteration"] = -99
         return {"summaries_fixed": [state]}
 
-    response = hallucination_chain.invoke(
+    response: HallucinationChecker = hallucination_chain.invoke(
         {"document": state["document"], "summary": state["summary"]}
-    )
+    )  # type: ignore
     if response.score == 1:
         return {"summaries_fixed": [state]}
 
@@ -43,11 +43,12 @@ def fix_hallucination(state: DocumentState):
             "explanation": state["hallucination"],
         }
     )
-    state["summary"] = response
+    state["summary"] = response  # type: ignore
     return {
         "summaries": [
             {
                 "document": state["document"],
+                "filename": state["filename"],
                 "summary": state["summary"],
                 "iteration": state["iteration"],
             }

@@ -1,8 +1,3 @@
-import logging
-
-logging.basicConfig(level=logging.WARNING)
-
-from langchain_core.documents import Document
 from langgraph.constants import Send
 
 from planning_ai.chains.map_chain import map_chain
@@ -31,29 +26,3 @@ def map_summaries(state: OverallState):
         )
         for document, filename in zip(state["documents"], state["filenames"])
     ]
-
-
-def collect_summaries(state: OverallState):
-    print("test")
-    __import__("ipdb").set_trace()
-    state.keys()
-    len(state["documents"])
-    len(state["summaries_fixed"])
-    len(state["hallucinations"])
-    state["hallucinations"]
-    return {
-        "summary_documents": [
-            Document(
-                page_content=hallucination.summary,
-                metadata={
-                    "stance": hallucination.stance,
-                    "aims": hallucination.aims,
-                    "places": hallucination.places,
-                    "rating": hallucination.rating,
-                    "hallucination": hallucination.score,
-                    "explanation": hallucination.explanation,
-                },
-            )
-        ]
-        for hallucination in state["summaries_fixed"]
-    }

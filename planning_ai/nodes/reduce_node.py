@@ -8,7 +8,7 @@ def generate_final_summary(state: OverallState):
         return {
             "final_summary": response,
             "summaries_fixed": state["summaries_fixed"],
-            "summaries": state["summary_documents"],
+            "summaries": state["summaries"],
             "hallucinations": state["hallucinations"],
             "documents": state["documents"],
         }
