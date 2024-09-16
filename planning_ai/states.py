@@ -1,8 +1,6 @@
 import operator
 from pathlib import Path
-from typing import Annotated, List, Optional, TypedDict
-
-from langchain_core.documents import Document
+from typing import Annotated, List, TypedDict
 
 from planning_ai.chains.hallucination_chain import HallucinationChecker
 from planning_ai.chains.map_chain import BriefSummary
