@@ -613,6 +613,18 @@ wheels = [
 ]
 
 [[package]]
+name = "grandalf"
+version = "0.8"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "pyparsing" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/95/0e/4ac934b416857969f9135dec17ac80660634327e003a870835dd1f382659/grandalf-0.8.tar.gz", hash = "sha256:2813f7aab87f0d20f334a3162ccfbcbf085977134a17a5b516940a93a77ea974", size = 38128 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/61/30/44c7eb0a952478dbb5f2f67df806686d6a7e4b19f6204e091c4f49dc7c69/grandalf-0.8-py3-none-any.whl", hash = "sha256:793ca254442f4a79252ea9ff1ab998e852c1e071b863593e5383afee906b4185", size = 41802 },
+]
+
+[[package]]
 name = "greenlet"
 version = "3.0.3"
 source = { registry = "https://pypi.org/simple" }
@@ -1621,6 +1633,7 @@ dependencies = [
     { name = "fastexcel" },
     { name = "geodatasets" },
     { name = "geopandas" },
+    { name = "grandalf" },
     { name = "langchain-community" },
     { name = "langchain-core" },
     { name = "langchain-openai" },
@@ -1632,6 +1645,7 @@ dependencies = [
     { name = "pillow" },
     { name = "pip" },
     { name = "polars" },
+    { name = "pygraphviz" },
     { name = "python-dotenv" },
     { name = "spacy" },
     { name = "spacytextblob" },
@@ -1648,8 +1662,9 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "fastexcel", specifier = ">=0.11.6" },
-    { name = "geodatasets" },
+    { name = "geodatasets", specifier = ">=2024.8.0" },
     { name = "geopandas", specifier = ">=1.0.1" },
+    { name = "grandalf", specifier = ">=0.8" },
     { name = "langchain-community", specifier = ">=0.2.16" },
     { name = "langchain-core", specifier = ">=0.2.38" },
     { name = "langchain-openai", specifier = ">=0.1.23" },
@@ -1661,6 +1676,7 @@ requires-dist = [
     { name = "pillow", specifier = ">=10.4.0" },
     { name = "pip", specifier = ">=24.2" },
     { name = "polars", specifier = ">=1.6.0" },
+    { name = "pygraphviz" },
     { name = "python-dotenv", specifier = ">=1.0.1" },
     { name = "spacy", specifier = ">=3.7.6" },
     { name = "spacytextblob", specifier = ">=4.0.0" },
@@ -1888,6 +1904,12 @@ sdist = { url = "https://files.pythonhosted.org/packages/8e/62/8336eff65bcbc8e4c
 wheels = [
     { url = "https://files.pythonhosted.org/packages/f7/3f/01c8b82017c199075f8f788d0d906b9ffbbc5a47dc9918a945e13d5a2bda/pygments-2.18.0-py3-none-any.whl", hash = "sha256:b8e6aca0523f3ab76fee51799c488e38782ac06eafcf95e7ba832985c8e7b13a", size = 1205513 },
 ]
+
+[[package]]
+name = "pygraphviz"
+version = "1.13"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/8c/41/7b9a22df38bb7884012b34f2986d765691dbe41bf5e7af881dfd09f8145f/pygraphviz-1.13.tar.gz", hash = "sha256:6ad8aa2f26768830a5a1cfc8a14f022d13df170a8f6fdfd68fd1aa1267000964", size = 104642 }
 
 [[package]]
 name = "pyogrio"

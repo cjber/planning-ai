@@ -24,6 +24,8 @@ dependencies = [
     "geopandas>=1.0.1",
     "matplotlib>=3.9.2",
     "geodatasets>=2024.8.0",
+    "grandalf>=0.8",
+    "pygraphviz>=1.13",
 ]
 
 [tool.uv]
