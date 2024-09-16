@@ -31,18 +31,18 @@ graph TD;
 ## Features
 
 - **Document Processing**: Extracts and processes text from various document formats including PDFs and Excel files.
-- **Summarization**: Generates concise summaries of responses, highlighting key points and overall sentiment.
+- **Summarisation**: Generates concise summaries of responses, highlighting key points and overall sentiment.
 - **Thematic Analysis**: Breaks down responses into thematic categories, providing a percentage breakdown of themes.
 - **Rate Limiting**: Ensures API requests are managed efficiently to comply with usage limits.
 
 ## Installation
 
-To set up the project, ensure you have Python 3.8 or higher installed. Then, clone the repository and install the required dependencies:
+To set up the project, ensure you have Python 3.12 installed. Then, clone the repository and install the required dependencies:
 
 ```bash
 git clone https://github.com/cjber/planning-ai.git
 cd planning_ai
-pip install . (or uv sync)
+pip install . # (or uv sync)
 ```
 
 ## Usage
