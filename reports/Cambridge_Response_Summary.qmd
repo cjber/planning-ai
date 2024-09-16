@@ -18,9 +18,13 @@ monofontoptions:
 
 ## Summary
 
-The responses to the South Cambridgeshire Council's proposed development plan reflect a complex and multifaceted sentiment among residents. While there is notable support for the development of a vibrant city district east of Milton Road and the expansion of the Cambridge Biomedical Campus, significant opposition exists regarding the potential impacts on local infrastructure, green spaces, and the character of existing villages. Many respondents emphasize the need for sustainable practices, affordable housing, and improved public transport to accommodate growth without compromising the quality of life for current residents. Concerns about overdevelopment, particularly in rural areas and the southern cluster of villages, are prevalent, with calls for preserving the green belt and ensuring that any new developments are accompanied by adequate infrastructure and community facilities. The overarching theme is a desire for balanced development that prioritizes environmental sustainability, community well-being, and the preservation of local identity.
+The responses to the proposed development plan by South Cambridgeshire Council reflect a diverse range of opinions, with a notable division between support for development in specific areas and strong opposition to further housing expansion, particularly in rural villages and green belt land. Many respondents express a desire for a balanced approach to development that prioritizes community needs, environmental sustainability, and the preservation of local character. 
 
-**OPPOSE**: 59.14% _(110)_ | **SUPPORT**: 34.41% _(64)_ | **NEUTRAL**: 6.45% _(12)_
+Supporters of the plan emphasize the potential for creating vibrant, mixed-use districts that include housing, jobs, and essential facilities, particularly around the Cambridge Biomedical Campus and the area east of Milton Road. They advocate for affordable housing, improved public transport, and the integration of green spaces to enhance community well-being. 
+
+Conversely, opponents raise significant concerns about the impact of overdevelopment on local infrastructure, traffic congestion, and the environment. Many respondents argue that existing facilities are already strained and that further housing should not be pursued without adequate infrastructure improvements. There is a strong sentiment against the relocation of the wastewater treatment plant, with many asserting that it is unnecessary and would harm green belt areas. The overarching theme among opponents is a call for preserving the rural character of villages and protecting green spaces from urban sprawl.
+
+**OPPOSE**: 59.14% _(110)_ | **SUPPORT**: 34.95% _(65)_ | **NEUTRAL**: 5.91% _(11)_
 
 ## Aim Breakdown
 
@@ -29,21 +33,21 @@ The aim breakdown identifies which aims are mentioned within each response. A si
 
 | **Aim** | **Percentage** | **Count** |
 |---|---|---|
-| Homes | 19.23% | 125 |
-| Infrastructure | 19.23% | 125 |
-| Wellbeing and social inclusion | 15.85% | 103 |
-| Great places | 15.23% | 99 |
-| Biodiversity and green spaces | 12.92% | 84 |
+| Homes | 18.86% | 122 |
+| Infrastructure | 18.70% | 121 |
+| Wellbeing and social inclusion | 15.92% | 103 |
+| Great places | 15.77% | 102 |
+| Biodiversity and green spaces | 13.29% | 86 |
 
 
 
 | Place                       |   Count |   Mean Sentiment |
 |:----------------------------|--------:|-----------------:|
-| Cambourne                   |     113 |          4.61062 |
-| Cambridge Biomedical Campus |     109 |          5.68807 |
-| Milton Road                 |      71 |          4.80282 |
-| Cambridge                   |      41 |          3.65854 |
-| Greater Cambridge           |      35 |          5.25714 |
+| Cambourne                   |     108 |          4.62963 |
+| Cambridge Biomedical Campus |     107 |          5.75701 |
+| Milton Road                 |      65 |          4.95385 |
+| Cambridge                   |      39 |          3.92308 |
+| southern rural cluster      |      39 |          3.58974 |
 
 ![Locations mentioned by sentiment](./figs/places.png)
 
@@ -52,53 +56,48 @@ The aim breakdown identifies which aims are mentioned within each response. A si
 
 
 ### Homes
-- Support for the development of affordable housing around the Cambridge Biomedical Campus to accommodate healthcare workers.
-- Advocacy for a mix of housing types in the proposed city district east of Milton Road, emphasizing the need for community-focused living spaces.
+- Support for the development of affordable housing, particularly for key workers around the Cambridge Biomedical Campus.
+- Advocacy for a mix of housing types in the area east of Milton Road to create a lively community.
 
 ### Jobs
-- Emphasis on creating job opportunities within the Cambridge Biomedical Campus and surrounding areas to support local employment.
-- Support for the development of business parks and local shops to enhance economic activity in Cambourne and other areas.
+- Emphasis on the need for job opportunities in conjunction with housing developments, particularly in the Cambridge Biomedical Campus area.
+- Support for local businesses and facilities that cater to the community's needs.
 
 ### Infrastructure
-- Support for improved public transport connections, including a tramway-style link to Cambridge city centre, to facilitate access to jobs and amenities.
-- Advocacy for the development of community facilities, such as schools, healthcare services, and recreational spaces, to support new housing developments.
+- Calls for improved public transport connections to reduce reliance on cars and enhance accessibility to new developments.
+- Advocacy for a strong, well-lit cycle network and pedestrian-friendly areas to promote active travel.
 
 ### Biodiversity and green spaces
-- Support for the inclusion of ample green spaces and parks in new developments to promote community well-being and environmental sustainability.
-- Emphasis on the need for wildlife conservation and the creation of green corridors in urban planning.
+- Support for the inclusion of parks, open spaces, and community facilities in new developments to enhance quality of life.
+- Emphasis on the importance of preserving existing green spaces and creating new wildlife habitats.
+
+### Wellbeing and social inclusion
+- The need for community hubs, schools, and recreational facilities to foster social interaction and support local residents.
+- Advocacy for developments that prioritize the well-being of residents, including access to healthcare and leisure activities.
 
 ## Key points raised in opposition
 
-### Infrastructure
-- Strong opposition to further development in areas like Cambourne and the southern rural cluster due to existing traffic congestion and inadequate public transport.
-- Concerns that new developments will exacerbate current infrastructure issues, particularly regarding healthcare and education facilities.
-
 ### Homes
-- Opposition to the proposed housing developments, arguing that there is no need for additional homes given the existing supply and the impact on local resources.
-- Criticism of the focus on high-density housing, which is seen as detrimental to the quality of life and character of the area.
+- Strong opposition to further housing development in Cambourne and surrounding villages, citing concerns about overcrowding and inadequate infrastructure.
+- Criticism of the focus on high-density housing that does not meet the needs of local communities.
+
+### Infrastructure
+- Concerns about existing traffic congestion and the strain on local services, such as schools and healthcare facilities, due to proposed developments.
+- Calls for a halt to development until adequate infrastructure, including public transport and healthcare services, is established.
 
 ### Biodiversity and green spaces
-- Strong opposition to any development that encroaches on green belt land, emphasizing the importance of preserving open spaces and natural habitats.
-- Concerns that the relocation of the wastewater treatment plant and other developments will lead to the loss of valuable green spaces.
+- Opposition to the relocation of the wastewater treatment plant, arguing it would encroach on green belt land and harm local ecosystems.
+- Emphasis on the need to protect existing green spaces and prevent further urban sprawl that threatens biodiversity.
 
-### Wellbeing and social inclusion
-- Criticism of the lack of community facilities in new developments, arguing that housing should not be built without accompanying social and cultural amenities.
-- Concerns that developments will lead to the merging of villages, eroding their unique identities and community cohesion.
+### Great places
+- Criticism of the lack of character in new developments, with calls for more thoughtful urban design that reflects the historical and cultural identity of the area.
+- Concerns that developments will lead to the merging of villages and loss of their distinct identities.
 
 ### Climate change
-- Opposition to developments that do not adequately address environmental sustainability, with calls for carbon-neutral housing and infrastructure.
-- Emphasis on the need for improved water management and the preservation of natural resources before any new developments are approved.
+- Strong emphasis on the need for sustainable practices in new developments, including the use of renewable energy and environmentally friendly building standards.
+- Calls for a reevaluation of growth assumptions in light of changing work patterns and the need to prioritize environmental integrity over profit-driven development.
 
 ## Summaries
-#### **TODO**
-The response expresses a mixed stance on the SCDC Local Plan, supporting the Green spaces policies but opposing the housing site off New Rd and the decision not to include certain housing site options. It argues that the proposed development does not meet local needs and suggests there are better alternatives.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 5
-
-
-
 #### **TODO**
 The response supports the inclusion of public bridleways in the Green Infrastructure policy, emphasizing their value for leisure and community enjoyment. It suggests that well-designed bridleways can benefit all users (walkers, riders, cyclists) and reduce traffic flow, creating a positive impact for the community. Additionally, it advocates for the inclusion of bridleways in the Longstanton policy, highlighting the importance of conservation areas and green separation.
 
@@ -109,20 +108,20 @@ The response supports the inclusion of public bridleways in the Green Infrastruc
 
 
 #### **TODO**
-The response strongly opposes the proposed developments at Bourn Airfield and West Cambourne, citing concerns over disproportionate housing growth, traffic congestion, and environmental impacts. It argues that the area cannot support the additional homes and that the burden of development should be more evenly distributed across South Cambridgeshire. Additionally, it supports the rejection of the North Cambourne development due to its impact on agricultural land, landscape, drainage issues, and traffic problems.
+The response expresses a mixed stance on the SCDC Local Plan, supporting the Green spaces policies but opposing the housing site off New Rd and the decision to exclude certain housing site options. It argues that the proposed development does not meet local needs and suggests there are better alternatives.
 
 **Stance**: OPPOSE
 
-**Constructiveness**: 8
+**Constructiveness**: 5
 
 
 
 #### **TODO**
-The response includes attached representations regarding the planning application proposed by South Cambridgeshire Council.
+The response strongly opposes the proposed developments at Bourn Airfield and West Cambourne, citing concerns over disproportionate housing growth, traffic congestion, and environmental impacts. It highlights the lack of comparable developments in other areas of South Cambridgeshire and supports the rejection of the North Cambourne development due to its agricultural value, potential flooding issues, and negative effects on local communities. The response emphasizes the need for a more balanced approach to housing distribution across the region.
 
-**Stance**: NEUTRAL
+**Stance**: OPPOSE
 
-**Constructiveness**: 5
+**Constructiveness**: 8
 
 
 
@@ -145,7 +144,7 @@ The response supports the policy H9 on affordable housing proposed by South Camb
 
 
 #### **TODO**
-The response supports increased housing development in villages, particularly Fen Ditton, arguing for its designation as a Minor Rural Centre to allow for up to 30 dwellings while enhancing green belt and open space. It highlights the village's proximity to Cambridge and the potential for sustainable growth without harming the green belt.
+The response supports increased housing development in villages, particularly Fen Ditton, arguing for its designation as a Minor Rural Centre to allow for up to 30 dwellings while enhancing green belt/open space. It highlights the village's proximity to Cambridge and the potential for sustainable growth without harming the green belt.
 
 **Stance**: SUPPORT
 
@@ -154,20 +153,38 @@ The response supports increased housing development in villages, particularly Fe
 
 
 #### **TODO**
-The response supports the inclusion of Lupin and Merton fields as local green spaces, suggesting that a section of Merton field could be developed into a fenced play area for children. The respondent emphasizes the importance of maintaining these green spaces amidst new housing developments, proposing that Lupin field could be managed as a wildlife area.
-
-**Stance**: SUPPORT
-
-**Constructiveness**: 8
-
-
-
-#### **TODO**
-The site meets the criteria for Local Green Space designation, supported by SCDC and the Parish Council. It is an integral green area in the village, surrounded by significant features and listed buildings. Development would harm the village's character and remove a valuable amenity.
+The site meets the criteria required for designation as Local Green Space, supported by the SCDC assessment and the Parish Council. It is an integral part of the village's green space, near listed buildings, and development would harm the area's character and remove a valuable amenity for villagers.
 
 **Stance**: SUPPORT
 
 **Constructiveness**: 9
+
+
+
+#### **TODO**
+The response supports the inclusion of Lupin and Merton fields as local green spaces, suggesting that a section of Merton field could be developed into a fenced play area for children. The respondent emphasizes the importance of maintaining these green spaces amidst new housing developments, proposing that Lupin field could be managed as a wildlife and flower area.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 8
+
+
+
+#### **TODO**
+The response from Sue Rogers, representing the Swavesey & District Bridleways Association, expresses concern that the South Cambridgeshire Local Plan draft overlooks the needs of horseriders and other Non-Motorised Users (NMUs). The response advocates for the inclusion of equestrian access in the Local Plan, highlighting the benefits of improved facilities for NMUs, such as reduced road traffic, economic development, and enhanced community wellbeing. The response also supports comments made by Shelford Bridleways regarding the need for inclusive routes and proper access provisions in major developments. Overall, the response calls for a revision of the Local Plan to better accommodate the needs of all NMUs.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 8
+
+
+
+#### **TODO**
+The response includes attached representations regarding the planning application proposed by South Cambridgeshire Council.
+
+**Stance**: NEUTRAL
+
+**Constructiveness**: 5
 
 
 
@@ -181,7 +198,7 @@ The response from RES UK and Ireland Limited, represented by Barton Willmore, cr
 
 
 #### **TODO**
-RES strongly opposes the proposed minimum separation distance of 2km between wind turbines and dwellings in Policy CC/2, arguing it is overly restrictive and contrary to national policy aimed at promoting renewable energy. They assert that such a distance is unnecessary and would hinder the development of onshore wind energy. RES supports Policy CC/3, which encourages the use of on-site renewable energy technologies in new developments, and suggests rewording objectives to better reflect the importance of renewable energy in addressing climate change. They also find the requirement for decommissioning details at the planning stage to be excessive.
+RES strongly opposes the proposed minimum separation distance of 2km between wind turbines and dwellings in Policy CC/2, arguing it is overly restrictive and contrary to national policy aimed at promoting renewable energy. They emphasize that local planning authorities should assess renewable energy proposals on a case-by-case basis rather than impose inflexible rules. RES supports Policy CC/3, which encourages the use of on-site renewable energy technologies in new developments, and suggests rewording objectives to better reflect the importance of renewable energy in combating climate change. They also find the requirement for decommissioning details at the planning stage to be excessive.
 
 **Stance**: OPPOSE
 
@@ -190,7 +207,7 @@ RES strongly opposes the proposed minimum separation distance of 2km between win
 
 
 #### **TODO**
-The response argues that the proposed policy is unsound because it imposes inflexible rules on separation distances, which contradicts the Planning Practice Guidance for Renewable and Low Carbon Energy. It claims the policy is not positively planned, justified, or consistent with national planning policy.
+The response argues that the proposed policy is unsound as it imposes inflexible rules on separation distances, contradicting the Planning Practice Guidance for Renewable and Low Carbon Energy. It claims the policy is not positively planned, justified, or consistent with national planning policy.
 
 **Stance**: OPPOSE
 
@@ -199,16 +216,7 @@ The response argues that the proposed policy is unsound because it imposes infle
 
 
 #### **TODO**
-The response opposes the proposed development due to concerns about insufficient infrastructure to support the increased population, including traffic, schools, and healthcare facilities. There is also a belief that the development is unnecessary for the area.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 2
-
-
-
-#### **TODO**
-The response from Sue Rogers, representing the Swavesey & District Bridleways Association, expresses concern that the South Cambridgeshire Local Plan draft neglects the needs of horseriders and other Non-Motorised Users (NMUs). The letter advocates for the inclusion of equestrian access in the Local Plan, highlighting the benefits of improved facilities for NMUs, such as reduced road traffic, economic development, and enhanced community wellbeing. The response opposes specific policies in the draft that do not align with national planning guidelines and calls for a commitment to secure countryside access for all NMU groups. Rogers emphasizes the success of the guided busway bridleway as a model for future developments and urges revisions to the Local Plan to better accommodate equestrian needs.
+The response opposes the redevelopment of the waste water treatment plant unless it is relocated to a greenfield site. It also opposes any development that would encroach on the green belt, including around the Cambridge Biomedical Campus and in the southern rural cluster of villages. The response advocates for no new development in villages without improved public transport and suggests a vision for Greater Cambridge in 2041 as a densified, vehicle-free city that does not sprawl onto the green belt.
 
 **Stance**: OPPOSE
 
@@ -217,11 +225,11 @@ The response from Sue Rogers, representing the Swavesey & District Bridleways As
 
 
 #### **TODO**
-The response opposes the redevelopment of the waste water treatment plant unless it is relocated to a greenfield site. It also opposes any development that would encroach on the green belt, including around the Cambridge Biomedical Campus and in the southern rural cluster of villages. The response advocates for no new development in villages without improved public transport and suggests that Greater Cambridge should aim to be a densified, vehicle-free city without sprawl into the green belt.
+The response opposes the proposed development due to concerns about insufficient infrastructure to support the increased population, including traffic, schools, and healthcare facilities. Additionally, there is a belief that the development is unnecessary for the area.
 
 **Stance**: OPPOSE
 
-**Constructiveness**: 8
+**Constructiveness**: 3
 
 
 
@@ -235,7 +243,16 @@ The response expresses apprehension about the proposed dense city district in No
 
 
 #### **TODO**
-The response advocates for the development of a vibrant city district east of Milton Road, emphasizing the need for facilities that support a circular economy, such as allotments, recycling centers, and sports facilities. It supports the expansion of the Cambridge Biomedical Campus with more healthcare and research facilities but opposes additional housing. The response calls for safe cycling routes to Cambridge and limited development in villages, with a focus on car-free initiatives and improved green spaces. It suggests potential development sites and envisions a car-free Greater Cambridge by 2041.
+The response strongly opposes any new developments in the area, emphasizing the need to address existing infrastructure issues before considering additional housing, jobs, or facilities. The respondent advocates for the preservation of open spaces and green landscapes, expressing a clear stance against the East-West Rail link and any development in villages without adequate infrastructure.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### **TODO**
+The response advocates for the development of a vibrant city district in North East Cambridge after relocating the waste water treatment plant, emphasizing the need for housing, jobs, and open spaces. It supports the East-West Rail project in Cambourne, suggesting central placement to enhance accessibility and boost the local economy, while also calling for improved services such as healthcare and education. The response favors limited development in rural areas, prioritizing open spaces and natural habitats, and stresses the importance of maintaining clear borders between villages. Overall, it envisions Greater Cambridge in 2041 as a green space-rich area with low-rise buildings and community gardens.
 
 **Stance**: SUPPORT
 
@@ -253,7 +270,7 @@ The response emphasizes the need for community spaces, green spaces, and afforda
 
 
 #### **TODO**
-The response advocates for the development of a vibrant city district in North East Cambridge after relocating the waste water treatment plant, emphasizing the need for housing, jobs, and open spaces. It supports the East-West Rail project in Cambourne, suggesting central placement to enhance accessibility and boost the local economy, while also calling for improved services like healthcare and education. The response favors limited development in rural areas, prioritizing open spaces and natural habitats, and stresses the importance of maintaining clear borders between villages. Overall, it envisions Greater Cambridge in 2041 as a green space-rich area with low-rise buildings and community gardens.
+The response advocates for the development of a vibrant city district east of Milton Road, emphasizing the need for facilities that support a circular economy, such as allotments, recycling centers, and sports facilities. It calls for car-free developments and safe cycling routes, particularly around Cambourne and selected villages. The response supports the expansion of healthcare and research facilities around the Cambridge Biomedical Campus but opposes additional housing. It also suggests developing open green spaces and improved walking and cycling routes in villages, and identifies a potential site for development north of Barton Road. Overall, the response envisions a car-free Greater Cambridge by 2041.
 
 **Stance**: SUPPORT
 
@@ -262,7 +279,7 @@ The response advocates for the development of a vibrant city district in North E
 
 
 #### **TODO**
-The response advocates for the development of community facilities in various areas, emphasizing the need for shared recreational spaces, biodiversity initiatives, healthcare facilities, and support for local businesses. It suggests creating inclusive environments for all ages, with specific amenities like playgrounds, gardens, and workshops. The response is consistent across different areas, highlighting a strong focus on community well-being and sustainability.
+The response advocates for the development of community facilities in various areas, emphasizing the need for shared recreational spaces, biodiversity initiatives, healthcare facilities, and support for local businesses. It suggests creating inclusive environments for all ages, with specific amenities like playgrounds, gardens, and workshops. The response is consistent across different areas, highlighting a strong focus on community well-being and environmental sustainability.
 
 **Stance**: SUPPORT
 
@@ -271,7 +288,7 @@ The response advocates for the development of community facilities in various ar
 
 
 #### **TODO**
-The response emphasizes the need for diverse community facilities, including recreational spaces, gardens, and support for local businesses. It advocates for the retention and strengthening of existing local policies regarding land use and development boundaries. The respondent does not suggest any additional sites for housing or business development.
+The response emphasizes the need for diverse community facilities, including recreational spaces, gardens, and support for local businesses. It advocates for the retention and strengthening of existing local policies regarding land use and development boundaries. The respondent does not suggest any new sites for housing or business use.
 
 **Stance**: SUPPORT
 
@@ -280,56 +297,29 @@ The response emphasizes the need for diverse community facilities, including rec
 
 
 #### **TODO**
-The response expresses a desire for the development of a lively city district east of Milton Road, including schools, healthcare facilities, and green spaces. It supports the expansion of the Cambridge Biomedical Campus with additional healthcare and research facilities, and suggests similar developments around Cambourne and the southern rural cluster. However, the respondent shows disinterest in further questions and specifically opposes development in Milton village.
+The response supports the development of a lively city district east of Milton Road in North East Cambridge, emphasizing the need for high-density housing with good transport links. It advocates for improved transport infrastructure around the Cambridge Biomedical Campus and Cambourne, highlighting the importance of non-car transport options. The response suggests looking to the Netherlands as a model for Greater Cambridge's development by 2041.
 
-**Stance**: OPPOSE
+**Stance**: SUPPORT
 
-**Constructiveness**: 4
+**Constructiveness**: 8
 
 
 
 #### **TODO**
-The response advocates for limited development in villages, suggesting that new development should only occur in villages that already have local services, particularly access to healthcare.
+The response supports the development of a lively city district east of Milton Road, emphasizing the need for cycling infrastructure, green spaces, and affordable housing. It advocates for prioritizing housing over jobs around the Cambridge Biomedical Campus, with a focus on bike lanes. The response calls for significant housing development in Cambourne and limited development in villages with good transport links, suggesting that villages like Duxford are ideal for new housing. It criticizes the underutilization of car-centric areas like the Beehive Centre for housing and amenities. Overall, the vision for Greater Cambridge in 2041 includes high environmental standards, abundant new homes, and reduced car dependency.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 9
+
+
+
+#### **TODO**
+The response advocates for limited development in villages, suggesting that new development should only occur in those with existing local services, particularly healthcare access.
 
 **Stance**: OPPOSE
 
 **Constructiveness**: 6
-
-
-
-#### **TODO**
-The response supports the development of various areas in Greater Cambridge, emphasizing the need for high-density housing with efficient transport links, particularly for cycling and public transport. It advocates for the development of independent businesses, healthcare facilities, and good transport infrastructure to reduce car dependency. The response also suggests looking to the Netherlands as a model for future development.
-
-**Stance**: SUPPORT
-
-**Constructiveness**: 8
-
-
-
-#### **TODO**
-The response expresses strong opposition to further development in the Greater Cambridge area, advocating for the preservation of open spaces and the green belt. It supports the idea of developing a lively city district east of Milton Road only if adequate parking is provided, but opposes additional development around the Cambridge Biomedical Campus, suggesting it is already over-developed. The response also calls for the scrapping of the East-West Rail project unless it is electric, and firmly states that no new housing or business development should occur in villages, emphasizing the need to protect green spaces. Additionally, it criticizes the unelected Greater Cambridge Partnership (GCP) and desires to maintain the current state of Greater Cambridge without its influence.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 2
-
-
-
-#### **TODO**
-The response strongly opposes the proposed developments in North East Cambridge, the Cambridge Biomedical Campus, Cambourne, and the southern rural cluster, advocating instead for re-wilding, preservation of rural land, and increased green spaces. It emphasizes the need for open spaces and nature over urban development, and suggests revitalizing existing urban areas rather than expanding into rural ones. The respondent expresses concern about climate change and the loss of biodiversity, calling for more trees and public footpaths in Greater Cambridge by 2041.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 8
-
-
-
-#### **TODO**
-The response supports the development of various areas in Greater Cambridge, emphasizing the need for more housing, improved cycling infrastructure, and green spaces. It advocates for prioritizing homes over jobs in the Cambridge Biomedical Campus area, suggests significant housing development in Cambourne, and encourages limited but strategic development in villages with good transport links. The response criticizes the current use of land in areas like the Beehive Centre for car-centric shopping and calls for high environmental standards and reduced car dependency by 2041.
-
-**Stance**: SUPPORT
-
-**Constructiveness**: 9
 
 
 
@@ -343,11 +333,38 @@ The response strongly opposes any further development in Cambridge and its surro
 
 
 #### **TODO**
-The response emphasizes the need for green, natural parks with trees and lakes in various proposed developments around Cambridge, including the area east of Milton Road, the Cambridge Biomedical Campus, Cambourne, and the southern rural cluster of villages. It expresses a strong preference for limited development in villages and advocates for an increase in green spaces by 2041.
+The response expresses strong opposition to further development in the Greater Cambridge area, advocating for the preservation of open spaces and the green belt. It supports the idea of developing a lively city district east of Milton Road only if adequate parking is provided, but opposes additional development around the Cambridge Biomedical Campus, suggesting it is already over-developed. The response also calls for the scrapping of the East-West Rail project unless it is electric, and firmly states that no new housing or business development should occur in villages, emphasizing the need to protect green spaces. Additionally, it criticizes the unelected Greater Cambridge Partnership (GCP) and desires to maintain the current state of Greater Cambridge without further development.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### **TODO**
+The response strongly opposes the proposed developments in various areas, advocating for the preservation of natural spaces and biodiversity instead. It emphasizes the need for re-wilding, protecting rural land, and limiting development in villages. The respondent expresses concern over climate change and pollution, suggesting a focus on open spaces and revitalizing existing urban areas rather than new developments. They call for more trees and public footpaths, highlighting the importance of nature in Greater Cambridge's future.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### **TODO**
+The response emphasizes the need for green, natural parks with trees and lakes in various proposed development areas, including the site east of Milton Road, around the Cambridge Biomedical Campus, Cambourne, and the southern rural cluster of villages. It expresses a strong preference for limited development in villages and advocates for an increase in green spaces by 2041.
 
 **Stance**: SUPPORT
 
 **Constructiveness**: 9
+
+
+
+#### **TODO**
+The response suggests that the area east of Milton Road could be developed into a vibrant city district with essential facilities like schools, healthcare, and community spaces. It supports the expansion of the Cambridge Biomedical Campus with additional green spaces. The respondent expresses boredom with repetitive questions about development in Cambourne and the southern rural cluster, indicating a desire for similar facilities as previously mentioned. They oppose development in Milton and are indifferent about other villages, showing a lack of engagement with the planning process.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 3
 
 
 
@@ -361,6 +378,24 @@ The response advocates for the development of socially inclusive housing and loc
 
 
 #### **TODO**
+The response expresses strong opposition to development in various areas until certain conditions are met, such as ensuring adequate water management and public transport. It emphasizes the need to preserve the character of rural villages and prioritize green spaces over new housing or facilities. The respondent is generally against dense urban development and seeks to maintain the attractiveness of existing areas.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 3
+
+
+
+#### **TODO**
+The response expresses opposition to the development of a dense city district east of Milton Road, citing a preference for outdoor garden spaces post-pandemic. It advocates for local job creation around the Cambridge Biomedical Campus and suggests Waterbeach as a village suitable for limited development, specifically for better shopping facilities. The respondent is uncertain about the current state of Cambourne and the southern rural cluster, indicating a lack of information to provide input.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 5
+
+
+
+#### **TODO**
 The response advocates for the development of affordable housing and essential facilities in various areas of Greater Cambridge, emphasizing the need for sustainability features like solar panels and EV charging stations. It highlights the importance of good public transport links, local amenities, and recreational spaces. The response expresses concern about the current capacity of local services in expanded villages and calls for improved connectivity for rural areas to urban centers.
 
 **Stance**: SUPPORT
@@ -370,11 +405,11 @@ The response advocates for the development of affordable housing and essential f
 
 
 #### **TODO**
-The response expresses opposition to the development of a dense city district east of Milton Road, citing a preference for outdoor garden spaces post-pandemic. It advocates for local job creation around the Cambridge Biomedical Campus and suggests Waterbeach as a village suitable for limited development, emphasizing the need for better shopping facilities. The respondent is uncertain about the current state of Cambourne and the southern rural cluster, indicating a lack of information to provide input.
+The response expresses strong opposition to housing developments in various areas, emphasizing the need to preserve green spaces and agricultural land. It supports the development of healthcare facilities and businesses but opposes additional housing at the Cambridge Biomedical Campus due to overcrowding. The response advocates for limited housing in villages and suggests focusing developments in Cambridge to promote walkability and public transport use. Overall, there is a desire to maintain farmland and natural open spaces in Greater Cambridge by 2041.
 
 **Stance**: OPPOSE
 
-**Constructiveness**: 5
+**Constructiveness**: 8
 
 
 
@@ -388,20 +423,11 @@ The response supports the development of the area east of Milton Road in North E
 
 
 #### **TODO**
-The response expresses skepticism about the proposed developments in North East Cambridge, the Cambridge Biomedical Campus, Cambourne, and surrounding villages. It emphasizes the need for affordable housing, proper public transport, and community-focused planning. The respondent criticizes the East-West Rail project and suggests that development should prioritize local needs and sustainable transport solutions, rather than catering to external speculators or commuters. Overall, the response advocates for careful consideration of community impacts and infrastructure before proceeding with development.
+The response expresses skepticism about the proposed developments in North East Cambridge, the Cambridge Biomedical Campus, Cambourne, and surrounding villages. It emphasizes the need for affordable housing, proper public transport, and community-focused planning. The respondent criticizes the East-West Rail project and suggests that development should prioritize local needs and sustainable transport solutions, rather than catering to external speculators or commuters. Overall, the response advocates for thoughtful, community-oriented development rather than hasty expansion.
 
 **Stance**: OPPOSE
 
 **Constructiveness**: 4
-
-
-
-#### **TODO**
-The response expresses strong opposition to development in various areas until certain conditions are met, such as ensuring adequate water management and public transport. It emphasizes the need to preserve the character of rural villages and prioritize green spaces over new housing or facilities. The respondent is generally against dense urban development and seeks to maintain the attractiveness of existing areas.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 3
 
 
 
@@ -411,24 +437,6 @@ The response emphasizes the need for affordable and social housing in the propos
 **Stance**: OPPOSE
 
 **Constructiveness**: 5
-
-
-
-#### **TODO**
-The response advocates for more open space in the proposed development area east of Milton Road in North East Cambridge. It emphasizes the need for improved transport infrastructure, including bike parking, safe pedestrian routes, and reliable public transport services, as well as electric car charging facilities.
-
-**Stance**: SUPPORT
-
-**Constructiveness**: 8
-
-
-
-#### **TODO**
-The response expresses strong opposition to housing developments in various areas, emphasizing the need to preserve green spaces and agricultural land. It supports the development of healthcare facilities and businesses but opposes additional housing at the Cambridge Biomedical Campus due to overcrowding. The response advocates for limited housing in villages and suggests focusing developments in Cambridge to promote sustainable transport options. Overall, there is a desire to maintain farmland and natural open spaces in Greater Cambridge by 2041.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 8
 
 
 
@@ -451,6 +459,24 @@ The response opposes the proposed developments in North East Cambridge, the Camb
 
 
 #### **TODO**
+The response advocates for the development of social housing accessible to all, including those without local connections. It suggests more one-bedroom housing for singles near the Cambridge Biomedical Campus and emphasizes the need for additional housing and small businesses in Cambourne. The response supports development in Cottenham and Willingham, highlighting the importance of good transport links and the need for more social housing without restrictions. It calls for a more inclusive approach to village expansion and better local amenities, including shops and parking.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 8
+
+
+
+#### **TODO**
+The response expresses support for developing the area east of Milton Road and the Cambridge Biomedical Campus, emphasizing the need for housing, jobs, and facilities. However, it questions the notion of Cambourne growing into a proper town, advocating for more retail and restaurant options without major developments north of the A428. The respondent agrees with limited development in villages, suggesting specific locations, and stresses the importance of maintaining village character. They also advocate for prioritizing brownfield development over greenfield sites for housing.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 7
+
+
+
+#### **TODO**
 The response opposes new development in Melbourn, citing recent housing growth that has outpaced local infrastructure, particularly in healthcare and education. The respondent believes the village should remain unchanged as it has already contributed to housing needs.
 
 **Stance**: OPPOSE
@@ -460,16 +486,7 @@ The response opposes new development in Melbourn, citing recent housing growth t
 
 
 #### **TODO**
-The response expresses support for developing the area east of Milton Road and around the Cambridge Biomedical Campus, emphasizing the need for housing, jobs, and facilities. However, it questions the notion of Cambourne growing into a proper town, advocating for more retail and restaurant options without major developments north of the A428. The response agrees with limited development in villages, suggesting specific locations, and stresses the importance of maintaining village character. It also emphasizes prioritizing brownfield development over greenfield sites for housing.
-
-**Stance**: SUPPORT
-
-**Constructiveness**: 7
-
-
-
-#### **TODO**
-The response supports the development of the Cambridge Biomedical Campus with a focus on healthcare facilities, housing, and open spaces. It advocates for the growth of Cambourne into a proper town with healthcare jobs and facilities. The response suggests that the southern rural cluster, particularly Shelford and Stapleford, should have mixed/lower-cost housing and recreational facilities. It also emphasizes limited development in villages, recommending Shelford, Stapleford (east), and Duxford for new development. Additionally, it highlights the importance of maintaining the distinction between city and villages, improving planning for electric vehicles, and addressing public transport challenges in small villages.
+The response advocates for more open space in the proposed development area east of Milton Road in North East Cambridge. It emphasizes the need for improved transport infrastructure, including bike parking, safe pedestrian routes, and reliable public transport services, as well as electric car charging facilities.
 
 **Stance**: SUPPORT
 
@@ -478,34 +495,16 @@ The response supports the development of the Cambridge Biomedical Campus with a 
 
 
 #### **TODO**
-The response advocates for the development of social housing accessible to all, including those without local connections. It suggests more one-bedroom housing for singles near the Cambridge Biomedical Campus and emphasizes the need for additional housing and small businesses in Cambourne. The response supports development in Cottenham and Willingham, highlighting the importance of good transport links and local services. It calls for fewer restrictions on who can move into villages, arguing for more inclusivity and the expansion of local amenities and businesses.
-
-**Stance**: SUPPORT
-
-**Constructiveness**: 8
-
-
-
-#### **TODO**
-The response advocates for the development of Cambourne into a proper town with amenities such as a swimming pool, adventure playground, and more retail options. It suggests limited development in villages, specifically naming Gamlingay and Bourn as suitable locations due to their existing services. Barton is identified as a potential site for housing or business use. Additionally, the response emphasizes the need for affordable parking, out-of-town shopping areas, and the creation of country parks to enhance the countryside experience by 2041.
-
-**Stance**: SUPPORT
-
-**Constructiveness**: 8
-
-
-
-#### **TODO**
-The response highlights the lack of essential facilities and infrastructure in Cambourne, such as a high street, swimming pool, and adequate public transport. It emphasizes the need for more jobs and entertainment venues to reduce reliance on travel to Cambridge. The respondent advocates for improved infrastructure before further development.
+The response highlights the lack of essential facilities and infrastructure in Cambourne, such as a high street, swimming pool, and adequate public transport. It emphasizes the need for more jobs and entertainment venues to reduce reliance on travel to Cambridge. The respondent advocates for improved infrastructure and local amenities to support the growth of Cambourne into a proper town.
 
 **Stance**: OPPOSE
 
-**Constructiveness**: 6
+**Constructiveness**: 5
 
 
 
 #### **TODO**
-The response emphasizes the need for development in North East Cambridge and around the Cambridge Biomedical Campus, advocating for schools, healthcare facilities, shops, and off-road cycle links. However, it strongly opposes large-scale development in Cambourne and the southern rural cluster, arguing that it would harm green spaces and rural communities. The response supports small-scale development on brownfield sites but rejects any development on green land, highlighting the importance of preserving the countryside and rural villages for mental and physical health.
+The response emphasizes the need for development in North East Cambridge and around the Cambridge Biomedical Campus, focusing on essential facilities like schools, healthcare, and local services while promoting off-road cycle links. However, it strongly opposes large-scale development in Cambourne and the southern rural cluster, arguing that it would harm green spaces and rural communities. The response supports small-scale development on brownfield sites but firmly rejects any development on green land, highlighting the importance of preserving the countryside and rural villages for mental and physical well-being.
 
 **Stance**: OPPOSE
 
@@ -514,7 +513,7 @@ The response emphasizes the need for development in North East Cambridge and aro
 
 
 #### **TODO**
-The response supports the development of the Cambridge Biomedical Campus with more healthcare facilities, research, and housing. It emphasizes the need for affordable housing and jobs in Cambourne to retain graduates, improved connectivity and amenities in the southern rural cluster, and careful development in villages to avoid impacting local services. Suggestions include developing a site in Meldreth for housing and a new pedestrian route, and creating a new village at Heydon Golf Course. The overall vision for Greater Cambridge by 2041 includes making it more affordable for young people and providing more family-friendly activities.
+The response supports the development of Cambourne into a proper town with amenities such as a swimming pool, adventure playground, and more retail options. It suggests limited development in villages, specifically naming Gamlingay and Bourn for new sites. Barton is identified as a potential site for housing or business. The vision for Greater Cambridge in 2041 includes more affordable parking, out-of-town shopping areas, and enhanced country parks to promote outdoor activities.
 
 **Stance**: SUPPORT
 
@@ -523,25 +522,16 @@ The response supports the development of the Cambridge Biomedical Campus with mo
 
 
 #### **TODO**
-The response advocates for the development of a vibrant city district with year-round outdoor entertainment for families and young people, as well as sports facilities to promote health and fitness around the Cambridge Biomedical Campus. It emphasizes the need for environmentally sustainable transport and housing in Greater Cambridge by 2041, criticizing the current situation.
+The response supports the development of the Cambridge Biomedical Campus with a focus on healthcare facilities, housing, and open spaces. It advocates for the growth of Cambourne into a proper town with healthcare jobs and facilities. The response suggests that the southern rural cluster, particularly Shelford and Stapleford, should have mixed/lower-cost housing and recreational facilities. It emphasizes limited development in villages, recommending Shelford, Stapleford (east), and Duxford for new development. Additionally, it stresses the importance of maintaining the distinction between city and villages, improving planning for electric vehicles, and addressing public transport challenges in small villages.
 
 **Stance**: SUPPORT
-
-**Constructiveness**: 7
-
-
-
-#### **TODO**
-The response emphasizes the need for development in specific areas while maintaining the rural character of Greater Cambridge. It advocates for the inclusion of essential facilities such as schools, healthcare, and leisure spaces in urban developments, particularly around the Cambridge Biomedical Campus and Cambourne. However, it opposes development in the southern rural cluster and stresses the importance of using brownfield sites over green spaces. The response calls for improved transport links and infrastructure, while expressing a desire to preserve the rural identity of the region.
-
-**Stance**: OPPOSE
 
 **Constructiveness**: 8
 
 
 
 #### **TODO**
-The response emphasizes the need for more schools and GPs in the southern rural cluster of villages near the rail line and business parks south of Cambridge, suggesting that limited development in this area should focus on these facilities.
+The response advocates for the development of a vibrant city district east of Milton Road, emphasizing the need for outdoor entertainment for families and young people. It also supports the expansion of the Cambridge Biomedical Campus with sports facilities aimed at improving health. Additionally, it calls for world-leading environmentally sustainable transport and housing by 2041, criticizing the current situation.
 
 **Stance**: SUPPORT
 
@@ -559,16 +549,7 @@ The response supports the development of a lively city district east of Milton R
 
 
 #### **TODO**
-The response expresses opposition to further development in the congested area east of Milton Road, while advocating for improved public transport, local shops, and diverse housing around the Cambridge Biomedical Campus. It suggests more shops and a cottage hospital in Cambourne, housing along the Cambridge-Royston railway, and development in specific villages with good transport links. The response emphasizes the need for improved services in these areas and calls for more housing in the southwest with good transport access. It envisions Greater Cambridge as a leading center of technical excellence by 2041.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 6
-
-
-
-#### **TODO**
-The response supports the development of various areas in North East Cambridge, around the Cambridge Biomedical Campus, Cambourne, and certain villages, emphasizing the need for diverse local shops, affordable housing, and facilities that cater to the community's needs. It advocates for the inclusion of faith centres, healthcare facilities, and improved public transport connections, while also suggesting potential development sites along the A1307.
+The response supports the development of the Cambridge Biomedical Campus with a focus on creating high-quality jobs and affordable housing. It advocates for the growth of Cambourne into a proper town with affordable housing for graduates, improved links and facilities in the southern rural cluster, and limited development in villages to avoid impacting local amenities. Suggestions include better access between villages, development of specific sites for housing and business, and a vision for Greater Cambridge to be more affordable and family-friendly by 2041.
 
 **Stance**: SUPPORT
 
@@ -577,7 +558,34 @@ The response supports the development of various areas in North East Cambridge, 
 
 
 #### **TODO**
-The response emphasizes the need for more parks and safe play areas in and around the villages.
+The response emphasizes the need for development in specific areas while maintaining the rural character of Greater Cambridge. It advocates for the inclusion of essential facilities such as schools, healthcare services, and leisure options in new developments, particularly in urban areas like North East Cambridge and around the Cambridge Biomedical Campus. However, it opposes development in the southern rural cluster and stresses the importance of using brownfield sites over green spaces. The response calls for improved transport links and infrastructure, while expressing a desire to preserve the rural identity of the region.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 7
+
+
+
+#### **TODO**
+The response emphasizes the need for more schools and GPs in the southern rural cluster of villages near the rail line and business parks south of Cambridge, suggesting that limited development in this area should focus on these facilities.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 8
+
+
+
+#### **TODO**
+The response expresses opposition to further development in the congested area east of Milton Road, while advocating for improved public transport, local shops, and diverse housing around the Cambridge Biomedical Campus. It suggests Cambourne should have more shops and a cottage hospital, and supports limited development in southern rural villages with better transport links. The response calls for improved facilities in these villages and proposes additional housing in the southwest with good transport access. Overall, it envisions Greater Cambridge as a leading center of technical excellence by 2041.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 7
+
+
+
+#### **TODO**
+The response supports the development of various areas in North East Cambridge, around the Cambridge Biomedical Campus, Cambourne, and certain villages, emphasizing the need for diverse local shops, affordable housing, and facilities that cater to the community's needs. It advocates for the inclusion of faith centres, healthcare facilities, and improved public transport connections, while also suggesting potential development sites along the A1307.
 
 **Stance**: SUPPORT
 
@@ -595,11 +603,11 @@ The response opposes the relocation of the Waste Water Treatment Works, arguing 
 
 
 #### **TODO**
-The response strongly opposes any further housing development in Cambourne, citing existing issues such as resource shortages and increased traffic. It argues that Cambourne has already evolved beyond its original concept of three connected villages with some town attributes, and is now functioning as a town.
+The response emphasizes the need for more parks and safe play areas in and around the villages.
 
-**Stance**: OPPOSE
+**Stance**: SUPPORT
 
-**Constructiveness**: 2
+**Constructiveness**: 8
 
 
 
@@ -613,7 +621,7 @@ The response supports high-density housing development in various areas of Great
 
 
 #### **TODO**
-The response strongly opposes the proposed developments in Greater Cambridge, expressing concerns about urban sprawl, pollution, and overdevelopment. It advocates for green spaces, better cycling paths, and public transport, while rejecting further expansion of Cambourne and the southern rural cluster. The respondent believes that existing housing plans exceed needs and expresses a desire to move away from the area due to these developments.
+The response strongly opposes any further housing development in Cambourne, citing existing issues such as resource shortages and increased traffic. The original vision of Cambourne as three connected villages has been lost, and it is now perceived as a town.
 
 **Stance**: OPPOSE
 
@@ -631,7 +639,25 @@ The response supports the development of Cambourne into a proper town with the E
 
 
 #### **TODO**
-The response expresses a desire for the development of a lively city district east of Milton Road, including healthcare facilities and parks around the Cambridge Biomedical Campus. However, it opposes further housing development in Cambourne and any new development in villages, advocating for the preservation of open spaces. The respondent also criticizes the planning process for lacking transparency.
+The response supports the development of the Cambridge Biomedical Campus with a focus on affordable housing for essential workers. It argues for limited development in the southern rural cluster of villages to balance the overdevelopment in the north and west of Cambridge. The response advocates for significant development in the south with good transport links to key sites, and suggests that villages along main railway lines and the East-West rail link should be prioritized for development. It emphasizes the need for car infrastructure until public transport can adequately meet diverse travel needs.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 8
+
+
+
+#### **TODO**
+The response strongly opposes the proposed developments in Greater Cambridge, expressing concerns about urban sprawl, pollution, and overdevelopment. It advocates for green spaces, better cycling paths, and public transport, while rejecting further expansion of Cambourne and the southern rural cluster. The respondent believes that existing housing plans exceed needs and expresses a desire to move away from the area due to these developments.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### **TODO**
+The response expresses a desire for the development of a lively city district east of Milton Road, emphasizing the need for healthcare facilities and open spaces around the Cambridge Biomedical Campus. However, it opposes further housing development in Cambourne and any new development in villages, advocating for the preservation of natural areas. The response also criticizes the planning process for lacking transparency.
 
 **Stance**: OPPOSE
 
@@ -640,7 +666,7 @@ The response expresses a desire for the development of a lively city district ea
 
 
 #### **TODO**
-The response supports the development of various facilities and housing in North East Cambridge, around the Cambridge Biomedical Campus, Cambourne, and southern rural clusters, emphasizing the need for doctors, schools, retail, and affordable housing. It highlights the lack of medical services and amenities in Cambourne due to ongoing developments and suggests that any new development in villages should be limited to those with existing good local amenities. The response also calls for less emphasis on large luxury homes in Greater Cambridge by 2041.
+The response supports the development of various facilities and housing in North East Cambridge, around the Cambridge Biomedical Campus, Cambourne, and southern rural clusters, emphasizing the need for doctors, schools, retail, and affordable housing. It highlights the lack of medical services and educational capacity in Cambourne due to ongoing developments. The response advocates for limited development in villages with good public transport and local amenities, and calls for an increase in amenity capacity. It expresses a desire for fewer large luxury homes in Greater Cambridge by 2041.
 
 **Stance**: SUPPORT
 
@@ -649,20 +675,11 @@ The response supports the development of various facilities and housing in North
 
 
 #### **TODO**
-The response supports the development of the Cambridge Biomedical Campus with a focus on affordable housing for essential workers. It advocates for limited development in the southern rural cluster of villages, emphasizing the need for a large development in the South to balance the overdevelopment in the North and to improve transport links. The response suggests that villages along main railway lines and the East-West rail link should be prioritized for development. It also highlights the necessity of accommodating car use until public transport becomes more reliable and affordable.
+The response to the planning application expresses no opinion on various proposed developments in the Greater Cambridge area, including the development of a city district east of Milton Road, expansion of the Cambridge Biomedical Campus, growth of Cambourne, limited development in the southern rural cluster of villages, and potential sites for housing or business use. Additionally, there are no suggestions for what Greater Cambridge should be like in 2041.
 
-**Stance**: SUPPORT
+**Stance**: NEUTRAL
 
-**Constructiveness**: 8
-
-
-
-#### **TODO**
-The response supports the development of a lively city district east of Milton Road in North East Cambridge, advocating for a mix of housing types, job opportunities, schools, and recreational open spaces. It also endorses the expansion of the Cambridge Biomedical Campus with additional healthcare facilities and housing, while emphasizing the need for recreational spaces. For Cambourne, the response suggests improvements to mitigate bleakness, and expresses skepticism about new developments in villages, indicating potential resistance from residents.
-
-**Stance**: SUPPORT
-
-**Constructiveness**: 7
+**Constructiveness**: 1
 
 
 
@@ -676,27 +693,9 @@ The response advocates for the development of a vibrant city district east of Mi
 
 
 #### **TODO**
-The response supports the development of the Cambridge Biomedical Campus by advocating for more affordable housing in proximity to job opportunities.
+The response supports the development of a lively city district east of Milton Road in North East Cambridge, emphasizing the need for a mix of housing types, job opportunities, schools, and recreational open spaces. It also advocates for the expansion of the Cambridge Biomedical Campus with additional healthcare facilities and housing, while suggesting that Cambourne needs improvements to its environment. The response is cautious about new developments in villages, indicating that residents may not favor such changes.
 
 **Stance**: SUPPORT
-
-**Constructiveness**: 8
-
-
-
-#### **TODO**
-The response expresses strong opposition to the proposed developments in Greater Cambridge, emphasizing the need for more open spaces, affordable public transport, and cleaner air. It criticizes the idea of dense city districts and high-rise apartments, citing past mistakes. The respondent advocates for better infrastructure, parks, and facilities for essential workers, while opposing any new development in villages. Overall, the response calls for a focus on sustainability and community well-being.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 2
-
-
-
-#### **TODO**
-The response emphasizes the need for ample public open space in the development east of Milton Road, while opposing further development around the Cambridge Biomedical Campus due to existing green belt concerns. It suggests Sawston as a suitable location for limited village development and advocates for a network of travel hubs to promote car-free travel into Cambridge instead of more park-and-ride facilities.
-
-**Stance**: OPPOSE
 
 **Constructiveness**: 7
 
@@ -712,11 +711,56 @@ The response expresses skepticism about relocating the wastewater treatment faci
 
 
 #### **TODO**
-The response to the planning application expresses no opinion on various proposed developments in the Greater Cambridge area, including the development of a city district east of Milton Road, expansion of the Cambridge Biomedical Campus, growth of Cambourne, limited development in southern rural villages, and potential new sites for housing or business. Additionally, there are no suggestions for what Greater Cambridge should be like in 2041.
+The response expresses strong opposition to the proposed developments in Greater Cambridge, emphasizing the need for more open spaces, affordable public transport, and cleaner air. It criticizes the idea of dense city districts and high-rise apartments, citing past mistakes. The respondent advocates for better infrastructure, parks, and facilities for essential workers, while opposing any new development in villages. Overall, the response calls for a focus on sustainability and community well-being.
 
-**Stance**: NEUTRAL
+**Stance**: OPPOSE
 
-**Constructiveness**: 1
+**Constructiveness**: 2
+
+
+
+#### **TODO**
+The response supports the development of the Cambridge Biomedical Campus by advocating for more affordable housing in proximity to job opportunities.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 8
+
+
+
+#### **TODO**
+The response emphasizes the need for ample public open space in the development east of Milton Road, while opposing further development around the Cambridge Biomedical Campus due to existing green belt concerns. It suggests Sawston as a suitable location for new development and advocates for a network of travel hubs to promote car-free travel into Cambridge instead of park-and-ride facilities.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 7
+
+
+
+#### **TODO**
+The response expresses strong opposition to the proposed high-density development in Cambridge, arguing it would degrade the quality of life and the city's character. It advocates for more balanced development across villages and emphasizes the need for cultural and social spaces in existing developments. The response also calls for a mix of employment opportunities in Cambourne and suggests that parish councils should take on small amounts of development rather than concentrating it in Cambridge.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 7
+
+
+
+#### **TODO**
+The response emphasizes the need for all developments in Greater Cambridge to be carbon net-zero, with a strong focus on creating green spaces and ensuring housing is suitable for wheelchair users. It advocates for a mix of housing, jobs, and facilities in various areas, including the Cambridge Biomedical Campus and Cambourne, while expressing concerns about potential commuting issues in rural areas. The response also stresses the importance of public transport accessibility for all, particularly for disabled individuals.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 9
+
+
+
+#### **TODO**
+The response supports the development of the Cambridge Biomedical Campus but raises concerns about the need for improved transport infrastructure and healthcare capacity due to population growth. It suggests that all villages should be open for development consideration, as they have space and are not congested. The response highlights the strain on healthcare services caused by the increasing population in Cambridge, indicating that quality healthcare is becoming difficult to maintain.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 7
 
 
 
@@ -730,38 +774,11 @@ The response expresses uncertainty regarding specific developments in various ar
 
 
 #### **TODO**
-The response strongly opposes development in the southern rural cluster of villages, emphasizing the need for preserving the quaint character of the area. It criticizes the current lack of effective public transport and insists that improving public transport should be the priority before considering any development. The respondent advocates for local amenities within walking distance and a reliable, affordable public transport system to reduce car dependency and traffic congestion. They stress the importance of frequent transport services, especially during peak hours and evenings, to enhance accessibility and quality of life.
+The response emphasizes the need for essential leisure and medical facilities in new developments, expressing concern that residents will have to travel to Cambridge for these services. It advocates for affordable housing that local residents can afford and suggests that all villages should be included in development plans to prevent overcrowding in Cambridge. The response calls for investment in areas outside Cambridge, like the Fens, and stresses the importance of ensuring infrastructure is in place before any new developments occur. Overall, it critiques past planning efforts for lacking adequate infrastructure.
 
 **Stance**: OPPOSE
 
-**Constructiveness**: 8
-
-
-
-#### **TODO**
-The response supports the development of the Cambridge Biomedical Campus but raises concerns about the need for improved transport infrastructure and healthcare capacity to accommodate the growing population. It suggests that all villages should be open for development consideration due to available space and manageable road conditions. The response emphasizes the strain on healthcare services due to population growth and the necessity for sustainable transport solutions.
-
-**Stance**: SUPPORT
-
-**Constructiveness**: 7
-
-
-
-#### **TODO**
-The response emphasizes the need for all developments in Greater Cambridge to be carbon net-zero, with a strong focus on creating green spaces and ensuring housing is suitable for wheelchair users. It advocates for a mix of housing, jobs, and facilities in various areas, including the Cambridge Biomedical Campus and Cambourne, while expressing concerns about potential commuting issues in rural areas. The response also stresses the importance of public transport accessibility for all, particularly for disabled individuals.
-
-**Stance**: SUPPORT
-
-**Constructiveness**: 8
-
-
-
-#### **TODO**
-The response emphasizes the need for essential leisure and medical facilities in new developments, expressing concern that residents will have to travel to Cambridge for these services. It advocates for affordable housing that local residents can afford and suggests that all villages should be included in development plans to prevent overcrowding in Cambridge. The response calls for investment in areas outside Cambridge, such as the Fens, and stresses the importance of ensuring infrastructure is in place before any new developments occur. Overall, it critiques past planning efforts for lacking adequate infrastructure.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 7
+**Constructiveness**: 6
 
 
 
@@ -779,12 +796,12 @@ The response opposes new development in villages, suggesting that only a few sit
 
 **Stance**: OPPOSE
 
-**Constructiveness**: 4
+**Constructiveness**: 3
 
 
 
 #### **TODO**
-The response advocates for mixed-use development in North East Cambridge, emphasizing the need for housing, healthcare, education, leisure, and open spaces to foster community. It supports the expansion of the Cambridge Biomedical Campus with additional healthcare and housing. Cambourne should develop self-sufficient community services to minimize travel. Limited development in villages should focus on brownfield sites or infill to maintain character, with essential facilities like schools and healthcare. No additional sites for development are suggested.
+The response advocates for the development of a vibrant city district east of Milton Road in North East Cambridge, emphasizing the need for cycle lanes, easy access to the river, wild green spaces, and local shops to create a lively community. It supports limited development in villages, suggesting they should serve as hubs with essential services like pubs and shops, while also highlighting the importance of public transport connections to tourist sites. Overall, the response prioritizes accessibility, green spaces, and community facilities.
 
 **Stance**: SUPPORT
 
@@ -793,25 +810,7 @@ The response advocates for mixed-use development in North East Cambridge, emphas
 
 
 #### **TODO**
-The response advocates for the development of a vibrant city district east of Milton Road, emphasizing the need for cycle lanes, easy access to green spaces, and local shops to create a lively community. It supports limited development in villages, suggesting they should serve as hubs with essential services like pubs and shops. The response also highlights the importance of public transport connections to tourist sites outside Cambridge.
-
-**Stance**: SUPPORT
-
-**Constructiveness**: 8
-
-
-
-#### **TODO**
-The response strongly opposes the proposed development in Great Shelford, arguing that it threatens the green belt, increases traffic issues, and puts pressure on local schools. The respondent believes that housing should be planned outside of the green belt and expresses concern over the overall number of homes planned near Cambridge.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 8
-
-
-
-#### **TODO**
-The response to the planning application expresses support for the development of a lively city district east of Milton Road after the relocation of the waste water treatment plant, and advocates for a railway station to support the Cambridge Biomedical Campus. It suggests reinstallation of the railway line between Haverhill and Cambridge to alleviate traffic issues, and emphasizes that new development should focus on new communities rather than altering existing villages. The response also highlights the need for improved broadband in rural areas to support remote work and addresses the rising housing demand due to the influx of skilled workers in the region.
+The response advocates for mixed-use development in North East Cambridge, emphasizing the need for housing, healthcare, education, leisure, and open spaces to foster community. It supports the expansion of the Cambridge Biomedical Campus with additional healthcare and housing. Cambourne should develop self-sufficient community services to minimize travel. Limited development in villages should focus on brownfield sites or infill to preserve character, with essential facilities like schools and healthcare. No additional sites for development are suggested.
 
 **Stance**: SUPPORT
 
@@ -829,7 +828,16 @@ The response opposes the proposed development in the green belt area of Shelford
 
 
 #### **TODO**
-The response advocates for the development of housing that is not overly dense and is carbon neutral, with a focus on starter homes for young families. It supports the expansion of the Cambridge Biomedical Campus while preserving the Nine Wells nature reserve. The response emphasizes the need for local community hubs, cafes, and access to greenery in Cambourne, while expressing concern about overdevelopment in rural villages and the importance of accommodating remote work. It suggests repurposing the Grafton Centre into housing with a design that fits Cambridge's character. Overall, the vision for Greater Cambridge in 2041 includes safety from rising sea levels and a commitment to environmental sustainability.
+The response strongly opposes the proposed development in Great Shelford, citing concerns about the impact on green belt land, increased traffic, pressure on local schools, and the lack of sustainable travel promotion. The respondent believes housing should be planned outside of the green belt and criticizes the overall number of homes planned near Cambridge.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### **TODO**
+The response to the planning application expresses support for the development of a lively city district east of Milton Road after the relocation of the waste water treatment plant, and emphasizes the need for a railway station at the Cambridge Biomedical Campus. It advocates for limited development in villages, focusing on new communities rather than altering existing ones, and highlights the importance of improving broadband in rural areas to support remote work. The response also notes the rising housing demand due to the influx of skilled workers in high-tech and bio sciences, suggesting that housing needs should cater to this sector while also being inclusive of other societal needs.
 
 **Stance**: SUPPORT
 
@@ -838,11 +846,20 @@ The response advocates for the development of housing that is not overly dense a
 
 
 #### **TODO**
-The response criticizes the planning application for lacking genuine sustainability and suggests better use of existing rail routes. It emphasizes the need for sustainable transport links to reduce car reliance in Greater Cambridge by 2041.
+The response advocates for the development of housing that is not overly dense and is carbon neutral, with a focus on starter homes for young families. It supports the expansion of the Cambridge Biomedical Campus while preserving the Nine Wells nature reserve. The response emphasizes the need for local community hubs, cafes, and access to greenery in Cambourne, while expressing caution about limiting development in rural villages to maintain their character. It suggests repurposing the Grafton Centre into housing with a design that fits Cambridge's skyline. Overall, the vision for Greater Cambridge in 2041 includes safety from rising sea levels and a commitment to environmental sustainability.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 8
+
+
+
+#### **TODO**
+The response opposes the relocation of the sewage works, arguing it would harm green belt land. It also opposes further development around the Cambridge Biomedical Campus due to existing traffic congestion. Additionally, it explicitly states not to relocate the sewage works to Honey Hill.
 
 **Stance**: OPPOSE
 
-**Constructiveness**: 6
+**Constructiveness**: 3
 
 
 
@@ -865,6 +882,24 @@ The response opposes the proposed development in Shelford, citing concerns about
 
 
 #### **TODO**
+The response supports limited development in the southern rural cluster of villages, emphasizing the need for essential facilities like doctors. It also stresses the importance of maintaining the village identity in Greater Cambridge by 2041.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 8
+
+
+
+#### **TODO**
+The response advocates for the development of the Cambridge Biomedical Campus with more diverse, human-scale buildings, including shops and cafes. It suggests that Cambourne needs a better town center with more amenities. It supports limited development in villages like Cottenham to maintain their identity and emphasizes the need for improved public transport, potentially a metro system, to reduce reliance on cars.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 8
+
+
+
+#### **TODO**
 The response strongly opposes the proposed development site in Shelford, arguing that it does not meet the criteria for exceptional circumstances to remove land from the green belt. It highlights that the site has been previously rejected for development, and new homeowners are likely to rely on cars rather than public transport. The response expresses concern about the potential merging of Shelford and Stapleford, which the green belt is intended to prevent, and notes that the nearby busway could lead to further encroachment on this area.
 
 **Stance**: OPPOSE
@@ -874,38 +909,20 @@ The response strongly opposes the proposed development site in Shelford, arguing
 
 
 #### **TODO**
-The response suggests that the southern rural cluster of villages near the rail line and business parks south of Cambridge could accommodate limited development, specifically mentioning the need for doctors. Additionally, it emphasizes the importance of maintaining the village identity in Greater Cambridge by 2041.
-
-**Stance**: SUPPORT
-
-**Constructiveness**: 7
-
-
-
-#### **TODO**
-The response opposes the relocation of the sewage works, arguing it would harm green belt land. It also opposes further development around the Cambridge Biomedical Campus due to existing traffic congestion. Additionally, it explicitly states not to relocate the sewage works to Honey Hill.
+The response expresses strong opposition to large-scale developments in various areas, emphasizing the need for affordable housing built to high environmental standards. It raises concerns about environmental impacts, particularly regarding biodiversity and public transport access. The response advocates for limited development in rural villages and highlights the importance of renewable energy and infrastructure improvements.
 
 **Stance**: OPPOSE
 
-**Constructiveness**: 3
+**Constructiveness**: 6
 
 
 
 #### **TODO**
-The response advocates for the development of the Cambridge Biomedical Campus with more diverse, human-scale buildings, particularly shops and cafes. It suggests that Cambourne needs a better town center with more amenities. It supports limited development in villages like Cottenham to maintain their identity and emphasizes the need for improved public transport, potentially a metro system, to reduce reliance on cars.
-
-**Stance**: SUPPORT
-
-**Constructiveness**: 8
-
-
-
-#### **TODO**
-The response expresses strong opposition to the relocation of the waste water treatment plant, emphasizing that waste should be processed where it is produced. It raises concerns about the capacity and financial struggles of Addenbrookes Hospital, suggesting a long-term plan for a new medical school. The respondent questions the classification of Cambourne as a proper town and highlights the need for clarity on the East-West Rail objectives. They advocate for a pause on further development in Meldreth and Melbourn due to capacity issues, while suggesting the need for more recreational facilities for youth. The response also criticizes the relocation of City Council offices to Alconbury due to lack of public transport access. Overall, the response is critical of proposed developments and emphasizes the need for careful planning and consideration of local needs.
+The response criticizes the planning application for lacking genuine sustainability and suggests better use of existing rail routes. It emphasizes the need for sustainable transport links to reduce car reliance in Greater Cambridge by 2041.
 
 **Stance**: OPPOSE
 
-**Constructiveness**: 3
+**Constructiveness**: 6
 
 
 
@@ -928,24 +945,6 @@ The response expresses opposition to dense developments in the area east of Milt
 
 
 #### **TODO**
-The response expresses strong opposition to the proposed housing development in Stapleford/Shelford, citing concerns about increased traffic, safety for children, lack of school capacity, and the loss of the village's identity. The respondent feels that the planners have not adequately considered these issues.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 2
-
-
-
-#### **TODO**
-The response supports the development of a lively city district east of Milton Road in North East Cambridge, emphasizing the need for adequate parking. It strongly backs the expansion of the Cambridge Biomedical Campus with a mix of high-tech facilities and open spaces. However, it opposes the current East-West Rail route and suggests limited development in the southern rural cluster. It proposes housing and business development in Duxford and along the A505, and advocates for a sustainable metro system to connect Cambridge with surrounding villages.
-
-**Stance**: SUPPORT
-
-**Constructiveness**: 8
-
-
-
-#### **TODO**
 The response advocates for the expansion of the Park and Ride (P&R) facility and the establishment of regular bus and train services to create a more integrated travel system, addressing current inefficiencies.
 
 **Stance**: SUPPORT
@@ -955,11 +954,11 @@ The response advocates for the expansion of the Park and Ride (P&R) facility and
 
 
 #### **TODO**
-The response supports the development of various areas in Greater Cambridge, emphasizing the need for segregated cycle paths, mixed-use neighborhoods, and improved access to services. It envisions a city with minimal car usage, affordable housing, and vibrant communities, with a focus on active travel and connectivity between neighborhoods.
+The response supports the development of a lively city district east of Milton Road in North East Cambridge, emphasizing the need for adequate parking. It strongly backs the expansion of the Cambridge Biomedical Campus with a mix of high-tech facilities and open spaces. However, it opposes the current East-West Rail route and suggests limited development in the southern rural cluster. It proposes housing and business development in Duxford and along the A505, and advocates for a sustainable metro system to connect Cambridge with surrounding villages by 2041.
 
 **Stance**: SUPPORT
 
-**Constructiveness**: 9
+**Constructiveness**: 8
 
 
 
@@ -973,11 +972,56 @@ The response supports the development of the Cambridge Biomedical Campus with a 
 
 
 #### **TODO**
+The response expresses strong opposition to the proposed housing development in Stapleford/Shelford, citing concerns about increased traffic, safety for children, lack of school capacity, and the loss of the village's identity. The respondent feels that the planners have not adequately considered these issues.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### **TODO**
 The response strongly opposes the relocation of the waste water treatment plant and any further development in Cambridge, emphasizing the need to prioritize the environment and combat climate change. It argues that the current site is functioning well and that additional housing and facilities are unnecessary. The respondent advocates for better public transport and the preservation of green spaces instead of more development.
 
 **Stance**: OPPOSE
 
 **Constructiveness**: 2
+
+
+
+#### **TODO**
+The response supports the development of a lively city district east of Milton Road in North East Cambridge after relocating the waste water treatment plant. It advocates for the expansion of the Cambridge Biomedical Campus with more healthcare facilities, research, and housing, including jobs and training opportunities. The respondent is unsure about the current offerings in Cambourne but acknowledges the potential for growth. They suggest limited development in villages with good transport links, proposing essential facilities like shops, healthcare services, and community spaces. Overall, the response is neutral regarding specific sites for development and future visions for Greater Cambridge.
+
+**Stance**: NEUTRAL
+
+**Constructiveness**: 6
+
+
+
+#### **TODO**
+The response supports the development of various areas in Greater Cambridge, emphasizing the need for segregated cycle paths, mixed-use neighborhoods, and improved access to services. It envisions a city with minimal car usage, affordable housing, and vibrant communities, with a focus on active travel and connectivity between neighborhoods.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 9
+
+
+
+#### **TODO**
+The response advocates for the development of a vibrant city district east of Milton Road, emphasizing the need for community facilities such as schools, shops, and green spaces. It supports the Cambridge Biomedical Campus but insists that any development should remain within its boundaries to protect surrounding areas. For Cambourne, it suggests similar community amenities. However, it strongly opposes development on greenbelt land in the southern rural cluster, advocating instead for increased access to green spaces. The respondent expresses discontent with current economic growth plans, calling for better protection of greenbelt areas, reduced congestion, and more affordable housing options for downsizing.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 7
+
+
+
+#### **TODO**
+The response opposes the relocation of the waste water treatment plant due to environmental concerns and criticizes the use of green belt land for development. It suggests low-density housing around the current plant and expresses that the Cambridge Biomedical Campus is already overdeveloped. The response advocates for limited development in villages, with a focus on recreational facilities and improved bus services. It also proposes the creation of wooded areas and parks for recreational use.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 6
 
 
 
@@ -991,110 +1035,11 @@ The response opposes the proposed development in Great Shelford, citing concerns
 
 
 #### **TODO**
-The response advocates for the development of a vibrant city district east of Milton Road, emphasizing the need for schools, shops, and green spaces. It supports the Cambridge Biomedical Campus but insists that development should remain within its boundaries to protect surrounding areas. For Cambourne, it suggests similar community facilities. However, it strongly opposes development on greenbelt land in the southern rural cluster, advocating instead for better access to green spaces. The respondent expresses discontent with unconsulted economic growth plans, calling for the protection of greenbelt, reduced congestion, and more affordable housing options for downsizing.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 7
-
-
-
-#### **TODO**
-The respondent expresses uncertainty about supporting the relocation of the wastewater treatment works, indicating a lack of clear endorsement for the proposed development of the area into a city district.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 4
-
-
-
-#### **TODO**
-The response supports the development of a lively city district east of Milton Road in North East Cambridge after relocating the waste water treatment plant. It advocates for the expansion of the Cambridge Biomedical Campus with more healthcare facilities, research, and housing, including jobs and training opportunities. The respondent is unsure about the current offerings in Cambourne but acknowledges the potential for growth. They suggest limited development in villages with good transport links, proposing essential services like shops, healthcare facilities, and community spaces. Overall, the response is neutral regarding specific sites for development and future visions for Greater Cambridge.
-
-**Stance**: NEUTRAL
-
-**Constructiveness**: 6
-
-
-
-#### **TODO**
-The response emphasizes the need for balanced development in Greater Cambridge, advocating for affordable housing, adequate facilities, and open spaces while avoiding excessive density. It highlights the importance of supporting the Cambridge Biomedical Campus with affordable housing, suggests an outdoor market in Cambourne, and stresses the need for careful development in rural areas to prevent them from becoming mere commuter towns. The response also identifies specific sites for potential development and underscores the ongoing necessity for driving and tradespeople's access.
-
-**Stance**: SUPPORT
-
-**Constructiveness**: 8
-
-
-
-#### **TODO**
 The response expresses opposition to various development proposals in Greater Cambridge, advocating for a focus on infrastructure improvements before any new housing or business developments. It suggests creating a quality green recreation area in North East Cambridge but opposes further development around the Cambridge Biomedical Campus and Cambourne, recommending a light rail network instead of East-West Rail. The response emphasizes the need for improved medical and education facilities in villages, while rejecting any new development sites. Overall, it calls for a slowdown in development until proper infrastructure is established.
 
 **Stance**: OPPOSE
 
 **Constructiveness**: 3
-
-
-
-#### **TODO**
-The response opposes the relocation of the waste water treatment plant due to environmental concerns and suggests developing low-density housing around the current site. It also states that the Cambridge Biomedical Campus is already overdeveloped, advocates for limited development in villages, and calls for more recreational facilities. Additionally, it emphasizes the need for improved bus services and the creation of wooded areas and parks for recreational use.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 6
-
-
-
-#### **TODO**
-The response emphasizes the need for limited development in villages to preserve their character, advocating for the reuse of brownfield sites with environmentally friendly buildings. It envisions Greater Cambridge in 2041 as a clean, green space rich in wildlife, where residents take pride in their community.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 8
-
-
-
-#### **TODO**
-The response expresses a preference for developing a lively city district with a focus on nature reserves, recreational facilities, and local amenities rather than dense housing. It emphasizes the importance of open spaces, schools, and community resources while opposing excessive housing development in villages, advocating for their preservation. The respondent is neutral about Cambourne due to unfamiliarity and suggests that all areas should have access to quality facilities.
-
-**Stance**: NEUTRAL
-
-**Constructiveness**: 6
-
-
-
-#### **TODO**
-The response expresses strong opposition to the proposed developments in various areas around Cambridge due to existing congestion and inadequate public transport infrastructure. It emphasizes the need for improved public transport before any new housing is built, particularly in congested areas like Milton Road and Cambourne. The response also highlights the lack of green spaces around the Cambridge Biomedical Campus and calls for more green areas. Overall, the sentiment is against further development without addressing transportation issues first.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 3
-
-
-
-#### **TODO**
-The response supports the development of a lively city district east of Milton Road with affordable housing and open spaces, emphasizes the need for adequate housing for staff around the Cambridge Biomedical Campus, and highlights the importance of public transport to reduce congestion. It advocates for affordable housing in the southern rural cluster and expresses caution regarding development in villages. The response stresses the need to consider climate change and local transport issues for future development in Greater Cambridge.
-
-**Stance**: SUPPORT
-
-**Constructiveness**: 8
-
-
-
-#### **TODO**
-The response strongly opposes the proposed development in Greater Cambridge, arguing that there is no need for more housing, jobs, or buildings due to existing adverse effects on water supplies and air quality. The respondent calls for a halt to economic growth and development, emphasizing the need for maintaining current open spaces and limiting population growth. They advocate for job growth in Cambourne without increasing housing, and express frustration that local government is not listening to residents' concerns.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 2
-
-
-
-#### **TODO**
-The response opposes the proposed development by South Cambridgeshire Council, advocating for limited development only on brownfield sites and emphasizing the need to protect the green belt. It rejects any additional sites for housing or business use, arguing that current proposals are excessive and detrimental to the city and surrounding areas.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 2
 
 
 
@@ -1108,61 +1053,7 @@ The response criticizes South Cambridgeshire Council for misidentifying car trav
 
 
 #### **TODO**
-The response opposes the proposed development in Shelford, arguing that it is unlikely to encourage train commuting due to low current usage of the station. The respondent believes that new housing should be located further from Cambridge to promote train use. Additionally, they criticize the site selection, citing poor access and existing traffic issues.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 7
-
-
-
-#### **TODO**
-The response emphasizes the need for developments that minimize car dependency by ensuring all amenities are within walking and cycling distance. It advocates for wildlife conservation and green living in proposed developments around North East Cambridge, the Cambridge Biomedical Campus, Cambourne, and the southern rural cluster of villages. The respondent supports limited development in villages with good public transport and expresses a vision for a future with no private cars, focusing on green and accessible local spaces.
-
-**Stance**: SUPPORT
-
-**Constructiveness**: 9
-
-
-
-#### **TODO**
-The response supports the development of a lively city district east of Milton Road in North East Cambridge after relocating the waste water treatment plant, suggesting it should provide housing, jobs, facilities, and open spaces akin to a small town. It advocates for limited development in villages, specifically recommending Melbourn due to its existing employment and transport links. The response emphasizes the need for high-value jobs and ample green space in developments, catering to those who prefer proximity to work without the social resources of a city. Additionally, it expresses a general vision for Greater Cambridge in 2041 without specific details.
-
-**Stance**: SUPPORT
-
-**Constructiveness**: 7
-
-
-
-#### **TODO**
-The response expresses opposition to the proposed developments in various areas, citing concerns about overdevelopment and the adequacy of existing facilities. It suggests that the area east of Milton Road could be developed into a vibrant district after relocating the wastewater treatment plant, but emphasizes that the Cambridge Biomedical Campus has enough development already. It also argues that the East-West Rail route should respect existing village connections and criticizes the southern rural cluster for being overdeveloped. Finally, it warns against overestimating housing needs, attributing it to the greed of building firms rather than actual demand.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 4
-
-
-
-#### **TODO**
-The response strongly opposes any development in the Greater Cambridge area until a guaranteed water supply is established. This applies to various proposed developments, including those around Milton Road, the Cambridge Biomedical Campus, Cambourne, and rural villages. The emphasis is on ensuring water infrastructure is in place before considering any housing, jobs, or facilities.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 1
-
-
-
-#### **TODO**
-The response supports the development of a lively city district east of Milton Road after relocating the wastewater treatment plant, emphasizing the need for working locations, schools, shops, community facilities, and electric car charging points. It advocates for the Cambridge Biomedical Campus to expand within its current boundaries. The response suggests that East-West Rail should go north of Cambourne to serve existing housing developments. It expresses opposition to development in the southern rural cluster of villages, citing concerns about increased traffic and the nature of commuter homes. The response does not identify specific villages for new development and emphasizes the importance of local jobs and fast broadband. It strongly opposes the EWR Southern route due to its impact on the countryside and conservation areas.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 6
-
-
-
-#### **TODO**
-The response strongly opposes the relocation of the waste water treatment plant, arguing it is unnecessary and detrimental to sustainability efforts. It advocates for more affordable housing for key workers around the Cambridge Biomedical Campus but does not provide input on other areas or questions.
+The respondent expresses uncertainty about supporting the relocation of the wastewater treatment works, indicating a lack of clear endorsement for the proposed development of the area into a city district.
 
 **Stance**: OPPOSE
 
@@ -1171,11 +1062,83 @@ The response strongly opposes the relocation of the waste water treatment plant,
 
 
 #### **TODO**
-The response supports the development of a lively city district east of Milton Road in North East Cambridge, advocating for a mix of housing types, green spaces, shops, and community areas. It emphasizes the need for improved access through a bridge and suggests that any village development should be sensitive to local character. The response calls for better road surfaces for cycling, more trees and green spaces, and investment in neglected areas to reduce inequality and enhance overall living conditions in Greater Cambridge by 2041.
+The response expresses a preference for developing a lively city district with a focus on nature reserves, recreational facilities, and local amenities rather than dense housing. It emphasizes the importance of open spaces, schools, and community resources while opposing excessive housing development in villages, advocating for their preservation. The respondent is neutral about Cambourne due to unfamiliarity and suggests that all areas should have access to quality facilities.
+
+**Stance**: NEUTRAL
+
+**Constructiveness**: 6
+
+
+
+#### **TODO**
+The response strongly opposes the proposed development in Greater Cambridge, arguing that there is no need for more housing, jobs, or buildings due to existing adverse effects on water supplies and air quality. The respondent emphasizes the need to stop economic growth and limit population increase, advocating for maintaining current open spaces and only allowing job growth in Cambourne without corresponding housing development. They express frustration that local government is not listening to residents' concerns.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### **TODO**
+The response supports the development of a lively city district east of Milton Road in North East Cambridge after relocating the waste water treatment plant, suggesting it should provide housing, jobs, facilities, and open spaces akin to a small town. It advocates for limited development in villages, specifically recommending Melbourn due to its existing employment and transport links, and emphasizes the need for high-value jobs and green spaces in these developments. The response expresses a vision for Greater Cambridge in 2041 but does not elaborate further.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 7
+
+
+
+#### **TODO**
+The response emphasizes the need for limited development in villages to preserve their character, advocating for the reuse of brownfield sites with environmentally friendly buildings. It envisions Greater Cambridge in 2041 as a clean, green space rich in wildlife, where residents care for their environment.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 8
+
+
+
+#### **TODO**
+The response opposes the proposed development by South Cambridgeshire Council, advocating for limited development only on brownfield sites and emphasizing the need to protect the green belt. It rejects any additional sites for housing or business use, arguing that current proposals are excessive and detrimental to the city and surrounding areas.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### **TODO**
+The response advocates for the development of affordable housing and adequate open spaces in North East Cambridge, support for the Cambridge Biomedical Campus with housing for staff, and improved transport options to reduce congestion. It emphasizes the need for affordable housing in Cambourne and the southern rural cluster, while expressing uncertainty about specific villages for development. The response highlights the importance of considering climate change and local transport in future planning decisions for Greater Cambridge by 2041.
 
 **Stance**: SUPPORT
 
 **Constructiveness**: 8
+
+
+
+#### **TODO**
+The response opposes the proposed development in Shelford, arguing that it is unlikely to encourage train commuting as most residents drive to Cambridge. It criticizes the site selection, citing poor access and existing traffic issues, and suggests that new housing should be planned in villages further from Cambridge to promote train use.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 7
+
+
+
+#### **TODO**
+The response strongly opposes any development in the Greater Cambridge area until a guaranteed water supply is established. This applies to various proposed developments, including those around Milton Road, the Cambridge Biomedical Campus, Cambourne, and rural villages. The emphasis is on ensuring water infrastructure is in place before considering any housing, jobs, or facilities.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### **TODO**
+The response expresses opposition to the proposed developments in various areas, citing concerns about overdevelopment and the adequacy of existing facilities. It suggests that the area east of Milton Road could be developed after relocating the wastewater treatment plant, but emphasizes that the Cambridge Biomedical Campus has enough development already. It also argues that the East-West Rail route should respect existing village links and criticizes the southern rural cluster for being overdeveloped. Additionally, it believes that the projected housing needs are exaggerated and driven by profit motives rather than actual demand.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 4
 
 
 
@@ -1189,16 +1152,7 @@ The response advocates for the development of a sustainable and community-focuse
 
 
 #### **TODO**
-The response emphasizes the importance of high-quality housing to reduce carbon emissions, advocating for passivhaus standards in all new developments. It expresses opposition to further development in villages surrounding Northstowe due to inadequate public transport and amenities. The response also calls for ample green spaces and infrastructure to support active travel in new developments.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 7
-
-
-
-#### **TODO**
-The response supports the development of a lively city district east of Milton Road with larger entertainment venues, advocates for affordable housing for medical staff around the Cambridge Biomedical Campus, suggests a safe cycle route into Cambourne, opposes new developments in villages, recommends a new GP surgery and playground in Histon, and emphasizes the importance of green spaces in Greater Cambridge by 2041.
+The response emphasizes the need for developments that minimize car usage by ensuring all amenities are within walking and cycling distance. It advocates for wildlife conservation and green living in proposed developments around North East Cambridge, the Cambridge Biomedical Campus, Cambourne, and the southern rural cluster of villages. The respondent supports limited development in villages with good public transport and expresses a vision for a future with no private cars, focusing on green and accessible local spaces.
 
 **Stance**: SUPPORT
 
@@ -1207,11 +1161,56 @@ The response supports the development of a lively city district east of Milton R
 
 
 #### **TODO**
-The response opposes the proposed development in Great Shelford, citing concerns about the importance of the green belt for village separation, existing traffic issues, and potential strain on local services. The respondent believes there are no compelling reasons for choosing this site over others and highlights the negative impacts of the development.
+The response strongly opposes the relocation of the waste water treatment plant, arguing it is unnecessary and detrimental to sustainability efforts. It advocates for more affordable housing for key workers around the Cambridge Biomedical Campus but does not provide input on other areas or questions.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 5
+
+
+
+#### **TODO**
+The response advocates for the development of a tramway-style connection to the city centre of Cambridge and emphasizes the need for world-class walking and cycling infrastructures across various proposed developments in the Greater Cambridge area. It expresses a strong preference for environmentally friendly public transport solutions over reliance on cars and buses, while also supporting the growth of housing and facilities in key areas such as the Cambridge Biomedical Campus and Cambourne. The response is critical of limited development in villages, suggesting that only those with good public transport connections should see new development.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 8
+
+
+
+#### **TODO**
+The response supports the development of a lively city district east of Milton Road in North East Cambridge, advocating for a mix of housing types, green spaces, shops, and community areas. It emphasizes the need for improved access through a bridge and suggests that any village development should be sensitive to local character. The response calls for better road surfaces for cycling, more trees and green spaces, and investment in neglected areas to reduce inequality and enhance overall living conditions in Greater Cambridge by 2041.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 8
+
+
+
+#### **TODO**
+The response opposes the proposed development in Great Shelford, citing concerns about the importance of the green belt for village separation, existing traffic issues, and potential strain on local schools and healthcare. The respondent believes there are no compelling reasons for choosing this site over others, and the negatives outweigh any benefits.
 
 **Stance**: OPPOSE
 
 **Constructiveness**: 3
+
+
+
+#### **TODO**
+The response supports the development of a lively city district east of Milton Road with larger entertainment venues, advocates for affordable housing for medical staff around the Cambridge Biomedical Campus, suggests a safe cycle route into Cambourne, opposes new development in villages, recommends a new GP surgery and playground in Histon, and emphasizes the importance of green spaces in Greater Cambridge by 2041.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 8
+
+
+
+#### **TODO**
+The response emphasizes the importance of high-quality housing to reduce carbon emissions, advocating for passivhaus standards in all new developments. It expresses opposition to further development in villages surrounding Northstowe due to inadequate public transport and amenities. The response also calls for ample green spaces and infrastructure to support active travel in new developments.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 7
 
 
 
@@ -1225,7 +1224,34 @@ Improvements are needed for Newmarket Road as part of the vision for Greater Cam
 
 
 #### **TODO**
-The response supports the development of eco-friendly housing, zero carbon transport, parks, leisure centres, and parcel drop-off points in various areas including North East Cambridge, around the Cambridge Biomedical Campus, Cambourne, and the southern rural cluster of villages. It emphasizes the need for spacious localities and limited development in villages, while also suggesting the inclusion of wind turbines for energy generation in rural homes. However, it does not specify which villages should see new development and does not identify any additional sites for housing or business use.
+The response expresses skepticism about relocating the waste water treatment plant to the green belt for the development of a city district east of Milton Road, suggesting other sites should be considered instead. It supports the expansion of the Cambridge Biomedical Campus with additional facilities, including a train station, more cycle storage, shops, and childcare facilities due to current oversubscription. Additionally, it advocates for better and safer cycle lanes in surrounding villages.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 6
+
+
+
+#### **TODO**
+The response advocates for limited development in the southern rural cluster of villages, suggesting infill housing rather than a large new town. It supports development in Melbourn and Foxton, emphasizing the need for family-sized houses and open green spaces, while dismissing the idea of additional sites for housing or business use.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 7
+
+
+
+#### **TODO**
+The response supports the development of a lively city district east of Milton Road after relocating the wastewater treatment plant, emphasizing the need for working locations, schools, shops, community facilities, and electric car charging points. It advocates for the Cambridge Biomedical Campus to expand within its current boundaries. The response suggests that East-West Rail should go north of Cambourne to connect with Northstowe, while expressing skepticism about development in the southern rural cluster of villages due to potential traffic issues. It does not identify specific villages for new development and promotes local job creation and fast broadband. The response strongly opposes the EWR Southern route due to its impact on the countryside and conservation areas.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 6
+
+
+
+#### **TODO**
+The response supports the development of a lively city district east of Milton Road in North East Cambridge, the expansion of the Cambridge Biomedical Campus with more healthcare facilities and housing, and the growth of Cambourne with additional facilities. However, it opposes any development in villages, advocating for limited development only in areas with good public transport and local services.
 
 **Stance**: SUPPORT
 
@@ -1234,16 +1260,16 @@ The response supports the development of eco-friendly housing, zero carbon trans
 
 
 #### **TODO**
-The response supports the development of a lively city district east of Milton Road with mixed housing and offices, advocates for more housing and jobs around the Cambridge Biomedical Campus, suggests more shops in Cambourne, calls for dense housing near the railway in the southern rural cluster, and recommends new development in Cottenham, Water Beach, and Land Beach with local shops and schools. It also identifies Shepreth and Meldreth as potential sites for development and proposes a cheap underground railway for Greater Cambridge by 2041.
+The response supports the development of eco-friendly housing, zero carbon transport, parks, leisure centres, and parcel drop-off points in various areas including North East Cambridge, around the Cambridge Biomedical Campus, Cambourne, and the southern rural cluster of villages. It emphasizes the need for spacious localities and limited development in villages, while also suggesting the inclusion of wind turbines for energy generation in rural homes. However, it does not specify which villages should see new development or any additional sites for housing or business use.
 
 **Stance**: SUPPORT
 
-**Constructiveness**: 8
+**Constructiveness**: 7
 
 
 
 #### **TODO**
-The response supports the development of a lively city district east of Milton Road in North East Cambridge, the expansion of the Cambridge Biomedical Campus with more healthcare facilities and housing, and the growth of Cambourne with additional facilities. However, it opposes any new development in villages, advocating for limited development only in areas with good public transport and local services.
+The response supports the development of a lively city district east of Milton Road with mixed housing and offices, advocates for more housing and jobs around the Cambridge Biomedical Campus, suggests more shops in Cambourne, and emphasizes the need for dense housing near the railway in the southern rural cluster. It recommends limited development in villages with good transport links, specifically naming Cottenham, Water Beach, and Land Beach, and calls for more local shops and schools in these areas. Additionally, it identifies Shepreth and Meldreth as potential sites for development and expresses a desire for a cost-effective underground railway by 2041.
 
 **Stance**: SUPPORT
 
@@ -1261,15 +1287,6 @@ The response strongly opposes the idea of developing a new town at Thakeham.
 
 
 #### **TODO**
-The response advocates for limited development in the southern rural cluster of villages, suggesting infill housing rather than large-scale projects. It supports development in Melbourn and Foxton, emphasizing the need for family-sized homes and open green spaces, while opposing the idea of a massive new town. There is no interest in additional sites for housing or business use.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 7
-
-
-
-#### **TODO**
 The response emphasizes the need for careful development in Greater Cambridge, advocating for the preservation of natural habitats and wildlife spaces over urban expansion. It suggests that new developments should focus on open crop fields rather than meadows or woodlands, and highlights the importance of creating wildlife corridors and promoting cycling. The respondent expresses a strong opposition to the destruction of existing natural areas for development, prioritizing biodiversity and green spaces.
 
 **Stance**: OPPOSE
@@ -1279,70 +1296,7 @@ The response emphasizes the need for careful development in Greater Cambridge, a
 
 
 #### **TODO**
-The response strongly opposes any new housing development in South Cambridgeshire, advocating for the preservation of the countryside and increased open spaces. It emphasizes the importance of maintaining access to green areas and local produce, with a vision for Greater Cambridge in 2041 that prioritizes limited housing and environmental integrity.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 9
-
-
-
-#### **TODO**
-The response emphasizes the need for Greater Cambridge to be more equitable, with no homelessness and better management of visitor numbers to improve residents' quality of life. It advocates for improved cycling infrastructure, well-designed and sustainable housing, and a balanced approach to economic growth that does not neglect other areas of the country.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 8
-
-
-
-#### **TODO**
-The response expresses strong opposition to the proposed developments in South Cambridgeshire, criticizing the lack of accountability from developers regarding infrastructure and community facilities. It highlights concerns about the sprawl of Cambridge, the inadequacy of affordable housing, and the need for genuine community planning that prioritizes social and cultural facilities over mere housing expansion. The respondent calls for a halt to further development in certain areas, particularly in Bourn, and emphasizes the importance of preserving traditional village facilities.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 2
-
-
-
-#### **TODO**
-The response strongly opposes the proposed housing development by South Cambridgeshire Council, arguing that it is unsustainable due to a lack of demand, inadequate infrastructure, and failure to provide necessary social and cultural facilities. It criticizes past developments for prioritizing housing over infrastructure, leading to increased commuting and environmental concerns. The response calls for a more imaginative approach to urban design and emphasizes the need for infrastructure to be built before housing. It also highlights issues with water sustainability and the questionable benefits of the East-West Rail project, while lamenting the lack of cycling infrastructure.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 3
-
-
-
-#### **TODO**
-The response expresses skepticism about relocating the waste water treatment plant to the green belt for the development of a city district east of Milton Road, suggesting other sites should be considered instead. It supports the expansion of the Cambridge Biomedical Campus with additional facilities, including a train station, more cycle storage, shops, and childcare facilities due to current oversubscription. Additionally, it advocates for better and safer cycle lanes in surrounding villages.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 6
-
-
-
-#### **TODO**
-The response supports the development of a lively city district east of Milton Road, emphasizing the need for housing, jobs, and facilities near transport links. However, it opposes further development around the Cambridge Biomedical Campus, suggesting existing developments are sufficient. The response criticizes the East-West Rail project as a vanity project, advocating for upgrades to existing roads instead. It recommends limiting development in villages to new areas and brownfield sites, while suggesting new science/business parks for job creation. No additional sites for housing or business use are proposed.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 5
-
-
-
-#### **TODO**
-The response expresses concerns about flooding in the proposed development area east of Milton Road and emphasizes the need for improved public transport access to the Cambridge Biomedical Campus. It suggests that Cambourne should develop a unique business cluster rather than mimic Cambridge. The respondent highlights the importance of healthcare access in villages and notes uncertainty about the future development of Greater Cambridge depending on railway infrastructure.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 6
-
-
-
-#### **TODO**
-The response advocates for the development of a vibrant city district in North East Cambridge, emphasizing a mix of social and private housing designed with climate change considerations. It suggests incorporating green spaces, schools, shops, healthcare facilities, and good transport links in various proposed developments, including around the Cambridge Biomedical Campus and Cambourne. However, it opposes any new development in villages, advocating instead for the enhancement of existing open spaces. The overall vision for Greater Cambridge by 2041 includes ample green spaces, climate-conscious housing, and adequate parking solutions.
+The response advocates for a more equitable Greater Cambridge by addressing homelessness, managing tourist numbers, improving cycling infrastructure, and ensuring housing is affordable, well-designed, and sustainable. It emphasizes the need for quality of life alongside economic growth and warns against neglecting other regions in the pursuit of wealth.
 
 **Stance**: SUPPORT
 
@@ -1351,16 +1305,16 @@ The response advocates for the development of a vibrant city district in North E
 
 
 #### **TODO**
-The response expresses support for developing the area east of Milton Road into a vibrant city district after relocating the wastewater treatment plant. It emphasizes the need for improved access and parking at the Cambridge Biomedical Campus, while advocating for limited development in villages, suggesting they should remain as they are with parks and open spaces. The respondent shows a lack of interest in the future of Greater Cambridge, indicating a neutral stance overall.
+The response expresses strong opposition to the proposed developments in South Cambridgeshire, arguing that they contribute to urban sprawl and fail to provide adequate infrastructure, jobs, and community facilities. The respondent emphasizes the need for thoughtful planning that prioritizes social and cultural amenities over mere housing expansion. They criticize past developments for not delivering on promises and highlight the lack of affordable housing and job opportunities in areas like Cambourne. The response calls for a halt to further infill in villages like Bourn and stresses the importance of protecting local services from the encroachment of large supermarkets.
 
-**Stance**: NEUTRAL
+**Stance**: OPPOSE
 
-**Constructiveness**: 5
+**Constructiveness**: 2
 
 
 
 #### **TODO**
-The response opposes new development in villages unless there is an improvement in infrastructure and public transport.
+The response strongly opposes the proposed housing development by South Cambridgeshire Council, arguing that it is unsustainable due to a lack of demand, inadequate infrastructure, and insufficient social and cultural facilities. It criticizes past developments for prioritizing housing over necessary amenities and highlights the need for imaginative urban design. The response also emphasizes the changing work patterns due to remote working and calls for a halt to further infill in already burdened areas. Concerns about environmental sustainability, particularly regarding water abstraction, and the inadequacy of transport infrastructure, including cycle lanes, are also raised.
 
 **Stance**: OPPOSE
 
@@ -1378,7 +1332,7 @@ The response supports the development of a balanced mix of housing, jobs, commun
 
 
 #### **TODO**
-The response expresses concern over the lack of local planning input for Cambourne, emphasizing the need for a clear development envelope and improved infrastructure, including a high street. It supports limited development in villages, advocating for focus on areas with good connectivity. Additionally, it highlights a shortage of smaller affordable properties and questions the value of shared ownership schemes.
+The response supports the development of a lively city district east of Milton Road, emphasizing the need for housing, jobs, and facilities near transport links. However, it opposes further development around the Cambridge Biomedical Campus, suggesting existing developments are sufficient. The response criticizes the East-West Rail project as a vanity project, advocating for upgrades to the A428 instead. It recommends limiting development in villages to new villages and brownfield sites, while suggesting new science/business parks for job creation. No additional sites for housing or business use are proposed.
 
 **Stance**: OPPOSE
 
@@ -1387,25 +1341,34 @@ The response expresses concern over the lack of local planning input for Cambour
 
 
 #### **TODO**
-The response requests clarification on the reasons for support or objection to the policy, paragraph, or site. It also indicates that further representations are enclosed for review, which may contain detailed comments.
+The response strongly opposes any new housing development in South Cambridgeshire, advocating for the preservation of the countryside and increased open spaces. It emphasizes the importance of maintaining access to green areas and local produce, with a vision for Greater Cambridge in 2041 that prioritizes limited housing and environmental integrity.
 
-**Stance**: NEUTRAL
+**Stance**: OPPOSE
 
-**Constructiveness**: 5
-
-
-
-#### **TODO**
-The response to the planning application includes a list of individuals who were cc'd in the communication, indicating that the Swavesey Parish Council clerk, Shelford Bridleways representative, and British Horse Society Cambridgeshire Access Officer were informed about the matter.
-
-**Stance**: NEUTRAL
-
-**Constructiveness**: 5
+**Constructiveness**: 9
 
 
 
 #### **TODO**
-The response indicates a preference for prioritizing existing infrastructure improvements before considering new developments in the area east of Milton Road and around the Cambridge Biomedical Campus. It emphasizes the importance of preserving open spaces and green landscapes, expresses opposition to the East-West Rail link, and suggests that any development in villages should only occur where there is already good public transport and local services.
+The response expresses concerns about flooding in the proposed development area east of Milton Road and emphasizes the need for improved public transport access to the Cambridge Biomedical Campus. It suggests that Cambourne should develop a unique business cluster rather than mimic Cambridge. The respondent highlights the importance of healthcare access in villages and notes uncertainty about future developments depending on railway infrastructure.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 6
+
+
+
+#### **TODO**
+The response opposes new development in villages unless there is an improvement in infrastructure and public transport.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 8
+
+
+
+#### **TODO**
+The respondent strongly opposes the proposed development site due to concerns about merging Great Shelford and Stapleford, increasing urban sprawl, oversubscribed schools, and increased local traffic. They also criticize the limited local advertisement of the consultation, suggesting it may not accurately reflect residents' views.
 
 **Stance**: OPPOSE
 
@@ -1414,25 +1377,43 @@ The response indicates a preference for prioritizing existing infrastructure imp
 
 
 #### **TODO**
-The response supports the development of the Cambridge Biomedical Campus, emphasizing the need for more healthcare facilities, research, and housing, as well as the creation of semi-natural areas linking to Hobson's Park. It expresses opposition to the current East-West Rail route and advocates for better, larger, and more connected wild areas in Greater Cambridge by 2041.
+The response expresses support for developing the area east of Milton Road into a vibrant city district after relocating the wastewater treatment plant. It emphasizes the need for improved access and parking at the Cambridge Biomedical Campus, while advocating for limited development in villages, suggesting they should remain as they are with parks and open spaces. The respondent shows a lack of interest in the future of Greater Cambridge, indicating a neutral stance overall.
 
-**Stance**: SUPPORT
+**Stance**: NEUTRAL
 
-**Constructiveness**: 8
+**Constructiveness**: 5
 
 
 
 #### **TODO**
-The response indicates that the area east of Milton Road in North East Cambridge could be developed into a vibrant city district after relocating the waste water treatment plant. It supports the development of the Cambridge Biomedical Campus for additional healthcare facilities, research, and housing. However, it expresses opposition to significant development in Cambourne and the southern rural cluster of villages, advocating for limited development only in villages with good public transport and local services. Overall, the response emphasizes a desire to maintain the current rural character and happiness of Greater Cambridge.
+The response emphasizes the need for continual reassessment of job growth assumptions in Cambridge, particularly in light of increased remote working and potential job growth in other regions. It critiques the idea of combining employment and housing in new developments, citing examples like Northstowe where essential services lag behind housing. The response suggests that while local living is ideal, job changes may lead to increased commuting by car.
 
-**Stance**: NEUTRAL
+**Stance**: OPPOSE
 
 **Constructiveness**: 6
 
 
 
 #### **TODO**
-The response supports the development of the Cambridge Biomedical Campus with additional healthcare facilities, research, and housing, but calls for a halt to its unchecked expansion. It advocates for a more equitable distribution of investment and transport infrastructure, suggesting the development of a second site north of Cambridge. The response criticizes the East-West Rail project as inadequate for local needs and emphasizes the necessity of improving transport infrastructure before further development in southern villages. It highlights the need for diverse outdoor recreational facilities and a balanced economic focus that includes business and manufacturing areas beyond the biotech sector. The vision for Greater Cambridge by 2041 includes leadership in environmental action and social well-being.
+The response requests specific reasons for support or objection to the policy, paragraph, or site. It also asks for suggestions on changes or additions. Enclosed representations are provided for further details.
+
+**Stance**: NEUTRAL
+
+**Constructiveness**: 5
+
+
+
+#### **TODO**
+The response to the planning application includes individuals cc'd in the communication, specifically Swavesey Parish Council clerk Linda Miller, Shelford Bridleways' Lynda Warth, and British Horse Society Cambridgeshire Access Officer Avril Monmont.
+
+**Stance**: NEUTRAL
+
+**Constructiveness**: 5
+
+
+
+#### **TODO**
+The response supports the development of the Cambridge Biomedical Campus, emphasizing the need for semi-natural areas that connect to Hobson's Park. It suggests that the current East-West Rail route should be scrapped to facilitate Cambourne's growth into a proper town. Additionally, it advocates for better, larger, and more interconnected wild areas in Greater Cambridge by 2041.
 
 **Stance**: SUPPORT
 
@@ -1441,9 +1422,27 @@ The response supports the development of the Cambridge Biomedical Campus with ad
 
 
 #### **TODO**
-The response opposes the relocation of the wastewater treatment plant to green belt land, arguing it should remain in its current location due to recent upgrades and the waste of resources involved in moving it. It calls for improved safety for pedestrians and cyclists around Addenbrookes and suggests transitioning to greener technologies in nearby villages. The respondent expresses a desire for Greater Cambridge in 2041 to have more greenery, trees, and better pedestrian spaces, along with a reduction in reliance on oil and improved public transport options.
+The response expresses strong opposition to the proposed developments in Greater Cambridge, stating that the area is already overdeveloped and warning that further construction will negatively impact the character of Cambridge and its surrounding villages. The respondent emphasizes concerns about overcrowding and the destruction of the city's beauty, particularly criticizing plans for new housing and facilities in various areas, including the Cambridge Biomedical Campus and Cambourne. There is a call to stop all overdevelopment to preserve the character of the city and its villages.
 
 **Stance**: OPPOSE
+
+**Constructiveness**: 1
+
+
+
+#### **TODO**
+The response supports the development of the area east of Milton Road in North East Cambridge and the Cambridge Biomedical Campus, advocating for more housing, jobs, and facilities in these areas. However, it opposes development in Cambourne and rural villages, suggesting that these areas should remain unchanged. The overall sentiment emphasizes maintaining the current rural character and happiness of Greater Cambridge.
+
+**Stance**: SUPPORT
+
+**Constructiveness**: 8
+
+
+
+#### **TODO**
+The response supports the development of the Cambridge Biomedical Campus, advocating for additional healthcare facilities, research, and housing. It calls for a more balanced approach to development across the region, suggesting the establishment of a second site north of Cambridge to distribute investment and job opportunities. The response criticizes the East-West Rail project as inadequate for local needs and emphasizes the necessity for improved transport infrastructure before further development in villages. It highlights the need for greater outdoor recreational facilities and a diversified economy beyond biotech. The vision for Greater Cambridge by 2041 includes leadership in environmental action and social well-being.
+
+**Stance**: SUPPORT
 
 **Constructiveness**: 8
 
@@ -1459,7 +1458,7 @@ The response raises concerns about the development of a dense city district east
 
 
 #### **TODO**
-The response suggests that the area east of Milton Road in North East Cambridge could be developed into a vibrant city district after the relocation of the waste water treatment plant. It emphasizes the need for housing, jobs, and facilities in this area. Additionally, it supports the development of the Cambridge Biomedical Campus, specifically advocating for housing for workers in the vicinity.
+The response suggests that the area east of Milton Road could be developed into a vibrant city district after the relocation of the waste water treatment plant. It emphasizes the need for housing specifically for workers at the Cambridge Biomedical Campus.
 
 **Stance**: SUPPORT
 
@@ -1468,43 +1467,16 @@ The response suggests that the area east of Milton Road in North East Cambridge 
 
 
 #### **TODO**
-The response expresses strong opposition to the proposed developments in and around Cambridge, emphasizing the need to protect existing villages and green spaces from further development. It argues against relocating the waste water treatment plant, stating that it has sufficient capacity until 2050 and that funds should not be diverted to build more housing. The response advocates for enhancing open spaces and creating green corridors to promote healthy living, rather than allowing new housing developments. Overall, the sentiment is one of preservation and caution against overdevelopment.
+The response expresses concerns about the proposed development in North East Cambridge, advocating for lower density housing and more green spaces. It highlights issues such as inadequate water resources, poor public transport, and the negative impact of developer greed on affordable housing promises. The respondent emphasizes the importance of protecting the green belt and suggests improvements to public transport in villages. There is a strong sentiment against the current trajectory of development in Cambridge, fearing it will lead to a decline in livability and environmental quality.
 
 **Stance**: OPPOSE
 
-**Constructiveness**: 10
+**Constructiveness**: 3
 
 
 
 #### **TODO**
-The response expresses strong opposition to the proposed development in North East Cambridge, emphasizing the need for passive house-level development, lower density, and more green spaces. It criticizes the current state of Cambridge, highlighting issues such as poor public transport, congestion, and inadequate health services. The respondent is particularly concerned about the relocation of the wastewater treatment plant, viewing it as a threat to the green belt and indicative of developer greed. There is a call for better public transport options in villages and a plea to protect the green belt, with a vision of a future Cambridge that avoids overdevelopment and prioritizes livability.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 2
-
-
-
-#### **TODO**
-The response raises concerns about the proposed housing density in Cambridge, suggesting it is too high to maintain a good quality of life and could detract from the city's character. It emphasizes the need for cultural and social spaces in developments, particularly around the Cambridge Biomedical Campus, which currently feels lacking in these areas. The response advocates for a mix of employment opportunities in Cambourne and suggests that parish councils should handle small amounts of development rather than concentrating it all in Cambridge. Overall, it expresses a desire for more balanced development across the region.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 7
-
-
-
-#### **TODO**
-The response indicates that any proposed developments in the area should prioritize a significant number of affordable homes built to high environmental standards. It expresses concerns about the scale of developments, particularly in relation to environmental impacts, such as those affecting Milton Country Park and biodiversity. The response supports limited development in rural villages, emphasizing the need for improved public transport and infrastructure while preserving the rural character of these areas. It also mentions the potential for high-tech development around the Cambridge Biomedical Campus, with a focus on minimizing car facilities.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 7
-
-
-
-#### **TODO**
-The response expresses opposition to the proposed development in Stapleford, highlighting concerns that it will worsen traffic and further merge Stapleford with Great Shelford. The respondent argues for stronger protection of green spaces, particularly given other developments like a retirement village and busway planned for the same area.
+The response expresses strong opposition to the proposed developments around Cambridge, advocating for the protection of existing villages and green spaces. It argues against relocating the waste water treatment plant, suggesting that it should remain in its current location. While it acknowledges the potential for some housing near the Cambridge Biomedical Campus for healthcare workers, it emphasizes the need for improved access to the city center and the creation of green corridors for walking and biking. The overall sentiment is one of preservation and caution against overdevelopment, with a focus on enhancing biodiversity and open spaces.
 
 **Stance**: OPPOSE
 
@@ -1513,11 +1485,29 @@ The response expresses opposition to the proposed development in Stapleford, hig
 
 
 #### **TODO**
-The response emphasizes the need for a tramway-style connection to Cambridge city centre and advocates for world-class walking and cycling infrastructure that is well-connected to the transport network. It supports the development of the Cambridge Biomedical Campus and suggests that new housing should be located in areas with good public transport links. The response expresses a desire for a significant improvement in transport infrastructure that does not rely on cars and buses, envisioning a future where people can use environmentally friendly public transport instead of owning private cars.
+The response indicates no opinion on the development of the area east of Milton Road and the southern rural cluster of villages. It supports the development of the Cambridge Biomedical Campus, emphasizing the need to protect the Magog hills. As a resident of Cambourne, the respondent highlights the importance of improving transport links, particularly with the East-West Rail, and calls for more local facilities, including a town center with shopping and leisure options. They express concern over overcrowded housing and advocate for more spacious developments with adequate green spaces. The response also stresses the need for better public transport services and cautions against excessive development in villages, suggesting that some may benefit from planned expansion if supported by local services.
+
+**Stance**: NEUTRAL
+
+**Constructiveness**: 7
+
+
+
+#### **TODO**
+The response highlights the need for careful development in North East Cambridge, advocating for a lively city district while avoiding excessive density. It emphasizes the importance of affordable housing for workers at the Cambridge Biomedical Campus and suggests the creation of an outdoor market in Cambourne. The response also mentions the need for housing in the southern rural cluster of villages, specifically Histon and Impington, while cautioning against turning them into commuter towns. Additionally, it identifies specific sites for potential development, including the Milton Road Impington project and the Cambridge Science Park North. The response acknowledges the ongoing necessity for driving and the use of vans by tradespeople.
 
 **Stance**: SUPPORT
 
 **Constructiveness**: 8
+
+
+
+#### **TODO**
+The response opposes the proposed development in Stapleford, expressing concerns that it will worsen traffic and further merge Stapleford with Great Shelford due to inappropriate development. The respondent highlights the simultaneous proposals for a retirement village and a busway in the same area, arguing for stronger protection of the green barrier rather than additional development.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 7
 
 
 
@@ -1531,160 +1521,7 @@ The response expresses support for the development of the Cambridge Biomedical C
 
 
 #### **TODO**
-The response advocates for the development of fully self-contained sites across various proposed developments, emphasizing the importance of minimizing travel. It supports limited development in areas with good public transport and local services, while suggesting that villages lacking these amenities should not see new housing or business sites. The response also calls for a robust challenge to anticipated growth in the region.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 7
-
-
-
-#### **TODO**
-The response expresses strong opposition to further development in the Greater Cambridge area, arguing that the existing urban environment is already dense and vibrant. It suggests that the Cambridge Biomedical Campus has consumed enough land and resources, advocating for development in less populated areas instead. The response highlights concerns about the southern rural cluster of villages losing their rural character due to previous developments and states that further housing would transform them into suburbs. It calls for minimal development in villages and emphasizes the importance of preserving farmland and maintaining some wild areas for wildlife.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 8
-
-
-
-#### **TODO**
-The response expresses concerns about the development plans in Greater Cambridge, particularly regarding the relocation of the sewage works and the impact on local green belt areas. It emphasizes the need for low-cost housing with local purchase criteria and highlights the importance of providing adequate facilities for schools and healthcare. The response also critiques the overdevelopment of Cambourne and rural areas, advocating for the use of brownfield sites instead of encroaching on green spaces. It calls for careful planning to ensure that infrastructure can support any new developments, as current local facilities are already overstretched.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 7
-
-
-
-#### **TODO**
-The response consists of a series of questions regarding potential development areas in Greater Cambridge, including the east of Milton Road, Cambridge Biomedical Campus, Cambourne, and the southern rural cluster of villages. The respondent does not provide any specific feedback or suggestions for these areas and expresses a strong opposition to any further housing development, particularly emphasizing a desire to protect existing villages from expansion. The response indicates a preference for very limited development in villages that have good public transport connections and local services, and it firmly states that no additional housing should take over land in any area.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 1
-
-
-
-#### **TODO**
-The response expresses strong opposition to further development in Greater Cambridge, emphasizing the need for local government to prioritize community needs over commercial interests. It advocates for a shift away from the growth model towards a focus on repurposing and sustainable practices, urging councillors to have the courage to reject excessive development in favor of a more thoughtful approach to planning.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 2
-
-
-
-#### **TODO**
-The response expresses strong opposition to new housing and development in the Greater Cambridge area, suggesting that minimal housing is needed and that many people will continue to work from home. It emphasizes that existing facilities are sufficient and advocates for a reconsideration of development plans in light of changing living preferences post-COVID, particularly the desire for remote work.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 2
-
-
-
-#### **TODO**
-The response expresses strong opposition to the proposed development of 100 houses between Great Shelford and Stapleford, highlighting concerns about the lack of public awareness and communication regarding the plans. The respondent notes that many local residents were unaware of the proposal and were horrified by it. They emphasize the importance of maintaining the separate identities of the two villages and argue that the development would contribute to urban sprawl, contradicting the purpose of the green belt. Additionally, the respondent criticizes the assumption that residents would use the train for commuting, stating that they and their friends prefer to drive due to convenience and concerns about the train service.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 8
-
-
-
-#### **TODO**
-The response to the planning application includes a series of questions regarding potential development in various areas, such as East of Milton Road, Cambridge Biomedical Campus, Cambourne, and the southern rural cluster of villages. However, there are no specific suggestions or input provided for housing, jobs, facilities, or open spaces in these areas, as all questions received no responses. The document is seeking public input on these topics.
-
-**Stance**: NEUTRAL
-
-**Constructiveness**: 1
-
-
-
-#### **TODO**
-The response indicates no opinion on the development east of Milton Road and the southern rural cluster. It supports the development of the Cambridge Biomedical Campus, emphasizing the importance of protecting the Magog hills. As a resident of Cambourne, the respondent highlights the potential of the East-West Rail to improve transport links but criticizes the current lack of local facilities and the need for a proper town center with essential services. They express concern over the cramped nature of housing developments in Cambourne and advocate for more green spaces. The response also calls for improved public transport services to enhance access to employment opportunities and reduce car dependency.
-
-**Stance**: NEUTRAL
-
-**Constructiveness**: 7
-
-
-
-#### **TODO**
-The response opposes the development of the area east of Milton Road, arguing that the wastewater treatment plant is fit for purpose and should not be relocated due to high costs. It supports the development of the Cambridge Biomedical Campus with a focus on vast open spaces and community centers. Cambourne should remain isolated and self-sufficient, with an emphasis on cycle routes. The response opposes development in the southern rural cluster of villages, supports limited development in Grantchester, and suggests that road bypasses are needed. It identifies Barton and Newnham as potential sites for development. The overall vision for Greater Cambridge in 2041 emphasizes preservation and limited development.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 5
-
-
-
-#### **TODO**
-The response expresses strong opposition to further housing development in Cambourne and Highfields Caldecote, emphasizing the need for more open spaces and essential facilities such as healthcare services and schools. It criticizes the current state of housing in Cambourne, highlighting the reliance on cars due to a lack of local jobs and services. The response also firmly opposes the East-West Rail project, arguing that it would negatively impact local rural villages and worsen existing issues in Cambourne. Overall, the response advocates for prioritizing nature and open spaces over additional housing developments.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 2
-
-
-
-#### **TODO**
-The response advocates for the development of specific areas such as the east of Milton Road and the Cambridge Biomedical Campus, emphasizing the need for affordable housing, research facilities, and open spaces. It expresses concern over the impact of mass housing developments on water resources and biodiversity, arguing for a focus on brownfield sites and the equitable distribution of housing needs among villages. The response calls for a shift in priorities towards addressing climate change and safeguarding natural resources, while also highlighting the importance of preserving farmland for food production.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 5
-
-
-
-#### **TODO**
-The response discusses the potential for development in Greater Cambridge, particularly around the Cambridge Biomedical Campus and the East-West Rail project. It expresses concern that the East-West Rail may primarily facilitate housing development rather than improve transportation. The respondent is wary of the possibility of overdevelopment in the southern rural cluster of villages, fearing that lobbying from developers could lead to excessive housing. They advocate for very limited development in villages, emphasizing the need for sustainability and good public transport connections. The response also reflects a belief that housing demand in the area will not be fully met due to its proximity to London, and it calls for the preservation of the rural character of the area.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 5
-
-
-
-#### **TODO**
-The response strongly opposes further development in Cambridge, arguing that the city is already overcrowded and that adding more developments will exacerbate existing issues. The respondent suggests halting overdevelopment in the city and indicates that if new towns are to be built, they should be located away from Cambridge.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 1
-
-
-
-#### **TODO**
-The response strongly opposes the proposed relocation of the sewage works, arguing that the current facility has sufficient capacity until 2050 and that the move is driven by profit motives rather than necessity. It questions the classification of the sewage works relocation as a nationally significant infrastructure project, highlighting a lack of transparency in the local planning process regarding its impact on Green Belt land. The response emphasizes the need for public awareness about the implications of the sewage works move and criticizes the expenditure of taxpayer money on what it views as an unnecessary relocation.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 8
-
-
-
-#### **TODO**
-The response expresses strong opposition to further development in Cambridge and its surrounding areas, emphasizing that the city is already overdeveloped and warning against the negative impact of additional housing and infrastructure. The respondent specifically mentions the Cambridge Biomedical Campus and the southern rural cluster, arguing that continued development will ruin the character of the city and its villages. There is a call to stop all overdevelopment to preserve the charm of the area.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 2
-
-
-
-#### **TODO**
-The response expresses strong opposition to any further housing development in the Greater Cambridge area, insisting that no additional housing should be built. The respondent emphasizes the need to preserve the existing character of the area and calls for a halt to current development plans, advocating for a focus on maintaining the current state of the community rather than increasing housing and office space.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 2
-
-
-
-#### **TODO**
-The response indicates that there should be no further housing and factory developments in the southern rural cluster, as such actions are not compatible with climate change requirements. It emphasizes the importance of preserving green and open spaces rather than replacing them with urban development. The response also supports the development of the Cambridge Biomedical Campus with minimal housing and the inclusion of open park areas. Additionally, it expresses concerns about the overall planning approach, suggesting a need for more green spaces and tree planting instead of urban expansion.
+The response indicates a preference for minimal new housing and development in the Greater Cambridge area, suggesting that existing infrastructure is sufficient. It highlights a shift towards remote work, implying that many people will continue to work from home, reducing the need for new jobs and facilities. The response advocates for a reconsideration of development plans in light of changing living preferences post-COVID, emphasizing that people may choose to live in different areas, including coastal towns.
 
 **Stance**: OPPOSE
 
@@ -1693,7 +1530,34 @@ The response indicates that there should be no further housing and factory devel
 
 
 #### **TODO**
-The response emphasizes the need for a strong, well-lit cycle network and the provision of small homes in areas such as North East Cambridge and around the Cambridge Biomedical Campus. It expresses full support for the East-West Rail project to facilitate growth in Cambourne. Additionally, it highlights the urgent need for more wild areas in the region, with local residents interested in investing in forest creation, and suggests that Greater Cambridge should aim for more forested areas and increased biking while reducing car usage.
+The response expresses strong opposition to further development in the Greater Cambridge area, emphasizing the need to preserve the rural character and farmland. It argues that the existing urban areas are already dense and vibrant, and that additional development would detract from this. The response suggests that the southern rural cluster of villages has already experienced significant development, which has eroded their rural feel, and calls for minimal development in villages. It advocates for maintaining farmland and wild areas for biodiversity, rather than converting them into urban spaces.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 8
+
+
+
+#### **TODO**
+The response to the planning application indicates that there are no suggestions or opinions provided regarding the development of housing, jobs, facilities, or open spaces in the areas of East of Milton Road, Cambridge Biomedical Campus, Cambourne, the southern rural cluster of villages, or any other sites. Each question posed about potential development in these areas received a response of 'None.'
+
+**Stance**: NEUTRAL
+
+**Constructiveness**: 1
+
+
+
+#### **TODO**
+The response suggests that the area east of Milton Road can be developed into a city district only after the wastewater treatment plant relocates, emphasizing that if housing is needed, it should be at the site of the relocated plant. It supports the development of the Cambridge Biomedical Campus with a focus on vast open spaces and community centers, while advocating for Cambourne to remain isolated and self-sufficient with more cycle routes. The response opposes development in the southern rural cluster of villages, suggesting they should remain unchanged, and indicates limited development in Grantchester with a preference for road bypasses. Development is proposed in Barton and Newnham, with an overall sentiment favoring preservation and limited development in certain areas.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 7
+
+
+
+#### **TODO**
+The response emphasizes the need for a strong, well-lit cycle network and the development of small homes in various areas, including North East Cambridge, the Cambridge Biomedical Campus, and Cambourne. It highlights the importance of increasing wild areas and mentions local residents' interest in creating forests, while also advocating for a future with more small homes, increased cycling, and reduced car usage by 2041.
 
 **Stance**: SUPPORT
 
@@ -1702,7 +1566,7 @@ The response emphasizes the need for a strong, well-lit cycle network and the pr
 
 
 #### **TODO**
-The response supports the development of the Cambridge Biomedical Campus but opposes any additional housing in the surrounding area, emphasizing the need to support existing communities and amenities. It calls for the cancellation of the East-West Rail project, arguing that resources should be redirected to less affluent areas rather than enhancing already prosperous regions like Cambourne. The response firmly rejects any further development in the southern rural cluster of villages and insists on no intrusion into the greenbelt. It highlights concerns about water availability for future plans and advocates for Greater Cambridge in 2041 to focus on improving existing conditions rather than expanding.
+The response advocates for the development of the Cambridge Biomedical Campus with a focus on minimal housing and the inclusion of open spaces and parks. It supports the idea of a tram link to Cambourne but opposes further housing and factory developments in the southern rural cluster, arguing that such actions would conflict with climate change goals. The response emphasizes the importance of preserving green areas and creating more trees and open spaces instead of urban development.
 
 **Stance**: OPPOSE
 
@@ -1711,7 +1575,7 @@ The response supports the development of the Cambridge Biomedical Campus but opp
 
 
 #### **TODO**
-The response strongly opposes further development on green belt land, particularly at Addenbrookes, advocating instead for the use of brownfield sites and the redevelopment of run-down areas in Cambridge. It criticizes the council for yielding to developer interests, which has led to the loss of important green spaces like the Gogg Hills. The respondent emphasizes the need to preserve these areas and highlights the poor condition of many existing neighborhoods in Cambridge, calling for regeneration efforts rather than new developments.
+The response emphasizes the need for fully self-contained sites where travel is minimized in various proposed developments, including the Cambridge Biomedical Campus and Cambourne. It suggests that development in villages should be very limited, specifically in those with good public transport connections and local services, while opposing development in villages lacking these amenities. Additionally, it calls for a robust challenge to the anticipated growth in the Greater Cambridge region.
 
 **Stance**: OPPOSE
 
@@ -1720,25 +1584,16 @@ The response strongly opposes further development on green belt land, particular
 
 
 #### **TODO**
-The response expresses concerns about the development of the area east of Milton Road, emphasizing the need for more staff parking at the Cambridge Biomedical Campus due to current parking shortages for healthcare staff. It critiques the transport infrastructure, particularly the A10 and train services, and raises issues regarding the limited development in villages, citing extensive building in recent years. The response advocates for preserving open spaces and suggests that any new development should not compromise agricultural land. Additionally, it mentions the need for improved public transport and facilities, including electric car charging points, while expressing a vision for a car-free Cambridge with efficient Park and Ride services.
+The response expresses strong opposition to further development in Greater Cambridge, particularly criticizing the notion of continuous growth driven by commercial interests. It calls for local government to reject excessive development and instead focus on repurposing existing spaces, reducing travel, and insulating housing. The response emphasizes the need for a shift in planning priorities to address climate change and suggests a rethinking of development strategies now to avoid negative impacts in the future.
 
 **Stance**: OPPOSE
 
-**Constructiveness**: 7
+**Constructiveness**: 8
 
 
 
 #### **TODO**
-The response strongly opposes any further development in Cambridge and its surrounding villages, emphasizing the need to preserve the green belt and the rural character of these areas. The respondent believes that development has already negatively impacted the quality of life in Cambridge and insists that there should be no new housing or business developments in villages. They advocate for the establishment of science parks in satellite areas around Cambridge to alleviate travel and housing pressures, but firmly oppose any development in the green belt and villages.
-
-**Stance**: OPPOSE
-
-**Constructiveness**: 1
-
-
-
-#### **TODO**
-The response suggests that the Cowley Road wastewater treatment plant should remain in its current location to avoid negative impacts on the green belt and unnecessary taxpayer expenses. It supports the development of the Cambridge Biomedical Campus with additional healthcare facilities, research, and housing. The response also emphasizes the need for affordable housing in Cambourne and mentions the potential development of Cambridge Airport for housing, shops, a post office, and a secondary school.
+The response expresses support for the development of specific areas in Greater Cambridge, particularly the Cambridge Biomedical Campus and the potential for a lively city district east of Milton Road after the relocation of the wastewater treatment plant. However, there are concerns about the East-West Rail project being perceived as primarily a housing enabler rather than essential infrastructure. The respondent emphasizes the need for any development in villages to be sustainable and limited, expressing skepticism about the southern rural cluster's capacity for controlled growth due to potential developer lobbying. There is a strong desire to maintain the rural character of the area and avoid excessive urbanization, with a clear sentiment against allowing the region to become overly developed.
 
 **Stance**: OPPOSE
 
@@ -1747,7 +1602,7 @@ The response suggests that the Cowley Road wastewater treatment plant should rem
 
 
 #### **TODO**
-The response emphasizes the need for a focus on remote working to allow flexibility for residents. It critiques the original planning of Cambourne for not establishing a proper town center and expresses concern that current developments, such as Northstowe, are not learning from past mistakes. The respondent highlights the negative impact of ongoing development on mental health and wellbeing, citing constant building as a source of anxiety for residents. There are significant concerns regarding local infrastructure, particularly in Longstanton, where drainage and sewerage systems are inadequate. The response strongly opposes any further development in Longstanton and Northstowe, advocating for the protection of local wildlife and green spaces, and suggests that new housing should be limited to primary residences only.
+The response expresses strong opposition to further development on green belt land, particularly at Addenbrookes, emphasizing that new housing and facilities should be built on brownfield sites and through the regeneration of existing run-down areas in Cambridge. It highlights the importance of preserving green spaces like the Gogg Hills and criticizes the council for prioritizing developer interests over community needs, leading to the construction of expensive housing that exacerbates local issues such as traffic congestion and strain on resources. The respondent advocates for a focus on improving the existing built environment rather than allowing further encroachment on green spaces.
 
 **Stance**: OPPOSE
 
@@ -1756,9 +1611,162 @@ The response emphasizes the need for a focus on remote working to allow flexibil
 
 
 #### **TODO**
-The response indicates support for the development of specific areas in Greater Cambridge, including the eastern area of Milton Road, the Cambridge Biomedical Campus, and the southern rural cluster, while advocating for very limited development in villages. The sentiment reflects a desire to maintain the character of the region, with a strong emphasis on keeping the current state of Greater Cambridge intact and limiting the influence of developers.
+The response discusses the potential development of the area east of Milton Road and the Cambridge Biomedical Campus, emphasizing the need for more staff parking and transport solutions for healthcare workers. It raises concerns about the current inadequate transport links for those commuting from Cambourne and the impact of development on rural villages, advocating for limited new housing to protect open spaces. The response also suggests that Cambridge should aim for improved public transport, including free and frequent Park and Ride services, while expressing skepticism about the effectiveness of proposed transport links.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 6
+
+
+
+#### **TODO**
+The response raises concerns about congestion in Cambridge, particularly around the Science Park entrance, and emphasizes the need for improved public transport infrastructure before any further housing development occurs. It advocates for the establishment of a public transport hub and more green spaces around the Cambridge Biomedical Campus, which currently lacks such areas. The response also highlights the inadequacy of public transport links in the southern rural cluster and stresses that no new housing should be built in villages without good transport connections. Overall, it calls for a diverse public transport system to meet the region's needs and prevent negative impacts from housing developments.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 7
+
+
+
+#### **TODO**
+The response opposes the relocation of the wastewater treatment plant to green belt land, arguing it should remain in its current location due to recent upgrades and the waste of resources involved in moving it. It emphasizes the need for improved safety for pedestrians and cyclists around Addenbrookes and advocates for the adoption of greener technologies in the southern rural cluster of villages. The respondent expresses a desire for a Greater Cambridge with more green spaces, trees, and wider pedestrian areas, as well as a reduction in reliance on oil and the installation of solar panels on buildings.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 7
+
+
+
+#### **TODO**
+The response indicates that there are no specific suggestions for development in the areas of East of Milton Road, Cambridge Biomedical Campus, Cambourne, or the southern rural cluster. It expresses a strong preference for very limited development in villages, suggesting that only a few allocated sites with good public transport connections and local services should be considered. Additionally, there is a clear stance against any new housing developments that would take over land, particularly in villages, emphasizing a desire to maintain the character of these areas.
 
 **Stance**: OPPOSE
 
 **Constructiveness**: 3
+
+
+
+#### **TODO**
+The response advocates for no additional housing development around the Cambridge Biomedical Campus, Cambourne, or the southern rural cluster of villages, emphasizing the need to support existing communities and avoid encroachment on the green belt. It argues against using the East-West Rail project as a justification for new housing, suggesting that resources should be directed to areas in need of development rather than furthering prosperity in already developed regions. The response highlights concerns about water resources and calls for improvements to existing amenities rather than expansion.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 8
+
+
+
+#### **TODO**
+The response strongly opposes further housing development in Cambourne and Highfields Caldecote, arguing that these areas already face significant challenges such as a lack of essential facilities like healthcare services, schools, and community amenities. It emphasizes the need for more open spaces and nature, criticizing the current housing developments as unattractive and unaffordable. The response also expresses concern that the introduction of a railway will not reduce car dependency, as residents currently rely heavily on cars due to insufficient local jobs and services. Additionally, it firmly rejects any further housing estates in Highfields Caldecote and calls for the abandonment of the Bourn Airfield Development, highlighting the desire to preserve the rural character of the villages.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 1
+
+
+
+#### **TODO**
+The response expresses strong opposition to extensive development in the Greater Cambridge area, emphasizing the need to prioritize the protection of farmland and water resources. It advocates for the development of brownfield sites only and suggests that existing housing developments should be fully utilized before considering new allocations. The response calls for equitable distribution of housing across villages to avoid overburdening specific areas and highlights the importance of addressing climate change and biodiversity concerns. It urges a shift in priorities towards sustainable practices and the preservation of local ecosystems.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 8
+
+
+
+#### **TODO**
+The response strongly opposes the overdevelopment of Cambridge, expressing frustration with the congestion and the numerous new housing developments already crowding the city. The respondent suggests that if new towns are to be built, they should be located away from Cambridge to prevent further strain on the city.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### **TODO**
+The response expresses strong opposition to the proposed relocation of the sewage works, arguing that it is unnecessary as the current facility has capacity until 2050. It criticizes the lack of transparency in the planning process regarding the implications for Green Belt land and questions the classification of the sewage works move as a nationally significant infrastructure project. The response advocates for gradual, small-scale development in communities to protect the countryside and enhance social cohesion, rather than large-scale developments that could harm local environments.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 8
+
+
+
+#### **TODO**
+The response expresses a strong opposition to any further housing development in the Greater Cambridge area, advocating for a halt to new housing projects. The respondent emphasizes the need to preserve the existing character of Cambridge and criticizes current developments as detrimental. They call for a focus on low-rent units and small to medium retail spaces instead of additional housing and office blocks, urging that no more houses should be built.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 10
+
+
+
+#### **TODO**
+The response strongly opposes any development in the southern rural cluster of villages, describing the area as 'quaint' and advocating against building there. It emphasizes that there are currently no villages with good public transport connections and stresses the need for public transport to be frequent, reliable, and affordable. The respondent highlights the importance of having local amenities such as shops, cafes, and healthcare facilities within walking distance, and insists that a well-connected public transport network is crucial for reducing car dependency and improving residents' quality of life.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 10
+
+
+
+#### **TODO**
+The response emphasizes that the current waste water treatment plant should remain in its location to ensure waste is processed where it is generated. It supports the development of the Cambridge Biomedical Campus but raises concerns about the existing financial struggles of Addenbrookes Hospital and the implications of introducing a new medical school. The respondent questions whether Cambourne is already a proper town and seeks clarity on the objectives of the East-West Rail project. They oppose further development in Meldreth and Melbourn due to capacity issues and highlight the need for diverse recreational facilities for youth, such as skate parks and BMX tracks. Additionally, the response criticizes the potential bypassing of local planning requirements by Thakeham and questions the decision to relocate City Council offices to Alconbury, citing inadequate public transport access.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 7
+
+
+
+#### **TODO**
+The respondent strongly opposes any further development in Cambridge and its surrounding villages, arguing that it destroys the rural character and quality of life in these areas. They specifically state that there should be no development in the green belt and in villages, emphasizing the importance of preserving these spaces. The respondent expresses a desire to halt development entirely to maintain the character of the region.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 10
+
+
+
+#### **TODO**
+The response suggests that the Cowley Road wastewater treatment plant should remain in its current location, as relocating it could negatively affect the green belt and waste taxpayer money. It supports the development of new shops and schools around the Cambridge Biomedical Campus and advocates for Cambourne to have shops to facilitate its growth. Additionally, it proposes that Cambridge Airport could be developed for housing, shops, a post office, and a secondary school.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 6
+
+
+
+#### **TODO**
+The response emphasizes the need for careful consideration of infrastructure, particularly drainage and sewerage systems, which are currently inadequate in Longstanton and Northstowe. It expresses concern over the negative impact of constant development on residents' mental health and wellbeing, advocating for the protection of local green spaces and wildlife. The respondent calls for a halt to further development until existing infrastructure can adequately support the population, especially regarding healthcare services. Additionally, there is a suggestion to prioritize housing for primary residences only, and to ensure that developers are held accountable for their commitments.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 7
+
+
+
+#### **TODO**
+The response expresses disappointment over the lack of public awareness regarding a local demonstration about a proposed development, which was poorly publicized. The author notes that many residents were unaware of the plans and were opposed to the suggestion of building 100 houses between Great Shelford and Stapleford. They emphasize the importance of maintaining the distinct identities of the two villages and argue that the development would contribute to urban sprawl, contradicting the purpose of the green belt. The author also criticizes the suggestion that residents would use the train for commuting, stating that they prefer driving due to convenience and concerns about the train service.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 8
+
+
+
+#### **TODO**
+The response expresses a desire for very limited development in villages, suggesting that new development should only occur in areas with good public transport connections and local services. There is a specific mention of wanting to keep the current state of Greater Cambridge unchanged and a strong opposition to the influence of developers. Additionally, there is support for the development of the Cambridge Biomedical Campus for healthcare facilities and housing.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
+
+
+
+#### **TODO**
+The response criticizes the East-West Rail project as unnecessary for commuters and freight, describing it as poorly conceived. It opposes the proposed development plans for the southern rural cluster of villages, arguing that they prioritize landowner interests over the needs of current residents. The response specifically highlights concerns about plans to develop a historic biodiverse meadow and emphasizes the importance of protecting green spaces and maintaining the character of villages. It advocates for development that utilizes brownfield sites and respects existing village boundaries, rather than encroaching on green belt areas.
+
+**Stance**: OPPOSE
+
+**Constructiveness**: 2
 
