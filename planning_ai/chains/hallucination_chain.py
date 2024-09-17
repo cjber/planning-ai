@@ -14,9 +14,9 @@ class HallucinationChecker(BaseModel):
     explanation: str = Field(..., description="Explain your reasoning for the score")
 
 
-SLLM = LLM.with_structured_output(HallucinationChecker)
+SLLM = LLM.with_structured_output(HallucinationChecker, strict=True)
 
-hallucination_prompt = ChatPromptTemplate([("human", reduce_template)])
+hallucination_prompt = ChatPromptTemplate([("system", reduce_template)])
 hallucination_chain = hallucination_prompt | SLLM
 
 if __name__ == "__main__":

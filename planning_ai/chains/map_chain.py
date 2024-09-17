@@ -49,10 +49,12 @@ class BriefSummary(BaseModel):
     )
 
     def __str__(self) -> str:
-        return f"{self.summary}\n" f"Related Aims: {self.aims}"
+        return (f"Summary:\n\n{self.summary}\n\n" "Related Aims:\n\n") + "\n".join(
+            [f"{idx+1}: {aim}" for (idx, aim) in enumerate(self.aims)]
+        )
 
 
-SLLM = LLM.with_structured_output(BriefSummary)
+SLLM = LLM.with_structured_output(BriefSummary, strict=True)
 
 
 map_prompt = ChatPromptTemplate.from_messages([("system", map_template)])
