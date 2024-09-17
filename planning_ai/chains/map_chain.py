@@ -32,8 +32,9 @@ class BriefSummary(BaseModel):
     """A summary of the response with generated metadata"""
 
     summary: str = Field(..., description="A summary of the response.")
-    stance: Literal["SUPPORT", "OPPOSE", "NEUTRAL"] = Field(
-        ..., description="Overall stance of the response."
+    stance: Literal["SUPPORT", "OPPOSE", "MIXED", "NEUTRAL"] = Field(
+        ...,
+        description="Overall stance of the response. Either SUPPORT, OPPOSE, MIXED, or NEUTRAL.",
     )
     aims: list[Aim] = Field(
         ..., description="A list of aims associated with the response."
@@ -46,12 +47,6 @@ class BriefSummary(BaseModel):
         ...,
         description="How constructive the response is, from a rating of 1 to 10.",
     )
-
-    @validator("summary")
-    def summary_must_not_be_empty(cls, v):
-        if not v.strip():
-            raise ValueError("Summary cannot be empty.")
-        return v
 
     def __str__(self) -> str:
         return f"{self.summary}\n" f"Related Aims: {self.aims}"
