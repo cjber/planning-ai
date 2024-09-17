@@ -46,7 +46,7 @@ Response:
 
 ---
 
-**Now summarise the following response:**
+**Now summarise the following response in British English:**
 
 Response:
 {context}

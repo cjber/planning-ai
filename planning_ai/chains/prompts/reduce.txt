@@ -2,7 +2,7 @@ The following is one or more summaries of responses to a new plan by the South C
 
 {context}
 
-You are tasked with producing a **detailed and thorough final summary** that consolidates the main themes raised in the responses. **Do not add, infer, or create information.** Only use content directly mentioned in the summaries. 
+You are tasked with producing a **detailed and thorough final summary** that consolidates the main themes raised in the responses. **Do not add, infer, or create information.** Only use content directly mentioned in the summaries. Write in British English.
 
 Each provided summary may contain both supporting and opposing key points. Summarise these points, indicating whether they **support** or **oppose** the proposed plan. Each point should be grouped into a relevant header chosen from the 'Aims' associated with the response summary.  **Only include aims mentioned in the provided responses.** Omit any aim that is not discussed.
 
