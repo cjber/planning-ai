@@ -1,4 +1,5 @@
 import os
+import time
 from collections import Counter
 from pathlib import Path
 
@@ -103,11 +104,6 @@ def build_quarto_doc(doc_title, out):
         .to_markdown(index=False)
     )
 
-    # places_breakdown = "| **Place** | **Percentage** | **Count** |\n|---|---|---|\n"
-    # places_breakdown += "\n".join(
-    #     [f"| {item} | {d['percentage']:.2%} | {d['count']} |" for item, d in top_5]
-    # )
-
     stances = [summary["summary"].stance for summary in final["summaries_fixed"]]
     value_counts = Counter(stances)
     total_values = sum(value_counts.values())
@@ -180,7 +176,7 @@ def main():
         loader_cls=TextLoader,
         recursive=True,
     )
-    docs = [doc for doc in loader.load()[:5] if doc.page_content]
+    docs = [doc for doc in loader.load() if doc.page_content]
     text_splitter = CharacterTextSplitter.from_tiktoken_encoder(
         chunk_size=1000, chunk_overlap=0
     )
@@ -205,37 +201,10 @@ def main():
 
 if __name__ == "__main__":
     doc_title = "Cambridge Response Summary"
+    tic = time.time()
     out = main()
-    out["generate_final_summary"]["summaries"]
-    # build_quarto_doc(doc_title, out)
-    #
-    # d = [
-    #     i
-    #     for i in out["generate_final_summary"]["summaries_fixed"]
-    #     if i["iteration"] == 4
-    # ][0]
-    # d["document"]
-    #
-    # h = [
-    #     i["summary"].summary
-    #     for i in out["generate_final_summary"]["hallucinations"]
-    #     if i["document"] == d["document"]
-    # ]
-    #
-    # e = [
-    #     i["hallucination"].explanation
-    #     for i in out["generate_final_summary"]["hallucinations"]
-    #     if i["document"] == d["document"]
-    # ]
-    #
-    # test = {
-    #     "document": d["document"],
-    #     "final_summary": d["summary"].summary,
-    #     "attempts": h,
-    #     "reasoning": e,
-    # }
-    #
-    # print(f"Document:\n\n{test['document']}\n\n")
-    # print(f"Final:\n\n{test['final_summary']}\n\n")
-    # print("Attempts: \n\n*", "\n\n* ".join(test["attempts"]), "\n\n")
-    # print("Reasoning: \n\n*", "\n\n* ".join(test["reasoning"]), "\n\n")
+    build_quarto_doc(doc_title, out)
+    print(out["generate_final_summary"]["final_summary"])
+    toc = time.time()
+
+    print(f"Time taken: {(toc - tic) / 60:.2f} minutes.")
