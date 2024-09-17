@@ -24,6 +24,7 @@ def check_hallucination(state: DocumentState):
             {
                 "hallucination": response,
                 "document": state["document"],
+                "filename": state["filename"],
                 "summary": state["summary"],
                 "iteration": state["iteration"] + 1,
             }
