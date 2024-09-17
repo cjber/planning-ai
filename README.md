@@ -6,7 +6,7 @@
 
 ## Project Overview
 
-Planning AI is a sophisticated tool designed to process and analyze responses to local government planning applications. It leverages advanced natural language processing capabilities to summarize and categorize feedback, providing insights into public opinion on proposed developments.
+Planning AI is a sophisticated tool designed to process and analyse responses to local government planning applications. It uses advanced natural language processing techniques to summarise and categorise feedback, providing insights into public opinion on proposed developments.
 
 ```mermaid
 %%{init: {'flowchart': {'curve': 'linear'}}}%%
@@ -31,13 +31,13 @@ graph TD;
 ## Features
 
 - **Document Processing**: Extracts and processes text from various document formats including PDFs and Excel files.
-- **Summarisation**: Generates concise summaries of responses, highlighting key points and overall sentiment.
+- **Summarisation**: Generates concise summaries each response, highlighting key points and overall sentiment.
 - **Thematic Analysis**: Breaks down responses into thematic categories, providing a percentage breakdown of themes.
-- **Rate Limiting**: Ensures API requests are managed efficiently to comply with usage limits.
+- **Reporting**: Aggregates response summaries to produce an extensive final overview.
 
 ## Installation
 
-To set up the project, ensure you have Python 3.12 installed. Then, clone the repository and install the required dependencies:
+To set up the project, ensure you have Python >3.10 installed. Then, clone the repository and install the required dependencies:
 
 ```bash
 git clone https://github.com/cjber/planning-ai.git
@@ -59,27 +59,16 @@ pip install . # (or uv sync)
    python planning_ai/main.py
    ```
 
+## Configuration
+
+- **Environment Variables**: Use a `.env` file to store sensitive information like API keys.
+    - `OPENAI_API_KEY` required for summarisation; `OPENCAGE_API_KEY` required for geocoding (Quarto report)
+- **Constants**: Adjust `Consts` in `planning_ai/common/utils.py` to modify token limits and other settings.
+
 ## Workflow
 
 1. **Data Loading**: Documents are loaded from the staging directory using the `DirectoryLoader`.
 2. **Text Splitting**: Documents are split into manageable chunks using `CharacterTextSplitter`.
 3. **Graph Processing**: The `StateGraph` orchestrates the flow of data through various nodes, including mapping and reducing summaries.
-4. **Summarisation**: The `map_chain` and `reduce_chain` are used to generate and refine summaries.
-5. **Output**: Final summaries and thematic breakdowns are printed and can be exported for further analysis.
-
-## Configuration
-
-- **Environment Variables**: Use a `.env` file to store sensitive information like API keys.
-- **Constants**: Adjust `Consts` in `planning_ai/common/utils.py` to modify token limits and other settings.
-
-## Contributing
-
-Contributions are welcome! Please fork the repository and submit a pull request with your changes.
-
-## Licence
-
-This project is licensed under the MIT Licence.
-
-## Contact
-
-For questions or support, please contact [Your Name] at [Your Email].
+4. **Summarisation**: The `map_chain` and `reduce_chain` are used to generate and refine summaries using LLMs.
+5. **Output**: Final summaries and thematic breakdowns are used to produce a final Quarto report.
