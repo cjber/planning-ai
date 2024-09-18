@@ -17,15 +17,23 @@ from planning_ai.graph import create_graph
 load_dotenv()
 
 
+def _geocode_points(x):
+    api_key = os.getenv("OPENCAGE_API_KEY")
+    geocoder = OpenCageGeocode(key=api_key)
+    out = geocoder.geocode(x)
+    if out:
+        return out[0]["geometry"]
+    else:
+        return {"lat": -99.0, "lng": -99.0}
+
+
 def map_locations(places_df: pl.DataFrame):
     lad = gpd.read_file(Paths.RAW / "LAD_BUC_2022.gpkg").to_crs("epsg:4326")
     lad_camb = lad[lad["LAD22NM"].str.contains("Cambridge")]
-    api_key = os.getenv("OPENCAGE_API_KEY")
-    geocoder = OpenCageGeocode(key=api_key)
     places_df = places_df.with_columns(
         pl.col("Place")
         .map_elements(
-            lambda x: geocoder.geocode(x)[0]["geometry"],
+            lambda x: _geocode_points(x),
             return_dtype=pl.Struct,
         )
         .alias("geometry")
