@@ -185,7 +185,7 @@ def main():
         loader_cls=TextLoader,
         recursive=True,
     )
-    docs = [doc for doc in loader.load()[:10] if doc.page_content]
+    docs = [doc for doc in loader.load() if doc.page_content]
     text_splitter = CharacterTextSplitter.from_tiktoken_encoder(
         chunk_size=1000, chunk_overlap=0
     )
