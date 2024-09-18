@@ -13,6 +13,19 @@ pl.Config(
 
 class Paths:
     DATA = Path("data")
+
     RAW = DATA / "raw"
     STAGING = DATA / "staging"
     OUT = DATA / "out"
+
+    SUMMARY = OUT / "summary"
+
+    PROMPTS = Path("planning_ai/chains/prompts")
+
+    @classmethod
+    def ensure_directories_exist(cls):
+        for path in [cls.DATA, cls.RAW, cls.STAGING, cls.OUT, cls.SUMMARY]:
+            path.mkdir(parents=True, exist_ok=True)
+
+
+Paths.ensure_directories_exist()

@@ -18,7 +18,7 @@ load_dotenv()
 
 
 def map_locations(places_df: pl.DataFrame):
-    lad = gpd.read_file("./data/raw/LAD_BUC_2022.gpkg").to_crs("epsg:4326")
+    lad = gpd.read_file(Paths.RAW / "LAD_BUC_2022.gpkg").to_crs("epsg:4326")
     lad_camb = lad[lad["LAD22NM"].str.contains("Cambridge")]
     api_key = os.getenv("OPENCAGE_API_KEY")
     geocoder = OpenCageGeocode(key=api_key)
@@ -45,12 +45,14 @@ def map_locations(places_df: pl.DataFrame):
     lad.plot(ax=ax, color="white", edgecolor="gray")
     lad_camb.plot(ax=ax, color="white", edgecolor="black")
     places_gdf.plot(ax=ax, column="Mean Sentiment", markersize=5, legend=True)
+
+    ax = geoplot.kdeplot(places_gdf, projection=gcrs.AlbersEqualArea())
     bounds = lad_camb.total_bounds
     buffer = 0.1
     ax.set_xlim([bounds[0] - buffer, bounds[2] + buffer])
     ax.set_ylim([bounds[1] - buffer, bounds[3] + buffer])
     plt.axis("off")
-    plt.savefig("./reports/figs/places.png")
+    plt.savefig(Paths.SUMMARY / "figs" / "places.png")
 
 
 def build_quarto_doc(doc_title, out):
@@ -164,7 +166,7 @@ def build_quarto_doc(doc_title, out):
         f"{short_summaries}"
     )
 
-    with open(f"./reports/{doc_title.replace(' ', '_')}.qmd", "w") as f:
+    with open(Paths.SUMMARY / f"{doc_title.replace(' ', '_')}.qmd", "w") as f:
         f.write(quarto_doc)
 
 
@@ -176,7 +178,7 @@ def main():
         loader_cls=TextLoader,
         recursive=True,
     )
-    docs = [doc for doc in loader.load() if doc.page_content]
+    docs = [doc for doc in loader.load()[:10] if doc.page_content]
     text_splitter = CharacterTextSplitter.from_tiktoken_encoder(
         chunk_size=1000, chunk_overlap=0
     )
@@ -201,10 +203,10 @@ def main():
 
 if __name__ == "__main__":
     doc_title = "Cambridge Response Summary"
+
     tic = time.time()
     out = main()
     build_quarto_doc(doc_title, out)
-    print(out["generate_final_summary"]["final_summary"])
     toc = time.time()
 
     print(f"Time taken: {(toc - tic) / 60:.2f} minutes.")

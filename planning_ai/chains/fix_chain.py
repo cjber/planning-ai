@@ -1,8 +1,9 @@
 from langchain_core.prompts import ChatPromptTemplate
 
 from planning_ai.chains.map_chain import SLLM
+from planning_ai.common.utils import Paths
 
-with open("./planning_ai/chains/prompts/fix_hallucination.txt", "r") as f:
+with open(Paths.PROMPTS / "fix_hallucination.txt", "r") as f:
     map_template = f.read()
 
 map_prompt = ChatPromptTemplate.from_messages([("system", map_template)])

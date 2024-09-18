@@ -1,9 +1,10 @@
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.pydantic_v1 import BaseModel, Field
 
+from planning_ai.common.utils import Paths
 from planning_ai.llms.llm import LLM
 
-with open("./planning_ai/chains/prompts/hallucination.txt", "r") as f:
+with open(Paths.PROMPTS / "hallucination.txt", "r") as f:
     reduce_template = f.read()
 
 

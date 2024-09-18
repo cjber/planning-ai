@@ -39,6 +39,7 @@ def create_graph():
         map_hallucinations,
         ["check_hallucination"],
     )
+
     graph.add_edge("check_hallucination", "generate_final_summary")
     graph.add_edge("generate_final_summary", END)
 

@@ -2,11 +2,12 @@ from enum import Enum
 from typing import Literal, Optional
 
 from langchain_core.prompts import ChatPromptTemplate
-from langchain_core.pydantic_v1 import BaseModel, Field, validator
+from langchain_core.pydantic_v1 import BaseModel, Field
 
+from planning_ai.common.utils import Paths
 from planning_ai.llms.llm import LLM
 
-with open("./planning_ai/chains/prompts/map.txt", "r") as f:
+with open(Paths.PROMPTS / "map.txt", "r") as f:
     map_template = f.read()
 
 
