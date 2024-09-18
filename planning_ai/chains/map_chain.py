@@ -2,7 +2,7 @@ from enum import Enum
 from typing import Literal, Optional
 
 from langchain_core.prompts import ChatPromptTemplate
-from langchain_core.pydantic_v1 import BaseModel, Field
+from pydantic import BaseModel, Field
 
 from planning_ai.common.utils import Paths
 from planning_ai.llms.llm import LLM
@@ -40,7 +40,7 @@ class BriefSummary(BaseModel):
     aims: list[Aim] = Field(
         ..., description="A list of aims associated with the response."
     )
-    places: Optional[list[Place]] = Field(
+    places: list[Place] = Field(
         ...,
         description="All places mentioned in the response, with the positivity of the related sentiment ranked 1 to 10",
     )
