@@ -26,6 +26,7 @@ dependencies = [
     "geodatasets>=2024.8.0",
     "grandalf>=0.8",
     "pygraphviz>=1.13",
+    "pyqt6>=6.7.1",
 ]
 
 [tool.uv]
