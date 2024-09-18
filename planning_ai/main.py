@@ -54,7 +54,6 @@ def map_locations(places_df: pl.DataFrame):
     lad_camb.plot(ax=ax, color="white", edgecolor="black")
     places_gdf.plot(ax=ax, column="Mean Sentiment", markersize=5, legend=True)
 
-    ax = geoplot.kdeplot(places_gdf, projection=gcrs.AlbersEqualArea())
     bounds = lad_camb.total_bounds
     buffer = 0.1
     ax.set_xlim([bounds[0] - buffer, bounds[2] + buffer])
