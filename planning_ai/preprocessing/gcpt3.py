@@ -36,34 +36,6 @@ def get_schema() -> dict[str, Any]:
     }
 
 
-def flatten_json(data: dict[str, Any]) -> pl.DataFrame:
-    rows = []
-    general_info = {
-        "id": data.get("id"),
-        "method": data.get("method"),
-        "text": data.get("text"),
-        "attachment_count": len(data.get("attachments", [])),
-        "attachment_ids": [att.get("id") for att in data.get("attachments", [])],
-        "attachment_urls": [att.get("url") for att in data.get("attachments", [])],
-        "attachment_published": [
-            att.get("published") for att in data.get("attachments", [])
-        ],
-    }
-
-    for rep in data.get("representations", []):
-        row = {
-            **general_info,
-            "representation_id": rep.get("id"),
-            "support/object": rep.get("support/object"),
-            "document": rep.get("document"),
-            "documentelementid": rep.get("documentelementid"),
-            "documentelementtitle": rep.get("documentelementtitle"),
-            "summary": rep.get("summary"),
-        }
-        rows.append(row)
-    return pl.DataFrame(rows)
-
-
 def process_files(files: list[Path], schema: dict[str, Any]) -> None:
     dfs = [pl.read_json(file, schema=schema) for file in tqdm(files)]
     (
