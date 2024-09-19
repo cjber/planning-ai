@@ -10,8 +10,8 @@ from planning_ai.common.utils import Paths
 def get_schema() -> dict[str, Any]:
     return {
         "id": pl.Int64,
-        "method": pl.Utf8,
-        "text": pl.Utf8,
+        "method": pl.String,
+        "text": pl.String,
         "attachments": pl.List(
             pl.Struct(
                 [
