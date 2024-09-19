@@ -16,7 +16,7 @@ def get_schema() -> dict[str, Any]:
             pl.Struct(
                 [
                     pl.Field("id", pl.Int64),
-                    pl.Field("url", pl.Utf8),
+                    pl.Field("url", pl.String),
                     pl.Field("published", pl.Boolean),
                 ]
             )
@@ -26,10 +26,10 @@ def get_schema() -> dict[str, Any]:
                 [
                     pl.Field("id", pl.Int64),
                     pl.Field("support/object", pl.Utf8),
-                    pl.Field("document", pl.Utf8),
+                    pl.Field("document", pl.String),
                     pl.Field("documentelementid", pl.Int64),
-                    pl.Field("documentelementtitle", pl.Utf8),
-                    pl.Field("summary", pl.Utf8),
+                    pl.Field("documentelementtitle", pl.String),
+                    pl.Field("summary", pl.String),
                 ]
             )
         ),
