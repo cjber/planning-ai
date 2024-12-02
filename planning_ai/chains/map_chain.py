@@ -1,5 +1,5 @@
 from enum import Enum
-from typing import Literal, Optional
+from typing import Literal
 
 from langchain_core.prompts import ChatPromptTemplate
 from pydantic import BaseModel, Field
@@ -11,7 +11,7 @@ with open(Paths.PROMPTS / "map.txt", "r") as f:
     map_template = f.read()
 
 
-class Aim(str, Enum):
+class Theme(str, Enum):
     climate = "Climate change"
     biodiversity = "Biodiversity and green spaces"
     wellbeing = "Wellbeing and social inclusion"
@@ -37,8 +37,8 @@ class BriefSummary(BaseModel):
         ...,
         description="Overall stance of the response. Either SUPPORT, OPPOSE, MIXED, or NEUTRAL.",
     )
-    aims: list[Aim] = Field(
-        ..., description="A list of aims associated with the response."
+    themes: list[Theme] = Field(
+        ..., description="A list of themes associated with the response."
     )
     places: list[Place] = Field(
         ...,
@@ -50,16 +50,16 @@ class BriefSummary(BaseModel):
     )
 
     def __str__(self) -> str:
-        return (f"Summary:\n\n{self.summary}\n\n" "Related Aims:\n\n") + "\n".join(
-            [f"{idx+1}: {aim}" for (idx, aim) in enumerate(self.aims)]
+        return (f"Summary:\n\n{self.summary}\n\n" "Related Themes:\n\n") + "\n".join(
+            [f"{idx+1}: {theme}" for (idx, theme) in enumerate(self.themes)]
         )
 
 
 SLLM = LLM.with_structured_output(BriefSummary, strict=True)
 
-
 map_prompt = ChatPromptTemplate.from_messages([("system", map_template)])
 map_chain = map_prompt | SLLM
+
 
 if __name__ == "__main__":
     test_document = """
