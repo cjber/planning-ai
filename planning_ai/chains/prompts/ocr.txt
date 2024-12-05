@@ -1,0 +1,10 @@
+The images provided are from a planning response form filled out by a member of the public, containing free-form responses related to a planning application. These responses may be handwritten or typed.
+
+Please follow these instructions to process the images:
+
+1. **Extract Free-Form Information Only**: Focus on extracting and outputting the free-form written content from the images. Do not include single-word answers, brief responses, or any extra content that is not part of the detailed responses.
+2. **Verbatim Output**: Ensure that the extracted information is output exactly as it appears in the images. Add a heading before each section of free-form text if it helps with organisation, but ensure the heading is not added by the model itself. Ignore blank sections entirely—do not generate or include any additional thoughts or content.
+3. **Sequential Processing**: The images are sequentially ordered. A response might continue from one image to the next, so capture the full context across multiple images if necessary.
+4. **Ignore Non-Relevant Content**: Exclude any content that does not fit the criteria of free-form, detailed responses. 
+
+Thank you for your attention to these details.
