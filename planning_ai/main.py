@@ -174,7 +174,7 @@ def build_quarto_doc(doc_title, out):
 
 def main():
     loader = DirectoryLoader(
-        path=str(Paths.STAGING),
+        path=str(Paths.STAGING / "pdfs"),
         show_progress=True,
         use_multithreading=True,
         loader_cls=TextLoader,
@@ -208,7 +208,7 @@ if __name__ == "__main__":
 
     tic = time.time()
     out = main()
-    build_quarto_doc(doc_title, out)
+    # build_quarto_doc(doc_title, out)
     toc = time.time()
 
     print(f"Time taken: {(toc - tic) / 60:.2f} minutes.")
