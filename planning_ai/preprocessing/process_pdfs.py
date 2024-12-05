@@ -2,13 +2,35 @@ import base64
 import os
 from io import BytesIO
 
+import cv2
+import numpy as np
 import requests
 from dotenv import load_dotenv
 from pdf2image import convert_from_path
+from tqdm import tqdm
 
 from planning_ai.common.utils import Paths
 
 load_dotenv()
+
+import easyocr
+from pdf2image import convert_from_path
+
+pdf_path = "data/raw/pdfs/25.pdf"
+# pdf_path = "../../data/raw/pdfs/26.pdf"
+images = convert_from_path(pdf_path)
+
+reader = easyocr.Reader(lang_list=["en"], gpu=True)
+
+for i, image in enumerate(images):
+    results = reader.readtext(np.array(image))
+    print(f"Page {i+1}:")
+    confidences = []
+    for result in results:
+        confidences.append(result[2])
+        print(f"Detected text: {result[1]} (confidence: {result[2]:.2f})")
+
+np.array(confidences).mean()
 
 
 def encode_images_to_base64(images):
@@ -44,7 +66,7 @@ def main():
     with open("planning_ai/preprocessing/prompts/ocr.txt", "r") as f:
         ocr_prompt = f.read()
 
-    for file in pdfs:
+    for file in tqdm(pdfs):
         if file.stem:
             images = convert_from_path(file)
             image_b64 = encode_images_to_base64(images)
@@ -58,7 +80,10 @@ def main():
 
             response = send_request_to_api(messages)
             out = response["choices"][0]["message"]["content"]
-            with open(Paths.STAGING / "pdfs" / f"{file.stem}.txt", "w") as f:
+            outfile = Paths.STAGING / "pdfs" / f"{file.stem}.txt"
+            if outfile.exists():
+                continue
+            with open(outfile, "w") as f:
                 f.write(out)
 
 

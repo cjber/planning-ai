@@ -19,12 +19,13 @@ class Paths:
     OUT = DATA / "out"
 
     SUMMARY = OUT / "summary"
+    SUMMARIES = OUT / "summaries"
 
     PROMPTS = Path("planning_ai/chains/prompts")
 
     @classmethod
     def ensure_directories_exist(cls):
-        for path in [cls.DATA, cls.RAW, cls.STAGING, cls.OUT, cls.SUMMARY]:
+        for path in [cls.DATA, cls.RAW, cls.STAGING, cls.OUT, cls.SUMMARY, cls.SUMMARIES]:
             path.mkdir(parents=True, exist_ok=True)
 
 

@@ -1,7 +1,9 @@
+import logging
 from pathlib import Path
 from typing import Any
 
 import polars as pl
+import requests
 from tqdm import tqdm
 
 from planning_ai.common.utils import Paths
@@ -12,6 +14,7 @@ def get_schema() -> dict[str, Any]:
         "id": pl.Int64,
         "method": pl.String,
         "text": pl.String,
+        "respondentpostcode": pl.String,
         "attachments": pl.List(
             pl.Struct(
                 [
@@ -52,6 +55,65 @@ def process_files(files: list[Path], schema: dict[str, Any]) -> None:
         .unnest("representations")
         .write_parquet(Paths.STAGING / "gcpt3.parquet")
     )
+
+
+def download_attachments():
+    df = pl.read_parquet(Paths.STAGING / "gcpt3.parquet")
+
+    existing_files = {int(f.stem) for f in (Paths.RAW / "pdfs").glob("*.pdf")}
+    failed_files = set()
+
+    failed_file_path = Paths.RAW / "failed_downloads.txt"
+    if failed_file_path.exists():
+        with open(failed_file_path, "r") as file:
+            failed_files = set(int(l) for l in file.read().splitlines())
+
+    for row in tqdm(
+        df.drop_nulls(subset="attachments_id")
+        .unique(subset="attachments_id")
+        .sample(shuffle=True, fraction=1)
+        .rows(named=True)
+    ):
+        attachment_id = int(row["attachments_id"])
+
+        if attachment_id in existing_files or attachment_id in failed_files:
+            print(f"Skipping {attachment_id} (already exists or previously failed)")
+            continue
+        if (
+            row["attachments_url"].endswith(".pdf")
+            and not row["attachments_url"].startswith("https://egov.scambs.gov.uk")
+            and not row["attachments_url"].startswith("http://egov.scambs.gov.uk")
+        ):
+            file_path = Paths.RAW / "pdfs" / f"{attachment_id}.pdf"
+            try:
+                response = requests.get(row["attachments_url"], timeout=10)
+                response.raise_for_status()
+
+                with open(file_path, "wb") as f:
+                    f.write(response.content)
+                print(f"Downloaded {attachment_id} to {file_path}")
+
+            except requests.RequestException as e:
+                logging.error(f"RequestException for {attachment_id}: {e}")
+                failed_files.add(attachment_id)
+                with open(failed_file_path, "a") as file:
+                    file.write(f"{attachment_id}\n")
+                print(f"Skipping {attachment_id} due to error: {e}")
+
+            except Exception as e:
+                logging.error(f"Unexpected error for {attachment_id}: {e}")
+                failed_files.add(attachment_id)
+                with open(failed_file_path, "a") as file:
+                    file.write(f"{attachment_id}\n")
+                print(f"Unexpected error for {attachment_id}: {e}")
+
+
+def convert_txt():
+    df = pl.read_parquet(Paths.STAGING / "gcpt3.parquet")
+
+    # attachment_txt =
+
+    f"{df['text']}\n\nPOSITION: {df['representations_support/object']}"
 
 
 def main() -> None:
