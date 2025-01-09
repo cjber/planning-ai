@@ -1,6 +1,6 @@
-Which of the following themes relate with the document?
+Please identify any relevant themes from the list below that accurately relate to the document. You may select none, one, or multiple themes as applicable.
 
-Themes:
+Available Themes:
 
 * Climate Change
 * Biodiversity and Green Spaces
@@ -10,6 +10,6 @@ Themes:
 * Homes
 * Infrastructure
 
-Document: 
+Document Content:
 
 {document}
