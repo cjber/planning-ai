@@ -101,7 +101,7 @@ def batch_generate_executive_summaries(summaries):
     return final_responses
 
 
-def generate_policy_output(pols):
+def generate_policy_output(policy_groups):
     """Generates policy output from grouped policies.
 
     Args:
@@ -111,7 +111,7 @@ def generate_policy_output(pols):
         list: A list of policy outputs.
     """
     pol_out = []
-    for _, policy in pols.group_by(["themes", "policies"]):
+    for _, policy in policy_groups.group_by(["themes", "policies"]):
         logger.warning("Processing policies.")
         bullets = "* " + "* \n".join(policy["details"][0])
         pchain_out = policy_chain.invoke(
@@ -158,9 +158,9 @@ def generate_final_summary(state: OverallState):
         final_responses = batch_generate_executive_summaries(summaries)
         final_response = reduce_chain.invoke({"context": "\n\n".join(final_responses)})
 
-        pols = markdown_bullets(summaries)
-        pol_out = generate_policy_output(pols)
-        themes = format_themes(pol_out)
+        policy_groups = markdown_bullets(summaries)
+        policy_outputs = generate_policy_output(policy_groups)
+        themes = format_themes(policy_outputs)
 
         return {
             "final_summary": final_response,
