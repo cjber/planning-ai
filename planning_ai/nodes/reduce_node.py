@@ -15,7 +15,6 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-# TODO: Reduce down the grouping of policies. I.e. combine points that are closely related and add citations.
 def extract_policies_from_summaries(summaries):
     """Extracts policies from summaries and organizes them into a DataFrame.
 
