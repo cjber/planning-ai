@@ -1,0 +1,15 @@
+Which of the following themes relate with the document?
+
+Themes:
+
+* Climate Change
+* Biodiversity and Green Spaces
+* Wellbeing and Social Inclusion
+* Great Places
+* Jobs
+* Homes
+* Infrastructure
+
+Document: 
+
+{document}
