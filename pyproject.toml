@@ -3,7 +3,7 @@ name = "planning-ai"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.10,<3.13"
+requires-python = ">=3.12,<3.13"
 dependencies = [
     "python-dotenv>=1.0.1",
     "langchain-core>=0.2.38",
@@ -20,15 +20,15 @@ dependencies = [
     "pdf2image>=1.17.0",
     "pandas>=2.2.2",
     "tabulate>=0.9.0",
-    "opencage>=3.0.1",
-    "geopandas>=1.0.1",
     "matplotlib>=3.9.2",
-    "geodatasets>=2024.8.0",
-    "grandalf>=0.8",
     "pyqt6>=6.7.1",
     "presidio-anonymizer>=2.2.355",
     "presidio-analyzer>=2.2.355",
-    "faker>=33.1.0",
+    "pypdf2>=3.0.1",
+    "beautifulsoup4>=4.12.3",
+    "chromadb>=0.5.23",
+    # "langchain-chroma>=0.1.4",
+    "pypdf>=5.1.0",
 ]
 
 [tool.uv]
