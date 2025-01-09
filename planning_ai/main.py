@@ -1,18 +1,28 @@
+import logging
 import os
+import re
 import time
 from collections import Counter
+from itertools import groupby
 from pathlib import Path
 
-import geopandas as gpd
+# import geopandas as gpd
 import matplotlib.pyplot as plt
 import polars as pl
 from dotenv import load_dotenv
-from langchain_community.document_loaders import DirectoryLoader, TextLoader
-from langchain_text_splitters import CharacterTextSplitter
-from opencage.geocoder import OpenCageGeocode
+from langchain_community.document_loaders import (
+    DirectoryLoader,
+    PolarsDataFrameLoader,
+    TextLoader,
+)
+from langchain_text_splitters import CharacterTextSplitter, markdown
 
 from planning_ai.common.utils import Paths
 from planning_ai.graph import create_graph
+from planning_ai.themes import THEMES_AND_POLICIES
+
+# from opencage.geocoder import OpenCageGeocode
+
 
 load_dotenv()
 
@@ -64,81 +74,72 @@ def map_locations(places_df: pl.DataFrame):
 
 def build_quarto_doc(doc_title, out):
     final = out["generate_final_summary"]
-    executive_summary = (
-        final["final_summary"].split("## Key points raised in support")[0].strip()
-    )
-    key_points = final["final_summary"].split("## Key points raised in support")[1]
 
-    aims = []
-    for summary in final["summaries_fixed"]:
-        aim = summary["summary"].aims
-        aims.extend(aim)
-
-    value_counts = Counter(aims)
-    total_values = sum(value_counts.values())
-    percentages = {
-        key: {"count": count, "percentage": (count / total_values)}
-        for key, count in value_counts.items()
-    }
-    top_5 = sorted(percentages.items(), key=lambda x: x[1]["percentage"], reverse=True)[
-        :5
-    ]
-    thematic_breakdown = "| **Aim** | **Percentage** | **Count** |\n|---|---|---|\n"
-    thematic_breakdown += "\n".join(
-        [f"| {item} | {d['percentage']:.2%} | {d['count']} |" for item, d in top_5]
-    )
-
-    places_df = (
-        pl.DataFrame(
-            [
-                place.dict()
-                for summary in final["summaries_fixed"]
-                for place in summary["summary"].places
-            ]
-        )
-        .group_by("place")
-        .agg(
-            pl.col("place").len().alias("Count"),
-            pl.col("sentiment").mean().alias("Mean Sentiment"),
-        )
-        .rename({"place": "Place"})
-    )
-
-    map_locations(places_df)
-
-    places_breakdown = (
-        places_df.sort("Count", descending=True)
-        .head()
-        .to_pandas()
-        .to_markdown(index=False)
-    )
-
-    stances = [summary["summary"].stance for summary in final["summaries_fixed"]]
-    value_counts = Counter(stances)
-    total_values = sum(value_counts.values())
-    percentages = {
-        key: {"count": count, "percentage": (count / total_values)}
-        for key, count in value_counts.items()
-    }
-    stances_top = sorted(
-        percentages.items(), key=lambda x: x[1]["percentage"], reverse=True
-    )
-    stances_breakdown = " | ".join(
-        [
-            f"**{item}**: {stance['percentage']:.2%} _({stance['count']})_"
-            for item, stance in stances_top
-        ]
-    )
-
-    short_summaries = "\n\n".join(
-        [
-            f"#### **TODO**\n"
-            f"{summary['summary'].summary}\n\n"
-            f"**Stance**: {summary['summary'].stance}\n\n"
-            f"**Constructiveness**: {summary['summary'].rating}\n\n"
-            for summary in final["summaries_fixed"]
-        ]
-    )
+    # value_counts = Counter(aims)
+    # total_values = sum(value_counts.values())
+    # percentages = {
+    #     key: {"count": count, "percentage": (count / total_values)}
+    #     for key, count in value_counts.items()
+    # }
+    # top_5 = sorted(percentages.items(), key=lambda x: x[1]["percentage"], reverse=True)[
+    #     :5
+    # ]
+    # thematic_breakdown = "| **Aim** | **Percentage** | **Count** |\n|---|---|---|\n"
+    # thematic_breakdown += "\n".join(
+    #     [f"| {item} | {d['percentage']:.2%} | {d['count']} |" for item, d in top_5]
+    # )
+    #
+    # places_df = (
+    #     pl.DataFrame(
+    #         [
+    #             place.dict()
+    #             for summary in final["summaries_fixed"]
+    #             for place in summary["summary"].places
+    #         ]
+    #     )
+    #     .group_by("place")
+    #     .agg(
+    #         pl.col("place").len().alias("Count"),
+    #         pl.col("sentiment").mean().alias("Mean Sentiment"),
+    #     )
+    #     .rename({"place": "Place"})
+    # )
+    #
+    # map_locations(places_df)
+    #
+    # places_breakdown = (
+    #     places_df.sort("Count", descending=True)
+    #     .head()
+    #     .to_pandas()
+    #     .to_markdown(index=False)
+    # )
+    #
+    # stances = [summary["summary"].stance for summary in final["summaries_fixed"]]
+    # value_counts = Counter(stances)
+    # total_values = sum(value_counts.values())
+    # percentages = {
+    #     key: {"count": count, "percentage": (count / total_values)}
+    #     for key, count in value_counts.items()
+    # }
+    # stances_top = sorted(
+    #     percentages.items(), key=lambda x: x[1]["percentage"], reverse=True
+    # )
+    # stances_breakdown = " | ".join(
+    #     [
+    #         f"**{item}**: {stance['percentage']:.2%} _({stance['count']})_"
+    #         for item, stance in stances_top
+    #     ]
+    # )
+    #
+    # short_summaries = "\n\n".join(
+    #     [
+    #         f"#### **TODO**\n"
+    #         f"{summary['summary'].summary}\n\n"
+    #         f"**Stance**: {summary['summary'].stance}\n\n"
+    #         f"**Constructiveness**: {summary['summary'].rating}\n\n"
+    #         for summary in final["summaries_fixed"]
+    #     ]
+    # )
 
     quarto_doc = (
         "---\n"
@@ -153,53 +154,63 @@ def build_quarto_doc(doc_title, out):
         "monofontoptions:\n"
         "  - Scale=0.55\n"
         "---\n\n"
-        f"{executive_summary}\n\n"
-        f"{stances_breakdown}\n\n"
-        "## Aim Breakdown\n\n"
-        "The aim breakdown identifies which aims are mentioned "
-        "within each response. "
-        "A single response may discuss multiple topics.\n"
-        f"\n\n{thematic_breakdown}\n\n"
-        f"\n\n{places_breakdown}\n\n"
-        f"![Locations mentioned by sentiment](./figs/places.png)\n\n"
-        "## Key points raised in support\n\n"
-        f"{key_points}\n\n"
-        "## Summaries\n"
-        f"{short_summaries}"
+        f"{final['final_summary']}\n\n"
+        f"{final['policies']}"
+        # f"{executive_summary}\n\n"
+        # f"{stances_breakdown}\n\n"
+        # "## Aim Breakdown\n\n"
+        # "The aim breakdown identifies which aims are mentioned "
+        # "within each response. "
+        # "A single response may discuss multiple topics.\n"
+        # f"\n\n{thematic_breakdown}\n\n"
+        # f"\n\n{places_breakdown}\n\n"
+        # f"![Locations mentioned by sentiment](./figs/places.png)\n\n"
+        # "## Key points raised in support\n\n"
+        # f"{key_points}\n\n"
+        # "## Summaries\n"
+        # f"{short_summaries}"
     )
 
     with open(Paths.SUMMARY / f"{doc_title.replace(' ', '_')}.qmd", "w") as f:
         f.write(quarto_doc)
 
 
+def read_docs():
+    df = pl.read_parquet(Paths.STAGING / "gcpt3.parquet")
+    df = df.filter(
+        pl.col("representations_document") == "Local Plan Issues and Options Report"
+    ).unique("id")
+    loader = PolarsDataFrameLoader(df, page_content_column="text")
+
+    docs = list(
+        {
+            doc.page_content: {"document": doc, "filename": doc.metadata["id"]}
+            for doc in loader.load()
+            if doc.page_content and len(doc.page_content.split(" ")) > 5
+        }.values()
+    )
+    return docs
+
+
 def main():
-    loader = DirectoryLoader(
-        path=str(Paths.STAGING / "pdfs"),
-        show_progress=True,
-        use_multithreading=True,
-        loader_cls=TextLoader,
-        recursive=True,
-    )
-    docs = [doc for doc in loader.load() if doc.page_content]
-    text_splitter = CharacterTextSplitter.from_tiktoken_encoder(
-        chunk_size=1000, chunk_overlap=0
-    )
-    split_docs = text_splitter.split_documents(docs)
+    docs = read_docs()
+    n_docs = len(docs)
+
+    logging.warning(f"{n_docs} documents being processed!")
+
+    # text_splitter = CharacterTextSplitter.from_tiktoken_encoder(
+    #     chunk_size=10_240, chunk_overlap=0
+    # )
+    # split_docs = text_splitter.split_documents(docs)
 
     app = create_graph()
 
     step = None
-    for step in app.stream(
-        {
-            "documents": [doc.page_content for doc in split_docs],
-            "filenames": [Path(doc.metadata["source"]) for doc in split_docs],
-        }
-    ):
-        print(list(step.keys()))
+    for step in app.stream({"documents": docs, "n_docs": n_docs}):
+        print(step.keys())
 
     if step is None:
         raise ValueError("No steps were processed!")
-
     return step
 
 
@@ -208,7 +219,9 @@ if __name__ == "__main__":
 
     tic = time.time()
     out = main()
-    # build_quarto_doc(doc_title, out)
+    build_quarto_doc(doc_title, out)
+    print(out["generate_final_summary"]["final_summary"])
+
     toc = time.time()
 
     print(f"Time taken: {(toc - tic) / 60:.2f} minutes.")

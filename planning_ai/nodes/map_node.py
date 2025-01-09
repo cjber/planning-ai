@@ -1,16 +1,89 @@
 import json
+import logging
 from pathlib import Path
+from typing import TypedDict
 
-from langgraph.constants import Send
+import spacy
+from langchain_core.exceptions import OutputParserException
+from langgraph.types import Send
 from presidio_analyzer import AnalyzerEngine
 from presidio_anonymizer import AnonymizerEngine
+from pydantic import BaseModel, ValidationError
 
-from planning_ai.chains.map_chain import map_chain
+from planning_ai.chains.hallucination_chain import HallucinationChecker
+from planning_ai.chains.map_chain import create_dynamic_map_chain, map_template
 from planning_ai.common.utils import Paths
+from planning_ai.retrievers.theme_retriever import grade_chain, theme_retriever
 from planning_ai.states import DocumentState, OverallState
 
-anonymizer = AnonymizerEngine()
+logging.basicConfig(
+    level=logging.WARN, format="%(asctime)s - %(levelname)s - %(message)s"
+)
+logger = logging.getLogger(__name__)
+
+
+class BasicSummaryBroken(BaseModel):
+    summary: str
+    policies: None
+
+
 analyzer = AnalyzerEngine()
+anonymizer = AnonymizerEngine()
+
+nlp = spacy.load("en_core_web_lg")
+
+
+def retrieve_themes(state: DocumentState) -> dict:
+    theme_documents = theme_retriever.invoke(input=state["document"].page_content)
+
+    # TODO: add something similar but more efficient?
+    grade_scores = []
+    for doc in theme_documents:
+        try:
+            score = grade_chain.invoke(
+                {
+                    "context": doc.page_content,
+                    "document": state["document"].page_content,
+                }
+            ).binary_score
+        except (OutputParserException, json.JSONDecodeError) as e:
+            logger.error(f"Failed to decode JSON: {e}.\n Setting to 'no'")
+            score = "no"
+        grade_scores.append(score)
+
+    theme_documents = [
+        doc for doc, include in zip(theme_documents, grade_scores) if include == "yes"
+    ]
+
+    # TODO: Add metadata to this as string?
+    theme_documents_text = "\n\n".join([d.page_content for d in theme_documents])
+
+    # state["document"].page_content = (
+    #     f"{state['document'].page_content}\n\n"
+    #     f"Related Information:\n\n{theme_documents_text}"
+    # )
+    state["theme_docs"] = theme_documents
+    state["themes"] = {doc.metadata["theme"] for doc in theme_documents}
+
+    logger.warning(f"Retrieved relevant theme documents for: {state['filename']}")
+    return {"documents": [state]}
+
+
+def map_retrieve_themes(state: OverallState) -> list[Send]:
+    logger.warning("Mapping documents to retrieve themes.")
+    return [Send("retrieve_themes", document) for document in state["documents"]]
+
+
+def add_entities(state: OverallState) -> OverallState:
+    for idx, document in enumerate(
+        nlp.pipe(
+            [doc["document"].page_content for doc in state["documents"]],
+        )
+    ):
+        state["documents"][idx]["entities"] = [
+            {"entity": ent.text, "label": ent.label_} for ent in document.ents
+        ]
+    return state
 
 
 def remove_pii(document: str) -> str:
@@ -25,12 +98,14 @@ def remove_pii(document: str) -> str:
     Returns:
         str: The document text with PII anonymized.
     """
+    logger.warning("Starting PII removal.")
     results = analyzer.analyze(
         text=document,
         entities=["PERSON", "PHONE_NUMBER", "EMAIL_ADDRESS"],
         language="en",
     )
-    document = anonymizer.anonymize(text=document, analyzer_results=results)
+    document = anonymizer.anonymize(text=document, analyzer_results=results).text
+    logger.warning("PII removal completed.")
     return document
 
 
@@ -47,43 +122,27 @@ def generate_summary(state: DocumentState) -> dict:
     Returns:
         dict: A dictionary containing the generated summary and updated document state.
     """
-    state["document"] = remove_pii(state["document"])
-    response = map_chain.invoke({"context": state["document"]})
-    summary = response.summary
-    themes = [theme.value for theme in response.themes]
-    policies = [policy.dict() for policy in response.policies]
+    logger.warning(f"Generating summary for document: {state['filename']}")
 
-    out_policies = []
-    for theme in policies:
-        name = theme["theme"].value
-        policy_list = theme["policies"]
-        out_policies.append({"theme": name, "policies": policy_list})
+    state["document"].page_content = remove_pii(state["document"].page_content)
+    if not state["themes"]:
+        state["iteration"] = 99
+        state["hallucination"] = HallucinationChecker(score=1, explanation="INVALID")
+        state["summary"] = BasicSummaryBroken(summary="INVALID", policies=None)
+        return {"documents": [state]}
 
-    out_places = []
-    for place in response.places:
-        name = place.place
-        sentiment = place.sentiment.value
-        out_places.append({"place": name, "sentiment": sentiment})
+    map_chain = create_dynamic_map_chain(themes=state["themes"], prompt=map_template)
+    try:
+        response = map_chain.invoke({"context": state["document"].page_content})
+    except (OutputParserException, json.JSONDecodeError) as e:
+        logger.error(f"Failed to decode JSON: {e}.")
+        state["iteration"] = 99
+        state["hallucination"] = HallucinationChecker(score=1, explanation="INVALID")
+        state["summary"] = BasicSummaryBroken(summary="INVALID", policies=None)
+        return {"documents": [state]}
 
-    save_output = {
-        "summary": summary,
-        "themes": themes,
-        "policies": out_policies,
-        "places": out_places,
-    }
-
-    outfile = f"{Path(state["filename"]).stem}_summary.json"
-    with open(Paths.SUMMARIES / outfile, "w") as file:
-        json.dump(save_output, file, indent=4)
-
-    output = {
-        "summary": response,
-        "document": state["document"],
-        "filename": str(state["filename"]),
-        "iteration": 1,
-    }
-
-    return {"summaries": [output]}
+    logger.warning(f"Summary generation completed for document: {state['filename']}")
+    return {"documents": [{**state, "summary": response, "iteration": 1}]}
 
 
 def map_summaries(state: OverallState) -> list[Send]:
@@ -99,10 +158,5 @@ def map_summaries(state: OverallState) -> list[Send]:
         list: A list of Send objects directing each document to the `generate_summary`
         function.
     """
-    return [
-        Send(
-            "generate_summary",
-            {"document": document, "filename": filename},
-        )
-        for document, filename in zip(state["documents"], state["filenames"])
-    ]
+    logger.warning("Mapping documents to generate summaries.")
+    return [Send("generate_summary", document) for document in state["documents"]]

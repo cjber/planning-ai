@@ -1,40 +1,4 @@
-Summarise the following response to a planning application, focusing on the themes and policies proposed by the council. Follow these steps:
+Read the following response to a planning application, first summarise the response, then identify relevant 'policies' from any given. For each policy, list at least one section of the response that is related. Do **not** invent new policies. You **must** return valid JSON in the format given.
 
-1. **Summary:** Provide a concise, neutral summary that captures the key points of the response, particularly in relation to the council's proposed themes.
-2. **Themes:** List the council's themes discussed in the response.
-3. **Policies:** Identify relevant policies associated with the extracted themes.
-4. **Places:** Mention any geographical locations considered by the author.
-5. **Constructiveness:** Indicate whether the response is constructive. A response is constructive if it provides any feedback or commentary on the plan, regardless of its depth or specificity.
+Choose from the following list given, by name **only**:
 
-**Few-shot examples for reference:**
-
----
-
-**Example 1:**
-
-Response:  
-"I am in favour of this new park development as it will provide much-needed green space for families. However, the parking situation needs to be reconsidered."
-
-- **Summary:** The author supports the park development for its benefit to families but expresses concern about parking.
-- **Themes:** Biodiversity and green spaces, Infrastructure
-- **Places:** None
-- **Constructiveness:** True
-
----
-
-**Example 2:**
-
-Response:  
-"This development in Cambridge will destroy local wildlife and create traffic chaos. It should not go ahead."
-
-- **Summary:** The author opposes the development due to concerns about wildlife and traffic congestion.
-- **Themes:** Biodiversity and green spaces, Infrastructure
-- **Places:** Cambridge
-- **Constructiveness:** True
-
----
-
-**Now summarise the following response in British English:**
-
-Response:
-{context}

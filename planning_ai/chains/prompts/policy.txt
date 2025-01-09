@@ -1,0 +1,7 @@
+The following is a list of bullet points relating to a particular planning policy. Rewrite the bullet points to focus only on the key action or idea, excluding additional context (like the name of the policy). If multiple bullet points share the same concept, combine them together.
+
+Policy: {policy}
+
+Bullet Points:
+
+{bullet_points}

@@ -7,7 +7,13 @@ from planning_ai.nodes.hallucination_node import (
     map_fix_hallucinations,
     map_hallucinations,
 )
-from planning_ai.nodes.map_node import generate_summary, map_summaries
+from planning_ai.nodes.map_node import (
+    add_entities,
+    generate_summary,
+    map_retrieve_themes,
+    map_summaries,
+    retrieve_themes,
+)
 from planning_ai.nodes.reduce_node import generate_final_summary
 from planning_ai.states import OverallState
 
@@ -25,13 +31,21 @@ def create_graph():
         StateGraph: The compiled state graph ready for execution.
     """
     graph = StateGraph(OverallState)
+    graph.add_node("add_entities", add_entities)
+    graph.add_node("retrieve_themes", retrieve_themes)
     graph.add_node("generate_summary", generate_summary)
     graph.add_node("check_hallucination", check_hallucination)
     graph.add_node("fix_hallucination", fix_hallucination)
-    # graph.add_node("generate_final_summary", generate_final_summary)
+    graph.add_node("generate_final_summary", generate_final_summary)
 
+    graph.add_edge(START, "add_entities")
     graph.add_conditional_edges(
-        START,
+        "add_entities",
+        map_retrieve_themes,
+        ["retrieve_themes"],
+    )
+    graph.add_conditional_edges(
+        "retrieve_themes",
         map_summaries,
         ["generate_summary"],
     )
@@ -51,7 +65,7 @@ def create_graph():
         ["check_hallucination"],
     )
 
-    # graph.add_edge("check_hallucination", "generate_final_summary")
-    # graph.add_edge("generate_final_summary", END)
+    graph.add_edge("check_hallucination", "generate_final_summary")
+    graph.add_edge("generate_final_summary", END)
 
     return graph.compile()

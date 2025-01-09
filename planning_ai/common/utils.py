@@ -11,6 +11,18 @@ pl.Config(
 )
 
 
+def filename_reducer(docs_a, docs_b):
+    if docs_a == []:
+        return docs_b
+    b_dict = {d["filename"]: d for d in docs_b}
+
+    for i, dict_a in enumerate(docs_a):
+        filename = dict_a.get("filename")
+        if filename in b_dict:
+            docs_a[i] = b_dict[filename]
+    return docs_a
+
+
 class Paths:
     DATA = Path("data")
 
@@ -25,7 +37,14 @@ class Paths:
 
     @classmethod
     def ensure_directories_exist(cls):
-        for path in [cls.DATA, cls.RAW, cls.STAGING, cls.OUT, cls.SUMMARY, cls.SUMMARIES]:
+        for path in [
+            cls.DATA,
+            cls.RAW,
+            cls.STAGING,
+            cls.OUT,
+            cls.SUMMARY,
+            cls.SUMMARIES,
+        ]:
             path.mkdir(parents=True, exist_ok=True)
 
 

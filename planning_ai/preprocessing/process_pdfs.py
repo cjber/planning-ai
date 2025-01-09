@@ -2,35 +2,15 @@ import base64
 import os
 from io import BytesIO
 
-import cv2
-import numpy as np
 import requests
 from dotenv import load_dotenv
 from pdf2image import convert_from_path
+from PyPDF2 import PdfReader
 from tqdm import tqdm
 
 from planning_ai.common.utils import Paths
 
 load_dotenv()
-
-import easyocr
-from pdf2image import convert_from_path
-
-pdf_path = "data/raw/pdfs/25.pdf"
-# pdf_path = "../../data/raw/pdfs/26.pdf"
-images = convert_from_path(pdf_path)
-
-reader = easyocr.Reader(lang_list=["en"], gpu=True)
-
-for i, image in enumerate(images):
-    results = reader.readtext(np.array(image))
-    print(f"Page {i+1}:")
-    confidences = []
-    for result in results:
-        confidences.append(result[2])
-        print(f"Detected text: {result[1]} (confidence: {result[2]:.2f})")
-
-np.array(confidences).mean()
 
 
 def encode_images_to_base64(images):
@@ -61,13 +41,28 @@ def send_request_to_api(messages):
     return response.json()
 
 
+def extract_text_from_pdf(file_path):
+    """Extracts text from a PDF file using PyPDF2."""
+    try:
+        reader = PdfReader(file_path, strict=True)
+        text = []
+        for page in reader.pages:
+            text.append(page.extract_text() or "")
+        return "\n".join(text).strip()
+    except Exception as e:
+        print(e)
+        return None
+
+
 def main():
     pdfs = (Paths.RAW / "pdfs").glob("*.pdf")
     with open("planning_ai/preprocessing/prompts/ocr.txt", "r") as f:
         ocr_prompt = f.read()
 
     for file in tqdm(pdfs):
-        if file.stem:
+        outfile = Paths.STAGING / "pdfs" / f"{file.stem}.txt"
+
+        try:
             images = convert_from_path(file)
             image_b64 = encode_images_to_base64(images)
 
@@ -79,12 +74,15 @@ def main():
             ]
 
             response = send_request_to_api(messages)
+            if not "choices" in response:
+                continue
             out = response["choices"][0]["message"]["content"]
-            outfile = Paths.STAGING / "pdfs" / f"{file.stem}.txt"
             if outfile.exists():
                 continue
             with open(outfile, "w") as f:
                 f.write(out)
+        except:
+            continue
 
 
 if __name__ == "__main__":

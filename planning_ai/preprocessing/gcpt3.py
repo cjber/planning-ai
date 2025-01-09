@@ -1,4 +1,5 @@
 import logging
+import textwrap
 from pathlib import Path
 from typing import Any
 
@@ -59,14 +60,13 @@ def process_files(files: list[Path], schema: dict[str, Any]) -> None:
 
 def download_attachments():
     df = pl.read_parquet(Paths.STAGING / "gcpt3.parquet")
+    existing_files = {f.stem for f in (Paths.RAW / "pdfs").glob("*.pdf")}
 
-    existing_files = {int(f.stem) for f in (Paths.RAW / "pdfs").glob("*.pdf")}
     failed_files = set()
-
     failed_file_path = Paths.RAW / "failed_downloads.txt"
     if failed_file_path.exists():
         with open(failed_file_path, "r") as file:
-            failed_files = set(int(l) for l in file.read().splitlines())
+            failed_files = set(l for l in file.read().splitlines())
 
     for row in tqdm(
         df.drop_nulls(subset="attachments_id")
@@ -74,52 +74,64 @@ def download_attachments():
         .sample(shuffle=True, fraction=1)
         .rows(named=True)
     ):
-        attachment_id = int(row["attachments_id"])
-
-        if attachment_id in existing_files or attachment_id in failed_files:
-            print(f"Skipping {attachment_id} (already exists or previously failed)")
-            continue
         if (
-            row["attachments_url"].endswith(".pdf")
-            and not row["attachments_url"].startswith("https://egov.scambs.gov.uk")
-            and not row["attachments_url"].startswith("http://egov.scambs.gov.uk")
+            row["attachments_url"].startswith(
+                ("https://egov.scambs.gov.uk", "http://egov.scambs.gov.uk")
+            )
+            or row["attachments_id"] in existing_files
+            or row["attachments_id"] in failed_files
         ):
-            file_path = Paths.RAW / "pdfs" / f"{attachment_id}.pdf"
-            try:
-                response = requests.get(row["attachments_url"], timeout=10)
-                response.raise_for_status()
+            failed_files.add(row["attachments_id"])
+            continue
+        file_path = Paths.RAW / "pdfs" / f"{row['attachments_id']}.pdf"
+        try:
+            response = requests.get(row["attachments_url"], timeout=3)
+            response.raise_for_status()
 
-                with open(file_path, "wb") as f:
-                    f.write(response.content)
-                print(f"Downloaded {attachment_id} to {file_path}")
+            with open(file_path, "wb") as f:
+                f.write(response.content)
+            print(f"Downloaded {row['attachments_url']} to {file_path}")
 
-            except requests.RequestException as e:
-                logging.error(f"RequestException for {attachment_id}: {e}")
-                failed_files.add(attachment_id)
-                with open(failed_file_path, "a") as file:
-                    file.write(f"{attachment_id}\n")
-                print(f"Skipping {attachment_id} due to error: {e}")
+        except requests.RequestException as e:
+            logging.error(f"RequestException for {row['attachments_url']}: {e}")
+            failed_files.add(row["attachments_id"])
+            with open(failed_file_path, "a") as file:
+                file.write(f"{row['attachments_id']}\n")
+            print(f"Skipping {row['attachments_url']} due to error: {e}")
 
-            except Exception as e:
-                logging.error(f"Unexpected error for {attachment_id}: {e}")
-                failed_files.add(attachment_id)
-                with open(failed_file_path, "a") as file:
-                    file.write(f"{attachment_id}\n")
-                print(f"Unexpected error for {attachment_id}: {e}")
+        except Exception as e:
+            logging.error(f"Unexpected error for {row['attachments_url']}: {e}")
+            row["attachments_url"]
+            failed_files.add(row["attachments_id"])
+            with open(failed_file_path, "a") as file:
+                file.write(f"{row['attachments_id']}\n")
+            print(f"Unexpected error for {row['attachments_url']}: {e}")
 
 
 def convert_txt():
+    # TODO: add pdf content
     df = pl.read_parquet(Paths.STAGING / "gcpt3.parquet")
 
-    # attachment_txt =
+    for response_doc, dfd in df.group_by("representations_document"):
+        for row in tqdm(dfd.rows(named=True)):
+            text = f"{row["text"]}"
 
-    f"{df['text']}\n\nPOSITION: {df['representations_support/object']}"
+            with open(
+                Paths.STAGING
+                / "txt"
+                / f"{response_doc}"
+                / f"{row['representations_id']}.txt",
+                "w",
+            ) as f:
+                f.write(text)
 
 
 def main() -> None:
     files = list(Path(Paths.RAW / "gcpt3").glob("*.json"))
     schema = get_schema()
     process_files(files, schema)
+    download_attachments()
+    convert_txt()
 
 
 if __name__ == "__main__":

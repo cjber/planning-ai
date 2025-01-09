@@ -1,41 +1,9 @@
-The following is one or more summaries of responses to a new plan by the South Cambridgeshire Council:
+The following contains summaries of public responses to a new plan proposed by the South Cambridgeshire Council:
 
 {context}
 
-You are tasked with producing a **detailed and thorough final summary** that consolidates the main themes raised in the responses. **Do not add, infer, or create information.** Only use content directly mentioned in the summaries. Write in British English.
+As a representative of the Cambridgeshire Council, your task is to craft a **comprehensive and articulate executive summary**. This summary will serve as the introductory section of a major report, highlighting the key themes and concerns raised in the public responses. Ensure that the summary is clear, concise, and professional, reflecting the tone and standards expected in official council documents. **Do not add, infer, or create information.** Use only the content explicitly mentioned in the summaries. Adhere to British English conventions.
 
-Each provided summary may contain both supporting and opposing key points. Summarise these points, indicating whether they **support** or **oppose** the proposed plan. Each point should be grouped into a relevant header chosen from the 'Aims' associated with the response summary.  **Only include aims mentioned in the provided responses.** Omit any aim that is not discussed.
+Each time you make a reference to a response document, please add an inline citation which corresponds with the documents numerical ID. For example 'Concerns regarding the impact of increased housing density on the character of Cambridge were prevalent [1][2][11].'.
 
-**Guidelines**:
-
-- Provide an **extended, one page, balanced summary** of the key themes at the beginning, capturing the overall sentiment and notable trends.
-- In the 'Key points' sections, **group points by aim only if that aim is explicitly mentioned**.
-- Be sure to include specific, concise points that reflect the underlying concerns or support expressed by respondents.
-- Do **not** include information, assumptions, or summaries of aims that were not explicitly mentioned in the responses.
-
-**Format**:
-
-## Summary
-
-<Provide an extended, comprehensive overview of all the main themes. Mention key concerns, positive feedback, and overall trends.>
-
-## Key points raised in support
-
-For each key point raised in support, group them by aim **only if that aim is mentioned in the responses**.
-
-### [Aim name]
-
-- <Key point 1>
-- <Key point 2>
-- ...
-
-## Key points raised in opposition
-
-For each key point raised in opposition, group them by aim **only if that aim is mentioned in the responses**.
-
-### [Aim name]
-
-- <Key point 1>
-- <Key point 2>
-- ...
-
+## Executive Summary

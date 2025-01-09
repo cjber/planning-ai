@@ -1,11 +1,30 @@
-from langgraph.constants import Send
+import json
+import logging
 
-from planning_ai.chains.fix_chain import fix_chain
+from langchain_core.exceptions import OutputParserException
+from langgraph.types import Send
+from pydantic import BaseModel
+
+from planning_ai.chains.fix_chain import fix_template
 from planning_ai.chains.hallucination_chain import (
     HallucinationChecker,
     hallucination_chain,
 )
+from planning_ai.chains.map_chain import create_dynamic_map_chain
 from planning_ai.states import DocumentState, OverallState
+
+logging.basicConfig(
+    level=logging.WARNING, format="%(asctime)s - %(levelname)s - %(message)s"
+)
+logger = logging.getLogger(__name__)
+
+
+class BasicSummaryBroken(BaseModel):
+    summary: str
+    policies: None
+
+
+ITERATIONS = 2
 
 
 def check_hallucination(state: DocumentState):
@@ -23,25 +42,29 @@ def check_hallucination(state: DocumentState):
         dict: A dictionary containing either a list of fixed summaries or hallucinations
         that need to be addressed.
     """
-    if state["iteration"] > 5:
-        state["iteration"] = -99
-        return {"summaries_fixed": [state]}
+    logger.warning(f"Checking hallucinations for document {state['filename']}")
+    # Stop trying after 2 iterations
+    if state["iteration"] > ITERATIONS:
+        state["iteration"] = 99
+        state["hallucination"].score = 1
+        return {"documents": [state]}
 
-    response: HallucinationChecker = hallucination_chain.invoke(
-        {"document": state["document"], "summary": state["summary"]}
-    )  # type: ignore
+    try:
+        response = hallucination_chain.invoke(
+            {"document": state["document"], "summary": state["summary"].summary}
+        )
+    except (OutputParserException, json.JSONDecodeError) as e:
+        logger.error(f"Failed to decode JSON: {e}.")
+        state["iteration"] = 99
+        state["hallucination"] = HallucinationChecker(score=1, explanation="INVALID")
+        state["summary"] = BasicSummaryBroken(summary="INVALID", policies=None)
+        return {"documents": [state]}
     if response.score == 1:
-        return {"summaries_fixed": [state]}
+        return {"documents": [{**state, "hallucination": response}]}
 
     return {
-        "hallucinations": [
-            {
-                "hallucination": response,
-                "document": state["document"],
-                "filename": state["filename"],
-                "summary": state["summary"],
-                "iteration": state["iteration"] + 1,
-            }
+        "documents": [
+            {**state, "hallucination": response, "iteration": state["iteration"] + 1}
         ]
     }
 
@@ -60,7 +83,7 @@ def map_hallucinations(state: OverallState):
         list: A list of Send objects directing each summary to the check_hallucination
         function.
     """
-    return [Send("check_hallucination", summary) for summary in state["summaries"]]
+    return [Send("check_hallucination", document) for document in state["documents"]]
 
 
 def fix_hallucination(state: DocumentState):
@@ -77,24 +100,24 @@ def fix_hallucination(state: DocumentState):
         dict: A dictionary containing the updated summaries after attempting to fix
         hallucinations.
     """
-    response = fix_chain.invoke(
-        {
-            "context": state["document"],
-            "summary": state["summary"],
-            "explanation": state["hallucination"],
-        }
-    )
-    state["summary"] = response  # type: ignore
-    return {
-        "summaries": [
+    logger.warning(f"Fixing hallucinations for document {state['filename']}")
+    fix_chain = create_dynamic_map_chain(state["themes"], fix_template)
+    try:
+        response = fix_chain.invoke(
             {
-                "document": state["document"],
-                "filename": state["filename"],
-                "summary": state["summary"],
-                "iteration": state["iteration"],
+                "context": state["document"],
+                "summary": state["summary"].summary,
+                "explanation": state["hallucination"].explanation,
             }
-        ]
-    }
+        )
+    except (OutputParserException, json.JSONDecodeError) as e:
+        logger.error(f"Failed to decode JSON: {e}.")
+        state["iteration"] = 99
+        state["hallucination"] = HallucinationChecker(score=1, explanation="INVALID")
+        state["summary"] = BasicSummaryBroken(summary="INVALID", policies=None)
+        return {"documents": [state]}
+    state["summary"] = response  # type: ignore
+    return {"documents": [state]}
 
 
 def map_fix_hallucinations(state: OverallState):
@@ -112,11 +135,11 @@ def map_fix_hallucinations(state: OverallState):
         fix_hallucination function.
     """
     hallucinations = []
-    if "hallucinations" in state:
+    if "documents" in state:
         hallucinations = [
-            hallucination
-            for hallucination in state["hallucinations"]
-            if hallucination["hallucination"].score != 1
+            document
+            for document in state["documents"]
+            if document["hallucination"].score != 1
         ]
     return [
         Send("fix_hallucination", hallucination) for hallucination in hallucinations
