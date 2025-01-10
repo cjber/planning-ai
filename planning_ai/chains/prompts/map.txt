@@ -1,6 +1,12 @@
-Please read the response to the planning application below. Your task is to first provide a concise summary of the response. Next, identify any relevant 'policies' mentioned in the response. For each identified policy, extract and list at least one verbatim section from the response that relates to it. Ensure that you do not create or infer new policies beyond those explicitly mentioned.
+Please analyze the response to the planning application provided below. Your tasks are as follows:
 
-Your output must be in valid JSON format as specified.
+1. **Summary**: Provide a concise summary of the response, highlighting the main points and any significant details.
 
-Select policies from the provided list using their names only:
+2. **Policy Identification**: Identify all relevant 'policies' explicitly mentioned in the response. Do not infer or create new policies beyond those stated.
+
+3. **Policy Extraction**: For each identified policy, extract and list at least one verbatim section from the response that directly relates to it.
+
+Your output must be formatted in valid JSON as specified. Ensure clarity and accuracy in your extraction process.
+
+Select policies from the provided list using their exact names only:
 
