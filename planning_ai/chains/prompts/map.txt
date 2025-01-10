@@ -1,4 +1,4 @@
-Read the following response to a planning application, first summarise the response, then identify relevant 'policies' from any given. For each policy, list at least one section of the response that is related. Do **not** invent new policies. You **must** return valid JSON in the format given.
+Read the following response to a planning application, first summarise the response, then identify relevant 'policies' from any given. For each policy, list at least one section of the response that is related **verbatim**. Do **not** invent new policies. You **must** return valid JSON in the format given.
 
 Choose from the following list given, by name **only**:
 
