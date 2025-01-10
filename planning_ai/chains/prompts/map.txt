@@ -1,4 +1,6 @@
-Read the following response to a planning application, first summarise the response, then identify relevant 'policies' from any given. For each policy, list at least one section of the response that is related **verbatim**. Do **not** invent new policies. You **must** return valid JSON in the format given.
+Please read the response to the planning application below. Your task is to first provide a concise summary of the response. Next, identify any relevant 'policies' mentioned in the response. For each identified policy, extract and list at least one verbatim section from the response that relates to it. Ensure that you do not create or infer new policies beyond those explicitly mentioned.
 
-Choose from the following list given, by name **only**:
+Your output must be in valid JSON format as specified.
+
+Select policies from the provided list using their names only:
 
