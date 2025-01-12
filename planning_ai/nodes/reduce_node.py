@@ -15,26 +15,24 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-def extract_policies_from_summaries(summaries):
-    policies = {"themes": [], "policies": [], "details": []}
-    for summary in summaries:
-        if not summary["summary"].policies:
+def extract_policies_from_docs(docs):
+    policies = {"themes": [], "policies": [], "details": [], "stance": []}
+    for doc in docs:
+        if not doc["summary"].policies:
             continue
-        for policy in summary["summary"].policies:
+        for policy in doc["summary"].policies:
             for theme, p in THEMES_AND_POLICIES.items():
                 if policy.policy.name in p:
                     policies["themes"].append(theme)
                     policies["policies"].append(policy.policy.name)
-                    policies["details"].append(policy.note)
+                    policies["details"].append(
+                        f"{policy.note} [{doc['document'].metadata['index']}]"
+                    )
+                    policies["stance"].append(
+                        doc["document"].metadata["representations_support/object"]
+                    )
     df = pl.DataFrame(policies)
-
-    grouped = df.group_by(["themes", "policies"]).agg(pl.col("details"))
-    return grouped
-
-
-def markdown_bullets(summaries):
-    policies = extract_policies_from_summaries(summaries)
-    grouped = policies.group_by(["themes", "policies"]).agg(pl.col("details"))
+    grouped = df.group_by(["themes", "policies", "stance"]).agg(pl.col("details"))
     return grouped
 
 
@@ -42,17 +40,22 @@ def filter_final_documents(state: OverallState):
     return [doc for doc in state["documents"] if doc["hallucination"].score == 1]
 
 
-def filter_summaries(final_docs, state: OverallState):
-    return [
-        doc
-        for id, doc in zip(range(state["n_docs"]), final_docs)
-        if doc["summary"].summary != "INVALID"
-        and doc["themes"] != set()
-        and doc["iteration"] != 99
-    ]
+def filter_docs(final_docs):
+    out_docs = []
+    for doc in final_docs:
+        if (
+            (doc["summary"].summary != "INVALID")
+            and (doc["themes"] != set())
+            and (doc["iteration"] != 99)
+        ):
+            doc["summary"].summary = (
+                f"Document ID: [{doc['document'].metadata['index']}]\n\n{doc['summary'].summary}"
+            )
+            out_docs.append(doc)
+    return out_docs
 
 
-def save_summaries_to_json(summaries):
+def save_summaries_to_json(docs):
     """Saves summaries to JSON files.
 
     Args:
@@ -61,19 +64,19 @@ def save_summaries_to_json(summaries):
     out = [
         {
             "document": doc["document"].model_dump()["page_content"],
+            **doc["document"].metadata,
             "filename": doc["filename"],
             "entities": doc["entities"],
-            "theme_docs": [d.model_dump() for d in doc["theme_docs"]],
             "themes": list(doc["themes"]),
             "summary": doc["summary"].model_dump()["summary"],
             "policies": [
                 {"policy": policy["policy"].name, "note": policy["note"]}
-                for policy in doc["summary"].model_dump().get("policies", [])
+                for policy in (doc["summary"].model_dump().get("policies", []) or [])
             ],
             "iteration": doc["iteration"],
             "hallucination": doc["hallucination"].model_dump(),
         }
-        for doc in summaries
+        for doc in docs
     ]
     for doc in out:
         filename = Path(str(doc["filename"])).stem
@@ -90,11 +93,16 @@ def batch_generate_executive_summaries(summaries):
     Returns:
         list: A list of final responses.
     """
-    summaries_text = [s["summary"].summary for s in summaries]
+    summaries_text = [
+        f"Document ID: {[s['document'].metadata['index']]} {s['summary'].summary}"
+        for s in summaries
+    ]
     final_responses = []
     batch_size = 50
     for i in range(0, len(summaries_text), batch_size):
-        logger.warning("Processing batches.")
+        logger.warning(
+            f"Processing batches... {i/50}/{len(summaries_text)//batch_size}"
+        )
         batch = summaries_text[i : i + batch_size]
         response = reduce_chain.invoke({"context": batch})
         final_responses.append(response)
@@ -102,68 +110,62 @@ def batch_generate_executive_summaries(summaries):
 
 
 def generate_policy_output(policy_groups):
-    """Generates policy output from grouped policies.
-
-    Args:
-        pols (pl.DataFrame): A DataFrame with grouped policies.
-
-    Returns:
-        list: A list of policy outputs.
-    """
-    pol_out = []
+    policies_support = []
+    policies_object = []
     for _, policy in policy_groups.group_by(["themes", "policies"]):
         logger.warning("Processing policies.")
         bullets = "* " + "* \n".join(policy["details"][0])
         pchain_out = policy_chain.invoke(
             {"policy": policy["policies"][0], "bullet_points": bullets}
         )
-        pol_out.append(
-            {
-                "theme": policy["themes"][0],
-                "policy": policy["policies"][0],
-                "points": pchain_out,
-            }
-        )
-    return pol_out
+        if policy["stance"][0] == "Support":
+            policies_support.append(
+                {
+                    "theme": policy["themes"][0],
+                    "policy": policy["policies"][0],
+                    "points": pchain_out,
+                }
+            )
+        else:
+            policies_object.append(
+                {
+                    "theme": policy["themes"][0],
+                    "policy": policy["policies"][0],
+                    "points": pchain_out,
+                }
+            )
+    return policies_support, policies_object
 
 
 def format_themes(policies):
-    """Formats themes and policies into a markdown string.
-
-    Args:
-        policies (list): A list of policy outputs.
-
-    Returns:
-        str: A formatted markdown string of themes and policies.
-    """
     themes = ""
     for theme, policies in pl.DataFrame(policies).group_by("theme"):
-        themes += f"# {theme[0]}\n\n"
+        themes += f"### {theme[0]}\n\n"
         for row in policies.iter_rows(named=True):
-            themes += f"\n## {row['policy']}\n\n"
+            themes += f"\n#### {row['policy']}\n\n"
             themes += f"{row['points']}\n"
         themes += "\n"
     return themes
 
 
-def generate_final_summary(state: OverallState):
+def generate_final_report(state: OverallState):
     logger.warning("Generating final summary")
     final_docs = filter_final_documents(state)
     logger.warning(f"Number of final docs: {len(final_docs)}")
 
     if len(final_docs) == state["n_docs"]:
-        summaries = filter_summaries(final_docs, state)
-        save_summaries_to_json(summaries)
+        docs = filter_docs(final_docs)
+        save_summaries_to_json(docs)
 
-        final_responses = batch_generate_executive_summaries(summaries)
-        final_response = reduce_chain.invoke({"context": "\n\n".join(final_responses)})
+        policy_groups = extract_policies_from_docs(docs)
+        policies_support, policies_object = generate_policy_output(policy_groups)
 
-        policy_groups = markdown_bullets(summaries)
-        policy_outputs = generate_policy_output(policy_groups)
-        themes = format_themes(policy_outputs)
+        batch_executive = batch_generate_executive_summaries(docs)
+        executive = reduce_chain.invoke({"context": "\n\n".join(batch_executive)})
 
         return {
-            "final_summary": final_response,
+            "executive": executive,
             "documents": final_docs,
-            "policies": themes,
+            "policies_support": format_themes(policies_support),
+            "policies_object": format_themes(policies_object),
         }
