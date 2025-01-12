@@ -6,4 +6,4 @@ As a representative of the Cambridgeshire Council, your task is to craft a **com
 
 Each time you make a reference to a response document, please add an inline citation which corresponds with the documents numerical ID. For example 'Concerns regarding the impact of increased housing density on the character of Cambridge were prevalent [1][2][11].'.
 
-## Executive Summary
+# Executive Summary
