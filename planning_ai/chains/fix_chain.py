@@ -3,11 +3,8 @@ from langchain_core.prompts import ChatPromptTemplate
 from planning_ai.chains.map_chain import create_dynamic_map_chain
 from planning_ai.common.utils import Paths
 
-with open(Paths.PROMPTS / "themes.txt", "r") as f:
-    themes_txt = f.read()
-
 with open(Paths.PROMPTS / "fix_hallucination.txt", "r") as f:
-    fix_template = f"{themes_txt}\n\n {f.read()}"
+    fix_template = f.read()
 
 if __name__ == "__main__":
     test_document = """

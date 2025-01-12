@@ -9,11 +9,7 @@ from planning_ai.common.utils import Paths
 from planning_ai.llms.llm import LLM
 from planning_ai.themes import THEMES_AND_POLICIES
 
-# with open(Paths.PROMPTS / "themes.txt", "r") as f:
-#     themes_txt = f.read()
-
 with open(Paths.PROMPTS / "map.txt", "r") as f:
-    # map_template = f"{themes_txt}\n\n {f.read()}"
     map_template = f.read()
 
 
