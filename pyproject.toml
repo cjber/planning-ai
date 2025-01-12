@@ -29,6 +29,7 @@ dependencies = [
     "chromadb>=0.5.23",
     # "langchain-chroma>=0.1.4",
     "pypdf>=5.1.0",
+    "geopandas>=1.0.1",
 ]
 
 [tool.uv]
