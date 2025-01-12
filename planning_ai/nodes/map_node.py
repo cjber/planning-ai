@@ -12,8 +12,10 @@ from pydantic import BaseModel, ValidationError
 
 from planning_ai.chains.hallucination_chain import HallucinationChecker
 from planning_ai.chains.map_chain import create_dynamic_map_chain, map_template
+from planning_ai.chains.themes_chain import themes_chain
 from planning_ai.common.utils import Paths
-from planning_ai.retrievers.theme_retriever import grade_chain, theme_retriever
+
+# from planning_ai.retrievers.theme_retriever import grade_chain, theme_retriever
 from planning_ai.states import DocumentState, OverallState
 
 logging.basicConfig(
@@ -34,38 +36,13 @@ nlp = spacy.load("en_core_web_lg")
 
 
 def retrieve_themes(state: DocumentState) -> dict:
-    theme_documents = theme_retriever.invoke(input=state["document"].page_content)
-
-    # TODO: add something similar but more efficient?
-    grade_scores = []
-    for doc in theme_documents:
-        try:
-            score = grade_chain.invoke(
-                {
-                    "context": doc.page_content,
-                    "document": state["document"].page_content,
-                }
-            ).binary_score
-        except (OutputParserException, json.JSONDecodeError) as e:
-            logger.error(f"Failed to decode JSON: {e}.\n Setting to 'no'")
-            score = "no"
-        grade_scores.append(score)
-
-    theme_documents = [
-        doc for doc, include in zip(theme_documents, grade_scores) if include == "yes"
-    ]
-
-    # TODO: Add metadata to this as string?
-    theme_documents_text = "\n\n".join([d.page_content for d in theme_documents])
-
-    # state["document"].page_content = (
-    #     f"{state['document'].page_content}\n\n"
-    #     f"Related Information:\n\n{theme_documents_text}"
-    # )
-    state["theme_docs"] = theme_documents
-    state["themes"] = {doc.metadata["theme"] for doc in theme_documents}
-
-    logger.warning(f"Retrieved relevant theme documents for: {state['filename']}")
+    result = themes_chain.invoke({"document": state["document"]})
+    if not result.themes:
+        state["themes"] = set()
+        return {"documents": [state]}
+    themes = [theme.value for theme in result.themes]
+    state["themes"] = set(themes)
+    logger.warning(f"Retrieved relevant themes for: {state['filename']}")
     return {"documents": [state]}
 
 
