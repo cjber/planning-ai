@@ -1,145 +1,20 @@
 import logging
-import os
-import re
 import time
-from collections import Counter
-from itertools import groupby
-from pathlib import Path
 
-# import geopandas as gpd
+import geopandas as gpd
 import matplotlib.pyplot as plt
 import polars as pl
 from dotenv import load_dotenv
-from langchain_community.document_loaders import (
-    DirectoryLoader,
-    PolarsDataFrameLoader,
-    TextLoader,
-)
-from langchain_text_splitters import CharacterTextSplitter, markdown
+from langchain_community.document_loaders import PolarsDataFrameLoader
 
 from planning_ai.common.utils import Paths
 from planning_ai.graph import create_graph
-from planning_ai.themes import THEMES_AND_POLICIES
-
-# from opencage.geocoder import OpenCageGeocode
-
 
 load_dotenv()
 
 
-def _geocode_points(x):
-    api_key = os.getenv("OPENCAGE_API_KEY")
-    geocoder = OpenCageGeocode(key=api_key)
-    out = geocoder.geocode(x)
-    if out:
-        return out[0]["geometry"]
-    else:
-        return {"lat": -99.0, "lng": -99.0}
-
-
-def map_locations(places_df: pl.DataFrame):
-    lad = gpd.read_file(Paths.RAW / "LAD_BUC_2022.gpkg").to_crs("epsg:4326")
-    lad_camb = lad[lad["LAD22NM"].str.contains("Cambridge")]
-    places_df = places_df.with_columns(
-        pl.col("Place")
-        .map_elements(
-            lambda x: _geocode_points(x),
-            return_dtype=pl.Struct,
-        )
-        .alias("geometry")
-    ).with_columns(pl.col("geometry").struct[0], pl.col("geometry").struct[1])
-
-    places_pd = places_df.to_pandas()
-    places_gdf = (
-        gpd.GeoDataFrame(
-            places_pd,
-            geometry=gpd.points_from_xy(x=places_df["lng"], y=places_df["lat"]),
-        )
-        .set_crs("epsg:4326")
-        .clip(lad)
-    )
-
-    _, ax = plt.subplots()
-    lad.plot(ax=ax, color="white", edgecolor="gray")
-    lad_camb.plot(ax=ax, color="white", edgecolor="black")
-    places_gdf.plot(ax=ax, column="Mean Sentiment", markersize=5, legend=True)
-
-    bounds = lad_camb.total_bounds
-    buffer = 0.1
-    ax.set_xlim([bounds[0] - buffer, bounds[2] + buffer])
-    ax.set_ylim([bounds[1] - buffer, bounds[3] + buffer])
-    plt.axis("off")
-    plt.savefig(Paths.SUMMARY / "figs" / "places.png")
-
-
 def build_quarto_doc(doc_title, out):
     final = out["generate_final_summary"]
-
-    # value_counts = Counter(aims)
-    # total_values = sum(value_counts.values())
-    # percentages = {
-    #     key: {"count": count, "percentage": (count / total_values)}
-    #     for key, count in value_counts.items()
-    # }
-    # top_5 = sorted(percentages.items(), key=lambda x: x[1]["percentage"], reverse=True)[
-    #     :5
-    # ]
-    # thematic_breakdown = "| **Aim** | **Percentage** | **Count** |\n|---|---|---|\n"
-    # thematic_breakdown += "\n".join(
-    #     [f"| {item} | {d['percentage']:.2%} | {d['count']} |" for item, d in top_5]
-    # )
-    #
-    # places_df = (
-    #     pl.DataFrame(
-    #         [
-    #             place.dict()
-    #             for summary in final["summaries_fixed"]
-    #             for place in summary["summary"].places
-    #         ]
-    #     )
-    #     .group_by("place")
-    #     .agg(
-    #         pl.col("place").len().alias("Count"),
-    #         pl.col("sentiment").mean().alias("Mean Sentiment"),
-    #     )
-    #     .rename({"place": "Place"})
-    # )
-    #
-    # map_locations(places_df)
-    #
-    # places_breakdown = (
-    #     places_df.sort("Count", descending=True)
-    #     .head()
-    #     .to_pandas()
-    #     .to_markdown(index=False)
-    # )
-    #
-    # stances = [summary["summary"].stance for summary in final["summaries_fixed"]]
-    # value_counts = Counter(stances)
-    # total_values = sum(value_counts.values())
-    # percentages = {
-    #     key: {"count": count, "percentage": (count / total_values)}
-    #     for key, count in value_counts.items()
-    # }
-    # stances_top = sorted(
-    #     percentages.items(), key=lambda x: x[1]["percentage"], reverse=True
-    # )
-    # stances_breakdown = " | ".join(
-    #     [
-    #         f"**{item}**: {stance['percentage']:.2%} _({stance['count']})_"
-    #         for item, stance in stances_top
-    #     ]
-    # )
-    #
-    # short_summaries = "\n\n".join(
-    #     [
-    #         f"#### **TODO**\n"
-    #         f"{summary['summary'].summary}\n\n"
-    #         f"**Stance**: {summary['summary'].stance}\n\n"
-    #         f"**Constructiveness**: {summary['summary'].rating}\n\n"
-    #         for summary in final["summaries_fixed"]
-    #     ]
-    # )
 
     quarto_doc = (
         "---\n"
@@ -154,21 +29,19 @@ def build_quarto_doc(doc_title, out):
         "monofontoptions:\n"
         "  - Scale=0.55\n"
         "---\n\n"
-        f"{final['final_summary']}\n\n"
-        f"{final['policies']}"
-        # f"{executive_summary}\n\n"
-        # f"{stances_breakdown}\n\n"
-        # "## Aim Breakdown\n\n"
-        # "The aim breakdown identifies which aims are mentioned "
-        # "within each response. "
-        # "A single response may discuss multiple topics.\n"
-        # f"\n\n{thematic_breakdown}\n\n"
-        # f"\n\n{places_breakdown}\n\n"
-        # f"![Locations mentioned by sentiment](./figs/places.png)\n\n"
-        # "## Key points raised in support\n\n"
-        # f"{key_points}\n\n"
-        # "## Summaries\n"
-        # f"{short_summaries}"
+        f"{final['executive']}\n\n"
+        "# Figures\n\n"
+        "Figure @fig-wards shows the percentage of responses by total population"
+        " within each Ward that had at least one response.\n\n"
+        f"![Ward Proportions](./figs/wards.png){{#fig-wards}}\n\n"
+        "Figure @fig-imd shows the percentage of responses by total population"
+        " within each IMD quintile.\n\n"
+        f"![IMD Quintile Props](./figs/imd_decile.png){{#fig-imd}}\n\n"
+        "# Themes and Policies\n\n"
+        "## Support\n\n"
+        f"{final['policies_support']}"
+        "## Object\n\n"
+        f"{final['policies_object']}"
     )
 
     with open(Paths.SUMMARY / f"{doc_title.replace(' ', '_')}.qmd", "w") as f:
@@ -177,23 +50,111 @@ def build_quarto_doc(doc_title, out):
 
 def read_docs():
     df = pl.read_parquet(Paths.STAGING / "gcpt3.parquet")
-    df = df.filter(
-        pl.col("representations_document") == "Local Plan Issues and Options Report"
-    ).unique("id")
+    df = (
+        df.filter(
+            pl.col("representations_document") == "Local Plan Issues and Options Report"
+        )
+        .unique("id")
+        .with_row_index()
+    )
     loader = PolarsDataFrameLoader(df, page_content_column="text")
 
     docs = list(
         {
             doc.page_content: {"document": doc, "filename": doc.metadata["id"]}
             for doc in loader.load()
-            if doc.page_content and len(doc.page_content.split(" ")) > 5
+            if doc.page_content and len(doc.page_content.split(" ")) > 25
         }.values()
     )
     return docs
 
 
+def process_postcodes(documents):
+    postcodes = [doc["document"].metadata["respondentpostcode"] for doc in documents]
+    postcodes = (
+        pl.DataFrame({"postcode": postcodes})["postcode"]
+        .value_counts()
+        .with_columns(pl.col("postcode").str.replace_all(" ", ""))
+    )
+    onspd = pl.read_csv(
+        "./data/raw/onspd/ONSPD_FEB_2024.csv", columns=["PCD", "OSWARD", "LSOA11"]
+    ).with_columns(pl.col("PCD").str.replace_all(" ", "").alias("postcode"))
+    postcodes = postcodes.join(onspd, on="postcode")
+    return postcodes
+
+
+def wards_pop(postcodes):
+    wards = (
+        pl.read_csv("./data/raw/TS001-2021-3-filtered-2025-01-09T11_07_15Z.csv")
+        .with_columns(pl.col("Electoral wards and divisions Code").alias("OSWARD"))
+        .group_by("OSWARD")
+        .sum()
+    )
+    postcodes = postcodes.join(wards, on="OSWARD").with_columns(
+        ((pl.col("count") / pl.col("Observation")) * 100).alias("prop")
+    )
+    ward_boundaries = gpd.read_file(
+        "./data/raw/Wards_December_2021_GB_BFE_2022_7523259277605796091.zip"
+    )
+    ward_boundaries = ward_boundaries.merge(
+        postcodes.to_pandas(), left_on="WD21CD", right_on="OSWARD"
+    )
+
+    _, ax = plt.subplots()
+    ward_boundaries.plot(ax=ax, column="prop", legend=True)
+
+    plt.axis("off")
+    plt.savefig(Paths.SUMMARY / "figs" / "wards.png")
+
+
+def imd_bar(postcodes):
+    # Load the IMD data
+    imd = pl.read_csv(
+        "./data/raw/uk_imd2019.csv", columns=["LSOA", "LA_decile"]
+    ).with_columns(((pl.col("LA_decile") - 1) // 2) + 1)
+    pops = pl.read_excel(
+        "./data/raw/sapelsoabroadage20112022.xlsx",
+        sheet_name="Mid-2022 LSOA 2021",
+        read_options={"header_row": 3},
+        columns=["LSOA 2021 Code", "Total"],
+    )
+
+    # Join the postcodes data with IMD decile data
+    postcodes = (
+        postcodes.join(imd, left_on="LSOA11", right_on="LSOA")
+        .join(pops, left_on="LSOA11", right_on="LSOA 2021 Code")
+        .group_by("LA_decile")
+        .agg(pl.col("count").sum(), pl.col("LSOA11").count(), pl.col("Total").sum())
+        .sort("LA_decile")
+        .with_columns(((pl.col("count") / pl.col("Total")) * 100).alias("prop"))
+    )
+
+    # Convert the Polars DataFrame to a Pandas DataFrame for plotting
+    postcodes_pd = postcodes.to_pandas()
+
+    # Create a figure with two y-axes
+    fig, ax1 = plt.subplots()
+
+    # Plot the number of responses
+    ax1.bar(
+        postcodes_pd["LA_decile"],
+        postcodes_pd["prop"],
+        label="Percentage of Population (%)",
+    )
+    ax1.set_xlabel("IMD Quintile")
+    ax1.set_ylabel("Proporition of Population (%)")
+    ax1.tick_params(axis="y")
+
+    plt.title("Comparison of Responses by IMD Decile")
+
+    # Save the figure
+    plt.tight_layout()
+    plt.savefig(Paths.SUMMARY / "figs" / "imd_decile.png")
+    # plt.show()
+
+
 def main():
-    docs = read_docs()
+    docs = read_docs()[:500]
     n_docs = len(docs)
 
     logging.warning(f"{n_docs} documents being processed!")
@@ -219,9 +180,10 @@ if __name__ == "__main__":
 
     tic = time.time()
     out = main()
+    postcodes = process_postcodes(out["generate_final_summary"]["documents"])
+    wards_pop(postcodes)
+    imd_bar(postcodes)
     build_quarto_doc(doc_title, out)
-    print(out["generate_final_summary"]["final_summary"])
-
     toc = time.time()
 
     print(f"Time taken: {(toc - tic) / 60:.2f} minutes.")
