@@ -14,7 +14,7 @@ from planning_ai.nodes.map_node import (
     map_summaries,
     retrieve_themes,
 )
-from planning_ai.nodes.reduce_node import generate_final_summary
+from planning_ai.nodes.reduce_node import generate_final_report
 from planning_ai.states import OverallState
 
 
@@ -36,7 +36,7 @@ def create_graph():
     graph.add_node("generate_summary", generate_summary)
     graph.add_node("check_hallucination", check_hallucination)
     graph.add_node("fix_hallucination", fix_hallucination)
-    graph.add_node("generate_final_summary", generate_final_summary)
+    graph.add_node("generate_final_summary", generate_final_report)
 
     graph.add_edge(START, "add_entities")
     graph.add_conditional_edges(
