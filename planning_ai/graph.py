@@ -19,17 +19,6 @@ from planning_ai.states import OverallState
 
 
 def create_graph():
-    """Creates and compiles a state graph for document processing.
-
-    This function sets up a state graph using the `StateGraph` class, defining nodes
-    and edges for processing documents. It includes nodes for generating summaries,
-    checking and fixing hallucinations, and generating a final summary. Conditional
-    edges are added to manage the flow of data between nodes based on the processing
-    state.
-
-    Returns:
-        StateGraph: The compiled state graph ready for execution.
-    """
     graph = StateGraph(OverallState)
     graph.add_node("add_entities", add_entities)
     graph.add_node("retrieve_themes", retrieve_themes)
@@ -69,3 +58,8 @@ def create_graph():
     graph.add_edge("generate_final_summary", END)
 
     return graph.compile()
+
+
+def plot_mermaid():
+    graph = create_graph()
+    print(graph.get_graph().draw_mermaid())
