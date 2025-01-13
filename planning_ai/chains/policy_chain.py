@@ -14,13 +14,11 @@ policy_chain = policy_prompt | LLM | StrOutputParser()
 
 if __name__ == "__main__":
     test_policy = "Protecting open spaces"
-    test_bullet = "* " + "\n* ".join(
-        [
-            "The response emphasizes the need to preserve greenfield land, which relates to protecting open spaces.",
-            "The response notes that greenspace land should be preserved."
-            "The response emphasizes the need for creating more parks, which relates to protecting open spaces.",
-        ]
-    )
+    test_bullet = """
+* The response emphasizes the need to preserve greenfield land, which relates to protecting open spaces [1].\n
+* The response notes that greenspace land should be preserved [13].\n
+* The response emphasizes the need for creating more parks, which relates to protecting open spaces [21].
+            """
 
     result = policy_chain.invoke({"policy": test_policy, "bullet_points": test_bullet})
     print(result)

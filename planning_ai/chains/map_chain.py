@@ -1,7 +1,6 @@
 from enum import Enum, auto
 from typing import Optional, Set, Type
 
-from langchain.schema import BaseCache
 from langchain_core.prompts import ChatPromptTemplate
 from pydantic import BaseModel, create_model
 
@@ -73,9 +72,7 @@ def create_dynamic_map_chain(themes, prompt: str):
         + "\n\nContext:\n\n{context}"
     )
     map_prompt = ChatPromptTemplate.from_messages([("system", prompt)])
-    map_chain = map_prompt | SLLM
-
-    return map_chain
+    return map_prompt | SLLM
 
 
 if __name__ == "__main__":

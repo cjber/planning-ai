@@ -1,5 +1,3 @@
-from langchain_core.prompts import ChatPromptTemplate
-
 from planning_ai.chains.map_chain import create_dynamic_map_chain
 from planning_ai.common.utils import Paths
 

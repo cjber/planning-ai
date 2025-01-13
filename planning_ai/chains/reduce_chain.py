@@ -19,11 +19,6 @@ if __name__ == "__main__":
         The author expresses concern over the proposed mass development north-west of Cambridge,
         highlighting the significant growth in the area over the past twenty years,
         particularly with the establishment of Cambourne and the expansion of Papworth Everard.
-
-        Related Aims:
-
-        1: Homes
-        2: Infrastructure
         """
 
     result = reduce_chain.invoke({"context": test_summary})
