@@ -4,6 +4,7 @@
 chroma_themesdb/
 data/
 notes/
+reports/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
