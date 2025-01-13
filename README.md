@@ -11,15 +11,19 @@ Planning AI is a sophisticated tool designed to process and analyse responses to
 ```mermaid
 %%{init: {'flowchart': {'curve': 'linear'}}}%%
 graph TD;
-        __start__([__start__]):::first
+        __start__([<p>__start__</p>]):::first
+        add_entities(add_entities)
+        retrieve_themes(retrieve_themes)
         generate_summary(generate_summary)
         check_hallucination(check_hallucination)
         fix_hallucination(fix_hallucination)
         generate_final_summary(generate_final_summary)
-        __end__([__end__]):::last
+        __end__([<p>__end__</p>]):::last
+        __start__ --> add_entities;
         check_hallucination --> generate_final_summary;
         generate_final_summary --> __end__;
-        __start__ -.-> generate_summary;
+        add_entities -.-> retrieve_themes;
+        retrieve_themes -.-> generate_summary;
         generate_summary -.-> check_hallucination;
         check_hallucination -.-> fix_hallucination;
         fix_hallucination -.-> check_hallucination;
