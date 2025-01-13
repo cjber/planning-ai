@@ -59,14 +59,13 @@ def read_docs():
     )
     loader = PolarsDataFrameLoader(df, page_content_column="text")
 
-    docs = list(
+    return list(
         {
             doc.page_content: {"document": doc, "filename": doc.metadata["id"]}
             for doc in loader.load()
             if doc.page_content and len(doc.page_content.split(" ")) > 25
         }.values()
     )
-    return docs
 
 
 def process_postcodes(documents):
@@ -77,7 +76,7 @@ def process_postcodes(documents):
         .with_columns(pl.col("postcode").str.replace_all(" ", ""))
     )
     onspd = pl.read_csv(
-        "./data/raw/onspd/ONSPD_FEB_2024.csv", columns=["PCD", "OSWARD", "LSOA11"]
+        Paths.RAW / "onspd" / "ONSPD_FEB_2024.csv", columns=["PCD", "OSWARD", "LSOA11"]
     ).with_columns(pl.col("PCD").str.replace_all(" ", "").alias("postcode"))
     postcodes = postcodes.join(onspd, on="postcode")
     return postcodes
@@ -85,7 +84,7 @@ def process_postcodes(documents):
 
 def wards_pop(postcodes):
     wards = (
-        pl.read_csv("./data/raw/TS001-2021-3-filtered-2025-01-09T11_07_15Z.csv")
+        pl.read_csv(Paths.RAW / "TS001-2021-3-filtered-2025-01-09T11_07_15Z.csv")
         .with_columns(pl.col("Electoral wards and divisions Code").alias("OSWARD"))
         .group_by("OSWARD")
         .sum()
@@ -94,7 +93,7 @@ def wards_pop(postcodes):
         ((pl.col("count") / pl.col("Observation")) * 100).alias("prop")
     )
     ward_boundaries = gpd.read_file(
-        "./data/raw/Wards_December_2021_GB_BFE_2022_7523259277605796091.zip"
+        Paths.RAW / "Wards_December_2021_GB_BFE_2022_7523259277605796091.zip"
     )
     ward_boundaries = ward_boundaries.merge(
         postcodes.to_pandas(), left_on="WD21CD", right_on="OSWARD"
@@ -108,18 +107,16 @@ def wards_pop(postcodes):
 
 
 def imd_bar(postcodes):
-    # Load the IMD data
     imd = pl.read_csv(
-        "./data/raw/uk_imd2019.csv", columns=["LSOA", "LA_decile"]
+        Paths.RAW / "uk_imd2019.csv", columns=["LSOA", "LA_decile"]
     ).with_columns(((pl.col("LA_decile") - 1) // 2) + 1)
     pops = pl.read_excel(
-        "./data/raw/sapelsoabroadage20112022.xlsx",
+        Paths.RAW / "sapelsoabroadage20112022.xlsx",
         sheet_name="Mid-2022 LSOA 2021",
         read_options={"header_row": 3},
         columns=["LSOA 2021 Code", "Total"],
     )
 
-    # Join the postcodes data with IMD decile data
     postcodes = (
         postcodes.join(imd, left_on="LSOA11", right_on="LSOA")
         .join(pops, left_on="LSOA11", right_on="LSOA 2021 Code")
@@ -129,13 +126,10 @@ def imd_bar(postcodes):
         .with_columns(((pl.col("count") / pl.col("Total")) * 100).alias("prop"))
     )
 
-    # Convert the Polars DataFrame to a Pandas DataFrame for plotting
     postcodes_pd = postcodes.to_pandas()
 
-    # Create a figure with two y-axes
-    fig, ax1 = plt.subplots()
+    _, ax1 = plt.subplots()
 
-    # Plot the number of responses
     ax1.bar(
         postcodes_pd["LA_decile"],
         postcodes_pd["prop"],
@@ -147,10 +141,8 @@ def imd_bar(postcodes):
 
     plt.title("Comparison of Responses by IMD Decile")
 
-    # Save the figure
     plt.tight_layout()
     plt.savefig(Paths.SUMMARY / "figs" / "imd_decile.png")
-    # plt.show()
 
 
 def main():
@@ -158,11 +150,6 @@ def main():
     n_docs = len(docs)
 
     logging.warning(f"{n_docs} documents being processed!")
-
-    # text_splitter = CharacterTextSplitter.from_tiktoken_encoder(
-    #     chunk_size=10_240, chunk_overlap=0
-    # )
-    # split_docs = text_splitter.split_documents(docs)
 
     app = create_graph()
 
@@ -172,6 +159,11 @@ def main():
 
     if step is None:
         raise ValueError("No steps were processed!")
+
+    postcodes = process_postcodes(step["generate_final_summary"]["documents"])
+    wards_pop(postcodes)
+    imd_bar(postcodes)
+    build_quarto_doc(doc_title, step)
     return step
 
 
@@ -180,10 +172,6 @@ if __name__ == "__main__":
 
     tic = time.time()
     out = main()
-    postcodes = process_postcodes(out["generate_final_summary"]["documents"])
-    wards_pop(postcodes)
-    imd_bar(postcodes)
-    build_quarto_doc(doc_title, out)
     toc = time.time()
 
     print(f"Time taken: {(toc - tic) / 60:.2f} minutes.")
