@@ -60,13 +60,14 @@ def process_files(files: list[Path], schema: dict[str, Any]) -> None:
 
 def download_attachments():
     df = pl.read_parquet(Paths.STAGING / "gcpt3.parquet")
+
     existing_files = {f.stem for f in (Paths.RAW / "pdfs").glob("*.pdf")}
 
     failed_files = set()
     failed_file_path = Paths.RAW / "failed_downloads.txt"
     if failed_file_path.exists():
         with open(failed_file_path, "r") as file:
-            failed_files = set(l for l in file.read().splitlines())
+            failed_files = set(file.read().splitlines())
 
     for row in tqdm(
         df.drop_nulls(subset="attachments_id")
