@@ -30,13 +30,11 @@ def create_graph():
     graph.add_edge(START, "add_entities")
     graph.add_conditional_edges(
         "add_entities",
-        map_retrieve_themes,
-        ["retrieve_themes"],
+        map_summaries,
+        ["generate_summary"],
     )
     graph.add_conditional_edges(
         "retrieve_themes",
-        map_summaries,
-        ["generate_summary"],
     )
     graph.add_conditional_edges(
         "generate_summary",
