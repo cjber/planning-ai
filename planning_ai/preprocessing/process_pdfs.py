@@ -45,9 +45,7 @@ def extract_text_from_pdf(file_path):
     """Extracts text from a PDF file using PyPDF2."""
     try:
         reader = PdfReader(file_path, strict=True)
-        text = []
-        for page in reader.pages:
-            text.append(page.extract_text() or "")
+        text = [page.extract_text() or "" for page in reader.pages]
         return "\n".join(text).strip()
     except Exception as e:
         print(e)
@@ -74,7 +72,7 @@ def main():
             ]
 
             response = send_request_to_api(messages)
-            if not "choices" in response:
+            if "choices" not in response:
                 continue
             out = response["choices"][0]["message"]["content"]
             if outfile.exists():
