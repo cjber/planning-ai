@@ -1,21 +1,16 @@
 import json
 import logging
-from pathlib import Path
-from typing import TypedDict
 
 import spacy
 from langchain_core.exceptions import OutputParserException
 from langgraph.types import Send
 from presidio_analyzer import AnalyzerEngine
 from presidio_anonymizer import AnonymizerEngine
-from pydantic import BaseModel, ValidationError
+from pydantic import BaseModel
 
 from planning_ai.chains.hallucination_chain import HallucinationChecker
 from planning_ai.chains.map_chain import create_dynamic_map_chain, map_template
 from planning_ai.chains.themes_chain import themes_chain
-from planning_ai.common.utils import Paths
-
-# from planning_ai.retrievers.theme_retriever import grade_chain, theme_retriever
 from planning_ai.states import DocumentState, OverallState
 
 logging.basicConfig(
@@ -35,20 +30,22 @@ anonymizer = AnonymizerEngine()
 nlp = spacy.load("en_core_web_lg")
 
 
-def retrieve_themes(state: DocumentState) -> dict:
-    result = themes_chain.invoke({"document": state["document"]})
-    if not result.themes:
-        state["themes"] = set()
-        return {"documents": [state]}
-    themes = [theme.value for theme in result.themes]
-    state["themes"] = set(themes)
-    logger.warning(f"Retrieved relevant themes for: {state['filename']}")
+def _return_summary_error(state):
+    state["iteration"] = 99
+    state["hallucination"] = HallucinationChecker(score=1, explanation="INVALID")
+    state["summary"] = BasicSummaryBroken(summary="INVALID", policies=None)
     return {"documents": [state]}
 
 
-def map_retrieve_themes(state: OverallState) -> list[Send]:
-    logger.warning("Mapping documents to retrieve themes.")
-    return [Send("retrieve_themes", document) for document in state["documents"]]
+def retrieve_themes(state: DocumentState) -> DocumentState:
+    result = themes_chain.invoke({"document": state["document"]})
+    if not result.themes:
+        state["themes"] = set()
+        return state
+    themes = [theme.value for theme in result.themes]
+    state["themes"] = set(themes)
+    logger.warning(f"Retrieved relevant themes for: {state['filename']}")
+    return state
 
 
 def add_entities(state: OverallState) -> OverallState:
@@ -102,22 +99,16 @@ def generate_summary(state: DocumentState) -> dict:
     logger.warning(f"Generating summary for document: {state['filename']}")
 
     state["document"].page_content = remove_pii(state["document"].page_content)
-    if not state["themes"]:
-        state["iteration"] = 99
-        state["hallucination"] = HallucinationChecker(score=1, explanation="INVALID")
-        state["summary"] = BasicSummaryBroken(summary="INVALID", policies=None)
-        return {"documents": [state]}
+    state = retrieve_themes(state)
 
+    if not state["themes"]:
+        return _return_summary_error(state)
     map_chain = create_dynamic_map_chain(themes=state["themes"], prompt=map_template)
     try:
         response = map_chain.invoke({"context": state["document"].page_content})
     except (OutputParserException, json.JSONDecodeError) as e:
         logger.error(f"Failed to decode JSON: {e}.")
-        state["iteration"] = 99
-        state["hallucination"] = HallucinationChecker(score=1, explanation="INVALID")
-        state["summary"] = BasicSummaryBroken(summary="INVALID", policies=None)
-        return {"documents": [state]}
-
+        return _return_summary_error(state)
     logger.warning(f"Summary generation completed for document: {state['filename']}")
     return {"documents": [{**state, "summary": response, "iteration": 1}]}
 
