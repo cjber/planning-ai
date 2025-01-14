@@ -109,6 +109,20 @@ wheels = [
 ]
 
 [[package]]
+name = "azure-ai-documentintelligence"
+version = "1.0.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "azure-core" },
+    { name = "isodate" },
+    { name = "typing-extensions" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/ca/fd/cd0d493e9dc93a5ce097db7508f1b2467a73dcc7022c235b409ce48b9679/azure_ai_documentintelligence-1.0.0.tar.gz", hash = "sha256:c8b6efc0fc7e65d7892c9585cfd256f7d8b3f2b46cecf92c75ab82e629eac253", size = 169420 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/84/a8/c9c66d4d04b8aee06ebdc9a6077736b222b9b2fe92364fed6f9a1c08ece0/azure_ai_documentintelligence-1.0.0-py3-none-any.whl", hash = "sha256:cdedb1a67c075f58f47a413ec5846bf8d532a83a71f0c51ec49ce9b5bfe2a519", size = 105454 },
+]
+
+[[package]]
 name = "azure-core"
 version = "1.32.0"
 source = { registry = "https://pypi.org/simple" }
@@ -794,6 +808,15 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/01/35/6f90fdddff7a08b7b715fccbd2427b5212c9525cd043d26fdc45bee0708d/ipython-8.31.0.tar.gz", hash = "sha256:b6a2274606bec6166405ff05e54932ed6e5cfecaca1fc05f2cacde7bb074d70b", size = 5501011 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/04/60/d0feb6b6d9fe4ab89fe8fe5b47cbf6cd936bfd9f1e7ffa9d0015425aeed6/ipython-8.31.0-py3-none-any.whl", hash = "sha256:46ec58f8d3d076a61d128fe517a51eb730e3aaf0c184ea8c17d16e366660c6a6", size = 821583 },
+]
+
+[[package]]
+name = "isodate"
+version = "0.7.2"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/54/4d/e940025e2ce31a8ce1202635910747e5a87cc3a6a6bb2d00973375014749/isodate-0.7.2.tar.gz", hash = "sha256:4cd1aa0f43ca76f4a6c6c0292a85f40b35ec2e43e315b59f06e6d32171a953e6", size = 29705 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/15/aa/0aca39a37d3c7eb941ba736ede56d689e7be91cab5d9ca846bde3999eba6/isodate-0.7.2-py3-none-any.whl", hash = "sha256:28009937d8031054830160fce6d409ed342816b543597cece116d966c6d99e15", size = 22320 },
 ]
 
 [[package]]
@@ -1654,6 +1677,7 @@ name = "planning-ai"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
+    { name = "azure-ai-documentintelligence" },
     { name = "beautifulsoup4" },
     { name = "chromadb" },
     { name = "fastexcel" },
@@ -1688,6 +1712,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
+    { name = "azure-ai-documentintelligence", specifier = ">=1.0.0" },
     { name = "beautifulsoup4", specifier = ">=4.12.3" },
     { name = "chromadb", specifier = ">=0.5.23" },
     { name = "fastexcel", specifier = ">=0.11.6" },

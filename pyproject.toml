@@ -30,6 +30,7 @@ dependencies = [
     # "langchain-chroma>=0.1.4",
     "pypdf>=5.1.0",
     "geopandas>=1.0.1",
+    "azure-ai-documentintelligence>=1.0.0",
 ]
 
 [tool.uv]
