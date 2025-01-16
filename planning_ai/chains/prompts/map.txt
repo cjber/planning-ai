@@ -2,9 +2,9 @@ Please analyze the response to the planning application provided below. Your tas
 
 1. **Summary**: Provide a concise summary of the response, highlighting the main points and any significant details.
 
-2. **Policy Identification**: Identify all relevant 'policies' explicitly mentioned in the response. Do not infer or create new policies beyond those stated.
+2. **Policy Identification**: Identify relevant policies associated with the response from the given list. Do not infer or create new policies beyond those stated. Select **only** any relevant policies.
 
-3. **Policy Extraction**: For each identified policy, extract and list at least one verbatim section from the response that directly relates to it.
+3. **Policy Notes**: For each identified policy, extract and list at least one verbatim section from the response that relates to it. Ensure the that **full** context is retained to ensure the section can be understood in its own right. Policy notes may overlap. If then note does not have a clear link to the policy, omit both the policy and the note.
 
 Your output must be formatted in valid JSON as specified. Ensure clarity and accuracy in your extraction process.
 
