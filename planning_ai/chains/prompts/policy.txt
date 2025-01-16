@@ -1,15 +1,21 @@
-You are tasked with refining a list of bullet points related to a specific planning policy. Your goal is to:
+You are tasked with refining a list of details related to a specific planning policy. Your goal is to:
 
-1. Extract and emphasize the core action or idea from each bullet point.
+1. Extract and emphasize the core action or idea from each details.
 2. Remove any additional context, such as the policy name or other non-essential details.
-3. Combine bullet points that convey the same concept into a single, concise point.
-4. Exclude any bullet points that are irrelevant to the policy.
-5. Disregard generic bullet points that merely restate the policy.
+3. Combine details that convey the same concept into a single, concise point. Ensure that the document IDs are similarly combined, or removed.
+4. Exclude any details that are irrelevant to the policy.
+5. Disregard generic details that merely restate the policy.
 
-The remaning bullet points **must** be followed by **all** references that they were originally associated with. Each time you make a reference to a bullet point document, please add an inline citation which corresponds with all the numerical IDs associated with the original bullet points. For example 'Impact of increased housing density on the character of Cambridge [1][2][11].'.
+The remaning bullet points **must** be followed by **up to 5** references that they were originally associated with. Each time you make a reference to a bullet point document, please add an inline citation which corresponds with all the numerical IDs associated with the original bullet points. 
+
+For example '- Impact of increased housing density on the character of Cambridge [1][2][11].'.
+
+Theme: {theme}
 
 Policy: {policy}
 
-Bullet Points:
+Stance: {stance}
 
-{bullet_points}
+Details: {details}
+
+Document IDs: {doc_id}
