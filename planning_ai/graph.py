@@ -33,7 +33,7 @@ def create_graph():
     graph.add_conditional_edges("fix_hallucination", map_check, ["check_hallucination"])
 
     graph.add_edge("check_hallucination", "generate_final_report")
-    graph.add_edge("generate_final_summary", END)
+    graph.add_edge("generate_final_report", END)
 
     return graph.compile()
 
