@@ -5,12 +5,18 @@ import polars as pl
 from azure.ai.documentintelligence import DocumentIntelligenceClient
 from azure.ai.documentintelligence.models import AnalyzeOutputOption, AnalyzeResult
 from azure.core.credentials import AzureKeyCredential
+from dotenv import load_dotenv
+from pypdf import PdfReader, PdfWriter
+from pypdf.errors import PdfReadError
 from tqdm import tqdm
 
 from planning_ai.common.utils import Paths
 
+load_dotenv()
+
 gcpt3 = pl.read_parquet("data/staging/gcpt3_testing.parquet")
 pdf_ids = gcpt3["attachments_id"].unique().to_list()
+
 
 pdfs = [
     pdf
@@ -24,8 +30,27 @@ credential = AzureKeyCredential(os.getenv("AZURE_API_KEY") or "")
 document_intelligence_client = DocumentIntelligenceClient(endpoint, credential)
 
 for pdf_path in tqdm(pdfs):
+    print(f"Processing {pdf_path}")
+
     out_pdf = Path(f"./data/staging/pdfs_azure/{pdf_path.stem}.pdf")
     failed_txt = Path(f"./data/staging/pdfs_azure/{pdf_path.stem}.txt")
+
+    try:
+        reader = PdfReader(pdf_path)
+        text = "\n\n".join([page.extract_text() for page in reader.pages])
+        if len(text) > 10_000:
+            writer = PdfWriter()
+            for page in reader.pages:
+                writer.add_page(page)
+            with open(out_pdf, "wb") as f:
+                writer.write(f)
+            print("Written PDF text to file.")
+    except PdfReadError:
+        print("Not a pdf file...")
+        with open(failed_txt, "w") as f:
+            f.write("")
+        continue
+
     if out_pdf.exists() or failed_txt.exists():
         continue
 
@@ -50,6 +75,7 @@ for pdf_path in tqdm(pdfs):
         )
         with open(out_pdf, "wb") as writer:
             writer.writelines(response)
+        print("Written Azure text to file.")
     except Exception as e:
         with open(failed_txt, "w") as f:
             f.write("")
