@@ -1,6 +1,6 @@
 <div align="center">
 
-![](./reports/DOCS/figs/planning-ai-high-resolution-logo-transparent.png)
+![](./reports/DOCS/figs/logo_transparent.png)
 
 ![Python](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)
 ![LangChain](https://img.shields.io/badge/langchain-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white)
