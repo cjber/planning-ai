@@ -10,7 +10,6 @@ from planning_ai.nodes.hallucination_node import (
 from planning_ai.nodes.map_node import (
     add_entities,
     generate_summary,
-    map_retrieve_themes,
     map_summaries,
     retrieve_themes,
 )
@@ -32,9 +31,6 @@ def create_graph():
         "add_entities",
         map_summaries,
         ["generate_summary"],
-    )
-    graph.add_conditional_edges(
-        "retrieve_themes",
     )
     graph.add_conditional_edges(
         "generate_summary",

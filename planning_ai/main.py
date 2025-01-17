@@ -58,7 +58,7 @@ def read_docs():
         int(pdf.stem) if pdf.stem.isdigit() else 0
         for pdf in (Paths.STAGING / "pdfs_azure").glob("*.pdf")
     ]
-    pdf_loader = PyPDFDirectoryLoader(Paths.STAGING / "pdfs_azure")
+    pdf_loader = PyPDFDirectoryLoader(Paths.STAGING / "pdfs_azure", silent_errors=True)
     out = pdf_loader.load()
 
     pdfs_combined = {}
@@ -129,12 +129,30 @@ def wards_pop(postcodes):
     ward_boundaries = gpd.read_file(
         Paths.RAW / "Wards_December_2021_GB_BFE_2022_7523259277605796091.zip"
     )
-    ward_boundaries = ward_boundaries.merge(
+    camb_ward_codes = (
+        wards.filter(pl.col("Electoral wards and divisions").str.contains("Cambridge"))[
+            "Electoral wards and divisions Code"
+        ]
+        .unique()
+        .to_list()
+    )
+    camb_ward_boundaries = ward_boundaries[
+        ward_boundaries["WD21CD"].isin(camb_ward_codes)
+    ]
+    ward_boundaries_prop = ward_boundaries.merge(
         postcodes.to_pandas(), left_on="WD21CD", right_on="OSWARD"
     )
 
     _, ax = plt.subplots()
-    ward_boundaries.plot(ax=ax, column="prop", legend=True)
+    ward_boundaries.plot(ax=ax, color="white", edgecolor="gray")
+    camb_ward_boundaries.plot(ax=ax, color="white", edgecolor="black")
+    ward_boundaries_prop.plot(ax=ax, column="prop", legend=True)
+
+    __import__("ipdb").set_trace()
+    bounds = camb_ward_boundaries.total_bounds
+    buffer = 0.1
+    ax.set_xlim([bounds[0] - buffer, bounds[2] + buffer])
+    ax.set_ylim([bounds[1] - buffer, bounds[3] + buffer])
 
     plt.axis("off")
     plt.savefig(Paths.SUMMARY / "figs" / "wards.png")
@@ -180,7 +198,7 @@ def imd_bar(postcodes):
 
 
 def main():
-    docs = read_docs()
+    docs = read_docs()[:5]
     n_docs = len(docs)
 
     logging.warning(f"{n_docs} documents being processed!")
