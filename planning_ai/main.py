@@ -18,7 +18,8 @@ load_dotenv()
 
 
 def build_quarto_doc(doc_title, out):
-    final = out["generate_final_summary"]
+    final = out["generate_final_documents"]
+    policies = process_policies(out)
 
     quarto_doc = (
         "---\n"
@@ -34,18 +35,16 @@ def build_quarto_doc(doc_title, out):
         "  - Scale=0.55\n"
         "---\n\n"
         f"{final['executive']}\n\n"
-        "# Figures\n\n"
-        "Figure @fig-wards shows the percentage of responses by total population"
+        r"\newpage"
+        "\n# Figures\n\n"
+        "@fig-wards shows the percentage of responses by total population"
         " within each Ward that had at least one response.\n\n"
         f"![Ward Proportions](./figs/wards.png){{#fig-wards}}\n\n"
-        "Figure @fig-imd shows the percentage of responses by total population"
+        "@fig-imd shows the percentage of responses by total population"
         " within each IMD quintile.\n\n"
         f"![IMD Quintile Props](./figs/imd_decile.png){{#fig-imd}}\n\n"
         "# Themes and Policies\n\n"
-        "## Support\n\n"
-        f"{final['policies_support']}"
-        "## Object\n\n"
-        f"{final['policies_object']}"
+        f"{policies}"
     )
 
     with open(Paths.SUMMARY / f"{doc_title.replace(' ', '_')}.qmd", "w") as f:
@@ -53,43 +52,45 @@ def build_quarto_doc(doc_title, out):
 
 
 def read_docs():
-    df = pl.read_parquet(Paths.STAGING / "gcpt3.parquet")
-    pdf_ids = [
-        int(pdf.stem) if pdf.stem.isdigit() else 0
-        for pdf in (Paths.STAGING / "pdfs_azure").glob("*.pdf")
-    ]
-    pdf_loader = PyPDFDirectoryLoader(Paths.STAGING / "pdfs_azure", silent_errors=True)
-    out = pdf_loader.load()
-
-    pdfs_combined = {}
-    for page in out:
-        id = Path(page.metadata["source"]).stem
-        if id in pdfs_combined:
-            pdfs_combined[id] = pdfs_combined[id] + page.page_content
-        else:
-            pdfs_combined[id] = page.page_content
-
-    pdfs_combined = (
-        pl.from_dict(pdfs_combined)
-        .transpose(include_header=True)
-        .rename({"column": "attachments_id", "column_0": "pdf_text"})
-        .with_columns(pl.col("attachments_id").cast(int))
+    df = pl.read_parquet(Paths.STAGING / "gcpt3_testing.parquet").drop_nulls(
+        subset="text"
     )
-
-    df = (
-        df.filter(
-            (
-                pl.col("representations_document")
-                == "Greater Cambridge Local Plan Preferred Options"
-            )
-            & (pl.col("attachments_id").is_in(pdf_ids))
-        )
-        .unique("id")
-        .with_row_index()
-    )
-    df = df.join(pdfs_combined, on="attachments_id").with_columns(
-        pl.col("text") + "\n\n" + pl.col("pdf_text")
-    )
+    # pdf_ids = [
+    #     int(pdf.stem) if pdf.stem.isdigit() else 0
+    #     for pdf in (Paths.STAGING / "pdfs_azure").glob("*.pdf")
+    # ]
+    # pdf_loader = PyPDFDirectoryLoader(Paths.STAGING / "pdfs_azure", silent_errors=True)
+    # out = pdf_loader.load()
+    #
+    # pdfs_combined = {}
+    # for page in out:
+    #     id = Path(page.metadata["source"]).stem
+    #     if id in pdfs_combined:
+    #         pdfs_combined[id] = pdfs_combined[id] + page.page_content
+    #     else:
+    #         pdfs_combined[id] = page.page_content
+    #
+    # pdfs_combined = (
+    #     pl.from_dict(pdfs_combined)
+    #     .transpose(include_header=True)
+    #     .rename({"column": "attachments_id", "column_0": "pdf_text"})
+    #     .with_columns(pl.col("attachments_id").cast(int))
+    # )
+    #
+    # df = (
+    #     df.filter(
+    #         (
+    #             pl.col("representations_document")
+    #             == "Greater Cambridge Local Plan Preferred Options"
+    #         )
+    #         & (pl.col("attachments_id").is_in(pdf_ids))
+    #     )
+    #     .unique("id")
+    #     .with_row_index()
+    # )
+    # df = df.join(pdfs_combined, on="attachments_id").with_columns(
+    #     pl.col("text") + "\n\n" + pl.col("pdf_text")
+    # )
 
     loader = PolarsDataFrameLoader(df, page_content_column="text")
 
@@ -119,8 +120,13 @@ def process_postcodes(documents):
 def wards_pop(postcodes):
     wards = (
         pl.read_csv(Paths.RAW / "TS001-2021-3-filtered-2025-01-09T11_07_15Z.csv")
-        .with_columns(pl.col("Electoral wards and divisions Code").alias("OSWARD"))
-        .group_by("OSWARD")
+        .rename(
+            {
+                "Electoral wards and divisions Code": "OSWARD",
+                "Electoral wards and divisions": "WARDNAME",
+            }
+        )
+        .group_by(["OSWARD", "WARDNAME"])
         .sum()
     )
     postcodes = postcodes.join(wards, on="OSWARD").with_columns(
@@ -129,13 +135,23 @@ def wards_pop(postcodes):
     ward_boundaries = gpd.read_file(
         Paths.RAW / "Wards_December_2021_GB_BFE_2022_7523259277605796091.zip"
     )
-    camb_ward_codes = (
-        wards.filter(pl.col("Electoral wards and divisions").str.contains("Cambridge"))[
-            "Electoral wards and divisions Code"
-        ]
-        .unique()
-        .to_list()
-    )
+
+    camb_ward_codes = [
+        "E05013050",
+        "E05013051",
+        "E05013052",
+        "E05013053",
+        "E05013054",
+        "E05013055",
+        "E05013056",
+        "E05013057",
+        "E05013058",
+        "E05013059",
+        "E05013060",
+        "E05013061",
+        "E05013062",
+        "E05013063",
+    ]
     camb_ward_boundaries = ward_boundaries[
         ward_boundaries["WD21CD"].isin(camb_ward_codes)
     ]
@@ -148,9 +164,8 @@ def wards_pop(postcodes):
     camb_ward_boundaries.plot(ax=ax, color="white", edgecolor="black")
     ward_boundaries_prop.plot(ax=ax, column="prop", legend=True)
 
-    __import__("ipdb").set_trace()
     bounds = camb_ward_boundaries.total_bounds
-    buffer = 0.1
+    buffer = 1000
     ax.set_xlim([bounds[0] - buffer, bounds[2] + buffer])
     ax.set_ylim([bounds[1] - buffer, bounds[3] + buffer])
 
@@ -191,18 +206,62 @@ def imd_bar(postcodes):
     ax1.set_ylabel("Proporition of Population (%)")
     ax1.tick_params(axis="y")
 
-    plt.title("Comparison of Responses by IMD Decile")
+    plt.title("Comparison of Responses by IMD Quintile")
 
     plt.tight_layout()
     plt.savefig(Paths.SUMMARY / "figs" / "imd_decile.png")
 
 
+def process_policies(step):
+    df = step["generate_final_documents"]["policies"]
+
+    all_policies = ""
+    for (theme, stance), policy in df.group_by(
+        ["themes", "stance"], maintain_order=True
+    ):
+        details = "".join(
+            f'\n### {row["policies"]}\n\n'
+            + "".join(
+                f"- {detail} {doc_id}\n"
+                for detail, doc_id in zip(row["details"], row["doc_id"])
+            )
+            for row in policy.rows(named=True)
+        )
+        all_policies += f"## {theme} - {stance}\n\n{details}\n"
+    return all_policies
+
+
+def build_quarto_summaries_doc(out):
+    full_text = "".join(
+        f"**Document ID**: {document['document'].metadata['index']}\n\n"
+        f"**Original Document**\n\n{document['document'].page_content}\n\n"
+        f"**Summarised Document**\n\n{document['summary'].summary}\n\n"
+        # f"**Identified Entities**\n\n{document['entities']}\n\n"
+        for document in out["generate_final_documents"]["documents"]
+    )
+    quarto_header = (
+        "---\n"
+        f"title: 'Summary Documents'\n"
+        "format:\n"
+        "  PrettyPDF-pdf:\n"
+        "    papersize: A4\n"
+        "execute:\n"
+        "  freeze: auto\n"
+        "  echo: false\n"
+        "monofont: 'JetBrains Mono'\n"
+        "monofontoptions:\n"
+        "  - Scale=0.55\n"
+        "---\n\n"
+    )
+    with open(Paths.SUMMARY / "Summary_Documents.qmd", "w") as f:
+        f.write(f"{quarto_header}{full_text}")
+
+
 def main():
-    docs = read_docs()[:5]
+    docs = read_docs()[:200]
     n_docs = len(docs)
 
     logging.warning(f"{n_docs} documents being processed!")
-
     app = create_graph()
 
     step = None
@@ -212,10 +271,11 @@ def main():
     if step is None:
         raise ValueError("No steps were processed!")
 
-    postcodes = process_postcodes(step["generate_final_summary"]["documents"])
+    postcodes = process_postcodes(step["generate_final_documents"]["documents"])
     wards_pop(postcodes)
     imd_bar(postcodes)
     build_quarto_doc(doc_title, step)
+    build_quarto_summaries_doc(step)
     return step
 
 
@@ -226,4 +286,5 @@ if __name__ == "__main__":
     out = main()
     toc = time.time()
 
+    out["generate_final_documents"]["documents"][0]
     print(f"Time taken: {(toc - tic) / 60:.2f} minutes.")
