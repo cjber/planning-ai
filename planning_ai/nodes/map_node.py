@@ -3,6 +3,7 @@ import logging
 
 import spacy
 from langchain_core.exceptions import OutputParserException
+from langgraph.constants import END
 from langgraph.types import Send
 from presidio_analyzer import AnalyzerEngine
 from presidio_anonymizer import AnonymizerEngine
@@ -19,26 +20,14 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-class BasicSummaryBroken(BaseModel):
-    summary: str
-    policies: None
-
-
 analyzer = AnalyzerEngine()
 anonymizer = AnonymizerEngine()
 
 nlp = spacy.load("en_core_web_lg")
 
 
-def _return_summary_error(state):
-    state["iteration"] = 99
-    state["hallucination"] = HallucinationChecker(score=1, explanation="INVALID")
-    state["summary"] = BasicSummaryBroken(summary="INVALID", policies=None)
-    return {"documents": [state]}
-
-
 def retrieve_themes(state: DocumentState) -> DocumentState:
-    result = themes_chain.invoke({"document": state["document"]})
+    result = themes_chain.invoke({"document": state["document"].page_content})
     if not result.themes:
         state["themes"] = set()
         return state
@@ -102,29 +91,40 @@ def generate_summary(state: DocumentState) -> dict:
     state = retrieve_themes(state)
 
     if not state["themes"]:
-        return _return_summary_error(state)
+        logger.error("No themes found.")
+        return {
+            "documents": [
+                {
+                    **state,
+                    "summary": "",
+                    "processed": True,
+                    "is_hallucinated": True,
+                    "failed": True,
+                    "refinement_attempts": 0,
+                }
+            ]
+        }
     map_chain = create_dynamic_map_chain(themes=state["themes"], prompt=map_template)
     try:
         response = map_chain.invoke({"context": state["document"].page_content})
     except (OutputParserException, json.JSONDecodeError) as e:
         logger.error(f"Failed to decode JSON: {e}.")
-        return _return_summary_error(state)
+        return {"documents": [{**state, "failed": True, "processed": True}]}
     logger.warning(f"Summary generation completed for document: {state['filename']}")
-    return {"documents": [{**state, "summary": response, "iteration": 1}]}
+    return {
+        "documents": [
+            {
+                **state,
+                "summary": response,
+                "refinement_attempts": 0,
+                "is_hallucinated": True,  # start true to ensure cycle begins
+                "failed": False,
+                "processed": False,
+            }
+        ]
+    }
 
 
-def map_summaries(state: OverallState) -> list[Send]:
-    """Maps documents to the `generate_summary` function for processing.
-
-    This function prepares a list of documents to be summarized by sending them to the
-    `generate_summary` function. It allows for parallel processing of document summaries.
-
-    Args:
-        state (OverallState): The overall state containing all documents and their filenames.
-
-    Returns:
-        list: A list of Send objects directing each document to the `generate_summary`
-        function.
-    """
+def map_documents(state: OverallState) -> list[Send]:
     logger.warning("Mapping documents to generate summaries.")
     return [Send("generate_summary", document) for document in state["documents"]]

@@ -1,6 +1,7 @@
 from pathlib import Path
 from typing import Annotated, TypedDict
 
+import polars as pl
 from langchain_core.documents import Document
 from pydantic import BaseModel
 
@@ -14,16 +15,19 @@ class DocumentState(TypedDict):
 
     entities: list[dict]
     themes: set[str]
+
     summary: BaseModel
     hallucination: HallucinationChecker
 
-    iteration: int
+    is_hallucinated: bool
+    refinement_attempts: int
+    failed: bool
+    processed: bool
 
 
 class OverallState(TypedDict):
+    documents: Annotated[list, filename_reducer]
     executive: str
-    documents: Annotated[list[DocumentState], filename_reducer]
-    policies_support: str
-    policies_object: str
+    policies: pl.DataFrame
 
     n_docs: int

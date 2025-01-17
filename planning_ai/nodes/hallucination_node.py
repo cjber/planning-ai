@@ -2,14 +2,12 @@ import json
 import logging
 
 from langchain_core.exceptions import OutputParserException
+from langgraph.constants import END
 from langgraph.types import Send
 from pydantic import BaseModel
 
 from planning_ai.chains.fix_chain import fix_template
-from planning_ai.chains.hallucination_chain import (
-    HallucinationChecker,
-    hallucination_chain,
-)
+from planning_ai.chains.hallucination_chain import hallucination_chain
 from planning_ai.chains.map_chain import create_dynamic_map_chain
 from planning_ai.states import DocumentState, OverallState
 
@@ -19,12 +17,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-class BasicSummaryBroken(BaseModel):
-    summary: str
-    policies: None
-
-
-ITERATIONS = 2
+MAX_ATTEMPTS = 3
 
 
 def check_hallucination(state: DocumentState):
@@ -43,47 +36,35 @@ def check_hallucination(state: DocumentState):
         that need to be addressed.
     """
     logger.warning(f"Checking hallucinations for document {state['filename']}")
-    # Stop trying after 2 iterations
-    if state["iteration"] > ITERATIONS:
-        state["iteration"] = 99
-        state["hallucination"].score = 1
-        return {"documents": [state]}
+
+    if (state["refinement_attempts"] >= MAX_ATTEMPTS) or state["processed"]:
+        logger.warning(f"Max attempts exceeded for document: {state['filename']}")
+        return {"documents": [{**state, "failed": True, "processed": True}]}
+    elif not state["is_hallucinated"]:
+        logger.warning(f"Finished processing document: {state['filename']}")
+        return {"documents": [{**state, "processed": True}]}
 
     try:
         response = hallucination_chain.invoke(
             {"document": state["document"], "summary": state["summary"].summary}
         )
+        is_hallucinated = response.score == 0
+        refinement_attempts = state["refinement_attempts"] + 1
+        out = {
+            **state,
+            "hallucination": response,
+            "refinement_attempts": refinement_attempts,
+            "is_hallucinated": is_hallucinated,
+        }
+        logger.warning(f"Hallucination: {is_hallucinated}")
+        return (
+            {"documents": [{**out, "processed": False}]}
+            if is_hallucinated
+            else {"documents": [{**out, "processed": True}]}
+        )
     except (OutputParserException, json.JSONDecodeError) as e:
         logger.error(f"Failed to decode JSON: {e}.")
-        state["iteration"] = 99
-        state["hallucination"] = HallucinationChecker(score=1, explanation="INVALID")
-        state["summary"] = BasicSummaryBroken(summary="INVALID", policies=None)
-        return {"documents": [state]}
-    if response.score == 1:
-        return {"documents": [{**state, "hallucination": response}]}
-
-    return {
-        "documents": [
-            {**state, "hallucination": response, "iteration": state["iteration"] + 1}
-        ]
-    }
-
-
-def map_hallucinations(state: OverallState):
-    """Maps summaries to the `check_hallucination` function.
-
-    This function prepares a list of summaries to be checked for hallucinations by
-    sending them to the `check_hallucination` function. Allows summaries to be checked
-    in parrallel.
-
-    Args:
-        state (OverallState): The overall state containing all summaries.
-
-    Returns:
-        list: A list of Send objects directing each summary to the check_hallucination
-        function.
-    """
-    return [Send("check_hallucination", document) for document in state["documents"]]
+        return {"documents": [{**state, "failed": True, "processed": True}]}
 
 
 def fix_hallucination(state: DocumentState):
@@ -112,35 +93,17 @@ def fix_hallucination(state: DocumentState):
         )
     except (OutputParserException, json.JSONDecodeError) as e:
         logger.error(f"Failed to decode JSON: {e}.")
-        state["iteration"] = 99
-        state["hallucination"] = HallucinationChecker(score=1, explanation="INVALID")
-        state["summary"] = BasicSummaryBroken(summary="INVALID", policies=None)
-        return {"documents": [state]}
-    state["summary"] = response  # type: ignore
-    return {"documents": [state]}
+        return {"documents": [{**state, "failed": True, "processed": True}]}
+    return {"documents": [{**state, "summary": response}]}
 
 
-def map_fix_hallucinations(state: OverallState):
-    """Maps hallucinations to the `fix_hallucination` function.
+def map_check(state: OverallState):
+    return [Send("check_hallucination", doc) for doc in state["documents"]]
 
-    This function filters out hallucinations that need fixing and prepares them to be
-    sent to the `fix_hallucination` function. Allows hallucinations to be fixed in
-    parrallel.
 
-    Args:
-        state (OverallState): The overall state containing all hallucinations.
-
-    Returns:
-        list: A list of Send objects directing each hallucination to the
-        fix_hallucination function.
-    """
-    hallucinations = []
-    if "documents" in state:
-        hallucinations = [
-            document
-            for document in state["documents"]
-            if document["hallucination"].score != 1
-        ]
+def map_fix(state: OverallState):
     return [
-        Send("fix_hallucination", hallucination) for hallucination in hallucinations
+        Send("fix_hallucination", doc)
+        for doc in state["documents"]
+        if doc["is_hallucinated"] and not doc["processed"]
     ]

@@ -6,9 +6,7 @@ You are tasked with refining a list of details related to a specific planning po
 4. Exclude any details that do not pertain to the policy.
 5. Disregard generic details that merely restate the policy.
 
-The remaining bullet points **must** be followed by **up to 5** references to the original document IDs. Each bullet point should include inline citations corresponding to all the numerical IDs associated with the original details.
-
-For example '- Impact of increased housing density on the character of Cambridge [1][2][11].'.
+Ensure that all returned details use proper sentence structure.
 
 Theme: {theme}
 

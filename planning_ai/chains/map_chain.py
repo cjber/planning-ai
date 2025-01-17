@@ -2,7 +2,7 @@ from enum import Enum, auto
 from typing import Optional, Set, Type
 
 from langchain_core.prompts import ChatPromptTemplate
-from pydantic import BaseModel, create_model
+from pydantic import BaseModel, Field, create_model
 
 from planning_ai.common.utils import Paths
 from planning_ai.llms.llm import LLM
@@ -39,9 +39,11 @@ def create_brief_summary_model(policy_enum: Enum) -> Type[BaseModel]:
         Type[BaseModel]: A dynamically generated Pydantic model for BriefSummary.
     """
 
+    # NOTE: For some reason GPT4o goes mental if we use too much structure
     DynamicPolicy = create_model(
         "DynamicPolicy",
-        policy=(policy_enum, ...),
+        # policy=(policy_enum, ...),
+        policy=(str, ...),
         note=(str, ...),
         __config__={"extra": "forbid"},
     )
@@ -49,7 +51,9 @@ def create_brief_summary_model(policy_enum: Enum) -> Type[BaseModel]:
     return create_model(
         "DynamicBriefSummary",
         summary=(str, ...),
-        policies=(Optional[list[DynamicPolicy]], ...),
+        # policies=(Optional[list[DynamicPolicy]], ...),
+        policies=(Optional[list[str]], ...),
+        notes=(Optional[list[str]], ...),
         __module__=__name__,
         __config__={"extra": "forbid"},
     )
@@ -82,7 +86,7 @@ if __name__ == "__main__":
     the major settlement of Cambourne has been created - now over the projected 3,000 homes and
     Papworth Everard has grown beyond recognition. This in itself is a matter of concern.
     """
-    test_themes = {"Great Places", "Homes"}
+    test_themes = {"Homes", "Great Places"}
 
     dynamic_map_chain = create_dynamic_map_chain(test_themes, prompt=map_template)
     result = dynamic_map_chain.invoke({"context": test_document, "themes": test_themes})

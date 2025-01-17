@@ -4,13 +4,13 @@ from langgraph.graph import END, StateGraph
 from planning_ai.nodes.hallucination_node import (
     check_hallucination,
     fix_hallucination,
-    map_fix_hallucinations,
-    map_hallucinations,
+    map_check,
+    map_fix,
 )
 from planning_ai.nodes.map_node import (
     add_entities,
     generate_summary,
-    map_summaries,
+    map_documents,
     retrieve_themes,
 )
 from planning_ai.nodes.reduce_node import generate_final_report
@@ -24,31 +24,15 @@ def create_graph():
     graph.add_node("generate_summary", generate_summary)
     graph.add_node("check_hallucination", check_hallucination)
     graph.add_node("fix_hallucination", fix_hallucination)
-    graph.add_node("generate_final_summary", generate_final_report)
+    graph.add_node("generate_final_report", generate_final_report)
 
     graph.add_edge(START, "add_entities")
-    graph.add_conditional_edges(
-        "add_entities",
-        map_summaries,
-        ["generate_summary"],
-    )
-    graph.add_conditional_edges(
-        "generate_summary",
-        map_hallucinations,
-        ["check_hallucination"],
-    )
-    graph.add_conditional_edges(
-        "check_hallucination",
-        map_fix_hallucinations,
-        ["fix_hallucination"],
-    )
-    graph.add_conditional_edges(
-        "fix_hallucination",
-        map_hallucinations,
-        ["check_hallucination"],
-    )
+    graph.add_conditional_edges("add_entities", map_documents, ["generate_summary"])
+    graph.add_conditional_edges("generate_summary", map_check, ["check_hallucination"])
+    graph.add_conditional_edges("check_hallucination", map_fix, ["fix_hallucination"])
+    graph.add_conditional_edges("fix_hallucination", map_check, ["check_hallucination"])
 
-    graph.add_edge("check_hallucination", "generate_final_summary")
+    graph.add_edge("check_hallucination", "generate_final_report")
     graph.add_edge("generate_final_summary", END)
 
     return graph.compile()
