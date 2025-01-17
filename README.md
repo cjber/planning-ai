@@ -13,14 +13,13 @@
 ```mermaid
 %%{init: {'flowchart': {'curve': 'linear'}}}%%
 graph TD;
-        __start__(<p>__start__</p>)
+        __start__([<p>__start__</p>]):::first
         add_entities(add_entities)
-        retrieve_themes(retrieve_themes)
         generate_summary(generate_summary)
         check_hallucination(check_hallucination)
         fix_hallucination(fix_hallucination)
         generate_final_report(generate_final_report)
-        __end__(<p>__end__</p>)
+        __end__([<p>__end__</p>]):::last
         __start__ --> add_entities;
         check_hallucination --> generate_final_report;
         generate_final_report --> __end__;
