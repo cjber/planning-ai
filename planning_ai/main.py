@@ -52,46 +52,47 @@ def build_quarto_doc(doc_title, out):
 
 
 def read_docs():
-    df = pl.read_parquet(Paths.STAGING / "gcpt3_testing.parquet").drop_nulls(
-        subset="text"
+    df = (
+        pl.read_parquet(Paths.STAGING / "gcpt3_testing.parquet")
+        .drop_nulls(subset="text")
+        .drop("index")
     )
-    # pdf_ids = [
-    #     int(pdf.stem) if pdf.stem.isdigit() else 0
-    #     for pdf in (Paths.STAGING / "pdfs_azure").glob("*.pdf")
-    # ]
-    # pdf_loader = PyPDFDirectoryLoader(Paths.STAGING / "pdfs_azure", silent_errors=True)
-    # out = pdf_loader.load()
-    #
-    # pdfs_combined = {}
-    # for page in out:
-    #     id = Path(page.metadata["source"]).stem
-    #     if id in pdfs_combined:
-    #         pdfs_combined[id] = pdfs_combined[id] + page.page_content
-    #     else:
-    #         pdfs_combined[id] = page.page_content
-    #
-    # pdfs_combined = (
-    #     pl.from_dict(pdfs_combined)
-    #     .transpose(include_header=True)
-    #     .rename({"column": "attachments_id", "column_0": "pdf_text"})
-    #     .with_columns(pl.col("attachments_id").cast(int))
-    # )
-    #
-    # df = (
-    #     df.filter(
-    #         (
-    #             pl.col("representations_document")
-    #             == "Greater Cambridge Local Plan Preferred Options"
-    #         )
-    #         & (pl.col("attachments_id").is_in(pdf_ids))
-    #     )
-    #     .unique("id")
-    #     .with_row_index()
-    # )
-    # df = df.join(pdfs_combined, on="attachments_id").with_columns(
-    #     pl.col("text") + "\n\n" + pl.col("pdf_text")
-    # )
+    pdf_ids = [
+        int(pdf.stem) if pdf.stem.isdigit() else 0
+        for pdf in (Paths.STAGING / "pdfs_azure").glob("*.pdf")
+    ]
+    pdf_loader = PyPDFDirectoryLoader(Paths.STAGING / "pdfs_azure", silent_errors=True)
+    out = pdf_loader.load()
 
+    pdfs_combined = {}
+    for page in out:
+        id = Path(page.metadata["source"]).stem
+        if id in pdfs_combined:
+            pdfs_combined[id] = pdfs_combined[id] + page.page_content
+        else:
+            pdfs_combined[id] = page.page_content
+
+    pdfs_combined = (
+        pl.from_dict(pdfs_combined)
+        .transpose(include_header=True)
+        .rename({"column": "attachments_id", "column_0": "pdf_text"})
+        .with_columns(pl.col("attachments_id").cast(int))
+    )
+
+    df = (
+        df.filter(
+            (
+                pl.col("representations_document")
+                == "Greater Cambridge Local Plan Preferred Options"
+            )
+            & (pl.col("attachments_id").is_in(pdf_ids))
+        )
+        .unique("id")
+        .with_row_index()
+    )
+    df = df.join(pdfs_combined, on="attachments_id").with_columns(
+        pl.col("text") + "\n\n" + pl.col("pdf_text")
+    )
     loader = PolarsDataFrameLoader(df, page_content_column="text")
 
     return list(
@@ -286,5 +287,4 @@ if __name__ == "__main__":
     out = main()
     toc = time.time()
 
-    out["generate_final_documents"]["documents"][0]
     print(f"Time taken: {(toc - tic) / 60:.2f} minutes.")
