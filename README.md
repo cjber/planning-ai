@@ -8,26 +8,23 @@
 
 </div>
 
-## Project Overview
-
-Planning AI is a tool designed to process and analyse responses to local government planning applications. It uses advanced natural language processing techniques to summarise and categorise feedback, providing insights into public opinion on proposed developments.
+> Planning AI is a tool designed to process and analyse responses to local government planning applications. It uses advanced natural language processing techniques to summarise and categorise feedback, providing insights into public opinion on proposed developments.
 
 ```mermaid
 %%{init: {'flowchart': {'curve': 'linear'}}}%%
 graph TD;
-        __start__([<p>__start__</p>]):::first
+        __start__(<p>__start__</p>)
         add_entities(add_entities)
         retrieve_themes(retrieve_themes)
         generate_summary(generate_summary)
         check_hallucination(check_hallucination)
         fix_hallucination(fix_hallucination)
-        generate_final_summary(generate_final_summary)
-        __end__([<p>__end__</p>]):::last
+        generate_final_report(generate_final_report)
+        __end__(<p>__end__</p>)
         __start__ --> add_entities;
-        check_hallucination --> generate_final_summary;
-        generate_final_summary --> __end__;
-        add_entities -.-> retrieve_themes;
-        retrieve_themes -.-> generate_summary;
+        check_hallucination --> generate_final_report;
+        generate_final_report --> __end__;
+        add_entities -.-> generate_summary;
         generate_summary -.-> check_hallucination;
         check_hallucination -.-> fix_hallucination;
         fix_hallucination -.-> check_hallucination;
