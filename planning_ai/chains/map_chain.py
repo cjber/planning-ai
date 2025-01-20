@@ -51,9 +51,7 @@ def create_brief_summary_model(policy_enum: Enum) -> Type[BaseModel]:
     return create_model(
         "DynamicBriefSummary",
         summary=(str, ...),
-        # policies=(Optional[list[DynamicPolicy]], ...),
-        policies=(Optional[list[str]], ...),
-        notes=(Optional[list[str]], ...),
+        policies=(Optional[list[DynamicPolicy]], ...),
         __module__=__name__,
         __config__={"extra": "forbid"},
     )
