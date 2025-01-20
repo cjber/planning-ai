@@ -47,25 +47,18 @@ def save_summaries_to_json(docs):
 def extract_policies_from_docs(docs):
     policies = {"doc_id": [], "themes": [], "policies": [], "details": [], "stance": []}
     for doc in docs:
-        if not doc["summary"].policies or not doc["summary"].notes:
+        if not doc["summary"].policies:
             continue
-        # TODO: Test when this is sometimes empty
-        assert len(doc["summary"].policies) == len(doc["summary"].notes), __import__(
-            "ipdb"
-        ).set_trace()
-        try:
-            for policy, note in zip(doc["summary"].policies, doc["summary"].notes):
-                for theme, p in THEMES_AND_POLICIES.items():
-                    if policy in p:
-                        policies["doc_id"].append(doc["document"].metadata["index"])
-                        policies["themes"].append(theme)
-                        policies["policies"].append(policy)
-                        policies["details"].append(note)
-                        policies["stance"].append(
-                            doc["document"].metadata["representations_support/object"]
-                        )
-        except Exception:
-            __import__("ipdb").set_trace()
+        for policy in doc["summary"].policies:
+            for theme, p in THEMES_AND_POLICIES.items():
+                if policy.policy in p:
+                    policies["doc_id"].append(doc["document"].metadata["index"])
+                    policies["themes"].append(theme)
+                    policies["policies"].append(policy.policy)
+                    policies["details"].append(policy.note)
+                    policies["stance"].append(
+                        doc["document"].metadata["representations_support/object"]
+                    )
     return pl.DataFrame(policies)
 
 
