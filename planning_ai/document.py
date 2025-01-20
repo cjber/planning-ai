@@ -172,7 +172,7 @@ def build_final_report(doc_title, out):
         f.write(quarto_doc)
 
 
-def build_quarto_summaries_doc(out):
+def build_summaries_document(out):
     full_text = "".join(
         f"**Document ID**: {document['document'].metadata['index']}\n\n"
         f"**Original Document**\n\n{document['document'].page_content}\n\n"

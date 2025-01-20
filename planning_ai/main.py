@@ -10,7 +10,7 @@ from langchain_community.document_loaders import (
 )
 
 from planning_ai.common.utils import Paths
-from planning_ai.document import build_quarto_doc
+from planning_ai.document import build_final_report, build_summaries_document
 from planning_ai.graph import create_graph
 
 load_dotenv()
@@ -83,8 +83,8 @@ def main():
     if step is None:
         raise ValueError("No steps were processed!")
 
-    build_quarto_doc(doc_title, step)
-    build_quarto_summaries_doc(step)
+    build_final_report(doc_title, step)
+    build_summaries_document(step)
     return step
 
 
