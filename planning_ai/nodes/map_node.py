@@ -2,16 +2,15 @@ import json
 import logging
 
 import spacy
+from langchain_core.documents import Document
 from langchain_core.exceptions import OutputParserException
-from langgraph.constants import END
 from langgraph.types import Send
 from presidio_analyzer import AnalyzerEngine
 from presidio_anonymizer import AnonymizerEngine
-from pydantic import BaseModel
 
-from planning_ai.chains.hallucination_chain import HallucinationChecker
 from planning_ai.chains.map_chain import create_dynamic_map_chain, map_template
 from planning_ai.chains.themes_chain import themes_chain
+from planning_ai.llms.llm import LLM
 from planning_ai.states import DocumentState, OverallState
 
 logging.basicConfig(
@@ -25,6 +24,8 @@ anonymizer = AnonymizerEngine()
 
 nlp = spacy.load("en_core_web_lg")
 
+CUTOFF = 10_000
+
 
 def retrieve_themes(state: DocumentState) -> DocumentState:
     result = themes_chain.invoke({"document": state["document"].page_content})
@@ -32,6 +33,7 @@ def retrieve_themes(state: DocumentState) -> DocumentState:
         state["themes"] = set()
         return state
     themes = [theme.value for theme in result.themes]
+
     state["themes"] = set(themes)
     logger.warning(f"Retrieved relevant themes for: {state['filename']}")
     return state
@@ -104,13 +106,15 @@ def generate_summary(state: DocumentState) -> dict:
                 }
             ]
         }
+
     map_chain = create_dynamic_map_chain(themes=state["themes"], prompt=map_template)
     try:
         response = map_chain.invoke({"context": state["document"].page_content})
-    except (OutputParserException, json.JSONDecodeError) as e:
+    except Exception as e:
         logger.error(f"Failed to decode JSON: {e}.")
         return {"documents": [{**state, "failed": True, "processed": True}]}
     logger.warning(f"Summary generation completed for document: {state['filename']}")
+
     return {
         "documents": [
             {
@@ -123,6 +127,11 @@ def generate_summary(state: DocumentState) -> dict:
             }
         ]
     }
+
+
+def length_function(documents: list[Document]) -> int:
+    """Get number of tokens for input contents."""
+    return sum(LLM.get_num_tokens(doc.page_content) for doc in documents)
 
 
 def map_documents(state: OverallState) -> list[Send]:

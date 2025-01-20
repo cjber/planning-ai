@@ -62,7 +62,7 @@ def check_hallucination(state: DocumentState):
             if is_hallucinated
             else {"documents": [{**out, "processed": True}]}
         )
-    except (OutputParserException, json.JSONDecodeError) as e:
+    except Exception as e:
         logger.error(f"Failed to decode JSON: {e}.")
         return {"documents": [{**state, "failed": True, "processed": True}]}
 
@@ -91,7 +91,7 @@ def fix_hallucination(state: DocumentState):
                 "explanation": state["hallucination"].explanation,
             }
         )
-    except (OutputParserException, json.JSONDecodeError) as e:
+    except Exception as e:
         logger.error(f"Failed to decode JSON: {e}.")
         return {"documents": [{**state, "failed": True, "processed": True}]}
     return {"documents": [{**state, "summary": response}]}

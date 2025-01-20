@@ -52,7 +52,7 @@ def extract_policies_from_docs(docs):
         for policy in doc["summary"].policies:
             for theme, p in THEMES_AND_POLICIES.items():
                 if policy.policy in p:
-                    policies["doc_id"].append(doc["document"].metadata["index"])
+                    policies["doc_id"].append(doc["doc_id"])
                     policies["themes"].append(theme)
                     policies["policies"].append(policy.policy)
                     policies["details"].append(policy.note)
@@ -64,12 +64,21 @@ def extract_policies_from_docs(docs):
 
 def add_doc_id(final_docs):
     out_docs = []
-    for doc in final_docs:
-        doc["summary"].summary = (
-            f"Document ID: [{doc['document'].metadata['index']}]\n\n{doc['summary'].summary}"
-        )
+    for id, doc in enumerate(final_docs):
+        doc["summary"].summary = f"Document ID: [{id}]\n\n{doc['summary'].summary}"
+        doc["doc_id"] = id
         out_docs.append(doc)
     return out_docs
+
+
+def combine_split_docs(docs):
+    combined = {}
+    for doc in docs:
+        id = doc["document"].metadata["id"]
+        if id in combined:
+            combined[id] = f"{combined[id]}\n\n{doc['document'].page_content}"
+        else:
+            combined[id] = doc["document"].page_content
 
 
 def batch_generate_executive_summaries(summaries):
@@ -82,8 +91,7 @@ def batch_generate_executive_summaries(summaries):
         list: A list of final responses.
     """
     summaries_text = [
-        f"Document ID: {[s['document'].metadata['index']]} {s['summary'].summary}"
-        for s in summaries
+        f"Document ID: {[s['doc_id']]} {s['summary'].summary}" for s in summaries
     ]
     final_responses = []
     batch_size = 50
@@ -109,7 +117,6 @@ def generate_policy_output(policy_groups):
             {
                 "theme": policy["themes"],
                 "policy": policy["policies"],
-                "stance": policy["stance"],
                 "details": policy["details"],
                 "doc_id": policy["doc_id"],
             }
@@ -128,6 +135,7 @@ def generate_final_report(state: OverallState):
 def final_output(final_docs):
     docs = [doc for doc in final_docs if not doc["failed"]]
 
+    # text = combine_split_docs(docs)
     docs = add_doc_id(docs)
 
     policy_groups = extract_policies_from_docs(docs)
@@ -135,5 +143,4 @@ def final_output(final_docs):
 
     batch_executive = batch_generate_executive_summaries(docs)
     executive = reduce_chain.invoke({"context": "\n\n".join(batch_executive)})
-
     return {"executive": executive, "documents": docs, "policies": policies}
