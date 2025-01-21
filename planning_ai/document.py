@@ -31,7 +31,7 @@ def _process_policies(final):
             f'\n### {row["policies"]}\n\n'
             + "".join(
                 f"- {detail} {doc_id}\n"
-                for detail, doc_id in zip(row["details"], row["doc_id"])
+                for detail, doc_id in zip(row["detail"], row["doc_id"])
             )
             for row in policy.rows(named=True)
         )
@@ -87,7 +87,7 @@ def fig_wards(postcodes):
     ward_boundaries_prop.plot(ax=ax, column="prop", legend=True)
 
     bounds = camb_ward_boundaries.total_bounds
-    buffer = 1000
+    buffer = 10000
     ax.set_xlim([bounds[0] - buffer, bounds[2] + buffer])
     ax.set_ylim([bounds[1] - buffer, bounds[3] + buffer])
 
@@ -135,7 +135,7 @@ def fig_imd(postcodes):
 
 
 def build_final_report(doc_title, out):
-    final = out["generate_final_documents"]
+    final = out["generate_final_report"]
     policies = _process_policies(final)
     postcodes = _process_postcodes(final)
 
@@ -156,7 +156,6 @@ def build_final_report(doc_title, out):
         "  - Scale=0.55\n"
         "---\n\n"
         f"{final['executive']}\n\n"
-        r"\newpage"
         "\n# Figures\n\n"
         "@fig-wards shows the percentage of responses by total population"
         " within each Ward that had at least one response.\n\n"
@@ -174,11 +173,11 @@ def build_final_report(doc_title, out):
 
 def build_summaries_document(out):
     full_text = "".join(
-        f"**Document ID**: {document['document'].metadata['index']}\n\n"
-        f"**Original Document**\n\n{document['document'].page_content}\n\n"
+        f"**Document ID**: {document['doc_id']}\n\n"
+        # f"**Original Document**\n\n{document['document'].page_content}\n\n"
         f"**Summarised Document**\n\n{document['summary'].summary}\n\n"
         # f"**Identified Entities**\n\n{document['entities']}\n\n"
-        for document in out["generate_final_documents"]["documents"]
+        for document in out["generate_final_report"]["documents"]
     )
     quarto_header = (
         "---\n"
