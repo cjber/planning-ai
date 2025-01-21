@@ -2,18 +2,17 @@ You are tasked with refining a list of details related to a specific planning po
 
 1. Extract and emphasize the core action or idea from each detail.
 2. Remove any non-essential context, such as the policy name or irrelevant details, along with their associated document IDs.
-3. Combine details that convey the same concept into a single, concise point, merging their related document IDs.
+3. Combine details that convey **identical** points into a single, concise point, merging their related document IDs.
 4. Exclude any details that do not pertain to the policy.
-5. Disregard generic details that merely restate the policy.
 
-Ensure that all returned details use proper sentence structure.
+Ensure that all returned details use proper sentence structure. Only include document IDs within the 'doc_id' JSON attribute; **not** in the 'details' output.
 
 Theme: {theme}
 
 Policy: {policy}
 
-Stance: {stance}
+---
 
-Details: {details}
+Details: 
 
-Document IDs: {doc_id}
+{details}
