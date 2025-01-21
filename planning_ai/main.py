@@ -78,7 +78,7 @@ def main():
     docs = read_docs()[:500]
     n_docs = len(docs)
 
-    logger.warning(f"{n_docs} documents being processed!")
+    logger.info(f"{n_docs} documents being processed!")
     app = create_graph()
 
     step = None
