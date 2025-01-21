@@ -28,7 +28,7 @@ def retrieve_themes(state: DocumentState) -> DocumentState:
 
 
 def add_entities(state: OverallState) -> OverallState:
-    logger.warning("Adding entities to all documents.")
+    logger.info("Adding entities to all documents.")
     for idx, document in enumerate(
         nlp.pipe(
             [doc["document"].page_content for doc in state["documents"]],
@@ -73,15 +73,15 @@ def generate_summary(state: DocumentState) -> dict:
     Returns:
         dict: A dictionary containing the generated summary and updated document state.
     """
-    logger.warning(f"Generating summary for document: {state['filename']}")
+    logger.info(f"Generating summary for document: {state['filename']}")
 
-    logger.warning(f"Starting PII removal for: {state['filename']}")
+    logger.info(f"Starting PII removal for: {state['filename']}")
     state["document"].page_content = remove_pii(state["document"].page_content)
-    logger.warning(f"Retrieving themes for: {state['filename']}")
+    logger.info(f"Retrieving themes for: {state['filename']}")
     state = retrieve_themes(state)
 
     if not state["themes"]:
-        logger.error(f"No themes found for {state['filename']}")
+        logger.warning(f"No themes found for {state['filename']}")
         return {
             "documents": [
                 {
@@ -99,7 +99,7 @@ def generate_summary(state: DocumentState) -> dict:
     try:
         response = map_chain.invoke({"context": state["document"].page_content})
     except Exception as e:
-        logger.error(f"Failed to decode JSON {state['document']}: {e}.")
+        logger.error(f"Failed to decode JSON {state['document']}: {e}")
         return {
             "documents": [
                 {
@@ -112,7 +112,7 @@ def generate_summary(state: DocumentState) -> dict:
                 }
             ]
         }
-    logger.warning(f"Summary generation completed for document: {state['filename']}")
+    logger.info(f"Summary generation completed for document: {state['filename']}")
 
     return {
         "documents": [
@@ -129,5 +129,5 @@ def generate_summary(state: DocumentState) -> dict:
 
 
 def map_documents(state: OverallState) -> list[Send]:
-    logger.warning("Mapping documents to generate summaries.")
+    logger.info("Mapping documents to generate summaries.")
     return [Send("generate_summary", document) for document in state["documents"]]

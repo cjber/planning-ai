@@ -24,13 +24,13 @@ def check_hallucination(state: DocumentState):
         dict: A dictionary containing either a list of fixed summaries or hallucinations
         that need to be addressed.
     """
-    logger.warning(f"Checking hallucinations for document {state['filename']}")
+    logger.info(f"Checking hallucinations for document {state['filename']}")
 
     if state["processed"] or (state["refinement_attempts"] >= MAX_ATTEMPTS):
-        logger.warning(f"Max attempts exceeded for document: {state['filename']}")
+        logger.error(f"Max attempts exceeded for document: {state['filename']}")
         return {"documents": [{**state, "failed": True, "processed": True}]}
     elif not state["is_hallucinated"]:
-        logger.warning(f"Finished processing document: {state['filename']}")
+        logger.info(f"Finished processing document: {state['filename']}")
         return {"documents": [{**state, "processed": True}]}
 
     try:
@@ -40,7 +40,7 @@ def check_hallucination(state: DocumentState):
         is_hallucinated = response.score == 0
         refinement_attempts = state["refinement_attempts"] + 1
     except Exception as e:
-        logger.error(f"Failed to decode JSON {state['filename']}: {e}.")
+        logger.error(f"Failed to decode JSON {state['filename']}: {e}")
         return {
             "documents": [
                 {
@@ -60,7 +60,7 @@ def check_hallucination(state: DocumentState):
         "refinement_attempts": refinement_attempts,
         "is_hallucinated": is_hallucinated,
     }
-    logger.warning(f"Hallucination for {state['filename']}: {is_hallucinated}")
+    logger.info(f"Hallucination for {state['filename']}: {is_hallucinated}")
     return (
         {"documents": [{**out, "processed": False}]}
         if is_hallucinated

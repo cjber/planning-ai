@@ -82,7 +82,7 @@ def batch_generate_executive_summaries(summaries):
     final_responses = []
     batch_size = 50
     for i in range(0, len(summaries_text), batch_size):
-        logger.warning(
+        logger.info(
             f"Processing batches... {int(i/50)+1}/{(len(summaries_text)//batch_size)+1}"
         )
         batch = summaries_text[i : i + batch_size]
@@ -98,7 +98,7 @@ def generate_policy_output(policy_groups):
         .agg(pl.col("details"), pl.col("doc_id"))
         .rows(named=True)
     ):
-        logger.warning(f"Processing policies: {policy['policies']}...")
+        logger.info(f"Processing policies: {policy['policies']}...")
         zipped = [
             f"{bullet} Doc ID: {id}"
             for (bullet, id) in zip(policy["details"], policy["doc_id"], strict=True)
@@ -121,7 +121,7 @@ def generate_policy_output(policy_groups):
 def generate_final_report(state: OverallState):
     final_docs = [doc for doc in state["documents"] if doc["processed"]]
     if len(final_docs) == state["n_docs"]:
-        logging.warning(f"Generating final report... ({len(final_docs)} documents)")
+        logger.info(f"Generating final report... ({len(final_docs)} documents)")
         return final_output(final_docs)
 
 
