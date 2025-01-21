@@ -2,7 +2,7 @@ from enum import Enum, auto
 from typing import Optional, Set, Type
 
 from langchain_core.prompts import ChatPromptTemplate
-from pydantic import BaseModel, Field, create_model
+from pydantic import BaseModel, create_model
 
 from planning_ai.common.utils import Paths
 from planning_ai.llms.llm import LLM
@@ -39,7 +39,7 @@ def create_brief_summary_model(policy_enum: Enum) -> Type[BaseModel]:
         Type[BaseModel]: A dynamically generated Pydantic model for BriefSummary.
     """
 
-    # NOTE: For some reason GPT4o goes mental if we use too much structure
+    # NOTE: For some reason GPT4o doesn't work if we use too much structure
     DynamicPolicy = create_model(
         "DynamicPolicy",
         # policy=(policy_enum, ...),
