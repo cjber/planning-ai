@@ -6,13 +6,9 @@ import polars as pl
 
 from planning_ai.chains.policy_chain import policy_chain
 from planning_ai.chains.reduce_chain import reduce_chain
+from planning_ai.logging import logger
 from planning_ai.states import OverallState
 from planning_ai.themes import THEMES_AND_POLICIES
-
-logging.basicConfig(
-    level=logging.WARNING, format="%(asctime)s - %(levelname)s - %(message)s"
-)
-logger = logging.getLogger(__name__)
 
 
 def save_summaries_to_json(docs):
@@ -71,16 +67,6 @@ def add_doc_id(final_docs):
     return out_docs
 
 
-def combine_split_docs(docs):
-    combined = {}
-    for doc in docs:
-        id = doc["document"].metadata["id"]
-        if id in combined:
-            combined[id] = f"{combined[id]}\n\n{doc['document'].page_content}"
-        else:
-            combined[id] = doc["document"].page_content
-
-
 def batch_generate_executive_summaries(summaries):
     """Processes summaries to generate final responses.
 
@@ -113,16 +99,23 @@ def generate_policy_output(policy_groups):
         .rows(named=True)
     ):
         logger.warning(f"Processing policies: {policy['policies']}...")
+        zipped = [
+            f"{bullet} Doc ID: {id}"
+            for (bullet, id) in zip(policy["details"], policy["doc_id"], strict=True)
+        ]
         reduced = policy_chain.invoke(
             {
                 "theme": policy["themes"],
                 "policy": policy["policies"],
-                "details": policy["details"],
-                "doc_id": policy["doc_id"],
+                "details": zipped,
             }
         )
-        out.append(policy | reduced.dict())
-    return pl.DataFrame(out)
+        out.extend(policy | p for p in reduced.dict()["policies"])
+    return (
+        pl.DataFrame(out)
+        .group_by(["themes", "policies", "stance"])
+        .agg(["detail", "doc_id"])
+    )
 
 
 def generate_final_report(state: OverallState):
@@ -135,7 +128,6 @@ def generate_final_report(state: OverallState):
 def final_output(final_docs):
     docs = [doc for doc in final_docs if not doc["failed"]]
 
-    # text = combine_split_docs(docs)
     docs = add_doc_id(docs)
 
     policy_groups = extract_policies_from_docs(docs)

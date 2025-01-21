@@ -1,21 +1,10 @@
-import json
-import logging
-
-from langchain_core.exceptions import OutputParserException
-from langgraph.constants import END
 from langgraph.types import Send
-from pydantic import BaseModel
 
 from planning_ai.chains.fix_chain import fix_template
 from planning_ai.chains.hallucination_chain import hallucination_chain
 from planning_ai.chains.map_chain import create_dynamic_map_chain
+from planning_ai.logging import logger
 from planning_ai.states import DocumentState, OverallState
-
-logging.basicConfig(
-    level=logging.WARNING, format="%(asctime)s - %(levelname)s - %(message)s"
-)
-logger = logging.getLogger(__name__)
-
 
 MAX_ATTEMPTS = 3
 
@@ -37,7 +26,7 @@ def check_hallucination(state: DocumentState):
     """
     logger.warning(f"Checking hallucinations for document {state['filename']}")
 
-    if (state["refinement_attempts"] >= MAX_ATTEMPTS) or state["processed"]:
+    if state["processed"] or (state["refinement_attempts"] >= MAX_ATTEMPTS):
         logger.warning(f"Max attempts exceeded for document: {state['filename']}")
         return {"documents": [{**state, "failed": True, "processed": True}]}
     elif not state["is_hallucinated"]:
@@ -50,21 +39,33 @@ def check_hallucination(state: DocumentState):
         )
         is_hallucinated = response.score == 0
         refinement_attempts = state["refinement_attempts"] + 1
-        out = {
-            **state,
-            "hallucination": response,
-            "refinement_attempts": refinement_attempts,
-            "is_hallucinated": is_hallucinated,
-        }
-        logger.warning(f"Hallucination: {is_hallucinated}")
-        return (
-            {"documents": [{**out, "processed": False}]}
-            if is_hallucinated
-            else {"documents": [{**out, "processed": True}]}
-        )
     except Exception as e:
-        logger.error(f"Failed to decode JSON: {e}.")
-        return {"documents": [{**state, "failed": True, "processed": True}]}
+        logger.error(f"Failed to decode JSON {state['filename']}: {e}.")
+        return {
+            "documents": [
+                {
+                    **state,
+                    "summary": "",
+                    "refinement_attempts": 0,
+                    "is_hallucinated": True,
+                    "failed": True,
+                    "processed": True,
+                }
+            ]
+        }
+
+    out = {
+        **state,
+        "hallucination": response,
+        "refinement_attempts": refinement_attempts,
+        "is_hallucinated": is_hallucinated,
+    }
+    logger.warning(f"Hallucination for {state['filename']}: {is_hallucinated}")
+    return (
+        {"documents": [{**out, "processed": False}]}
+        if is_hallucinated
+        else {"documents": [{**out, "processed": True}]}
+    )
 
 
 def fix_hallucination(state: DocumentState):
@@ -92,8 +93,19 @@ def fix_hallucination(state: DocumentState):
             }
         )
     except Exception as e:
-        logger.error(f"Failed to decode JSON: {e}.")
-        return {"documents": [{**state, "failed": True, "processed": True}]}
+        logger.error(f"Failed to decode JSON {state['filename']}: {e}.")
+        return {
+            "documents": [
+                {
+                    **state,
+                    "summary": "",
+                    "refinement_attempts": 0,
+                    "is_hallucinated": True,
+                    "failed": True,
+                    "processed": True,
+                }
+            ]
+        }
     return {"documents": [{**state, "summary": response}]}
 
 
