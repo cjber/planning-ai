@@ -1,5 +1,8 @@
+import re
+
 import geopandas as gpd
 import matplotlib.pyplot as plt
+import numpy as np
 import polars as pl
 
 from planning_ai.common.utils import Paths
@@ -82,16 +85,24 @@ def fig_wards(postcodes):
     )
 
     _, ax = plt.subplots()
-    ward_boundaries.plot(ax=ax, color="white", edgecolor="gray")
-    camb_ward_boundaries.plot(ax=ax, color="white", edgecolor="black")
-    ward_boundaries_prop.plot(ax=ax, column="prop", legend=True)
+    ward_boundaries_prop.plot(
+        ax=ax,
+        column="count",
+        legend=True,
+        # vmax=0.05,
+        legend_kwds={"label": "Number of Representations"},
+    )
+    ward_boundaries.plot(ax=ax, color="none", edgecolor="gray")
+    camb_ward_boundaries.plot(ax=ax, color="none", edgecolor="black")
 
     bounds = camb_ward_boundaries.total_bounds
-    buffer = 10000
+    buffer = 10_000
     ax.set_xlim([bounds[0] - buffer, bounds[2] + buffer])
     ax.set_ylim([bounds[1] - buffer, bounds[3] + buffer])
 
     plt.axis("off")
+    plt.tight_layout()
+
     plt.savefig(Paths.SUMMARY / "figs" / "wards.png")
 
 
@@ -112,29 +123,60 @@ def fig_imd(postcodes):
         .group_by("LA_decile")
         .agg(pl.col("count").sum(), pl.col("LSOA11").count(), pl.col("Total").sum())
         .sort("LA_decile")
-        .with_columns(((pl.col("count") / pl.col("Total")) * 100).alias("prop"))
+        .with_columns(
+            ((pl.col("count") / pl.col("count").sum()) * 100).alias("perc_count"),
+            ((pl.col("Total") / pl.col("Total").sum()) * 100).alias("perc_pop"),
+        )
     )
 
     postcodes_pd = postcodes.to_pandas()
 
     _, ax1 = plt.subplots()
 
+    # Define bar width
+    bar_width = 0.35
+
+    # Set positions for the bars
+    x = np.arange(len(postcodes_pd))
+
+    # Plot the first set of bars
     ax1.bar(
-        postcodes_pd["LA_decile"],
-        postcodes_pd["prop"],
+        x - bar_width / 2,  # Shift to the left
+        postcodes_pd["perc_count"],
+        width=bar_width,
+        label="Percentage of Count (%)",
+    )
+
+    # Plot the second set of bars
+    ax1.bar(
+        x + bar_width / 2,  # Shift to the right
+        postcodes_pd["perc_pop"],
+        width=bar_width,
         label="Percentage of Population (%)",
     )
+
+    # Set labels and ticks
     ax1.set_xlabel("IMD Quintile")
-    ax1.set_ylabel("Proporition of Population (%)")
-    ax1.tick_params(axis="y")
+    ax1.set_ylabel("Proportion of Population (%)")
+    ax1.set_xticks(x)  # Set x-ticks to correspond to the positions
+    ax1.set_xticklabels(postcodes_pd["LA_decile"])
 
-    plt.title("Comparison of Responses by IMD Quintile")
+    # Add a legend
+    ax1.legend()
 
+    # Adjust layout
     plt.tight_layout()
+
     plt.savefig(Paths.SUMMARY / "figs" / "imd_decile.png")
 
 
-def build_final_report(doc_title, out):
+def build_final_report(out):
+    introduction_paragraph = """
+This report was produced using a generative pre-trained transformer (GPT) large-language model (LLM) to produce an abstractive summary of all responses to the related planning application. This model automatically reviews every response in detail, and extracts key information to inform decision making. This document first consolidates this information into a single-page executive summary, highlighting areas of particular interest to consider, and the broad consensus of responses. Figures generated from responses then give both a geographic and statistical overview, highlighting any demographic imbalances in responses. The document then extracts detailed information from responses, grouped by theme and policy. In this section we incorporate citations which relate with the 'Summary Responses' document, to increase transparency.
+"""
+    figures_paragraph = """
+@fig-wards shows the percentage of responses by total population within each Ward that had at least one response. @fig-imd shows the percentage of responses by total population within each IMD quintile.
+    """
     final = out["generate_final_report"]
     policies = _process_policies(final)
     postcodes = _process_postcodes(final)
@@ -144,7 +186,7 @@ def build_final_report(doc_title, out):
 
     quarto_doc = (
         "---\n"
-        f"title: '{doc_title}'\n"
+        f"title: 'Summary of Submitted Responses'\n"
         "format:\n"
         "  PrettyPDF-pdf:\n"
         "    papersize: A4\n"
@@ -156,26 +198,24 @@ def build_final_report(doc_title, out):
         "  - Scale=0.55\n"
         "---\n\n"
         f"{final['executive']}\n\n"
+        f"{introduction_paragraph}\n\n"
         "\n# Figures\n\n"
-        "@fig-wards shows the percentage of responses by total population"
-        " within each Ward that had at least one response.\n\n"
-        f"![Ward Proportions](./figs/wards.png){{#fig-wards}}\n\n"
-        "@fig-imd shows the percentage of responses by total population"
-        " within each IMD quintile.\n\n"
-        f"![IMD Quintile Props](./figs/imd_decile.png){{#fig-imd}}\n\n"
+        f"![Total number of representations submitted by Ward.](./figs/wards.png){{#fig-wards}}\n\n"
+        f"![Percentage of representations submitted by quintile of index of multiple deprivation (2019)](./figs/imd_decile.png){{#fig-imd}}\n\n"
         "# Themes and Policies\n\n"
         f"{policies}"
     )
 
-    with open(Paths.SUMMARY / f"{doc_title.replace(' ', '_')}.qmd", "w") as f:
+    with open(Paths.SUMMARY / "Summary_of_Submitted_Responses.qmd", "w") as f:
         f.write(quarto_doc)
 
 
 def build_summaries_document(out):
+    sub = r"Document ID: \[\d+\]\n\n"
     full_text = "".join(
         f"**Document ID**: {document['doc_id']}\n\n"
         # f"**Original Document**\n\n{document['document'].page_content}\n\n"
-        f"**Summarised Document**\n\n{document['summary'].summary}\n\n"
+        f"**Summarised Document**\n\n{re.sub(sub, '', document['summary'].summary)}\n\n"
         # f"**Identified Entities**\n\n{document['entities']}\n\n"
         for document in out["generate_final_report"]["documents"]
     )
