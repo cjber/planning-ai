@@ -103,14 +103,18 @@ def generate_policy_output(policy_groups):
             f"{bullet} Doc ID: {id}"
             for (bullet, id) in zip(policy["details"], policy["doc_id"], strict=True)
         ]
-        reduced = policy_chain.invoke(
-            {
-                "theme": policy["themes"],
-                "policy": policy["policies"],
-                "details": zipped,
-            }
-        )
-        out.extend(policy | p for p in reduced.dict()["policies"])
+        try:
+            reduced = policy_chain.invoke(
+                {
+                    "theme": policy["themes"],
+                    "policy": policy["policies"],
+                    "details": zipped,
+                }
+            )
+            out.extend(policy | p for p in reduced.dict()["policies"])
+        except Exception as e:
+            logger.error(f"Failed to generate policies for {policy['policies']}: {e}")
+            continue
     return (
         pl.DataFrame(out)
         .group_by(["themes", "policies", "stance"])
