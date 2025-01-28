@@ -1,9 +1,13 @@
+import itertools
+import logging
 import re
+from collections import Counter
 
 import geopandas as gpd
 import matplotlib.pyplot as plt
 import numpy as np
 import polars as pl
+from polars.dependencies import subprocess
 
 from planning_ai.common.utils import Paths
 
@@ -17,29 +21,99 @@ def _process_postcodes(final):
         .with_columns(pl.col("postcode").str.replace_all(" ", ""))
     )
     onspd = pl.read_csv(
-        Paths.RAW / "onspd" / "ONSPD_FEB_2024.csv", columns=["PCD", "OSWARD", "LSOA11"]
+        Paths.RAW / "onspd" / "ONSPD_FEB_2024.csv",
+        columns=["PCD", "OSWARD", "LSOA11", "OA21"],
     ).with_columns(pl.col("PCD").str.replace_all(" ", "").alias("postcode"))
     postcodes = postcodes.join(onspd, on="postcode")
     return postcodes
 
 
 def _process_policies(final):
-    policies_df = final["policies"]
-
-    all_policies = ""
-    for (theme, stance), policy in policies_df.group_by(
-        ["themes", "stance"], maintain_order=True
-    ):
+    def process_policy_group(policy_group, theme, stance):
         details = "".join(
             f'\n### {row["policies"]}\n\n'
             + "".join(
                 f"- {detail} {doc_id}\n"
                 for detail, doc_id in zip(row["detail"], row["doc_id"])
             )
-            for row in policy.rows(named=True)
+            for row in policy_group.rows(named=True)
         )
-        all_policies += f"## {theme} - {stance}\n\n{details}\n"
-    return all_policies
+        return f"## {theme} - {stance}\n\n{details}\n"
+
+    policies_df = final["policies"]
+
+    support_policies = ""
+    object_policies = ""
+    other_policies = ""
+
+    for (theme, stance), policy in policies_df.group_by(
+        ["themes", "stance"], maintain_order=True
+    ):
+        if stance == "Support":
+            support_policies += process_policy_group(policy, theme, stance)
+        elif stance == "Object":
+            object_policies += process_policy_group(policy, theme, stance)
+        else:
+            other_policies += process_policy_group(policy, theme, stance)
+
+    return support_policies, object_policies, other_policies
+
+
+def _process_stances(final):
+    documents = final["documents"]
+    stances = [
+        doc["document"].metadata["representations_support/object"] for doc in documents
+    ]
+    value_counts = Counter(stances)
+    total_values = sum(value_counts.values())
+    percentages = {
+        key: {"count": count, "percentage": (count / total_values)}
+        for key, count in value_counts.items()
+    }
+    stances_top = sorted(
+        percentages.items(), key=lambda x: x[1]["percentage"], reverse=True
+    )
+    return " | ".join(
+        [
+            f"**{item}**: {stance['percentage']:.2%} _({stance['count']})_"
+            for item, stance in stances_top
+        ]
+    )
+
+
+def _process_themes(final):
+    documents = final["documents"]
+    themes = [list(doc["themes"]) for doc in documents]
+    themes = Counter(list(itertools.chain.from_iterable(themes)))
+    themes = pl.DataFrame(themes).transpose(include_header=True)
+    themes_breakdown = themes.with_columns(
+        ((pl.col("column_0") / pl.sum("column_0")) * 100).round(2).alias("percentage")
+    ).sort("percentage", descending=True)
+    themes_breakdown = themes_breakdown.rename(
+        {"column": "Theme", "column_0": "Count", "percentage": "Percentage"}
+    )
+    return themes_breakdown.to_pandas().to_markdown(index=False)
+
+
+def fig_oa(postcodes):
+    oac = pl.read_csv(Paths.RAW / "oac21ew.csv")
+    postcodes = (
+        postcodes.join(oac, left_on="OA21", right_on="oa21cd")
+        .group_by("supergroup")
+        .len()
+        .sort("supergroup")
+    )
+    postcodes_pd = postcodes.to_pandas()
+
+    _, ax1 = plt.subplots()
+
+    ax1.bar(postcodes_pd["supergroup"], postcodes_pd["len"])
+    ax1.set_xlabel("Output Area Classification (OAC) Supergroup")
+    ax1.set_ylabel("Number of Representations")
+
+    plt.tight_layout()
+
+    plt.savefig(Paths.SUMMARY / "figs" / "oas.png")
 
 
 def fig_wards(postcodes):
@@ -89,13 +163,13 @@ def fig_wards(postcodes):
         ax=ax,
         column="count",
         legend=True,
-        # vmax=0.05,
+        vmax=20,
         legend_kwds={"label": "Number of Representations"},
     )
     ward_boundaries.plot(ax=ax, color="none", edgecolor="gray")
     camb_ward_boundaries.plot(ax=ax, color="none", edgecolor="black")
 
-    bounds = camb_ward_boundaries.total_bounds
+    bounds = np.array([541419.8982, 253158.2036, 549420.4025, 262079.7998])
     buffer = 10_000
     ax.set_xlim([bounds[0] - buffer, bounds[2] + buffer])
     ax.set_ylim([bounds[1] - buffer, bounds[3] + buffer])
@@ -175,20 +249,26 @@ def build_final_report(out):
 This report was produced using a generative pre-trained transformer (GPT) large-language model (LLM) to produce an abstractive summary of all responses to the related planning application. This model automatically reviews every response in detail, and extracts key information to inform decision making. This document first consolidates this information into a single-page executive summary, highlighting areas of particular interest to consider, and the broad consensus of responses. Figures generated from responses then give both a geographic and statistical overview, highlighting any demographic imbalances in responses. The document then extracts detailed information from responses, grouped by theme and policy. In this section we incorporate citations which relate with the 'Summary Responses' document, to increase transparency.
 """
     figures_paragraph = """
-@fig-wards shows the percentage of responses by total population within each Ward that had at least one response. @fig-imd shows the percentage of responses by total population within each IMD quintile.
+@fig-wards shows the percentage of responses by total population within each Ward that had at least one response. This figure helps to identify which Wards are more active in terms of participation and representation. @fig-imd shows the percentage of responses by total population within each IMD quintile. This figure provides insight into the socio-economic distribution of the respondents, highlighting any potential demographic imbalances. @fig-oas displays the total number of representations submitted by Output Area (OA 2021). This figure offers a detailed geographic overview of the responses, allowing for a more granular analysis of participation across different areas.
+"""
+    themes_paragraph = """
+The following section provides a detailed breakdown of notable details from responses, grouped by themes and policies. Each theme is grouped by whether a responses is supporting, opposed, or a general comment. This section aims to give a comprehensive view of the key issues raised by the respondents with respect to the themes and policies outlined.
     """
     final = out["generate_final_report"]
-    policies = _process_policies(final)
+    support_policies, object_policies, other_policies = _process_policies(final)
     postcodes = _process_postcodes(final)
+    stances = _process_stances(final)
+    themes = _process_themes(final)
 
     fig_wards(postcodes)
+    fig_oa(postcodes)
     fig_imd(postcodes)
 
     quarto_doc = (
         "---\n"
         f"title: 'Summary of Submitted Responses'\n"
         "format:\n"
-        "  PrettyPDF-pdf:\n"
+        "  pdf:\n"
         "    papersize: A4\n"
         "execute:\n"
         "  freeze: auto\n"
@@ -198,16 +278,36 @@ This report was produced using a generative pre-trained transformer (GPT) large-
         "  - Scale=0.55\n"
         "---\n\n"
         f"{final['executive']}\n\n"
+        f"{stances}\n\n"
+        "# Introduction\n\n"
         f"{introduction_paragraph}\n\n"
         "\n# Figures\n\n"
+        f"{figures_paragraph}\n\n"
         f"![Total number of representations submitted by Ward.](./figs/wards.png){{#fig-wards}}\n\n"
+        f"![Total number of representations submitted by Output Area (OA 2021).](./figs/oas.png){{#fig-oas}}\n\n"
         f"![Percentage of representations submitted by quintile of index of multiple deprivation (2019)](./figs/imd_decile.png){{#fig-imd}}\n\n"
         "# Themes and Policies\n\n"
-        f"{policies}"
+        f"{themes_paragraph}\n\n"
+        f"{themes}{{#tbl-themes}}\n\n"
+        "## Support\n\n"
+        f"{support_policies}\n\n"
+        "## Object\n\n"
+        f"{object_policies}\n\n"
+        "## Other\n\n"
+        f"{other_policies}\n\n"
     )
 
     with open(Paths.SUMMARY / "Summary_of_Submitted_Responses.qmd", "w") as f:
         f.write(quarto_doc)
+    command = [
+        "quarto",
+        "render",
+        f"{Paths.SUMMARY / 'Summary_of_Submitted_Responses.qmd'}",
+    ]
+    try:
+        subprocess.run(command, check=True, capture_output=True)
+    except subprocess.CalledProcessError as e:
+        logging.error(f"Error during Summary_of_Submitted_Responses.qmd render: {e}")
 
 
 def build_summaries_document(out):
@@ -223,7 +323,7 @@ def build_summaries_document(out):
         "---\n"
         "title: 'Summary Documents'\n"
         "format:\n"
-        "  PrettyPDF-pdf:\n"
+        "  pdf:\n"
         "    papersize: A4\n"
         "execute:\n"
         "  freeze: auto\n"
@@ -235,3 +335,9 @@ def build_summaries_document(out):
     )
     with open(Paths.SUMMARY / "Summary_Documents.qmd", "w") as f:
         f.write(f"{quarto_header}{full_text}")
+
+    command = ["quarto", "render", f"{Paths.SUMMARY / 'Summary_Documents.qmd'}"]
+    try:
+        subprocess.run(command, check=True, capture_output=True)
+    except subprocess.CalledProcessError as e:
+        logging.error(f"Error during Summary_Documents.qmd render: {e}")
