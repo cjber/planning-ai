@@ -1,7 +1,6 @@
 import os
 from pathlib import Path
 
-import polars as pl
 from azure.ai.documentintelligence import DocumentIntelligenceClient
 from azure.ai.documentintelligence.models import AnalyzeOutputOption, AnalyzeResult
 from azure.core.credentials import AzureKeyCredential
@@ -14,52 +13,31 @@ from planning_ai.common.utils import Paths
 
 load_dotenv()
 
-gcpt3 = pl.read_parquet("data/staging/gcpt3_testing.parquet")
-pdf_ids = gcpt3["attachments_id"].unique().to_list()
-
-
-pdfs = [
-    pdf
-    for pdf in (Paths.RAW / "pdfs").glob("*.pdf")
-    if pdf.stem.isdigit() and int(pdf.stem) in pdf_ids
-]
-
-
 endpoint = os.getenv("AZURE_API_ENDPOINT") or ""
 credential = AzureKeyCredential(os.getenv("AZURE_API_KEY") or "")
 document_intelligence_client = DocumentIntelligenceClient(endpoint, credential)
 
-for pdf_path in tqdm(pdfs):
-    print(f"Processing {pdf_path}")
 
-    out_pdf = Path(f"./data/staging/pdfs_azure/{pdf_path.stem}.pdf")
-    failed_txt = Path(f"./data/staging/pdfs_azure/{pdf_path.stem}.txt")
-
+def read_pdf(pdf_path):
     try:
         reader = PdfReader(pdf_path)
         text = "\n\n".join([page.extract_text() for page in reader.pages])
-        if len(text) > 10_000:
-            writer = PdfWriter()
-            for page in reader.pages:
-                writer.add_page(page)
-            with open(out_pdf, "wb") as f:
-                writer.write(f)
-            print("Written PDF text to file.")
+        return text, reader
     except PdfReadError:
         print("Not a pdf file...")
-        with open(failed_txt, "w") as f:
-            f.write("")
-        continue
+        return None, None
 
-    if out_pdf.exists() or failed_txt.exists():
-        continue
 
-    if pdf_path.stat().st_size > 1_000_000:
-        with open(failed_txt, "w") as f:
-            f.write("")
-        print("PDF too large!")
-        continue
+def write_pdf(reader, out_pdf):
+    writer = PdfWriter()
+    for page in reader.pages:
+        writer.add_page(page)
+    with open(out_pdf, "wb") as f:
+        writer.write(f)
+    print("Written PDF text to file.")
 
+
+def analyze_document_with_azure(pdf_path, out_pdf, failed_txt):
     with open(pdf_path, "rb") as f:
         poller = document_intelligence_client.begin_analyze_document(
             "prebuilt-read",
@@ -80,4 +58,33 @@ for pdf_path in tqdm(pdfs):
         with open(failed_txt, "w") as f:
             f.write("")
         print(f"Error occurred in result. {e}")
-        continue
+
+
+def azure_process_pdfs():
+    pdfs = (Paths.RAW / "pdfs").glob("*.pdf")
+
+    for pdf_path in tqdm(pdfs):
+        print(f"Processing {pdf_path}")
+
+        out_pdf = Path(f"./data/staging/pdfs_azure/{pdf_path.stem}.pdf")
+        failed_txt = Path(f"./data/staging/pdfs_azure/{pdf_path.stem}.txt")
+
+        text, reader = read_pdf(pdf_path)
+        if text is None:
+            with open(failed_txt, "w") as f:
+                f.write("")
+            continue
+
+        if len(text) > 10_000:
+            write_pdf(reader, out_pdf)
+
+        if out_pdf.exists() or failed_txt.exists():
+            continue
+
+        if pdf_path.stat().st_size > 1_000_000:
+            with open(failed_txt, "w") as f:
+                f.write("")
+            print("PDF too large!")
+            continue
+
+        analyze_document_with_azure(pdf_path, out_pdf, failed_txt)
