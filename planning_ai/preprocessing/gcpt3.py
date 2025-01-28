@@ -1,10 +1,12 @@
 import logging
 import textwrap
+from io import BytesIO
 from pathlib import Path
 from typing import Any
 
 import polars as pl
 import requests
+from pypdf import PdfReader
 from tqdm import tqdm
 
 from planning_ai.common.utils import Paths
@@ -89,6 +91,7 @@ def download_attachments():
             response = requests.get(row["attachments_url"], timeout=3)
             response.raise_for_status()
 
+            PdfReader(BytesIO(response.content))  # check if pdf is valid
             with open(file_path, "wb") as f:
                 f.write(response.content)
             print(f"Downloaded {row['attachments_url']} to {file_path}")
@@ -109,30 +112,11 @@ def download_attachments():
             print(f"Unexpected error for {row['attachments_url']}: {e}")
 
 
-def convert_txt():
-    # TODO: add pdf content
-    df = pl.read_parquet(Paths.STAGING / "gcpt3.parquet")
-
-    for response_doc, dfd in df.group_by("representations_document"):
-        for row in tqdm(dfd.rows(named=True)):
-            text = f"{row["text"]}"
-
-            with open(
-                Paths.STAGING
-                / "txt"
-                / f"{response_doc}"
-                / f"{row['representations_id']}.txt",
-                "w",
-            ) as f:
-                f.write(text)
-
-
 def main() -> None:
     files = list(Path(Paths.RAW / "gcpt3").glob("*.json"))
     schema = get_schema()
     process_files(files, schema)
     download_attachments()
-    convert_txt()
 
 
 if __name__ == "__main__":
