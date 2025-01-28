@@ -33,6 +33,9 @@ dependencies = [
     "azure-ai-documentintelligence>=1.0.0",
     "langchain-unstructured>=0.1.6",
     "loguru>=0.7.3",
+    "mapclassify>=2.8.1",
+    "streamlit>=1.41.1",
+    "py7zr>=0.22.0",
 ]
 
 [tool.uv]
