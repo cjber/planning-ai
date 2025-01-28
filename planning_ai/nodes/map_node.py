@@ -13,15 +13,18 @@ anonymizer = AnonymizerEngine()
 
 nlp = spacy.load("en_core_web_lg")
 
-CUTOFF = 10_000
 
 
 def retrieve_themes(state: DocumentState) -> DocumentState:
-    result = themes_chain.invoke({"document": state["document"].page_content})
-    if not result.themes:
-        state["themes"] = set()
-        return state
-    themes = [theme.value for theme in result.themes]
+    try:
+        result = themes_chain.invoke({"document": state["document"].page_content})
+        if not result.themes:
+            state["themes"] = set()
+            return state
+        themes = [theme.value for theme in result.themes]
+    except Exception as e:
+        logger.error(f"Theme selection error: {e}")
+        themes = []
 
     state["themes"] = set(themes)
     return state
