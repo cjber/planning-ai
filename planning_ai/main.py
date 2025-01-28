@@ -1,3 +1,4 @@
+import random
 import time
 from pathlib import Path
 
@@ -18,15 +19,7 @@ load_dotenv()
 
 def read_docs():
     logger.warning("Reading documents...")
-    df = (
-        pl.read_parquet(Paths.STAGING / "gcpt3_testing.parquet")
-        .drop_nulls(subset="text")
-        .drop("index")
-    )
-    pdf_ids = [
-        int(pdf.stem) if pdf.stem.isdigit() else 0
-        for pdf in (Paths.STAGING / "pdfs_azure").glob("*.pdf")
-    ]
+    df = pl.read_parquet(Paths.STAGING / "gcpt3.parquet").drop_nulls(subset="text")
     pdf_loader = PyPDFDirectoryLoader(
         (Paths.STAGING / "pdfs_azure"), silent_errors=True
     )
@@ -51,31 +44,30 @@ def read_docs():
                 else ""
             ),
         }
+        # for now I concat page number to keep all pdf pages separate. I might want
+        # to instead combine pdfs somehow
+        pdf.metadata["filename"] = int(f"{pdf.metadata['id']}999{pdf.metadata['page']}")
 
-    df = df.filter(
-        (
-            pl.col("representations_document")
-            == "Greater Cambridge Local Plan Preferred Options"
-        )
-        & (pl.col("attachments_id").is_in(pdf_ids))
-    ).unique("id")
+    df = df.unique("id").with_columns(filename=pl.col("id"))
 
     loader = PolarsDataFrameLoader(df, page_content_column="text")
     logger.warning("Loading text files...")
     text = loader.load()
     out = text + pdfs
 
-    return list(
+    # removes duplicates documents based on page_content
+    docs = list(
         {
-            doc.page_content: {"document": doc, "filename": doc.metadata["id"]}
+            doc.page_content: doc
             for doc in out
             if doc.page_content and len(doc.page_content.split(" ")) > 25
         }.values()
     )
+    return [{"document": doc, "filename": doc.metadata["filename"]} for doc in docs]
 
 
 def main():
-    docs = read_docs()[:500]
+    docs = read_docs()
     n_docs = len(docs)
 
     logger.info(f"{n_docs} documents being processed!")
@@ -85,20 +77,16 @@ def main():
     for step in app.stream({"documents": docs, "n_docs": n_docs}):
         print(step.keys())
 
-    step["generate_final_report"]
     if step is None:
         raise ValueError("No steps were processed!")
 
-    return step
+    build_final_report(step)
+    build_summaries_document(step)
 
 
 if __name__ == "__main__":
-    doc_title = "Cambridge Response Summary"
-
     tic = time.time()
-    out = main()
-    build_final_report(doc_title, out)
-    build_summaries_document(out)
+    main()
     toc = time.time()
 
     print(f"Time taken: {(toc - tic) / 60:.2f} minutes.")
