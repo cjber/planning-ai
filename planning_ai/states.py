@@ -11,7 +11,7 @@ from planning_ai.common.utils import filename_reducer
 
 class DocumentState(TypedDict):
     document: Document
-    filename: Path
+    filename: int
 
     entities: list[dict]
     themes: set[str]
