@@ -1,3 +1,4 @@
+import shutil
 from pathlib import Path
 
 import polars as pl
@@ -30,20 +31,25 @@ class Paths:
     STAGING = DATA / "staging"
     OUT = DATA / "out"
 
+    PDFS_AZURE = STAGING / "pdfs_azure"
+
     SUMMARY = OUT / "summary"
-    SUMMARIES = OUT / "summaries"
+    FIGS = SUMMARY / "figs"
 
     PROMPTS = Path("planning_ai/chains/prompts")
 
     @classmethod
     def ensure_directories_exist(cls):
+        # for path in [cls.STAGING, cls.OUT]:
+        #     shutil.rmtree(path, ignore_errors=True)
         for path in [
             cls.DATA,
             cls.RAW,
             cls.STAGING,
             cls.OUT,
             cls.SUMMARY,
-            cls.SUMMARIES,
+            cls.FIGS,
+            cls.PDFS_AZURE,
         ]:
             path.mkdir(parents=True, exist_ok=True)
 
