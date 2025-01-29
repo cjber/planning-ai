@@ -20,9 +20,40 @@ st.title("Planning AI")
 
 st.header("1. Upload JDL response `.json` files")
 st.write(
-    "Upload your `.json` files here as a `7zip` file, they will be saved to the `data/raw/gcpt3` directory."
+    """
+Upload your `.json` files here as a `7zip` file, they will be saved to the `data/raw/gcpt3` directory.
+
+The `.json` files should look like the following:
+
+```json
+{
+    "id": 10008,
+    "method": "Paper",
+    "respondentpostcode": "CB2 9NE",
+    "text": "",
+    "attachments": [
+        {
+            "id": 3803,
+            "url": "http:\/\/www.cambridge.gov.uk\/public\/ldf\/localplan2031\/15417.pdf",
+            "published": false
+        }
+    ],
+    "representations": [
+        {
+            "id": 15417,
+            "support\/object": "Object",
+            "document": "Issues and Options Report",
+            "documentelementid": 29785,
+            "documentelementtitle": "3 - Spatial Strategy, Question 3.10",
+            "summary": "No more green belt taken away, which is prime agricultural land. Noise pollution & light pollution for surrounding villages and new houses being built, no bus services either!"
+        },
+    ]
+}
+```
+
+"""
 )
-uploaded_file = st.file_uploader("Choose a `.7z` file.", type="7z")
+uploaded_file = st.file_uploader("Choose a `.7z` file:", type="7z")
 
 if uploaded_file and not st.session_state["files_extracted"]:
     with st.spinner("Extracting files..."):
@@ -30,7 +61,9 @@ if uploaded_file and not st.session_state["files_extracted"]:
             with py7zr.SevenZipFile(uploaded_file, mode="r") as archive:
                 archive.extractall(path=UPLOAD_DIR)
             st.session_state["files_extracted"] = True
-            st.write(f"Extracted all files to `{UPLOAD_DIR}`.")
+            st.success(
+                f"Extracted `{len(list(UPLOAD_DIR.glob('*.json')))}` files to `{UPLOAD_DIR}`."
+            )
         except Exception as e:
             st.error(f"Failed to extract files {e}")
 
