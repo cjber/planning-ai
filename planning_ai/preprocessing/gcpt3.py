@@ -81,8 +81,8 @@ def download_attachments():
             row["attachments_url"].startswith(
                 ("https://egov.scambs.gov.uk", "http://egov.scambs.gov.uk")
             )
-            or row["attachments_id"] in existing_files
-            or row["attachments_id"] in failed_files
+            or str(row["attachments_id"]) in existing_files
+            or str(row["attachments_id"]) in failed_files
         ):
             failed_files.add(row["attachments_id"])
             continue
