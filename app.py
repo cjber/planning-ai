@@ -10,52 +10,48 @@ UPLOAD_DIR = Paths.RAW / "gcpt3"
 
 if "files_extracted" not in st.session_state:
     st.session_state["files_extracted"] = False
-if "files_processed" not in st.session_state:
-    st.session_state["files_processed"] = False
-if "pdfs_processed" not in st.session_state:
-    st.session_state["pdfs_processed"] = False
 
 st.title("Planning AI")
 
 
-st.header("1. Upload JDL response `.json` files")
+st.header("Upload JDL response `.json` files")
 st.write(
-    """
-Upload your `.json` files here as a `7zip` file, they will be saved to the `data/raw/gcpt3` directory.
-
-The `.json` files should look like the following:
-
-```json
-{
-    "id": 10008,
-    "method": "Paper",
-    "respondentpostcode": "CB2 9NE",
-    "text": "",
-    "attachments": [
-        {
-            "id": 3803,
-            "url": "http:\/\/www.cambridge.gov.uk\/public\/ldf\/localplan2031\/15417.pdf",
-            "published": false
-        }
-    ],
-    "representations": [
-        {
-            "id": 15417,
-            "support\/object": "Object",
-            "document": "Issues and Options Report",
-            "documentelementid": 29785,
-            "documentelementtitle": "3 - Spatial Strategy, Question 3.10",
-            "summary": "No more green belt taken away, which is prime agricultural land. Noise pollution & light pollution for surrounding villages and new houses being built, no bus services either!"
-        },
-    ]
-}
-```
-
-"""
+    "Upload your `.json` files here as a `7zip` file, they will be saved to the `data/raw/gcpt3` directory."
 )
-uploaded_file = st.file_uploader("Choose a `.7z` file:", type="7z")
 
-if uploaded_file and not st.session_state["files_extracted"]:
+with st.expander("File Format"):
+    st.write(
+        """
+    The `.json` files should look like the following:
+
+    ```json
+    {
+        "id": 10008,
+        "method": "Paper",
+        "respondentpostcode": "CB2 9NE",
+        "text": "",
+        "attachments": [
+            {
+                "id": 3803,
+                "url": "http:\/\/www.cambridge.gov.uk\/public\/ldf\/localplan2031\/15417.pdf",
+                "published": false
+            }
+        ],
+        "representations": [
+            {
+                "id": 15417,
+                "support\/object": "Object",
+                "document": "Issues and Options Report",
+                "documentelementid": 29785,
+                "documentelementtitle": "3 - Spatial Strategy, Question 3.10",
+                "summary": "No more green belt taken away, which is prime agricultural land. Noise pollution & light pollution for surrounding villages and new houses being built, no bus services either!"
+            },
+        ]
+    }
+    ```
+"""
+    )
+if uploaded_file := st.file_uploader("Choose a `.7z` file:", type="7z"):
     with st.spinner("Extracting files..."):
         try:
             with py7zr.SevenZipFile(uploaded_file, mode="r") as archive:
@@ -70,49 +66,28 @@ if uploaded_file and not st.session_state["files_extracted"]:
 if not st.session_state["files_extracted"]:
     st.write("No files uploaded yet.")
 
+st.write("---")
+
 if st.session_state["files_extracted"]:
-    st.header("2. Process uploaded `.json` files")
+    st.title("Build Report")
     st.write(
-        "Once the files are extracted, click the button below to start preprocessing the `.json` files."
+        "Once the files are extracted, click the button below to build the report."
     )
-    if st.button("Process Files"):
-        with st.spinner("Running preprocessing..."):
+    if st.button("Build Report", type="primary"):
+        with st.spinner("Preprocessing files..."):
             try:
                 preprocess_main()
-                st.session_state["files_processed"] = True
                 st.success("Preprocessing completed successfully!")
             except Exception as e:
                 st.error(f"An error occurred during preprocessing: {e}")
-
-if st.session_state["files_extracted"] and st.session_state["files_processed"]:
-    st.header("3. Extract text from PDFs.")
-    st.write(
-        "After preprocessing the `.json` files, you can now extract text from the PDFs by clicking the button below."
-    )
-    if st.button("Process PDFs"):
         with st.spinner("Extracting text from PDFs..."):
             try:
                 azure_process_pdfs()
-                st.session_state["pdfs_processed"] = True
                 st.success("Text extraction completed successfully!")
             except Exception as e:
                 st.error(f"An error occurred during PDF text extraction: {e}")
-
-if (
-    st.session_state["files_extracted"]
-    and st.session_state["files_processed"]
-    and st.session_state["pdfs_processed"]
-):
-    st.title("Build final report.")
-    st.write(
-        "After extracting text from PDFs, you can now run the full report building pipeline!"
-    )
-    if st.button("Build Report", type="primary"):
         with st.spinner("Building report..."):
-            try:
-                report_main()
-            except Exception as e:
-                st.error(f"An error occurred during report building: {e}")
+            report_main()
             report_path = Paths.SUMMARY / "Summary_Documents.pdf"
             summaries_path = Paths.SUMMARY / "Summary_of_Submitted_Responses.pdf"
 
