@@ -4,12 +4,16 @@ import re
 from collections import Counter
 
 import geopandas as gpd
+import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
 import polars as pl
 from polars.dependencies import subprocess
 
 from planning_ai.common.utils import Paths
+
+mpl.rcParams["text.usetex"] = True
+mpl.rcParams["text.latex.preamble"] = r"\usepackage{libertine}"
 
 
 def _process_postcodes(final):
@@ -83,8 +87,9 @@ def _process_stances(final):
 
 def _process_themes(final):
     documents = final["documents"]
-    themes = [list(doc["themes"]) for doc in documents]
-    themes = Counter(list(itertools.chain.from_iterable(themes)))
+    themes = Counter(
+        [theme["theme"].value for doc in documents for theme in doc["themes"]]
+    )
     themes = pl.DataFrame(themes).transpose(include_header=True)
     themes_breakdown = themes.with_columns(
         ((pl.col("column_0") / pl.sum("column_0")) * 100).round(2).alias("percentage")
@@ -96,41 +101,61 @@ def _process_themes(final):
 
 
 def fig_oa(postcodes):
+    oa_pop = pl.read_csv(Paths.RAW / "oa_populations.csv")
+    oa_pop = (
+        oa_pop.group_by(pl.col("Output Areas Code"))
+        .sum()
+        .rename({"Output Areas Code": "OA2021", "Observation": "population"})
+        .select(["OA2021", "population"])
+    )
+
     oac = pl.read_csv(Paths.RAW / "oac21ew.csv")
-    postcodes = (
+    oac = oac.join(oa_pop, left_on="oa21cd", right_on="OA2021")
+    oac = (
         postcodes.join(oac, left_on="OA21", right_on="oa21cd")
         .group_by("supergroup")
-        .len()
+        .sum()
+        .select(["supergroup", "population", "count"])
         .sort("supergroup")
+        .with_columns(
+            ((pl.col("count") / pl.col("count").sum()) * 100).alias("perc_count"),
+            ((pl.col("population") / pl.col("population").sum()) * 100).alias(
+                "perc_pop"
+            ),
+        )
     )
-    postcodes_pd = postcodes.to_pandas()
+    oa_pd = oac.to_pandas()
 
     _, ax1 = plt.subplots()
+    bar_width = 0.35
+    x = np.arange(len(oa_pd))
 
-    ax1.bar(postcodes_pd["supergroup"], postcodes_pd["len"])
+    ax1.bar(
+        x - bar_width / 2,
+        oa_pd["perc_count"],
+        width=bar_width,
+        label="Percentage of Representations (\%)",
+    )
+
+    ax1.bar(
+        x + bar_width / 2,
+        oa_pd["perc_pop"],
+        width=bar_width,
+        label="Percentage of Population (\%)",
+    )
+
     ax1.set_xlabel("Output Area Classification (OAC) Supergroup")
-    ax1.set_ylabel("Number of Representations")
+    ax1.set_ylabel("Proportion of Population (\%)")
+    ax1.set_xticks(x)
+    ax1.set_xticklabels(oa_pd["supergroup"])
 
+    ax1.legend(loc="upper center", bbox_to_anchor=(0.5, -0.1), ncol=5, frameon=False)
     plt.tight_layout()
 
     plt.savefig(Paths.SUMMARY / "figs" / "oas.png")
 
 
 def fig_wards(postcodes):
-    wards = (
-        pl.read_csv(Paths.RAW / "TS001-2021-3-filtered-2025-01-09T11_07_15Z.csv")
-        .rename(
-            {
-                "Electoral wards and divisions Code": "OSWARD",
-                "Electoral wards and divisions": "WARDNAME",
-            }
-        )
-        .group_by(["OSWARD", "WARDNAME"])
-        .sum()
-    )
-    postcodes = postcodes.join(wards, on="OSWARD").with_columns(
-        ((pl.col("count") / pl.col("Observation")) * 100).alias("prop")
-    )
     ward_boundaries = gpd.read_file(
         Paths.RAW / "Wards_December_2021_GB_BFE_2022_7523259277605796091.zip"
     )
@@ -218,7 +243,7 @@ def fig_imd(postcodes):
         x - bar_width / 2,  # Shift to the left
         postcodes_pd["perc_count"],
         width=bar_width,
-        label="Percentage of Count (%)",
+        label="Percentage of Representations (\%)",
     )
 
     # Plot the second set of bars
@@ -226,17 +251,17 @@ def fig_imd(postcodes):
         x + bar_width / 2,  # Shift to the right
         postcodes_pd["perc_pop"],
         width=bar_width,
-        label="Percentage of Population (%)",
+        label="Percentage of Population (\%)",
     )
 
     # Set labels and ticks
     ax1.set_xlabel("IMD Quintile")
-    ax1.set_ylabel("Proportion of Population (%)")
+    ax1.set_ylabel("Proportion of Population (\%)")
     ax1.set_xticks(x)  # Set x-ticks to correspond to the positions
     ax1.set_xticklabels(postcodes_pd["LA_decile"])
 
     # Add a legend
-    ax1.legend()
+    ax1.legend(loc="upper center", bbox_to_anchor=(0.5, -0.1), ncol=5, frameon=False)
 
     # Adjust layout
     plt.tight_layout()
@@ -284,15 +309,20 @@ The following section provides a detailed breakdown of notable details from resp
         f"{introduction_paragraph}\n\n"
         "\n# Figures\n\n"
         f"{figures_paragraph}\n\n"
-        f"![Total number of representations submitted by Ward.](./figs/wards.png){{#fig-wards}}\n\n"
-        f"![Total number of representations submitted by Output Area (OA 2021).](./figs/oas.png){{#fig-oas}}\n\n"
+        f"![Total number of representations submitted by Ward](./figs/wards.png){{#fig-wards}}\n\n"
+        f"![Total number of representations submitted by Output Area (OA 2021)](./figs/oas.png){{#fig-oas}}\n\n"
         f"![Percentage of representations submitted by quintile of index of multiple deprivation (2019)](./figs/imd_decile.png){{#fig-imd}}\n\n"
-        "# Themes and Policies\n\n"
+        r"\newpage"
+        "\n\n# Themes and Policies\n\n"
         f"{themes_paragraph}\n\n"
         f"{themes}{{#tbl-themes}}\n\n"
-        "## Support\n\n"
+        "## Supporting Representations\n\n"
+        "The following section outlines key points relating to policies, taken from documents where the "
+        "respondent indicated that they support the plan.\n\n"
         f"{support_policies}\n\n"
-        "## Object\n\n"
+        "## Objecting Representations\n\n"
+        "The following section outlines key points relating to policies, taken from documents where the "
+        "respondent indicated that they object to the plan.\n\n"
         f"{object_policies}\n\n"
         "## Other\n\n"
         f"{other_policies}\n\n"
