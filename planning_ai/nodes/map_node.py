@@ -25,10 +25,9 @@ def retrieve_themes(state: DocumentState) -> DocumentState:
     except Exception as e:
         logger.error(f"Theme selection error: {e}")
         themes = []
-    state["themes"] = themes
-    state["themes"] = [d for d in state["themes"] if d["score"] > 2]
-    state["score"] = np.mean([theme["score"] for theme in state["themes"]])
-    if state["score"] < 3:
+    state["themes"] = [d for d in themes if d["score"] > 2]
+    score = np.mean([theme["score"] for theme in state["themes"]])
+    if score < 3:
         state["processed"] = True
         state["failed"] = True
 

@@ -6,6 +6,7 @@ from langchain_core.documents import Document
 from pydantic import BaseModel
 
 from planning_ai.chains.hallucination_chain import HallucinationChecker
+from planning_ai.chains.themes_chain import ThemeScore
 from planning_ai.common.utils import filename_reducer
 
 
@@ -14,7 +15,7 @@ class DocumentState(TypedDict):
     filename: int
 
     entities: list[dict]
-    themes: set[str]
+    themes: set[ThemeScore]
 
     summary: BaseModel
     hallucination: HallucinationChecker
