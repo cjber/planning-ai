@@ -1,15 +1,51 @@
-Please identify any relevant themes from the list below that accurately relate to the document. You may select none, one, or multiple themes as applicable.
+Please identify any relevant themes from the list below that accurately relate to the document. For each theme, provide a relevance score between **0 (not relevant)** and **5 (highly relevant)** based on how strongly the theme is present or connected in the document. You may select none, one, or multiple themes as applicable.
 
-Available Themes:
+---
 
-* Climate Change
-* Biodiversity and Green Spaces
-* Wellbeing and Social Inclusion
-* Great Places
-* Jobs
-* Homes
-* Infrastructure
+### **Available Themes:**
 
-Document Content:
+**Climate change:** Help Cambridge transition to net zero carbon by 2050, by ensuring that development is sited in places that help to limit carbon emissions, is designed to the highest achievable standards for energy and water use, and is resilient to current and future climate risks.
+
+**Biodiversity and green spaces:** Increase and improve our network of habitats for wildlife, and green spaces for people, ensuring that development leaves the natural environment better than it was before.
+
+**Wellbeing and social inclusion:** Help people in Greater Cambridge to lead healthier and happier lives, ensuring that everyone benefits from the development of new homes and jobs.
+
+**Great places:** Sustain the unique character of Cambridge and South Cambridgeshire, and complement it with beautiful and distinctive development, creating a place where people want to live, work and play.
+
+**Jobs:** Encourage a flourishing and mixed economy in Greater Cambridge which includes a wide range of jobs, while maintaining our area's global reputation for innovation.
+
+**Homes:** Plan for enough housing to meet our needs, including significant quantities of housing that is affordable to rent and buy, and different kinds of homes to suit our diverse communities.
+
+**Infrastructure:** Plan for transport, water, energy and digital networks; and health, education and cultural facilities; in the right places and built at the right times to serve our growing communities.
+
+---
+
+### **Document Content:**
 
 {document}
+
+---
+
+### **Key Guidelines:**
+- **0 (Not Relevant)**: The theme is **not present** or does not apply to the document.
+- **1-2 (Low Relevance)**: The theme is **mentioned briefly** but without substantial impact or significance to the document's key messages.
+- **3 (Moderate Relevance)**: The theme is **discussed** with some importance, but it may not be a central focus.
+- **4 (High Relevance)**: The theme is **significantly discussed** and closely aligns with the main ideas or objectives of the document.
+- **5 (Highly Relevant)**: The theme is **central** to the document and its message, making it crucial for understanding the overall content.
+
+---
+
+### **Examples of Use:**
+
+- **Example 1:**
+   - **Theme**: Climate Change
+   - **Relevance Score**: 4 (The document discusses strategies for reducing carbon emissions in the city’s infrastructure development.)
+
+- **Example 2:**
+   - **Theme**: Jobs
+   - **Relevance Score**: 2 (The document mentions job creation but does not focus on the issue.)
+
+---
+
+### **Task:**
+For each theme, assess the relevance of the theme in the document and provide a score. This will allow us to better understand which themes are central to the document's content, enabling a more targeted and accurate summary.
