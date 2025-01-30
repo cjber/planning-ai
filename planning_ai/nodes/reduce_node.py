@@ -23,7 +23,7 @@ def save_summaries_to_json(docs):
             **doc["document"].metadata,
             "filename": doc["filename"],
             "entities": doc["entities"],
-            "themes": list(doc["themes"]),
+            "themes": doc["themes"].model_dump(),
             "summary": doc["summary"].model_dump()["summary"],
             "policies": doc["policies"],
             "notes": doc["notes"],
@@ -47,10 +47,10 @@ def extract_policies_from_docs(docs):
             continue
         for policy in doc["summary"].policies:
             for theme, p in THEMES_AND_POLICIES.items():
-                if policy.policy in p:
+                if policy.policy.name in p:
                     policies["doc_id"].append(doc["doc_id"])
                     policies["themes"].append(theme)
-                    policies["policies"].append(policy.policy)
+                    policies["policies"].append(policy.policy.name)
                     policies["details"].append(policy.note)
                     policies["stance"].append(
                         doc["document"].metadata["representations_support/object"]
@@ -131,7 +131,6 @@ def generate_final_report(state: OverallState):
 
 def final_output(final_docs):
     docs = [doc for doc in final_docs if not doc["failed"]]
-
     docs = add_doc_id(docs)
 
     policy_groups = extract_policies_from_docs(docs)

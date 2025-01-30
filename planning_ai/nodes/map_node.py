@@ -1,3 +1,4 @@
+import numpy as np
 import spacy
 from langgraph.types import Send
 from presidio_analyzer import AnalyzerEngine
@@ -14,19 +15,24 @@ anonymizer = AnonymizerEngine()
 nlp = spacy.load("en_core_web_lg")
 
 
-
 def retrieve_themes(state: DocumentState) -> DocumentState:
     try:
         result = themes_chain.invoke({"document": state["document"].page_content})
         if not result.themes:
-            state["themes"] = set()
+            state["themes"] = []
             return state
-        themes = [theme.value for theme in result.themes]
+        themes = [theme.model_dump() for theme in result.themes]
     except Exception as e:
         logger.error(f"Theme selection error: {e}")
         themes = []
+    state["themes"] = themes
+    state["themes"] = [d for d in state["themes"] if d["score"] > 2]
+    state["score"] = np.mean([theme["score"] for theme in state["themes"]])
+    if state["score"] < 3:
+        state["processed"] = True
+        state["failed"] = True
 
-    state["themes"] = set(themes)
+    logger.info(f"Document {state['filename']} theme score: {state['score']}")
     return state
 
 
@@ -98,7 +104,8 @@ def generate_summary(state: DocumentState) -> dict:
             ]
         }
 
-    map_chain = create_dynamic_map_chain(themes=state["themes"], prompt=map_template)
+    themes = [theme["theme"].value for theme in state["themes"]]
+    map_chain = create_dynamic_map_chain(themes=themes, prompt=map_template)
     try:
         response = map_chain.invoke({"context": state["document"].page_content})
     except Exception as e:

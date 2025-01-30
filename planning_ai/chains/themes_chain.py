@@ -2,13 +2,13 @@ from enum import Enum
 from typing import Optional
 
 from langchain_core.prompts import ChatPromptTemplate
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 from planning_ai.common.utils import Paths
 from planning_ai.llms.llm import LLM
 
 
-class Themes(Enum):
+class Theme(Enum):
     climate_change = "Climate Change"
     biodiversity = "Biodiversity and Green Spaces"
     wellbeing = "Wellbeing and Social Inclusion"
@@ -18,8 +18,13 @@ class Themes(Enum):
     infrastructure = "Infrastructure"
 
 
+class ThemeScore(BaseModel):
+    theme: Theme
+    score: int
+
+
 class ThemeSelector(BaseModel):
-    themes: Optional[list[Themes]]
+    themes: Optional[list[ThemeScore]]
 
 
 with open(Paths.PROMPTS / "themes.txt", "r") as f:

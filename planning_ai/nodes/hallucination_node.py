@@ -83,7 +83,8 @@ def fix_hallucination(state: DocumentState):
         hallucinations.
     """
     logger.warning(f"Fixing hallucinations for document {state['filename']}")
-    fix_chain = create_dynamic_map_chain(state["themes"], fix_template)
+    themes = [theme["theme"].value for theme in state["themes"]]
+    fix_chain = create_dynamic_map_chain(themes, fix_template)
     try:
         response = fix_chain.invoke(
             {

@@ -2,7 +2,7 @@ from enum import Enum, auto
 from typing import Optional, Set, Type
 
 from langchain_core.prompts import ChatPromptTemplate
-from pydantic import BaseModel, create_model
+from pydantic import BaseModel, Field, create_model
 
 from planning_ai.common.utils import Paths
 from planning_ai.llms.llm import LLM
@@ -13,13 +13,13 @@ with open(Paths.PROMPTS / "map.txt", "r") as f:
 
 
 def create_policy_enum(
-    policy_groups: Set[str], name: str = "DynamicPolicyEnum"
+    policy_groups: list[str], name: str = "DynamicPolicyEnum"
 ) -> Enum:
     """
     Create a dynamic enum for policies based on the given policy groups.
 
     Args:
-        policy_groups (Set[str]): A set of policy group names.
+        policy_groups (list[str]): A set of policy group names.
         name (str): Name of the enum to be created.
 
     Returns:
@@ -39,29 +39,24 @@ def create_brief_summary_model(policy_enum: Enum) -> Type[BaseModel]:
         Type[BaseModel]: A dynamically generated Pydantic model for BriefSummary.
     """
 
-    # NOTE: For some reason GPT4o doesn't work if we use too much structure
-    DynamicPolicy = create_model(
-        "DynamicPolicy",
-        # policy=(policy_enum, ...),
-        policy=(str, ...),
-        note=(str, ...),
-        __config__={"extra": "forbid"},
-    )
+    class Policy(BaseModel):
+        policy: policy_enum
+        note: str
 
     return create_model(
         "DynamicBriefSummary",
         summary=(str, ...),
-        policies=(Optional[list[DynamicPolicy]], ...),
+        policies=(list[Policy], ...),
         __module__=__name__,
         __config__={"extra": "forbid"},
     )
 
 
 def create_dynamic_map_chain(themes, prompt: str):
-    policy_groups = set()
+    policy_groups = []
     for theme in themes:
         if theme in THEMES_AND_POLICIES:
-            policy_groups.update(THEMES_AND_POLICIES[theme])
+            policy_groups.extend(THEMES_AND_POLICIES[theme])
 
     PolicyEnum = create_policy_enum(policy_groups)
     DynamicBriefSummary = create_brief_summary_model(PolicyEnum)
