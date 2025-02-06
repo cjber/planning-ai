@@ -11,7 +11,7 @@ UPLOAD_DIR = Paths.RAW / "gcpt3"
 if "files_extracted" not in st.session_state:
     st.session_state["files_extracted"] = False
 
-st.title("Planning AI")
+st.title("Report Builder")
 
 
 st.header("Upload JDL response `.json` files")
@@ -92,21 +92,23 @@ if st.session_state["files_extracted"]:
             summaries_path = Paths.SUMMARY / "Summary_of_Submitted_Responses.pdf"
 
             if report_path.exists() and summaries_path.exists():
-                st.success("Report built successfully! Check the `data/out` directory.")
+                st.success(
+                    "Report built successfully! Please click download buttons below."
+                )
                 col1, col2 = st.columns(2)
                 with col1:
-                    with open(summaries_path, "rb") as pdf_file:
+                    with open(summaries_path, "rb") as docx_file:
                         st.download_button(
                             label="Download Report",
-                            data=pdf_file,
-                            file_name="Summary_of_Submitted_Responses.pdf",
-                            mime="application/pdf",
+                            data=docx_file,
+                            file_name="Summary_of_Submitted_Responses.docx",
+                            mime="application/docx",
                         )
                 with col2:
-                    with open(report_path, "rb") as pdf_file:
+                    with open(report_path, "rb") as docx_file:
                         st.download_button(
                             label="Download Summaries Report",
-                            data=pdf_file,
-                            file_name="Summary_Documents.pdf",
-                            mime="application/pdf",
+                            data=docx_file,
+                            file_name="Summary_Documents.docx",
+                            mime="application/docx",
                         )
