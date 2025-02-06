@@ -8,7 +8,7 @@ from langchain_core.prompts import PromptTemplate
 from langchain_openai import OpenAIEmbeddings
 from pydantic import BaseModel, Field
 
-from planning_ai.llms.llm import LLM
+from planning_ai.llms.llm import GPT4o
 
 # See: https://consultations.greatercambridgeplanning.org/greater-cambridge-local-plan-preferred-options/supporting-documents
 
@@ -68,7 +68,7 @@ grade_template = PromptTemplate(
 )
 
 
-SLLM = LLM.with_structured_output(Grade, strict=True)
+SLLM = GPT4o.with_structured_output(Grade, strict=True)
 grade_chain = grade_template | SLLM
 
 vectorstore = create_db()
