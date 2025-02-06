@@ -2,7 +2,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from pydantic import BaseModel
 
 from planning_ai.common.utils import Paths
-from planning_ai.llms.llm import LLM
+from planning_ai.llms.llm import GPT4o
 
 with open(Paths.PROMPTS / "policy.txt", "r") as f:
     policy_template = f.read()
@@ -19,7 +19,7 @@ class PolicyList(BaseModel):
     policies: list[Policy]
 
 
-SLLM = LLM.with_structured_output(PolicyList, strict=True)
+SLLM = GPT4o.with_structured_output(PolicyList, strict=True)
 
 
 policy_prompt = ChatPromptTemplate([("system", policy_template)])

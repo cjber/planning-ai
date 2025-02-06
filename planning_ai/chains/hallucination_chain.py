@@ -2,7 +2,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from pydantic import BaseModel, Field
 
 from planning_ai.common.utils import Paths
-from planning_ai.llms.llm import LLM
+from planning_ai.llms.llm import GPT4o
 
 with open(Paths.PROMPTS / "hallucination.txt", "r") as f:
     reduce_template = f.read()
@@ -15,7 +15,7 @@ class HallucinationChecker(BaseModel):
     explanation: str = Field(..., description="Explain your reasoning for the score")
 
 
-SLLM = LLM.with_structured_output(HallucinationChecker, strict=True)
+SLLM = GPT4o.with_structured_output(HallucinationChecker, strict=True)
 
 hallucination_prompt = ChatPromptTemplate([("system", reduce_template)])
 hallucination_chain = hallucination_prompt | SLLM

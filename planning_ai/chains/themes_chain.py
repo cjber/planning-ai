@@ -5,7 +5,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from pydantic import BaseModel, Field
 
 from planning_ai.common.utils import Paths
-from planning_ai.llms.llm import LLM
+from planning_ai.llms.llm import GPT4o
 
 
 class Theme(Enum):
@@ -32,7 +32,7 @@ with open(Paths.PROMPTS / "themes.txt", "r") as f:
 
 themes_prompt = ChatPromptTemplate.from_messages([("system", themes_template)])
 
-SLLM = LLM.with_structured_output(ThemeSelector, strict=True)
+SLLM = GPT4o.with_structured_output(ThemeSelector, strict=True)
 
 themes_chain = themes_prompt | SLLM
 

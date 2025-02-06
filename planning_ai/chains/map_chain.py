@@ -5,7 +5,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from pydantic import BaseModel, Field, create_model
 
 from planning_ai.common.utils import Paths
-from planning_ai.llms.llm import LLM
+from planning_ai.llms.llm import GPT4o
 from planning_ai.themes import THEMES_AND_POLICIES
 
 with open(Paths.PROMPTS / "map.txt", "r") as f:
@@ -61,7 +61,7 @@ def create_dynamic_map_chain(themes, prompt: str):
     PolicyEnum = create_policy_enum(policy_groups)
     DynamicBriefSummary = create_brief_summary_model(PolicyEnum)
 
-    SLLM = LLM.with_structured_output(DynamicBriefSummary, strict=True)
+    SLLM = GPT4o.with_structured_output(DynamicBriefSummary, strict=True)
 
     prompt = (
         f"{prompt}\n\nAvailable Policies:\n\n- "
