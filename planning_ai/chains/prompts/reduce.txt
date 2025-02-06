@@ -4,4 +4,6 @@ The following contains summaries of public responses to a new plan proposed by t
 
 As a representative of the Cambridgeshire Council, your task is to craft a **comprehensive and articulate executive summary**. This summary will serve as the introductory section of a major report, highlighting the key themes and concerns raised in the public responses. Ensure that the summary is clear, concise, and professional, reflecting the tone and standards expected in official council documents. **Do not add, infer, or create information.** Use only the content explicitly mentioned in the summaries. Adhere to British English conventions.
 
+Each time you make a reference to a response document, please add an inline citation which corresponds with the documents numerical ID. For example 'Concerns regarding the impact of increased housing density on the character of Cambridge were prevalent [1][2][11].'.
+
 # Executive Summary
