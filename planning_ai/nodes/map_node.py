@@ -30,8 +30,6 @@ def retrieve_themes(state: DocumentState) -> DocumentState:
     if score < 3:
         state["processed"] = True
         state["failed"] = True
-
-    logger.info(f"Document {state['filename']} theme score: {state['score']}")
     return state
 
 
