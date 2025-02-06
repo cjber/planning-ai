@@ -1,11 +1,10 @@
 import json
-import logging
 from pathlib import Path
 
 import polars as pl
 
 from planning_ai.chains.policy_chain import policy_chain
-from planning_ai.chains.reduce_chain import reduce_chain
+from planning_ai.chains.reduce_chain import reduce_chain, reduce_chain_final
 from planning_ai.logging import logger
 from planning_ai.states import OverallState
 from planning_ai.themes import THEMES_AND_POLICIES
@@ -77,7 +76,7 @@ def batch_generate_executive_summaries(summaries):
         list: A list of final responses.
     """
     summaries_text = [
-        f"Document ID: {[s['doc_id']]} {s['summary'].summary}" for s in summaries
+        f"Document ID: {[s['doc_id']]}\n\n{s['summary'].summary}" for s in summaries
     ]
     final_responses = []
     batch_size = 50
@@ -137,5 +136,5 @@ def final_output(final_docs):
     policies = generate_policy_output(policy_groups)
 
     batch_executive = batch_generate_executive_summaries(docs)
-    executive = reduce_chain.invoke({"context": "\n\n".join(batch_executive)})
+    executive = reduce_chain_final.invoke({"context": "\n\n".join(batch_executive)})
     return {"executive": executive, "documents": docs, "policies": policies}
