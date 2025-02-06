@@ -79,6 +79,7 @@ def main():
     if step is None:
         raise ValueError("No steps were processed!")
 
+        
     build_final_report(step)
     build_summaries_document(step)
 
