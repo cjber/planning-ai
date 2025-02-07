@@ -393,10 +393,6 @@ The following section provides a detailed breakdown of notable details from resp
         "execute:\n"
         "  freeze: auto\n"
         "  echo: false\n"
-        "fontfamily: libertinus\n"
-        "monofont: 'JetBrains Mono'\n"
-        "monofontoptions:\n"
-        "  - Scale=0.55\n"
         "---\n\n"
         f"{final['executive']}\n\n"
         f"There were a total of {len(final['documents']):,} responses. Of these, submissions indicated "
@@ -454,10 +450,6 @@ def build_summaries_document(out):
         "execute:\n"
         "  freeze: auto\n"
         "  echo: false\n"
-        "fontfamily: libertinus\n"
-        "monofont: 'JetBrains Mono'\n"
-        "monofontoptions:\n"
-        "  - Scale=0.55\n"
         "---\n\n"
     )
     with open(Paths.SUMMARY / "Summary_Documents.qmd", "w") as f:
