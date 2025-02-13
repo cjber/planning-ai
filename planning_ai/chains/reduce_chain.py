@@ -10,10 +10,11 @@ with open(Paths.PROMPTS / "reduce.txt", "r") as f:
 with open(Paths.PROMPTS / "reduce_final.txt", "r") as f:
     reduce_template_final = f.read()
 
-
 reduce_prompt = ChatPromptTemplate([("system", reduce_template)])
-reduce_prompt_final = ChatPromptTemplate([("system", reduce_template_final)])
 reduce_chain = reduce_prompt | O3Mini | StrOutputParser()
+
+
+reduce_prompt_final = ChatPromptTemplate([("system", reduce_template_final)])
 reduce_chain_final = reduce_prompt_final | O3Mini | StrOutputParser()
 
 
@@ -22,9 +23,12 @@ if __name__ == "__main__":
         The author expresses concern over the proposed mass development north-west of Cambridge,
         highlighting the significant growth in the area over the past twenty years,
         particularly with the establishment of Cambourne and the expansion of Papworth Everard.
+        [1, 2, 3]
         """
 
     result = reduce_chain.invoke({"context": test_summary})
+    result_final = reduce_chain_final.invoke({"context": test_summary})
 
     print("Generated Report:")
     print(result)
+    print(result_final)
