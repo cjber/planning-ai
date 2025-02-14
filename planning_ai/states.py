@@ -15,7 +15,7 @@ class DocumentState(TypedDict):
     filename: int
 
     entities: list[dict]
-    themes: set[ThemeScore]
+    themes: list[dict]
 
     summary: BaseModel
     hallucination: HallucinationChecker
