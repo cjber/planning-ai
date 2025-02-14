@@ -1,6 +1,8 @@
 .aider*
 .envrc
 
+.streamlit/secrets.toml
+auth/
 chroma_themesdb/
 data/
 notes/

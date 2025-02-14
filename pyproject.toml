@@ -27,7 +27,6 @@ dependencies = [
     "pypdf2>=3.0.1",
     "beautifulsoup4>=4.12.3",
     "chromadb>=0.5.23",
-    # "langchain-chroma>=0.1.4",
     "pypdf>=5.1.0",
     "geopandas>=1.0.1",
     "azure-ai-documentintelligence>=1.0.0",
@@ -36,6 +35,9 @@ dependencies = [
     "mapclassify>=2.8.1",
     "streamlit>=1.41.1",
     "py7zr>=0.22.0",
+    "streamlit-authenticator>=0.4.1",
+    "en_core_web_lg @ https://github.com/explosion/spacy-models/releases/download/en_core_web_lg-3.8.0/en_core_web_lg-3.8.0-py3-none-any.whl"
+
 ]
 
 [tool.uv]

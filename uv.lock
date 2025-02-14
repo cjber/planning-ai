@@ -323,6 +323,18 @@ wheels = [
 ]
 
 [[package]]
+name = "captcha"
+version = "0.6.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "pillow" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/48/4c/547742298d99408a7172aa5b1328b6bb9d85234b4082e0fd379f9b893615/captcha-0.6.0.tar.gz", hash = "sha256:a5ead7679cd8477bc636524d54f50e092a4b6f3db4e52bb98a689593638d1772", size = 187610 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/c0/f2/9af6abd7b07e4709a7d698fee6fa7ce7fb9814886b18de61580311b0fe96/captcha-0.6.0-py3-none-any.whl", hash = "sha256:148b2475be00a067b6173b7796cdc2332dbcb6fd4bfced1055bc8f69846bc924", size = 102241 },
+]
+
+[[package]]
 name = "catalogue"
 version = "2.0.10"
 source = { registry = "https://pypi.org/simple" }
@@ -636,6 +648,14 @@ wheels = [
 ]
 
 [[package]]
+name = "en-core-web-lg"
+version = "3.8.0"
+source = { url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_lg-3.8.0/en_core_web_lg-3.8.0-py3-none-any.whl" }
+wheels = [
+    { url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_lg-3.8.0/en_core_web_lg-3.8.0-py3-none-any.whl", hash = "sha256:293e9547a655b25499198ab15a525b05b9407a75f10255e405e8c3854329ab63" },
+]
+
+[[package]]
 name = "eval-type-backport"
 version = "0.2.2"
 source = { registry = "https://pypi.org/simple" }
@@ -660,6 +680,18 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/91/50/a9d80c47ff289c611ff12e63f7c5d13942c65d68125160cefd768c73e6e4/executing-2.2.0.tar.gz", hash = "sha256:5d108c028108fe2551d1a7b2e8b713341e2cb4fc0aa7dcf966fa4327a5226755", size = 978693 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/7b/8f/c4d9bafc34ad7ad5d8dc16dd1347ee0e507a52c3adb6bfa8887e1c6a26ba/executing-2.2.0-py2.py3-none-any.whl", hash = "sha256:11387150cad388d62750327a53d3339fad4888b39a6fe233c3afbb54ecffd3aa", size = 26702 },
+]
+
+[[package]]
+name = "extra-streamlit-components"
+version = "0.1.71"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "streamlit" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/16/a7/580b13af828ef38888196f8b2c03fa97afa89cdb7946438ca5f3271e9a81/extra_streamlit_components-0.1.71.tar.gz", hash = "sha256:d18314cf2ed009f95641882b50aa3bdb11b6a0eb6403fb43dbc8af1722419617", size = 2250093 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/25/57/1115e9b974478fac83ba9cd79def8b3770a91b7a9001c46a76491071f2fe/extra_streamlit_components-0.1.71-py3-none-any.whl", hash = "sha256:c8e6f98446adecd3002756362e50d0669693b7673afaa89cebfced6415cc6bd3", size = 4858597 },
 ]
 
 [[package]]
@@ -2044,6 +2076,7 @@ dependencies = [
     { name = "azure-ai-documentintelligence" },
     { name = "beautifulsoup4" },
     { name = "chromadb" },
+    { name = "en-core-web-lg" },
     { name = "fastexcel" },
     { name = "geopandas" },
     { name = "langchain-community" },
@@ -2069,6 +2102,7 @@ dependencies = [
     { name = "spacy" },
     { name = "spacytextblob" },
     { name = "streamlit" },
+    { name = "streamlit-authenticator" },
     { name = "tabulate" },
     { name = "transformers" },
 ]
@@ -2084,6 +2118,7 @@ requires-dist = [
     { name = "azure-ai-documentintelligence", specifier = ">=1.0.0" },
     { name = "beautifulsoup4", specifier = ">=4.12.3" },
     { name = "chromadb", specifier = ">=0.5.23" },
+    { name = "en-core-web-lg", url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_lg-3.8.0/en_core_web_lg-3.8.0-py3-none-any.whl" },
     { name = "fastexcel", specifier = ">=0.11.6" },
     { name = "geopandas", specifier = ">=1.0.1" },
     { name = "langchain-community", specifier = ">=0.2.16" },
@@ -2109,6 +2144,7 @@ requires-dist = [
     { name = "spacy", specifier = ">=3.7.6" },
     { name = "spacytextblob", specifier = ">=4.0.0" },
     { name = "streamlit", specifier = ">=1.41.1" },
+    { name = "streamlit-authenticator", specifier = ">=0.4.1" },
     { name = "tabulate", specifier = ">=0.9.0" },
     { name = "transformers", specifier = ">=4.44.2" },
 ]
@@ -2483,6 +2519,15 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/7c/2d/c3338d48ea6cc0feb8446d8e6937e1408088a72a39937982cc6111d17f84/pygments-2.19.1.tar.gz", hash = "sha256:61c16d2a8576dc0649d9f39e089b5f02bcd27fba10d8fb4dcc28173f7a45151f", size = 4968581 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/8a/0b/9fcc47d19c48b59121088dd6da2488a49d5f72dacf8262e2790a1d2c7d15/pygments-2.19.1-py3-none-any.whl", hash = "sha256:9ea1544ad55cecf4b8242fab6dd35a93bbce657034b0611ee383099054ab6d8c", size = 1225293 },
+]
+
+[[package]]
+name = "pyjwt"
+version = "2.10.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/e7/46/bd74733ff231675599650d3e47f361794b22ef3e3770998dda30d3b63726/pyjwt-2.10.1.tar.gz", hash = "sha256:3cc5772eb20009233caf06e9d8a0577824723b44e6648ee0a2aedb6cf9381953", size = 87785 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/61/ad/689f02752eeec26aed679477e80e632ef1b682313be70793d798c1d5fc8f/PyJWT-2.10.1-py3-none-any.whl", hash = "sha256:dcdd193e30abefd5debf142f9adfcdd2b58004e644f25406ffaebd50bd98dacb", size = 22997 },
 ]
 
 [[package]]
@@ -3169,6 +3214,23 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/78/33/14b5ac0369ecf0af675911e5e84b934e6fcc2cec850857d2390eb373b0a6/streamlit-1.41.1.tar.gz", hash = "sha256:6626d32b098ba1458b71eebdd634c62af2dd876380e59c4b6a1e828a39d62d69", size = 8712473 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/c2/87/b2e162869500062a94dde7589c167367b5538dab6eacce2e7c0f00d5c9c5/streamlit-1.41.1-py2.py3-none-any.whl", hash = "sha256:0def00822480071d642e6df36cd63c089f991da3a69fd9eb4ab8f65ce27de4e0", size = 9100386 },
+]
+
+[[package]]
+name = "streamlit-authenticator"
+version = "0.4.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "bcrypt" },
+    { name = "captcha" },
+    { name = "extra-streamlit-components" },
+    { name = "pyjwt" },
+    { name = "pyyaml" },
+    { name = "streamlit" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/f8/70/04c24fb2d9b372edfa2261cbec3828633bc997c4bf29310ff53cf092a647/streamlit_authenticator-0.4.1.tar.gz", hash = "sha256:d4afeec5c972d794052a5552aa570e7eb620f0cc183484a5b052304907268381", size = 31401 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/93/28/c19eae3f2b29dd4658e16d3fd3e0164af13c501493e0bc260effcfe04407/streamlit_authenticator-0.4.1-py3-none-any.whl", hash = "sha256:776136e6a6ecde1ecc9dda054a7492290199b81e19268abff307a7d508685942", size = 34747 },
 ]
 
 [[package]]
