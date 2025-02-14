@@ -328,7 +328,7 @@ def fig_imd(postcodes):
     plt.savefig(Paths.SUMMARY / "figs" / "imd_decile.pdf")
 
 
-def build_final_report(out):
+def build_final_report(out, rep):
     introduction_paragraph = """
 This report was produced using a generative pre-trained transformer (GPT) large-language model (LLM) to produce an abstractive summary of all responses to the related planning application. This model automatically reviews every response in detail, and extracts key information to inform decision making. This document first consolidates this information into a single-page executive summary, highlighting areas of particular interest to consider, and the broad consensus of responses. Figures generated from responses then give both a geographic and statistical overview, highlighting any demographic imbalances in responses. The document then extracts detailed information from responses, grouped by theme and policy. In this section we incorporate citations which relate with the 'Summary Responses' document, to increase transparency.
 """
@@ -374,7 +374,7 @@ These neighbourhoods characteristically comprise pockets of flats that are scatt
 @fig-imd shows the percentage of responses by level of neighbourhood socioeconomic deprivation. The information is presented using the 2019 Index of Multiple Deprivation, divided into quintiles (i.e., dividing the English population into equal fifths). This measure is the UK Government’s preferred measure of socioeconomic deprivation and is based on information about income, employment, education, health, crime, housing and the local environment for small areas (Lower Super Output Areas, typically containing 1600 people). To interpret the graph, bars represent the share of population from each quintile. Quintile 1 represents the most deprived 20% of areas, and quintile 5 the least deprived 20% of areas. The orange bars represent the distribution of people who submitted representations (i.e., larger bars mean that more people from these areas submitted representations). The blue bars show the distribution of the local population, allowing one to evaluate whether the evidence submitted was from the same communities in the area.
 """
     themes_paragraph = """
-The following section provides a detailed breakdown of notable details from responses, grouped by themes and policies. Both themes and associated policies are automatically determined through an analysis of the summary content by an LLM agent. Each theme is grouped by whether a responses is supporting, opposed, or a general comment. This section aims to give a comprehensive view of the key issues raised by the respondents with respect to the themes and policies outlined. We have incorporated citations into eac hpoint (see numbers in square brackets) which relate to the specific document they were made in, to promote the transparency of where information was sourced from.
+The following section provides a detailed breakdown of notable details from responses, grouped by themes and policies. Both themes and associated policies are automatically determined through an analysis of the summary content by an LLM agent. Each theme is grouped by whether a responses is supporting, opposed, or a general comment. This section aims to give a comprehensive view of the key issues raised by the respondents with respect to the themes and policies outlined. We have incorporated citations into eac hpoint (see numbers in square brackets) which relate to the specific document they were made in, to promote the transparency of where information was sourced from. @tbl-themes gives a breakdown of the number of submissions that relate with each theme, submissions may relate to more than one theme.
     """
     final = out["generate_final_report"]
     support_policies, object_policies, other_policies = _process_policies(final)
@@ -388,12 +388,17 @@ The following section provides a detailed breakdown of notable details from resp
 
     quarto_doc = (
         "---\n"
-        f"title: 'Summary of Submitted Representations'\n"
-        "format: docx\n"
+        f"title: 'Summary of Submitted Representations: {rep}'\n"
+        "format: pdf\n"
         "execute:\n"
         "  freeze: auto\n"
         "  echo: false\n"
+        "fontfamily: libertinus\n"
+        "monofont: 'JetBrains Mono'\n"
+        "monofontoptions:\n"
+        "  - Scale=0.55\n"
         "---\n\n"
+        "# Executive Summary\n\n"
         f"{final['executive']}\n\n"
         f"There were a total of {len(final['documents']):,} responses. Of these, submissions indicated "
         "the following support and objection of the plan:\n\n"
@@ -410,23 +415,26 @@ The following section provides a detailed breakdown of notable details from resp
         f"{themes_paragraph}\n\n"
         f"{themes}{{#tbl-themes}}\n\n"
         "## Supporting Representations\n\n"
-        "The following section presents a list of all points raised in representations that support the plan "
+        "The following section presents a list of all points raised in representations that support the plan"
         ", grouped by theme and policy.\n\n"
-        f"{support_policies}\n\n"
+        f"{support_policies or '_No supporting representations._'}\n\n"
         "## Objecting Representations\n\n"
         "The following section presents a list of all points raised in representations that object to "
-        "the plan , grouped by theme and policy.\n\n"
-        f"{object_policies}\n\n"
-        "## Other\n\n"
-        f"{other_policies}\n\n"
+        "the plan, grouped by theme and policy.\n\n"
+        f"{object_policies or '_No objecting representations._'}\n\n"
+        "## Comment\n\n"
+        "The following section presents a list of all points raised in representations that do not support "
+        "or object to the plan, grouped by theme and policy.\n\n"
+        f"{other_policies or '_No other representations._'}\n\n"
     )
 
-    with open(Paths.SUMMARY / "Summary_of_Submitted_Responses.qmd", "w") as f:
+    out_path = Paths.SUMMARY / f"Summary_of_Submitted_Responses-{rep}.qmd"
+    with open(out_path, "w") as f:
         f.write(quarto_doc)
     command = [
         "quarto",
         "render",
-        f"{Paths.SUMMARY / 'Summary_of_Submitted_Responses.qmd'}",
+        f"{out_path}",
     ]
     try:
         subprocess.run(command, check=True, capture_output=True)
@@ -434,7 +442,7 @@ The following section provides a detailed breakdown of notable details from resp
         logging.error(f"Error during Summary_of_Submitted_Responses.qmd render: {e}")
 
 
-def build_summaries_document(out):
+def build_summaries_document(out, rep):
     sub = r"Document ID: \[\d+\]\n\n"
     full_text = "".join(
         f"**Document ID**: {document['doc_id']}\n\n"
@@ -445,17 +453,22 @@ def build_summaries_document(out):
     )
     quarto_header = (
         "---\n"
-        "title: 'Summary Documents'\n"
-        "format: docx\n"
+        f"title: 'Summary Documents: {rep}'\n"
+        "format: pdf\n"
         "execute:\n"
         "  freeze: auto\n"
         "  echo: false\n"
+        "fontfamily: libertinus\n"
+        "monofont: 'JetBrains Mono'\n"
+        "monofontoptions:\n"
+        "  - Scale=0.55\n"
         "---\n\n"
     )
-    with open(Paths.SUMMARY / "Summary_Documents.qmd", "w") as f:
+    out_path = Paths.SUMMARY / f"Summary_Documents-{rep}.qmd"
+    with open(out_path, "w") as f:
         f.write(f"{quarto_header}{full_text}")
 
-    command = ["quarto", "render", f"{Paths.SUMMARY / 'Summary_Documents.qmd'}"]
+    command = ["quarto", "render", f"{out_path}"]
     try:
         subprocess.run(command, check=True, capture_output=True)
     except subprocess.CalledProcessError as e:

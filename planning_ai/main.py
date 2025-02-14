@@ -16,9 +16,13 @@ from planning_ai.logging import logger
 load_dotenv()
 
 
-def read_docs():
+def read_docs(representations_document: str):
     logger.warning("Reading documents...")
-    df = pl.read_parquet(Paths.STAGING / "gcpt3.parquet").drop_nulls(subset="text")
+    df = (
+        pl.read_parquet(Paths.STAGING / "gcpt3.parquet")
+        .drop_nulls(subset="text")
+        .filter(pl.col("representations_document") == representations_document)
+    )
     pdf_loader = PyPDFDirectoryLoader(
         (Paths.STAGING / "pdfs_azure"), silent_errors=True
     )
@@ -66,22 +70,29 @@ def read_docs():
 
 
 def main():
-    docs = read_docs()
-    n_docs = len(docs)
+    representations_documents = (
+        pl.read_parquet(Paths.STAGING / "gcpt3.parquet")["representations_document"]
+        .unique()
+        .to_list()
+    )
+    for rep in representations_documents:
+        docs = read_docs(rep)
+        n_docs = len(docs)
 
-    logger.info(f"{n_docs} documents being processed!")
-    app = create_graph()
+        logger.info(f"{n_docs} documents being processed!")
+        app = create_graph()
 
-    step = None
-    for step in app.stream({"documents": docs, "n_docs": n_docs}):
-        print(step.keys())
+        step = None
+        for step in app.stream({"documents": docs, "n_docs": n_docs}):
+            print(step.keys())
 
-    if step is None:
-        raise ValueError("No steps were processed!")
+        if step is None:
+            raise ValueError("No steps were processed!")
 
-        
-    build_final_report(step)
-    build_summaries_document(step)
+        build_final_report(step, rep)
+        build_summaries_document(step, rep)
+
+    return representations_documents
 
 
 if __name__ == "__main__":
