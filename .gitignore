@@ -4,7 +4,6 @@
 .streamlit/secrets.toml
 auth/
 chroma_themesdb/
-data/
 notes/
 
 # Byte-compiled / optimized / DLL files
