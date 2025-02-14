@@ -2,7 +2,7 @@ from enum import Enum
 from typing import Optional
 
 from langchain_core.prompts import ChatPromptTemplate
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
 
 from planning_ai.common.utils import Paths
 from planning_ai.llms.llm import GPT4o
