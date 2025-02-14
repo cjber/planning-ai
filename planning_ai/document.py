@@ -42,14 +42,10 @@ def _process_postcodes(final):
         .value_counts()
         .with_columns(pl.col("postcode").str.replace_all(" ", ""))
     )
-    onspd = (
-        pl.read_parquet(
-            Paths.RAW / "onspd" / "onspd_cambridge.parquet",
-            columns=["PCD", "OSWARD", "LSOA11", "OA21"],
-        )
-        .with_columns(pl.col("PCD").str.replace_all(" ", "").alias("postcode"))
-        .filter(pl.col("OSWARD").is_in(WARDS))
-    )
+    onspd = pl.read_parquet(
+        Paths.RAW / "onspd_cambridge.parquet",
+        columns=["PCD", "OSWARD", "LSOA11", "OA21"],
+    ).with_columns(pl.col("PCD").str.replace_all(" ", "").alias("postcode"))
     postcodes = postcodes.join(onspd, on="postcode")
     return postcodes
 
