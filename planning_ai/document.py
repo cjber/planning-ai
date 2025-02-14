@@ -16,6 +16,23 @@ from planning_ai.common.utils import Paths
 mpl.rcParams["text.usetex"] = True
 mpl.rcParams["text.latex.preamble"] = r"\usepackage{libertine}"
 
+WARDS = [
+    "E05013050",
+    "E05013051",
+    "E05013052",
+    "E05013053",
+    "E05013054",
+    "E05013055",
+    "E05013056",
+    "E05013057",
+    "E05013058",
+    "E05013059",
+    "E05013060",
+    "E05013061",
+    "E05013062",
+    "E05013063",
+]
+
 
 def _process_postcodes(final):
     documents = final["documents"]
@@ -25,10 +42,14 @@ def _process_postcodes(final):
         .value_counts()
         .with_columns(pl.col("postcode").str.replace_all(" ", ""))
     )
-    onspd = pl.read_csv(
-        Paths.RAW / "onspd" / "ONSPD_FEB_2024.csv",
-        columns=["PCD", "OSWARD", "LSOA11", "OA21"],
-    ).with_columns(pl.col("PCD").str.replace_all(" ", "").alias("postcode"))
+    onspd = (
+        pl.read_parquet(
+            Paths.RAW / "onspd" / "onspd_cambridge.parquet",
+            columns=["PCD", "OSWARD", "LSOA11", "OA21"],
+        )
+        .with_columns(pl.col("PCD").str.replace_all(" ", "").alias("postcode"))
+        .filter(pl.col("OSWARD").is_in(WARDS))
+    )
     postcodes = postcodes.join(onspd, on="postcode")
     return postcodes
 
@@ -219,25 +240,7 @@ def fig_wards(postcodes):
         Paths.RAW / "Wards_December_2021_GB_BFE_2022_7523259277605796091.zip"
     )
 
-    camb_ward_codes = [
-        "E05013050",
-        "E05013051",
-        "E05013052",
-        "E05013053",
-        "E05013054",
-        "E05013055",
-        "E05013056",
-        "E05013057",
-        "E05013058",
-        "E05013059",
-        "E05013060",
-        "E05013061",
-        "E05013062",
-        "E05013063",
-    ]
-    camb_ward_boundaries = ward_boundaries[
-        ward_boundaries["WD21CD"].isin(camb_ward_codes)
-    ]
+    camb_ward_boundaries = ward_boundaries[ward_boundaries["WD21CD"].isin(WARDS)]
     ward_boundaries_prop = ward_boundaries.merge(
         postcodes.to_pandas(), left_on="WD21CD", right_on="OSWARD"
     )
