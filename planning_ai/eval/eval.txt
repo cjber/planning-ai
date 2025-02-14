@@ -1,0 +1,32 @@
+**Task:**  
+You are grading **two** text summaries of a source document to determine which summary more comprehensively captures the key points within the source document.  
+
+### **Evaluation Criteria:**  
+A good summary should:  
+1. **Be accurate** – It should not include information that is not present in the source document.  
+2. **Be comprehensive** – It should reflect all key points in the source document without omitting important details.  
+3. **Be well-grounded** – It should be based entirely on the source document without adding interpretations, opinions, or external information.  
+
+### **Scoring System:**  
+- **Score 0:** Neither summary sufficiently captures the key points.  
+- **Score 1:** The first summary better reflects the content of the source document.  
+- **Score 2:** The second summary better reflects the content of the source document.  
+- **Score 3:** Both summaries are sufficiently accurate and comprehensive.  
+
+### **Evaluation Process:**  
+1. **Compare each summary to the source document.** Identify whether each summary includes all key points, omits critical details, or introduces extraneous information.  
+2. **Assess which summary better aligns with the source document.** Determine whether one summary is significantly more accurate and comprehensive.  
+
+---
+
+**Source Document:**  
+{document}  
+
+**Summary 1:**  
+{summary_1}  
+
+**Summary 2:**  
+{summary_2}  
+
+**Final Score (0-3):**  
+

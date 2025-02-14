@@ -1,0 +1,5 @@
+Please analyze the response to the planning application provided below. Provide a concise summary of the response, highlighting the main points and any significant details.
+
+Response:
+
+{content}
