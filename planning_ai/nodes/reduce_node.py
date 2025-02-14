@@ -136,5 +136,7 @@ def final_output(final_docs):
     policies = generate_policy_output(policy_groups)
 
     batch_executive = batch_generate_executive_summaries(docs)
-    executive = reduce_chain_final.invoke({"context": "\n\n".join(batch_executive)})
+    executive = reduce_chain_final.invoke(
+        {"context": "Executive Report:\n\n".join(batch_executive)}
+    )
     return {"executive": executive, "documents": docs, "policies": policies}
