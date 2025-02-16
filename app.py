@@ -124,16 +124,11 @@ if st.session_state["completed"]:
         .unique()
         .to_list()
     )
-    representations_documents_dash = [
-        "-".join(rep.split(" ")) for rep in representations_documents
-    ]
 
     st.success("Reports built successfully! Please click download buttons below.")
-    for rep_dash, rep in zip(representations_documents_dash, representations_documents):
-        report_path = Paths.SUMMARY / f"Summary_Documents-{rep_dash}.pdf"
-        summaries_path = (
-            Paths.SUMMARY / f"Summary_of_Submitted_Responses-{rep_dash}.pdf"
-        )
+    for rep in representations_documents:
+        report_path = Paths.SUMMARY / f"Summary_Documents-{rep}.pdf"
+        summaries_path = Paths.SUMMARY / f"Summary_of_Submitted_Responses-{rep}.pdf"
 
         col1, col2 = st.columns(2, border=True)
         with col1:
@@ -142,7 +137,7 @@ if st.session_state["completed"]:
                 st.download_button(
                     label=f"{rep}",
                     data=pdf_file,
-                    file_name=f"Summary_of_Submitted_Responses-{rep_dash}.pdf",
+                    file_name=f"Summary_of_Submitted_Responses-{rep}.pdf",
                     mime="application/pdf",
                     type="primary",
                 )
@@ -152,7 +147,7 @@ if st.session_state["completed"]:
                 st.download_button(
                     label=f"{rep}",
                     data=pdf_file,
-                    file_name=f"Summary_Documents-{rep_dash}.pdf",
+                    file_name=f"Summary_Documents-{rep}.pdf",
                     mime="application/pdf",
                     type="primary",
                 )
