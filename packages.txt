@@ -2,4 +2,4 @@ texlive-latex-extra
 texlive-fonts-extra
 cm-super
 dvipng
-quarto
+pandoc
