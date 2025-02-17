@@ -9,7 +9,7 @@ from langchain_community.document_loaders import (
 )
 
 from planning_ai.common.utils import Paths
-from planning_ai.document import build_final_report, build_summaries_document
+from planning_ai.documents.document import build_final_report, build_summaries_document
 from planning_ai.graph import create_graph
 from planning_ai.logging import logger
 
