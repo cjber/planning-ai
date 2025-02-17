@@ -88,3 +88,7 @@ def azure_process_pdfs():
             continue
 
         analyze_document_with_azure(pdf_path, out_pdf, failed_txt)
+
+
+if __name__ == "__main__":
+    azure_process_pdfs()

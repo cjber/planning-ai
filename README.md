@@ -51,14 +51,19 @@ pip install . # (or uv sync)
 
 ## Usage
 
+This project uses **Streamlit** to provide a simple frontend to the system. Run using:
+
+`streamlit run app.py`
+
+Alternatively run everything manually:
+
 1. **Preprocessing**: Run the preprocessing scripts to convert raw data into a format suitable for analysis.
    ```bash
-   python planning_ai/preprocessing/process_pdfs.py
-   python planning_ai/preprocessing/gclp.py
-   python planning_ai/preprocessing/web_comments.py
+   python planning_ai/preprocessing/gcpt3.py
+   python planning_ai/preprocessing/azure_doc.py
    ```
 
-2. **Run Graph**: Execute the main script to process the documents and generate a Quarto summary document.
+2. **Run Graph**: Execute the main script to process the documents and generate Summary documents.
    ```bash
    python planning_ai/main.py
    ```
@@ -66,7 +71,7 @@ pip install . # (or uv sync)
 ## Configuration
 
 - **Environment Variables**: Use a `.env` file to store sensitive information like API keys.
-    - `OPENAI_API_KEY` required for summarisation; `OPENCAGE_API_KEY` required for geocoding (Quarto report)
+    - `OPENAI_API_KEY` required for summarisation.
 - **Constants**: Adjust `Consts` in `planning_ai/common/utils.py` to modify token limits and other settings.
 
 ## Workflow
