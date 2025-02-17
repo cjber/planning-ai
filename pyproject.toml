@@ -34,8 +34,8 @@ dependencies = [
     "loguru>=0.7.3",
     "mapclassify>=2.8.1",
     "streamlit>=1.41.1",
-    "py7zr>=0.22.0",
     "streamlit-authenticator>=0.4.1",
+    "py7zr>=0.22.0",
     "en_core_web_lg @ https://github.com/explosion/spacy-models/releases/download/en_core_web_lg-3.8.0/en_core_web_lg-3.8.0-py3-none-any.whl"
 
 ]
