@@ -20,7 +20,7 @@ authenticator = stauth.Authenticate(
 UPLOAD_DIR = Paths.RAW / "gcpt3"
 
 
-@st.cache
+@st.cache_data
 def cached_main():
     return report_main()
 
