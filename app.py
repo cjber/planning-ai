@@ -36,15 +36,12 @@ if st.session_state["authentication_status"]:
     st.title("Report Builder")
 
     st.header("Upload JDL response `.json` files")
-    st.write(
-        "Upload your `.json` files here as a `7zip` file, they will be saved to the `data/raw/gcpt3` directory."
-    )
+    st.write("Upload your `.json` files here as a `7zip` file.")
+    st.write("Please ensure that the `.json` files follow the correct format:")
 
-    with st.expander("File Format"):
+    with st.expander("**File Format example**"):
         st.write(
-            """
-        The `.json` files should look like the following:
-
+            r"""
         ```json
         {
             "id": 10008,
@@ -54,14 +51,14 @@ if st.session_state["authentication_status"]:
             "attachments": [
                 {
                     "id": 3803,
-                    "url": "http:\/\/www.cambridge.gov.uk\/public\/ldf\/localplan2031\/15417.pdf",
+                    "url": "http://www.cambridge.gov.uk/public/ldf/localplan2031/15417.pdf",
                     "published": false
                 }
             ],
             "representations": [
                 {
                     "id": 15417,
-                    "support\/object": "Object",
+                    "support/object": "Object",
                     "document": "Issues and Options Report",
                     "documentelementid": 29785,
                     "documentelementtitle": "3 - Spatial Strategy, Question 3.10",
