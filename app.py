@@ -19,6 +19,12 @@ authenticator = stauth.Authenticate(
 
 UPLOAD_DIR = Paths.RAW / "gcpt3"
 
+
+@st.cache
+def cached_main():
+    return report_main()
+
+
 try:
     authenticator.login()
 except Exception as e:
@@ -108,7 +114,7 @@ if st.session_state["authentication_status"]:
                 except Exception as e:
                     st.error(f"An error occurred during PDF text extraction: {e}")
             with st.spinner("Building report..."):
-                representations_documents = report_main()
+                representations_documents = cached_main()
                 st.session_state["completed"] = True
 elif st.session_state["authentication_status"] is False:
     st.error("Username/password is incorrect")
