@@ -136,7 +136,7 @@ if st.session_state["completed"]:
         col1, col2 = st.columns(2, border=True)
         with col1:
             with open(summaries_path, "rb") as pdf_file:
-                st.markdown("**Representations Summary Download**")
+                st.markdown("**Executive Report Download**")
                 st.download_button(
                     label=f"{rep}",
                     data=pdf_file,
@@ -146,7 +146,7 @@ if st.session_state["completed"]:
                 )
         with col2:
             with open(report_path, "rb") as pdf_file:
-                st.markdown("**Executive Report Download**")
+                st.markdown("**Represtations Summary Download**")
                 st.download_button(
                     label=f"{rep}",
                     data=pdf_file,

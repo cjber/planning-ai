@@ -31,4 +31,6 @@ class OverallState(TypedDict):
     executive: str
     policies: pl.DataFrame
 
+    unused_documents: list[int]
+
     n_docs: int

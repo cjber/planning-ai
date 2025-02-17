@@ -130,6 +130,11 @@ def generate_final_report(state: OverallState):
 
 def final_output(final_docs):
     docs = [doc for doc in final_docs if not doc["failed"]]
+
+    # TODO: say which docs are not considered in the final report
+    failed_docs = [
+        doc["document"].metadata["filename"] for doc in final_docs if doc["failed"]
+    ]
     docs = add_doc_id(docs)
 
     policy_groups = extract_policies_from_docs(docs)
@@ -139,4 +144,9 @@ def final_output(final_docs):
     executive = reduce_chain_final.invoke(
         {"context": "Executive Report:\n\n".join(batch_executive)}
     )
-    return {"executive": executive, "documents": docs, "policies": policies}
+    return {
+        "executive": executive,
+        "documents": docs,
+        "policies": policies,
+        "unused_documents": failed_docs,
+    }
