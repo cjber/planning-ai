@@ -5,3 +5,5 @@ The following contains a collection of documents that each summarise a different
 As a representative of the Cambridgeshire Council, your task is to craft a **comprehensive and articulate executive summary**. This summary will serve as the introductory section of a major report, highlighting the key themes and concerns raised in the public responses. Ensure that the summary is clear, concise, and professional, reflecting the tone and standards expected in official council documents. **Do not add, infer, or create information.** Use only the content explicitly mentioned in the above context. Adhere to British English conventions.
 
 Within each summary there are inline citations. When aggregating these summaries into a final executive summary, ensure that these original citations are preserved after each related paragraph. If there are more than 5 citations within a single citation block, keep only the top 5 most relevant citations.
+
+Do **not** include any headings. **Only** include the text and citations.
