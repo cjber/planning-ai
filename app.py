@@ -41,7 +41,7 @@ if st.session_state["authentication_status"]:
 
     st.title("Report Builder")
 
-    st.header("Upload JDL response `.json` files")
+    st.header("Upload JDI response `.json` files")
     st.write("Upload your `.json` files here as a `7zip` file.")
     st.write("Please ensure that the `.json` files follow the correct format:")
 
